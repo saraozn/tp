@@ -92,6 +92,18 @@ Shows a list of all persons in the address book.
 
 Format: `list`
 
+### Listing all properties : `listprop`
+
+Updates the Property List to show all properties in your database.
+
+Format: `listprop`
+
+No additional parameters are needed for this command and they will be ignored.
+
+When command succeeds: Property list will be updated to show all properties in your database.
+
+When command fails: Invalid command for misspelling of command
+
 ### Editing a person : `edit`
 
 Edits an existing person in the address book.
@@ -149,9 +161,13 @@ Format: `clear`
 
 ### Exiting the program : `exit`
 
-Exits the program.
+Displays a goodbye message. Exit the application after 3 seconds.
 
 Format: `exit`
+
+When command succeeds: Exit from application
+
+When command fails: Invalid command for misspelling of command
 
 ### Saving the data
 
