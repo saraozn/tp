@@ -38,15 +38,15 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer
 * Responsibilities: Data
 
-### Jean Doe
+### Ferdinand Halim Santoso
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/ferdihs.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/ferdihs)]
+[[portfolio](team/ferdihs.md)]
 
-* Role: Developer
-* Responsibilities: Dev Ops + Threading
+* Role: Developer and Tester
+* Responsibilities: Make sure the application runs properly
 
 ### James Doe
 
