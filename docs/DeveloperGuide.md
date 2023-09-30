@@ -270,14 +270,26 @@ _{Explain here how the data archiving feature will be implemented}_
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                    | I want to …​                     | So that I can…​                                                        |
-| -------- | ------------------------------------------ | ------------------------------ | ---------------------------------------------------------------------- |
-| `* * *`  | new user                                   | see usage instructions         | refer to instructions when I forget how to use the App                 |
-| `* * *`  | user                                       | add a new person               |                                                                        |
-| `* * *`  | user                                       | delete a person                | remove entries that I no longer need                                   |
-| `* * *`  | user                                       | find a person by name          | locate details of persons without having to go through the entire list |
-| `* *`    | user                                       | hide private contact details   | minimize chance of someone else seeing them by accident                |
-| `*`      | user with many persons in the address book | sort persons by name           | locate a person easily                                                 |
+| Priority | As a …​                                                | I want to …​                                        | So that I can…​                                                               |
+|----------|--------------------------------------------------------|-----------------------------------------------------|-------------------------------------------------------------------------------|
+| `* * *`  | user                                                   | add a new customer's profile                        | add new customer to the application                                           |
+| `* * *`  | user                                                   | add a new property and the details of it            | add newly available property to the application                               |
+| `* * *`  | user                                                   | see all customers                                   | access all my customers                                                       |
+| `* * *`  | user                                                   | see all properties                                  | access all available properties                                               |
+| `* * *`  | user                                                   | remove existing customers                           | remove customer who is either not interested anymore or has bought a property |
+| `* * *`  | user                                                   | remove existing properties                          | remove property which is either already sold or not sold anymore              |
+| `* *`    | user                                                   | update customers' details                           | ensure customers' information is up to date                                   |
+| `* *`    | user                                                   | update properties' details                          | ensure properties' information is up to date                                  |
+| `* *`    | user with a lot of customers                           | find customers based on customers' details          | access specific customers with the detail                                     |
+| `* *`    | user with a lot of properties                          | find properties based on properties' details        | access specific properties with the detail                                    |
+| `* *`    | user with a lot of customers                           | filter customers based on customers' details        | get a list of specific customers with the detail                              |
+| `* *`    | user with a lot of properties                          | filter properties based on properties' details      | get a list of specific properties with the detail                             |
+| `*`      | user                                                   | add notes to customers' profiles                    | streamline customer management profile                                        |
+| `*`      | user                                                   | add notes to properties' profiles                   | streamline customer property profile                                          |
+| `*`      | experienced user using the application with new device | import and export customers' data                   | transfer customers' data across devices                                       |
+| `*`      | experienced user using the application with new device | import and export properties' data                  | transfer properties' data across devices                                      |
+| `*`      | user                                                   | view both customers and properties at the same time | conveniently compare customers and properties at the same time                |
+
 
 *{More to be added}*
 
