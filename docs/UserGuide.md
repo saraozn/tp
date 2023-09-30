@@ -127,19 +127,26 @@ Examples:
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
-### Deleting a person : `delete`
+### Deleting a customer : `delcust`
 
-Deletes the specified person from the address book.
+Deletes the specified customer and their corresponding details from the database.
 
-Format: `delete INDEX`
+Format: `delcust INDEX`
 
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Deletes the customer at the specified `INDEX`.
+* The index refers to the index number shown in the displayed customer list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* `list` followed by `delcust 2` deletes the 2nd person in the customer list.
+
+When command succeeds: 
+* `deleted customer 3`
+
+When command fails:
+* `Missing customer index` for missing parameter
+* `No such customer index` for wrong parameter/ index beyond list size
+* `Invalid command` for misspelling of command
 
 ### Clearing all entries : `clear`
 
