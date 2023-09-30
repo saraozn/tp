@@ -72,19 +72,32 @@ Shows a message explaning how to access the help page.
 Format: `help`
 
 
-### Adding a person: `add`
+### Adding a customer: `addcust`
 
-Adds a person to the address book.
+Adds a customer to the application.
 
-Format: `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​`
+Format: `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-A person can have any number of tags (including 0)
-</div>
+Parameter:
+* `NAME`				         : The name of the customer (String)
+* `PHONE`		                 : The phone number of the customer (String)
+* `EMAIL`				         : The email of the customer (String)
+* `BUDGET` (Optional)		     : The budget of the customer (Integer)
+* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)                                      : The price of the property in psf (Number)
 
 Examples:
-* `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01`
-* `add n/Betsy Crowe t/friend e/betsycrowe@example.com a/Newgate Prison p/1234567 t/criminal`
+* `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`
+* `addcust n/Boedi p/88888888 e/boedi@gmail.com c/white`
+* `addcust n/Phoebe p/87654321 e/pb@gmail.com`
+
+When command succeeds:
+* `Customer NAME has been added`
+
+When command fails:
+* `Missing name parameter for add customers command` for missing name parameter
+* `Missing phone parameter for add customers command` for missing phone parameter
+* `Missing email parameter for add customers command` for missing email parameter
+* `Invalid Command` for mispelling of command
 
 ### Listing all persons : `list`
 
