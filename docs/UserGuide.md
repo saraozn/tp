@@ -63,7 +63,7 @@ PropertyMatch is a desktop application for property agents who want to organise 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
-### Adding a customer: `addprop`
+### Adding a property: `addprop`
 
 Adds a property to the application.
 
@@ -78,7 +78,7 @@ Parameter:
 
 Examples:
 * addprop n/Fredy a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5
-*  addprop n/Fredy a/randomAddress ph/91135235 pr/5
+* addprop n/Fredy a/randomAddress ph/91135235 pr/5
 
 When command succeeds:
 * `Property NAME has been added`
@@ -211,12 +211,12 @@ When command fails: Invalid command for misspelling of command
 
 ## Command summary
 
-| Action    | Format, Examples|
-|-----------|------------------|
-| **Add**   | `add n/NAME p/PHONE_NUMBER e/EMAIL a/ADDRESS [t/TAG]…​` <br> e.g., `add n/James Ho p/22224444 e/jamesho@example.com a/123, Clementi Rd, 1234665 t/friend t/colleague`|
-| **Clear** | `clear`|
-| **Delete** | `delete INDEX`<br> e.g., `delete 3`|
-| **Edit**  | `edit INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [a/ADDRESS] [t/TAG]…​`<br> e.g.,`edit 2 n/James Lee e/jameslee@example.com`|
-| **Find**  | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`|
-| **List**  | `list`|
-| **Help**  | `help`|
+| Action       | Format, Examples                                                                                                                                         |
+|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Addprop**  | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/price` <br> e.g., `addprop n/Fredy a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5` |
+| **Addcust**  | `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`                |
+| **Delprop**  | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                    |
+| **Delcust**  | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                    |
+| **Listprop** | `listprop`                                                                                                                                               |
+| **Listcust** | `listcust`                                                                                                                                               |
+| **Exit** | `exit`|
