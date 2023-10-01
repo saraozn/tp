@@ -19,15 +19,15 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Scheduling and Tracking, Integration
 * Responsibilities: Logic, UI
 
-### Jane Doe
+### Nicole Ng
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/nicolengk.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/nicolengk)]
+[[portfolio](team/nicolengk.md)]
 
-* Role: Team Lead
-* Responsibilities: UI
+* Role: Code Quality
+* Responsibilities: UI, Logic
 
 ### Sara Ong
 
