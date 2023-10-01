@@ -257,13 +257,36 @@ _{Explain here how the data archiving feature will be implemented}_
 
 **Target user profile**:
 
-* has a need to manage a significant number of contacts
-* prefer desktop apps over other types
-* can type fast
-* prefers typing to mouse interactions
-* is reasonably comfortable using CLI apps
+Customer-property management tool for property agents new to the real estate industry in Singapore
 
-**Value proposition**: manage contacts faster than a typical mouse/GUI driven app
+**Value proposition**:
+
+2 entities:
+    
+1. Customer:
+    * Create :
+      * Can add the types of property customer is looking for
+    * Read :
+      * Can check the types of property customer is looking for
+    * Update : 
+      * Can update the types of property customer is looking for
+    * Delete : 
+      * Delete client profile
+    * Find : 
+      * Match customer to property
+2. Property
+   * Create :
+     * Can add features of the property available (big, high-storey)
+   * Read :
+     * Can check features of the property available (big, high-storey)
+   * Update :
+     * Can update features of the property available (big, high-storey)
+   * Delete :
+     * Can remove features of the property available (big, high-storey)
+     * Can remove properties
+   * Find :
+     * Can find properties available based on name, features
+
 
 
 ### User stories
