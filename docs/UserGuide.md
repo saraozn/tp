@@ -3,7 +3,7 @@ layout: page
 title: User Guide
 ---
 
-AddressBook Level 3 (AB3) is a **desktop app for managing contacts, optimized for use via a Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+PropertyMatch is a desktop application for property agents who want to organise their client profiles with their corresponding properties. If you can type fast, PropertyMatch can get your contact management tasks done faster than traditional GUI apps.
 
 * Table of Contents
 {:toc}
@@ -92,6 +92,7 @@ Shows a list of all persons in the address book.
 
 Format: `list`
 
+
 ### Listing all customers : `listcust`
 
 Updates the Customer List to show all customers in your database.
@@ -101,6 +102,18 @@ Format: `listcust`
 No additional parameters are needed for this command and they will be ignored if used.
 
 When command succeeds: Customer list will be updated to show all properties in your database.
+
+
+### Listing all properties : `listprop`
+
+Updates the Property List to show all properties in your database.
+
+Format: `listprop`
+
+No additional parameters are needed for this command and they will be ignored.
+
+When command succeeds: Property list will be updated to show all properties in your database.
+
 
 When command fails: Invalid command for misspelling of command
 
@@ -139,19 +152,26 @@ Examples:
 * `find alex david` returns `Alex Yeoh`, `David Li`<br>
   ![result for 'find alex david'](images/findAlexDavidResult.png)
 
-### Deleting a person : `delete`
+### Deleting a customer : `delcust`
 
-Deletes the specified person from the address book.
+Deletes the specified customer and their corresponding details from the database.
 
-Format: `delete INDEX`
+Format: `delcust INDEX`
 
-* Deletes the person at the specified `INDEX`.
-* The index refers to the index number shown in the displayed person list.
+* Deletes the customer at the specified `INDEX`.
+* The index refers to the index number shown in the displayed customer list.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delete 2` deletes the 2nd person in the address book.
-* `find Betsy` followed by `delete 1` deletes the 1st person in the results of the `find` command.
+* `list` followed by `delcust 2` deletes the 2nd person in the customer list.
+
+When command succeeds: 
+* `deleted customer 3`
+
+When command fails:
+* `Missing customer index` for missing parameter
+* `No such customer index` for wrong parameter/ index beyond list size
+* `Invalid command` for misspelling of command
 
 ### Deleting a property : `delprop`
 
@@ -181,9 +201,13 @@ Format: `clear`
 
 ### Exiting the program : `exit`
 
-Exits the program.
+Displays a goodbye message. Exit the application after 3 seconds.
 
 Format: `exit`
+
+When command succeeds: Exit from application
+
+When command fails: Invalid command for misspelling of command
 
 ### Saving the data
 
