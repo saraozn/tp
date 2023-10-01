@@ -48,12 +48,12 @@ You can reach us at the email `seer[at]comp.nus.edu.sg`
 * Role: Developer and Tester
 * Responsibilities: Make sure the application runs properly
 
-### James Doe
+### Fredy Lawrence
 
-<img src="images/johndoe.png" width="200px">
+<img src="images/chrainx.png" width="200px">
 
-[[github](http://github.com/johndoe)]
-[[portfolio](team/johndoe.md)]
+[[github](http://github.com/chrainx)]
+[[portfolio](team/chrainx.md)]
 
-* Role: Developer
-* Responsibilities: UI
+* Role: Documentations
+* Responsibilities: Responsible for the quality of various project documents.
