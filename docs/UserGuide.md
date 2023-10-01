@@ -92,6 +92,18 @@ Shows a list of all persons in the address book.
 
 Format: `list`
 
+
+### Listing all customers : `listcust`
+
+Updates the Customer List to show all customers in your database.
+
+Format: `listcust`
+
+No additional parameters are needed for this command and they will be ignored if used.
+
+When command succeeds: Customer list will be updated to show all properties in your database.
+
+
 ### Listing all properties : `listprop`
 
 Updates the Property List to show all properties in your database.
@@ -101,6 +113,7 @@ Format: `listprop`
 No additional parameters are needed for this command and they will be ignored.
 
 When command succeeds: Property list will be updated to show all properties in your database.
+
 
 When command fails: Invalid command for misspelling of command
 
@@ -159,6 +172,26 @@ When command fails:
 * `Missing customer index` for missing parameter
 * `No such customer index` for wrong parameter/ index beyond list size
 * `Invalid command` for misspelling of command
+
+### Deleting a property : `delprop`
+
+Format: `delprop INDEX`
+
+* Deletes the property at the specified `INDEX`.
+* The index refers to the index number shown in the displayed property list.
+* Acceptable parameters are integers within the property list size.
+* The index **must be a positive integer** 1, 2, 3, …​
+
+Examples:
+* `delprop 2` deletes the 2nd property in the address book.
+
+When command succeeds: `deleted property 2`
+
+When command fails:
+* `Missing property index` for missing parameter
+* `No such property index` for wrong parameter or index beyond list size
+* `Invalid command` for misspelling of command
+
 
 ### Clearing all entries : `clear`
 
