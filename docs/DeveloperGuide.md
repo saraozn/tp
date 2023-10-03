@@ -318,32 +318,94 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### Use cases
 
-(For all use cases below, the **System** is the `AddressBook` and the **Actor** is the `user`, unless specified otherwise)
+**Use Case: UC01 - Add property**
 
-**Use case: Delete a person**
+System: PropertyMatch address book
 
-**MSS**
+Actor: Property Agent
 
-1.  User requests to list persons
-2.  AddressBook shows a list of persons
-3.  User requests to delete a specific person in the list
-4.  AddressBook deletes the person
+1. Property agent fills in name, address, characteristics, number, price of property
+2. Property agent adds property to address book
 
-    Use case ends.
+**Use Case: UC02 - Add customer**
 
-**Extensions**
+System: PropertyMatch address book
 
-* 2a. The list is empty.
+Actor: Property Agent
 
-  Use case ends.
+1. Property agent fills in name, phone number, email, budget and desired characteristic
+2. Property agent adds customer to address book
 
-* 3a. The given index is invalid.
+**Use Case: UC03 - Delete property**
 
-    * 3a1. AddressBook shows an error message.
+System: PropertyMatch address book
 
-      Use case resumes at step 2.
+Actor: Property Agent
 
-*{More to be added}*
+1. Property agent identifies the property to be deleted and retrieves its index
+2. Property agent inserts the index into the CLI
+3. Property agent deletes the property details from the address book
+
+**Use Case: UC04 - Delete customer**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent identifies the customer to be deleted and retrieves its index
+2. Property agent inserts the index into the CLI
+3. Property agent deletes the customer details from the address book
+
+**Use Case: UC05 - List all entities**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent decides to list either properties or customers
+2. Property agent inserts `listprop` or `listcust` in CLI
+3. Property agent is able to view all entities
+
+**Use Case: UC06 - Edit entities**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent decides to edit either properties or customers
+2. Property agent identifies the property or customer to be deleted and retrieves its index
+3. Property agent edits entity’s respective fields
+4. Property agent is able to edit the entities details in the address book
+
+**Use Case: UC07 - Match properties to customers**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent identifies the characteristics of properties that customers want
+2. Property agent enters the characteristics of the properties into the CLI
+3. Property agent views the properties that adheres to the conditions given
+
+**Use Case: UC08 - Find specific entity**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent identifies the specific entity he wants
+2. Property agent enters the entity index he wants
+3. Property agent views the entity
+
+**Use Case: UC09 - Import and export data**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent can import data from another application to the existing application
+2. Property agent can export data from the application and save the data
+
 
 ### Non-Functional Requirements
 
