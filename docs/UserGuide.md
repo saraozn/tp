@@ -204,6 +204,8 @@ When command fails: Invalid command for misspelling of command
 **Q**: How do I install Java 11?<br>
 **A**: Follow this [link](https://www3.ntu.edu.sg/home/ehchua/programming/howto/jdk_howto.html) for steps to download Java.
 
+**Q**: Help! I can’t seem to get a command to work…<br>
+**A**: Refer to the features section of our guide for command information and syntax. Make sure that you have supplied all necessary inputs for the command and specified the flags in a correct manner.
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues
