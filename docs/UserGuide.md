@@ -210,6 +210,9 @@ When command fails: Invalid command for misspelling of command
 **Q**: I deleted my data file! Is there any way to recover the data that I lost?<br>
 **A**: Try looking in your computer’s trash bin on macOS or recycle bin on Windows for the files that were deleted. If the files can’t be found, then we apologise, but there is currently no way for you to retrieve lost data. 🙁
 
+**Q**: How do I uninstall PropertyMatch?<br>
+**A**: We are sad to see you go 🙁 PropertyMatch is not installed onto your hard drive, so you only need to delete the folder that contains propertymatch.jar (that is, the home folder of PropertyMatch).
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues
