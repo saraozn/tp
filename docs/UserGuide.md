@@ -206,6 +206,10 @@ When command fails: Invalid command for misspelling of command
 
 **Q**: Help! I can’t seem to get a command to work…<br>
 **A**: Refer to the features section of our guide for command information and syntax. Make sure that you have supplied all necessary inputs for the command and specified the flags in a correct manner.
+
+**Q**: I deleted my data file! Is there any way to recover the data that I lost?<br>
+**A**: Try looking in your computer’s trash bin on macOS or recycle bin on Windows for the files that were deleted. If the files can’t be found, then we apologise, but there is currently no way for you to retrieve lost data. 🙁
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues
