@@ -201,6 +201,9 @@ When command fails: Invalid command for misspelling of command
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous PropertyMatch home folder.
 
+**Q**: How do I install Java 11?<br>
+**A**: Follow this [link](https://www3.ntu.edu.sg/home/ehchua/programming/howto/jdk_howto.html) for steps to download Java.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues
