@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_AMY;
 import static seedu.address.logic.commands.CommandTestUtil.DESC_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_ADDRESS_BOB;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_BUDGET_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
@@ -49,7 +49,7 @@ public class EditCustomerDescriptorTest {
         assertFalse(DESC_AMY.equals(editedAmy));
 
         // different address -> returns false
-        editedAmy = new EditCustomerDescriptorBuilder(DESC_AMY).withAddress(VALID_ADDRESS_BOB).build();
+        editedAmy = new EditCustomerDescriptorBuilder(DESC_AMY).withBudget(VALID_BUDGET_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
 
         // different tags -> returns false
@@ -64,7 +64,7 @@ public class EditCustomerDescriptorTest {
                 + editCustomerDescriptor.getName().orElse(null) + ", phone="
                 + editCustomerDescriptor.getPhone().orElse(null) + ", email="
                 + editCustomerDescriptor.getEmail().orElse(null) + ", address="
-                + editCustomerDescriptor.getAddress().orElse(null) + ", tags="
+                + editCustomerDescriptor.getBudget().orElse(null) + ", tags="
                 + editCustomerDescriptor.getTags().orElse(null) + "}";
         assertEquals(expected, editCustomerDescriptor.toString());
     }

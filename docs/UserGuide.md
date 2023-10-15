@@ -95,14 +95,14 @@ When command fails:
 
 Adds a customer to the application.
 
-Format: `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]`
+Format: `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [t/CHARACTERISTIC]…​`
 
 Parameter:
-* `NAME`				         : The name of the customer (String)
-* `PHONE`		                 : The phone number of the customer (String)
-* `EMAIL`				         : The email of the customer (String)
-* `BUDGET` (Optional)		     : The budget of the customer (Integer)
-* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)                                      : The price of the property in psf (Number)
+* `n/NAME`				         : The name of the customer (String)
+* `p/PHONE`		                 : The phone number of the customer (String)
+* `e/EMAIL`				         : The email of the customer (String)
+* `b/BUDGET` (Optional)		     : The budget of the customer (Integer)
+* `t/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
 
 Examples:
 * `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`

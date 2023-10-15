@@ -32,7 +32,7 @@ public class ParserUtil {
         if (!StringUtil.isNonZeroUnsignedInteger(trimmedIndex)) {
             throw new ParseException(MESSAGE_INVALID_INDEX);
         }
-        return Index.fromOneBased(Integer.parseInt(trimmedIndex));
+        return Index.fromOneBased(java.lang.Integer.parseInt(trimmedIndex));
     }
 
     /**
@@ -93,6 +93,24 @@ public class ParserUtil {
             throw new ParseException(Email.MESSAGE_CONSTRAINTS);
         }
         return new Email(trimmedEmail);
+    }
+
+    /**
+     * Parses a {@code String budget} into an {@code Address}
+     * Loading and trailing whitespaces will be trimmed
+     *
+     * @param budget the budget of the customer in string
+     * @return the budget of the customer in Address
+     * @throws ParseException
+     */
+    public static java.lang.Integer parseBudget(String budget) throws ParseException {
+        requireNonNull(budget);
+        String trimmedBudged = budget.trim();
+        try {
+            return java.lang.Integer.parseInt(budget);
+        } catch (NumberFormatException e) {
+            throw new ParseException("Budget should be in the format of integer");
+        }
     }
 
     /**

@@ -35,7 +35,7 @@ public class CustomerCard extends UiPart<Region> {
     @FXML
     private Label phone;
     @FXML
-    private Label address;
+    private Label budget;
     @FXML
     private Label email;
     @FXML
@@ -50,7 +50,7 @@ public class CustomerCard extends UiPart<Region> {
         id.setText(displayedIndex + ". ");
         name.setText(customer.getName().fullName);
         phone.setText(customer.getPhone().value);
-        address.setText(customer.getAddress().value);
+        budget.setText(customer.getBudget().toString());
         email.setText(customer.getEmail().value);
         customer.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))

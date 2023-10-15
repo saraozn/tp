@@ -1,7 +1,7 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_BUDGET;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
@@ -21,11 +21,14 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.customer.*;
+import seedu.address.model.customer.Customer;
+import seedu.address.model.customer.Email;
+import seedu.address.model.customer.Name;
+import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
- * Edits the details of an existing customer in the address book.
+ * Edits the details of an existing customer in the budget book.
  */
 public class EditCommand extends Command {
 
@@ -38,7 +41,7 @@ public class EditCommand extends Command {
             + "[" + PREFIX_NAME + "NAME] "
             + "[" + PREFIX_PHONE + "PHONE] "
             + "[" + PREFIX_EMAIL + "EMAIL] "
-            + "[" + PREFIX_ADDRESS + "ADDRESS] "
+            + "[" + PREFIX_BUDGET + "BUDGET] "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " 1 "
             + PREFIX_PHONE + "91234567 "
@@ -46,7 +49,7 @@ public class EditCommand extends Command {
 
     public static final String MESSAGE_EDIT_CUSTOMER_SUCCESS = "Edited Customer: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_CUSTOMER = "This customer already exists in the address book.";
+    public static final String MESSAGE_DUPLICATE_CUSTOMER = "This customer already exists in PropertyMatch.";
 
     private final Index index;
     private final EditCustomerDescriptor editCustomerDescriptor;
@@ -94,10 +97,10 @@ public class EditCommand extends Command {
         Name updatedName = editCustomerDescriptor.getName().orElse(customerToEdit.getName());
         Phone updatedPhone = editCustomerDescriptor.getPhone().orElse(customerToEdit.getPhone());
         Email updatedEmail = editCustomerDescriptor.getEmail().orElse(customerToEdit.getEmail());
-        Address updatedAddress = editCustomerDescriptor.getAddress().orElse(customerToEdit.getAddress());
+        java.lang.Integer updatedBudget = editCustomerDescriptor.getBudget().orElse(customerToEdit.getBudget());
         Set<Tag> updatedTags = editCustomerDescriptor.getTags().orElse(customerToEdit.getTags());
 
-        return new Customer(updatedName, updatedPhone, updatedEmail, updatedAddress, updatedTags);
+        return new Customer(updatedName, updatedPhone, updatedEmail, updatedBudget, updatedTags);
     }
 
     @Override
@@ -132,7 +135,7 @@ public class EditCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
-        private Address address;
+        private java.lang.Integer budget;
         private Set<Tag> tags;
 
         public EditCustomerDescriptor() {}
@@ -145,7 +148,7 @@ public class EditCommand extends Command {
             setName(toCopy.name);
             setPhone(toCopy.phone);
             setEmail(toCopy.email);
-            setAddress(toCopy.address);
+            setBudget(toCopy.budget);
             setTags(toCopy.tags);
         }
 
@@ -153,7 +156,7 @@ public class EditCommand extends Command {
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldEdited() {
-            return CollectionUtil.isAnyNonNull(name, phone, email, address, tags);
+            return CollectionUtil.isAnyNonNull(name, phone, email, budget, tags);
         }
 
         public void setName(Name name) {
@@ -180,12 +183,12 @@ public class EditCommand extends Command {
             return Optional.ofNullable(email);
         }
 
-        public void setAddress(Address address) {
-            this.address = address;
+        public void setBudget(Integer budget) {
+            this.budget = budget;
         }
 
-        public Optional<Address> getAddress() {
-            return Optional.ofNullable(address);
+        public Optional<Integer> getBudget() {
+            return Optional.ofNullable(budget);
         }
 
         /**
@@ -220,7 +223,7 @@ public class EditCommand extends Command {
             return Objects.equals(name, otherEditCustomerDescriptor.name)
                     && Objects.equals(phone, otherEditCustomerDescriptor.phone)
                     && Objects.equals(email, otherEditCustomerDescriptor.email)
-                    && Objects.equals(address, otherEditCustomerDescriptor.address)
+                    && Objects.equals(budget, otherEditCustomerDescriptor.budget)
                     && Objects.equals(tags, otherEditCustomerDescriptor.tags);
         }
 
@@ -230,7 +233,7 @@ public class EditCommand extends Command {
                     .add("name", name)
                     .add("phone", phone)
                     .add("email", email)
-                    .add("address", address)
+                    .add("budget", budget)
                     .add("tags", tags)
                     .toString();
         }

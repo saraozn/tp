@@ -5,7 +5,10 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import seedu.address.logic.commands.EditCommand.EditCustomerDescriptor;
-import seedu.address.model.customer.*;
+import seedu.address.model.customer.Customer;
+import seedu.address.model.customer.Email;
+import seedu.address.model.customer.Name;
+import seedu.address.model.customer.Phone;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -31,7 +34,7 @@ public class EditCustomerDescriptorBuilder {
         descriptor.setName(customer.getName());
         descriptor.setPhone(customer.getPhone());
         descriptor.setEmail(customer.getEmail());
-        descriptor.setAddress(customer.getAddress());
+        descriptor.setBudget(customer.getBudget());
         descriptor.setTags(customer.getTags());
     }
 
@@ -60,10 +63,10 @@ public class EditCustomerDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Address} of the {@code EditCustomerDescriptor} that we are building.
+     * Sets the {@code Budget} of the {@code EditCustomerDescriptor} that we are building.
      */
-    public EditCustomerDescriptorBuilder withAddress(String address) {
-        descriptor.setAddress(new Address(address));
+    public EditCustomerDescriptorBuilder withBudget(String budget) {
+        descriptor.setBudget(Integer.parseInt(budget.trim()));
         return this;
     }
 

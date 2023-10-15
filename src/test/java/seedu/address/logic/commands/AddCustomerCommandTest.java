@@ -25,11 +25,11 @@ import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.customer.Customer;
 import seedu.address.testutil.CustomerBuilder;
 
-public class AddCommandTest {
+public class AddCustomerCommandTest {
 
     @Test
     public void constructor_nullCustomer_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new AddCommand(null));
+        assertThrows(NullPointerException.class, () -> new AddCustomerCommand(null));
     }
 
     @Test
@@ -37,9 +37,9 @@ public class AddCommandTest {
         ModelStubAcceptingCustomerAdded modelStub = new ModelStubAcceptingCustomerAdded();
         Customer validCustomer = new CustomerBuilder().build();
 
-        CommandResult commandResult = new AddCommand(validCustomer).execute(modelStub);
+        CommandResult commandResult = new AddCustomerCommand(validCustomer).execute(modelStub);
 
-        assertEquals(String.format(AddCommand.MESSAGE_SUCCESS, Messages.format(validCustomer)),
+        assertEquals(String.format(AddCustomerCommand.MESSAGE_SUCCESS, Messages.format(validCustomer)),
                 commandResult.getFeedbackToUser());
         assertEquals(Arrays.asList(validCustomer), modelStub.customersAdded);
     }
@@ -47,24 +47,24 @@ public class AddCommandTest {
     @Test
     public void execute_duplicateCustomer_throwsCommandException() {
         Customer validCustomer = new CustomerBuilder().build();
-        AddCommand addCommand = new AddCommand(validCustomer);
+        AddCustomerCommand addCustomerCommand = new AddCustomerCommand(validCustomer);
         ModelStub modelStub = new ModelStubWithCustomer(validCustomer);
 
-        assertThrows(CommandException.class, AddCommand.MESSAGE_DUPLICATE_CUSTOMER, () -> addCommand.execute(modelStub));
+        assertThrows(CommandException.class, AddCustomerCommand.MESSAGE_DUPLICATE_CUSTOMER, () -> addCustomerCommand.execute(modelStub));
     }
 
     @Test
     public void equals() {
         Customer alice = new CustomerBuilder().withName("Alice").build();
         Customer bob = new CustomerBuilder().withName("Bob").build();
-        AddCommand addAliceCommand = new AddCommand(alice);
-        AddCommand addBobCommand = new AddCommand(bob);
+        AddCustomerCommand addAliceCommand = new AddCustomerCommand(alice);
+        AddCustomerCommand addBobCommand = new AddCustomerCommand(bob);
 
         // same object -> returns true
         assertTrue(addAliceCommand.equals(addAliceCommand));
 
         // same values -> returns true
-        AddCommand addAliceCommandCopy = new AddCommand(alice);
+        AddCustomerCommand addAliceCommandCopy = new AddCustomerCommand(alice);
         assertTrue(addAliceCommand.equals(addAliceCommandCopy));
 
         // different types -> returns false
@@ -79,9 +79,9 @@ public class AddCommandTest {
 
     @Test
     public void toStringMethod() {
-        AddCommand addCommand = new AddCommand(ALICE);
-        String expected = AddCommand.class.getCanonicalName() + "{toAdd=" + ALICE + "}";
-        assertEquals(expected, addCommand.toString());
+        AddCustomerCommand addCustomerCommand = new AddCustomerCommand(ALICE);
+        String expected = AddCustomerCommand.class.getCanonicalName() + "{toAdd=" + ALICE + "}";
+        assertEquals(expected, addCustomerCommand.toString());
     }
 
     /**

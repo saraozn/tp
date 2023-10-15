@@ -22,18 +22,18 @@ public class Customer {
     private final Email email;
 
     // Data fields
-    private final Address address;
+    private final Integer budget;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Customer(Name name, Phone phone, Email email, Address address, Set<Tag> tags) {
-        requireAllNonNull(name, phone, email, address, tags);
+    public Customer(Name name, Phone phone, Email email, Integer budget, Set<Tag> tags) {
+        requireAllNonNull(name, phone, email, budget, tags);
         this.name = name;
         this.phone = phone;
         this.email = email;
-        this.address = address;
+        this.budget = budget;
         this.tags.addAll(tags);
     }
 
@@ -49,8 +49,8 @@ public class Customer {
         return email;
     }
 
-    public Address getAddress() {
-        return address;
+    public Integer getBudget() {
+        return budget;
     }
 
     /**
@@ -93,14 +93,14 @@ public class Customer {
         return name.equals(otherCustomer.name)
                 && phone.equals(otherCustomer.phone)
                 && email.equals(otherCustomer.email)
-                && address.equals(otherCustomer.address)
+                && budget.equals(otherCustomer.budget)
                 && tags.equals(otherCustomer.tags);
     }
 
     @Override
     public int hashCode() {
         // use this method for custom fields hashing instead of implementing your own
-        return Objects.hash(name, phone, email, address, tags);
+        return Objects.hash(name, phone, email, budget, tags);
     }
 
     @Override
@@ -109,7 +109,7 @@ public class Customer {
                 .add("name", name)
                 .add("phone", phone)
                 .add("email", email)
-                .add("address", address)
+                .add("budget", budget)
                 .add("tags", tags)
                 .toString();
     }
