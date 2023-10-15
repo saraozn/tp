@@ -154,7 +154,7 @@ Format: `delcust INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delcust 2` deletes the 2nd person in the customer list.
+* `list` followed by `delcust 2` deletes the 2nd customer in the customer list.
 
 When command succeeds:
 * `deleted customer 3`
