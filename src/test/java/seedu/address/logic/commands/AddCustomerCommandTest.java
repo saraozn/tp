@@ -50,7 +50,8 @@ public class AddCustomerCommandTest {
         AddCustomerCommand addCustomerCommand = new AddCustomerCommand(validCustomer);
         ModelStub modelStub = new ModelStubWithCustomer(validCustomer);
 
-        assertThrows(CommandException.class, AddCustomerCommand.MESSAGE_DUPLICATE_CUSTOMER, () -> addCustomerCommand.execute(modelStub));
+        assertThrows(CommandException.class, AddCustomerCommand.MESSAGE_DUPLICATE_CUSTOMER, ()
+                -> addCustomerCommand.execute(modelStub));
     }
 
     @Test

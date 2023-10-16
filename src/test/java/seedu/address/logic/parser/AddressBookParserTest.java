@@ -25,8 +25,8 @@ import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.customer.NameContainsKeywordsPredicate;
 import seedu.address.testutil.CustomerBuilder;
-import seedu.address.testutil.EditCustomerDescriptorBuilder;
 import seedu.address.testutil.CustomerUtil;
+import seedu.address.testutil.EditCustomerDescriptorBuilder;
 
 public class AddressBookParserTest {
 

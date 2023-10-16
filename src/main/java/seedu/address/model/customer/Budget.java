@@ -3,6 +3,10 @@ package seedu.address.model.customer;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+/**
+ * Represents a Customer's budget in the address book.
+ * Guarantees: immutable; is valid as declared in {@link #isValidBudget(String)}
+ */
 public class Budget {
 
 
