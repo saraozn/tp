@@ -49,7 +49,7 @@ class JsonAdaptedCustomer {
         name = source.getName().fullName;
         phone = source.getPhone().value;
         email = source.getEmail().value;
-        budget = source.getBudget().toString();
+        budget = source.getBudget().value;
         tags.addAll(source.getTags().stream()
                 .map(JsonAdaptedTag::new)
                 .collect(Collectors.toList()));

@@ -33,7 +33,7 @@ public class CustomerUtil {
         sb.append(PREFIX_NAME + customer.getName().fullName + " ");
         sb.append(PREFIX_PHONE + customer.getPhone().value + " ");
         sb.append(PREFIX_EMAIL + customer.getEmail().value + " ");
-        sb.append(PREFIX_BUDGET + customer.getBudget().toString() + " ");
+        sb.append(PREFIX_BUDGET + customer.getBudget().value + " ");
         customer.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );
@@ -48,7 +48,7 @@ public class CustomerUtil {
         descriptor.getName().ifPresent(name -> sb.append(PREFIX_NAME).append(name.fullName).append(" "));
         descriptor.getPhone().ifPresent(phone -> sb.append(PREFIX_PHONE).append(phone.value).append(" "));
         descriptor.getEmail().ifPresent(email -> sb.append(PREFIX_EMAIL).append(email.value).append(" "));
-        descriptor.getBudget().ifPresent(address -> sb.append(PREFIX_BUDGET).append(address.toString()).append(" "));
+        descriptor.getBudget().ifPresent(budget -> sb.append(PREFIX_BUDGET).append(budget.value).append(" "));
         if (descriptor.getTags().isPresent()) {
             Set<Tag> tags = descriptor.getTags().get();
             if (tags.isEmpty()) {

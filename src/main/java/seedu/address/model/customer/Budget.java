@@ -21,7 +21,7 @@ public class Budget {
         requireNonNull(budget);
         checkArgument(isValidBudget(budget), MESSAGE_CONSTRAINTS);
         amount = Integer.parseInt(budget);
-        value = "$" + budget;
+        value = budget;
     }
 
     /**
@@ -33,7 +33,7 @@ public class Budget {
 
     @Override
     public String toString() {
-        return value;
+        return "$" + value;
     }
 
     @Override

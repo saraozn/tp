@@ -7,7 +7,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_BUDGET_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_BIG;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalCustomers.ALICE;
 import static seedu.address.testutil.TypicalCustomers.BOB;
@@ -34,7 +34,7 @@ public class CustomerTest {
 
         // same name, all other attributes different -> returns true
         Customer editedAlice = new CustomerBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
-                .withBudget(VALID_BUDGET_BOB).withTags(VALID_TAG_HUSBAND).build();
+                .withBudget(VALID_BUDGET_BOB).withTags(VALID_TAG_BIG).build();
         assertTrue(ALICE.isSameCustomer(editedAlice));
 
         // different name, all other attributes same -> returns false
@@ -81,12 +81,12 @@ public class CustomerTest {
         editedAlice = new CustomerBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
-        // different address -> returns false
+        // different budget -> returns false
         editedAlice = new CustomerBuilder(ALICE).withBudget(VALID_BUDGET_BOB).build();
         assertFalse(ALICE.equals(editedAlice));
 
         // different tags -> returns false
-        editedAlice = new CustomerBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
+        editedAlice = new CustomerBuilder(ALICE).withTags(VALID_TAG_BIG).build();
         assertFalse(ALICE.equals(editedAlice));
     }
 

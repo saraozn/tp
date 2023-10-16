@@ -21,7 +21,7 @@ public class CustomerBuilder {
     private Name name;
     private Phone phone;
     private Email email;
-    private Integer budget;
+    private Budget budget;
     private Set<Tag> tags;
 
     /**
@@ -31,7 +31,7 @@ public class CustomerBuilder {
         name = new Name(DEFAULT_NAME);
         phone = new Phone(DEFAULT_PHONE);
         email = new Email(DEFAULT_EMAIL);
-        budget = Integer.parseInt(DEFAULT_BUDGET);
+        budget = new Budget(DEFAULT_BUDGET);
         tags = new HashSet<>();
     }
 
@@ -66,7 +66,7 @@ public class CustomerBuilder {
      * Sets the {@code Budget} of the {@code Customer} that we are building.
      */
     public CustomerBuilder withBudget(String budget) {
-        this.budget = Integer.parseInt(budget.trim());
+        this.budget = new Budget(budget.trim());
         return this;
     }
 

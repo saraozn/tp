@@ -4,7 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_BUDGET_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_BIG;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalCustomers.ALICE;
 import static seedu.address.testutil.TypicalCustomers.getTypicalAddressBook;
@@ -46,7 +46,7 @@ public class AddressBookTest {
     @Test
     public void resetData_withDuplicateCustomers_throwsDuplicateCustomerException() {
         // Two customers with the same identity fields
-        Customer editedAlice = new CustomerBuilder(ALICE).withBudget(VALID_BUDGET_BOB).withTags(VALID_TAG_HUSBAND)
+        Customer editedAlice = new CustomerBuilder(ALICE).withBudget(VALID_BUDGET_BOB).withTags(VALID_TAG_BIG)
                 .build();
         List<Customer> newCustomers = Arrays.asList(ALICE, editedAlice);
         AddressBookStub newData = new AddressBookStub(newCustomers);
@@ -73,7 +73,7 @@ public class AddressBookTest {
     @Test
     public void hasCustomer_customerWithSameIdentityFieldsInAddressBook_returnsTrue() {
         addressBook.addCustomer(ALICE);
-        Customer editedAlice = new CustomerBuilder(ALICE).withBudget(VALID_BUDGET_BOB).withTags(VALID_TAG_HUSBAND)
+        Customer editedAlice = new CustomerBuilder(ALICE).withBudget(VALID_BUDGET_BOB).withTags(VALID_TAG_BIG)
                 .build();
         assertTrue(addressBook.hasCustomer(editedAlice));
     }

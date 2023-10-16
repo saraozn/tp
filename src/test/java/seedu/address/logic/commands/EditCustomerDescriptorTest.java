@@ -9,7 +9,7 @@ import static seedu.address.logic.commands.CommandTestUtil.VALID_BUDGET_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_EMAIL_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_NAME_BOB;
 import static seedu.address.logic.commands.CommandTestUtil.VALID_PHONE_BOB;
-import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_HUSBAND;
+import static seedu.address.logic.commands.CommandTestUtil.VALID_TAG_BIG;
 
 import org.junit.jupiter.api.Test;
 
@@ -48,12 +48,12 @@ public class EditCustomerDescriptorTest {
         editedAmy = new EditCustomerDescriptorBuilder(DESC_AMY).withEmail(VALID_EMAIL_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
 
-        // different address -> returns false
+        // different budget -> returns false
         editedAmy = new EditCustomerDescriptorBuilder(DESC_AMY).withBudget(VALID_BUDGET_BOB).build();
         assertFalse(DESC_AMY.equals(editedAmy));
 
         // different tags -> returns false
-        editedAmy = new EditCustomerDescriptorBuilder(DESC_AMY).withTags(VALID_TAG_HUSBAND).build();
+        editedAmy = new EditCustomerDescriptorBuilder(DESC_AMY).withTags(VALID_TAG_BIG).build();
         assertFalse(DESC_AMY.equals(editedAmy));
     }
 
@@ -63,7 +63,7 @@ public class EditCustomerDescriptorTest {
         String expected = EditCommand.EditCustomerDescriptor.class.getCanonicalName() + "{name="
                 + editCustomerDescriptor.getName().orElse(null) + ", phone="
                 + editCustomerDescriptor.getPhone().orElse(null) + ", email="
-                + editCustomerDescriptor.getEmail().orElse(null) + ", address="
+                + editCustomerDescriptor.getEmail().orElse(null) + ", budget="
                 + editCustomerDescriptor.getBudget().orElse(null) + ", tags="
                 + editCustomerDescriptor.getTags().orElse(null) + "}";
         assertEquals(expected, editCustomerDescriptor.toString());
