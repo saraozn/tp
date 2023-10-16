@@ -21,10 +21,7 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.customer.Customer;
-import seedu.address.model.customer.Email;
-import seedu.address.model.customer.Name;
-import seedu.address.model.customer.Phone;
+import seedu.address.model.customer.*;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -97,7 +94,7 @@ public class EditCommand extends Command {
         Name updatedName = editCustomerDescriptor.getName().orElse(customerToEdit.getName());
         Phone updatedPhone = editCustomerDescriptor.getPhone().orElse(customerToEdit.getPhone());
         Email updatedEmail = editCustomerDescriptor.getEmail().orElse(customerToEdit.getEmail());
-        java.lang.Integer updatedBudget = editCustomerDescriptor.getBudget().orElse(customerToEdit.getBudget());
+        Budget updatedBudget = editCustomerDescriptor.getBudget().orElse(customerToEdit.getBudget());
         Set<Tag> updatedTags = editCustomerDescriptor.getTags().orElse(customerToEdit.getTags());
 
         return new Customer(updatedName, updatedPhone, updatedEmail, updatedBudget, updatedTags);
@@ -135,7 +132,7 @@ public class EditCommand extends Command {
         private Name name;
         private Phone phone;
         private Email email;
-        private java.lang.Integer budget;
+        private Budget budget;
         private Set<Tag> tags;
 
         public EditCustomerDescriptor() {}
@@ -183,11 +180,11 @@ public class EditCommand extends Command {
             return Optional.ofNullable(email);
         }
 
-        public void setBudget(Integer budget) {
+        public void setBudget(Budget budget) {
             this.budget = budget;
         }
 
-        public Optional<Integer> getBudget() {
+        public Optional<Budget> getBudget() {
             return Optional.ofNullable(budget);
         }
 

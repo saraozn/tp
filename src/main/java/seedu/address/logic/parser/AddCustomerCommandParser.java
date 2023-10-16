@@ -18,7 +18,7 @@ import seedu.address.model.tag.Tag;
 /**
  * Parses input arguments and creates a new AddCustomerCommand object
  */
-public class AddCommandParser implements Parser<AddCustomerCommand> {
+public class AddCustomerCommandParser implements Parser<AddCustomerCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the AddCustomerCommand
@@ -38,7 +38,7 @@ public class AddCommandParser implements Parser<AddCustomerCommand> {
         Name name = ParserUtil.parseName(argMultimap.getValue(PREFIX_NAME).get());
         Phone phone = ParserUtil.parsePhone(argMultimap.getValue(PREFIX_PHONE).get());
         Email email = ParserUtil.parseEmail(argMultimap.getValue(PREFIX_EMAIL).get());
-        Integer budget = ParserUtil.parseBudget(argMultimap.getValue(PREFIX_BUDGET).get());
+        Budget budget = ParserUtil.parseBudget(argMultimap.getValue(PREFIX_BUDGET).get());
         Set<Tag> tagList = ParserUtil.parseTags(argMultimap.getAllValues(PREFIX_TAG));
 
         Customer customer = new Customer(name, phone, email, budget, tagList);

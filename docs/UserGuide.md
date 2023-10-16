@@ -102,7 +102,7 @@ Parameter:
 * `p/PHONE`		                 : The phone number of the customer (String)
 * `e/EMAIL`				         : The email of the customer (String)
 * `b/BUDGET` (Optional)		     : The budget of the customer (Integer)
-* `t/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
+* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
 
 Examples:
 * `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`

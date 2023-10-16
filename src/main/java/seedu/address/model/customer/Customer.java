@@ -22,13 +22,13 @@ public class Customer {
     private final Email email;
 
     // Data fields
-    private final Integer budget;
+    private final Budget budget;
     private final Set<Tag> tags = new HashSet<>();
 
     /**
      * Every field must be present and not null.
      */
-    public Customer(Name name, Phone phone, Email email, Integer budget, Set<Tag> tags) {
+    public Customer(Name name, Phone phone, Email email, Budget budget, Set<Tag> tags) {
         requireAllNonNull(name, phone, email, budget, tags);
         this.name = name;
         this.phone = phone;
@@ -49,7 +49,7 @@ public class Customer {
         return email;
     }
 
-    public Integer getBudget() {
+    public Budget getBudget() {
         return budget;
     }
 

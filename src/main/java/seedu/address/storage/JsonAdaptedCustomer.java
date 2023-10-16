@@ -11,7 +11,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import seedu.address.commons.exceptions.IllegalValueException;
 import seedu.address.model.customer.*;
-import seedu.address.model.customer.Address;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -92,14 +91,12 @@ class JsonAdaptedCustomer {
         final Email modelEmail = new Email(email);
 
         if (budget == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Address.class.getSimpleName()));
+            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Budget.class.getSimpleName()));
         }
-        try{
-            Integer.parseInt(budget);
-        } catch (NumberFormatException e) {
-            throw new IllegalValueException("Budget need to be integer");
+        if (!Budget.isValidBudget(budget)) {
+            throw new IllegalValueException(Budget.MESSAGE_CONSTRAINTS);
         }
-        final Integer modelBudget = Integer.parseInt(budget);
+        final Budget modelBudget = new Budget(budget);
 
         final Set<Tag> modelTags = new HashSet<>(customerTags);
         return new Customer(modelName, modelPhone, modelEmail, modelBudget, modelTags);
