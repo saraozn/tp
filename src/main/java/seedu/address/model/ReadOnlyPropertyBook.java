@@ -7,12 +7,11 @@ import seedu.address.model.property.Property;
 /**
  * Unmodifiable view of an address book
  */
-public interface ReadOnlyAddressBook {
+public interface ReadOnlyPropertyBook {
 
     /**
-     * Returns an unmodifiable view of the persons list.
-     * This list will not contain any duplicate persons.
+     * Returns an unmodifiable view of the properties list.
+     * This list will not contain any duplicate properties.
      */
-    ObservableList<Person> getPersonList();
-
+    ObservableList<Property> getPropertyList();
 }
