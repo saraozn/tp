@@ -18,6 +18,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.io.TempDir;
 
+import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.commands.AddCustomerCommand;
 import seedu.address.logic.commands.CommandResult;
 import seedu.address.logic.commands.ListCommand;
@@ -91,6 +92,27 @@ public class LogicManagerTest {
         assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredCustomerList().remove(0));
     }
 
+    @Test
+    public void getAddressBookMethod() {
+        assertEquals(logic.getAddressBook(), model.getAddressBook());
+    }
+
+    @Test
+    public void getAddressBookFilePathMethod() {
+        assertEquals(logic.getAddressBookFilePath(), model.getAddressBookFilePath());
+    }
+
+    @Test
+    public void getGuiSettingsMethod() {
+        assertEquals(logic.getGuiSettings(), model.getGuiSettings());
+    }
+
+    @Test
+    public void setGuiSettingsMethod() {
+        logic.getGuiSettings();
+        model.getGuiSettings();
+        assertEquals(logic.getGuiSettings(), model.getGuiSettings());
+    }
     /**
      * Executes the command and confirms that
      * - no exceptions are thrown <br>
