@@ -98,8 +98,8 @@ Adds a customer to the application.
 Format: `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]`
 
 Parameter:
-* `NAME`				         : The Name of the customer (String)
-* `PHONE`		                 : The Phone number of the customer (String)
+* `NAME`				         : The name of the customer (String)
+* `PHONE`		                 : The phone number of the customer (String)
 * `EMAIL`				         : The email of the customer (String)
 * `BUDGET` (Optional)		     : The budget of the customer (Integer)
 * `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)                                      : The price of the property in psf (Number)
@@ -113,8 +113,8 @@ When command succeeds:
 * `Customer NAME has been added`
 
 When command fails:
-* `Missing propName parameter for add customers command` for missing propName parameter
-* `Missing propPhone parameter for add customers command` for missing propPhone parameter
+* `Missing naame parameter for add customers command` for missing name parameter
+* `Missing phone parameter for add customers command` for missing phone parameter
 * `Missing email parameter for add customers command` for missing email parameter
 * `Invalid Command` for mispelling of command
 
@@ -174,7 +174,7 @@ Format: `delprop INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `delprop 2` deletes the 2nd property in the propAddress book.
+* `delprop 2` deletes the 2nd property in the address book.
 
 When command succeeds: `deleted property 2`
 
