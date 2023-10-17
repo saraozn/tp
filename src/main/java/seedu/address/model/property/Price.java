@@ -3,6 +3,10 @@ package seedu.address.model.property;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+/**
+ * Represents a Price in the Property book.
+ * Guarantees: details are present and not null, field values are validated, immutable.
+ */
 public class Price {
 
 
@@ -15,7 +19,7 @@ public class Price {
     /**
      * Constructs a {@code Phone}.
      *
-     * @param Price A valid Price number.
+     * @param Price A valid price number.
      */
     public Price(String Price) {
         requireNonNull(Price);

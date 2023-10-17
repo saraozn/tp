@@ -1,13 +1,13 @@
 package seedu.address.model;
 
+import static java.util.Objects.requireNonNull;
+
+import java.util.List;
+
 import javafx.collections.ObservableList;
 import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.model.property.Property;
 import seedu.address.model.property.UniquePropertyList;
-
-import java.util.List;
-
-import static java.util.Objects.requireNonNull;
 
 /**
  * Wraps all data at the PropertyMatch level
@@ -80,7 +80,8 @@ public class PropertyBook implements ReadOnlyPropertyBook {
     /**
      * Replaces the given person {@code target} in the list with {@code editedProperty}.
      * {@code target} must exist in the address book.
-     * The property identity of {@code editedProperty} must not be the same as another existing property in the address book.
+     * The property identity of {@code editedProperty} must not
+     * be the same as another existing property in the address book.
      */
     public void setProperty(Property target, Property editedProperty) {
         requireNonNull(editedProperty);

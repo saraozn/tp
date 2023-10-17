@@ -118,7 +118,8 @@ public interface Model {
     /**
      * Replaces the given person {@code target} with {@code editedProperty}.
      * {@code target} must exist in the address book.
-     * The property identity of {@code editedProperty} must not be the same as another existing property in the address book.
+     * The property identity of {@code editedProperty} must not
+     * be the same as another existing property in the address book.
      */
     void setProperty(Property target, Property editedProperty);
 

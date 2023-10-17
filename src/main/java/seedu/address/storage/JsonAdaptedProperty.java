@@ -2,15 +2,21 @@ package seedu.address.storage;
 
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.property.*;
-import seedu.address.model.tag.Tag;
 
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+
+import seedu.address.commons.exceptions.IllegalValueException;
+import seedu.address.model.property.Price;
+import seedu.address.model.property.PropAddress;
+import seedu.address.model.property.PropName;
+import seedu.address.model.property.PropPhone;
+import seedu.address.model.property.Property;
+import seedu.address.model.tag.Tag;
+
 
 /**
  * Jackson-friendly version of {@link Property}.
@@ -67,7 +73,8 @@ class JsonAdaptedProperty {
         }
 
         if (name == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, PropName.class.getSimpleName()));
+            throw new IllegalValueException(
+                String.format(MISSING_FIELD_MESSAGE_FORMAT, PropName.class.getSimpleName()));
         }
         if (!PropName.isValidName(name)) {
             throw new IllegalValueException(PropName.MESSAGE_CONSTRAINTS);
@@ -75,7 +82,8 @@ class JsonAdaptedProperty {
         final PropName modelPropName = new PropName(name);
 
         if (phone == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, PropPhone.class.getSimpleName()));
+            throw new IllegalValueException(
+                String.format(MISSING_FIELD_MESSAGE_FORMAT, PropPhone.class.getSimpleName()));
         }
         if (!PropPhone.isValidPhone(phone)) {
             throw new IllegalValueException(PropPhone.MESSAGE_CONSTRAINTS);
@@ -83,7 +91,8 @@ class JsonAdaptedProperty {
         final PropPhone modelPropPhone = new PropPhone(phone);
 
         if (price == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, Price.class.getSimpleName()));
+            throw new IllegalValueException(
+                String.format(MISSING_FIELD_MESSAGE_FORMAT, Price.class.getSimpleName()));
         }
         if (!Price.isValidPrice(price)) {
             throw new IllegalValueException(Price.MESSAGE_CONSTRAINTS);
@@ -91,7 +100,8 @@ class JsonAdaptedProperty {
         final Price modelPrice = new Price(price);
 
         if (address == null) {
-            throw new IllegalValueException(String.format(MISSING_FIELD_MESSAGE_FORMAT, PropAddress.class.getSimpleName()));
+            throw new IllegalValueException(
+                String.format(MISSING_FIELD_MESSAGE_FORMAT, PropAddress.class.getSimpleName()));
         }
         if (!PropAddress.isValidAddress(address)) {
             throw new IllegalValueException(PropAddress.MESSAGE_CONSTRAINTS);
