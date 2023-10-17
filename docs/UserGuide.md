@@ -113,7 +113,7 @@ When command succeeds:
 * `Customer NAME has been added`
 
 When command fails:
-* `Missing naame parameter for add customers command` for missing name parameter
+* `Missing name parameter for add customers command` for missing name parameter
 * `Missing phone parameter for add customers command` for missing phone parameter
 * `Missing email parameter for add customers command` for missing email parameter
 * `Invalid Command` for mispelling of command
