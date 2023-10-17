@@ -5,8 +5,8 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.property.Property;
 import seedu.address.model.customer.Customer;
+import seedu.address.model.property.Property;
 
 /**
  * The API of the Model component.
@@ -96,9 +96,10 @@ public interface Model {
      */
     void deleteProperty(Property property);
 
-     /** Adds the given customer.
-     * {@code customer} must not already exist in the address book.
-     */
+    /**
+    * Adds the given customer.
+    * {@code customer} must not already exist in the address book.
+    */
     void addCustomer(Customer customer);
 
     /**

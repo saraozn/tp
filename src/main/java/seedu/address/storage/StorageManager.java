@@ -7,8 +7,8 @@ import java.util.logging.Logger;
 
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.commons.exceptions.DataLoadingException;
-import seedu.address.model.ReadOnlyPropertyBook;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyPropertyBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.UserPrefs;
 
@@ -25,7 +25,8 @@ public class StorageManager implements Storage {
     /**
      * Creates a {@code StorageManager} with the given {@code AddressBookStorage} and {@code UserPrefStorage}.
      */
-    public StorageManager(AddressBookStorage addressBookStorage, PropertyBookStorage propertyBookStorage,UserPrefsStorage userPrefsStorage) {
+    public StorageManager(AddressBookStorage addressBookStorage,
+            PropertyBookStorage propertyBookStorage, UserPrefsStorage userPrefsStorage) {
         this.addressBookStorage = addressBookStorage;
         this.propertyBookStorage = propertyBookStorage;
         this.userPrefsStorage = userPrefsStorage;
@@ -73,9 +74,9 @@ public class StorageManager implements Storage {
     }
 
     @Override
-    public void savePropertyBook(ReadOnlyPropertyBook PropertyBook, Path filePath) throws IOException {
+    public void savePropertyBook(ReadOnlyPropertyBook propertyBook, Path filePath) throws IOException {
         logger.fine("Attempting to write to data file: " + filePath);
-        propertyBookStorage.savePropertyBook(PropertyBook, filePath);
+        propertyBookStorage.savePropertyBook(propertyBook, filePath);
     }
 
     // ================ AddressBook methods ==============================

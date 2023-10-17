@@ -19,13 +19,13 @@ public class Price {
     /**
      * Constructs a {@code Phone}.
      *
-     * @param Price A valid price number.
+     * @param price A valid price number.
      */
-    public Price(String Price) {
-        requireNonNull(Price);
-        checkArgument(isValidPrice(Price), MESSAGE_CONSTRAINTS);
-        amount = Integer.parseInt(Price);
-        value = "$" + Price;
+    public Price(String price) {
+        requireNonNull(price);
+        checkArgument(isValidPrice(price), MESSAGE_CONSTRAINTS);
+        amount = Integer.parseInt(price);
+        value = "$" + price;
     }
 
     /**

@@ -9,15 +9,15 @@ import java.util.Set;
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.StringUtil;
 import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.property.Price;
-import seedu.address.model.property.PropAddress;
-import seedu.address.model.property.PropName;
-import seedu.address.model.property.PropPhone;
 import seedu.address.model.customer.Address;
 import seedu.address.model.customer.Budget;
 import seedu.address.model.customer.Email;
 import seedu.address.model.customer.Name;
 import seedu.address.model.customer.Phone;
+import seedu.address.model.property.Price;
+import seedu.address.model.property.PropAddress;
+import seedu.address.model.property.PropName;
+import seedu.address.model.property.PropPhone;
 import seedu.address.model.tag.Tag;
 
 
@@ -161,13 +161,14 @@ public class ParserUtil {
         return new Price(trimmedPrice);
     }
 
-     /** Parses a {@code String budget} into an {@code Budget}
-     * Loading and trailing whitespaces will be trimmed
-     *
-      * @param budget the budget of the customer in string
-     * @return the budget of the customer in Budget
-     * @throws ParseException if the given {@code budget} is invalid
-     */
+    /**
+    * Parses a {@code String budget} into an {@code Budget}
+    * Loading and trailing whitespaces will be trimmed
+    *
+    * @param budget the budget of the customer in string
+    * @return the budget of the customer in Budget
+    * @throws ParseException if the given {@code budget} is invalid
+    */
     public static Budget parseBudget(String budget) throws ParseException {
         requireNonNull(budget);
         String trimmedBudged = budget.trim();

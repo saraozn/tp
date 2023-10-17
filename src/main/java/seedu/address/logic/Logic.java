@@ -9,8 +9,8 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyPropertyBook;
-import seedu.address.model.property.Property;
 import seedu.address.model.customer.Customer;
+import seedu.address.model.property.Property;
 
 /**
  * API of the Logic component
