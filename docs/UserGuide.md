@@ -95,19 +95,19 @@ When command fails:
 
 Adds a customer to the application.
 
-Format: `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]`
+Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
 Parameter:
-* `NAME`				         : The name of the customer (String)
-* `PHONE`		                 : The phone number of the customer (String)
-* `EMAIL`				         : The email of the customer (String)
-* `BUDGET` (Optional)		     : The budget of the customer (Integer)
-* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)                                      : The price of the property in psf (Number)
+* `n/NAME`				         : The name of the customer (String)
+* `p/PHONE`		                 : The phone number of the customer (String)
+* `e/EMAIL`				         : The email of the customer (String)
+* `b/BUDGET`		             : The budget of the customer (Integer)
+* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
 
 Examples:
 * `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`
-* `addcust n/Boedi p/88888888 e/boedi@gmail.com c/white`
-* `addcust n/Phoebe p/87654321 e/pb@gmail.com`
+* `addcust n/Boedi p/88888888 e/boedi@gmail.com b/250000 c/white`
+* `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000`
 
 When command succeeds:
 * `Customer NAME has been added`
@@ -154,7 +154,7 @@ Format: `delcust INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delcust 2` deletes the 2nd person in the customer list.
+* `list` followed by `delcust 2` deletes the 2nd customer in the customer list.
 
 When command succeeds:
 * `deleted customer 3`
