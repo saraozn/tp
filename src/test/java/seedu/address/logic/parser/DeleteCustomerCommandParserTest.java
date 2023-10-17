@@ -1,7 +1,6 @@
 package seedu.address.logic.parser;
 
 import org.junit.jupiter.api.Test;
-import seedu.address.logic.commands.DeleteCommand;
 import seedu.address.logic.commands.DeleteCustomerCommand;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
