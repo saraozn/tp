@@ -2,6 +2,7 @@ package seedu.address.ui;
 
 import java.util.logging.Logger;
 
+import javafx.animation.PauseTransition;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.MenuItem;
@@ -10,6 +11,7 @@ import javafx.scene.input.KeyCombination;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
@@ -31,7 +33,7 @@ public class MainWindow extends UiPart<Stage> {
     private Logic logic;
 
     // Independent Ui parts residing in this Ui container
-    private PersonListPanel personListPanel;
+    private CustomerListPanel customerListPanel;
     private PropertyListPanel propertyListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
@@ -43,7 +45,7 @@ public class MainWindow extends UiPart<Stage> {
     private MenuItem helpMenuItem;
 
     @FXML
-    private StackPane personListPanelPlaceholder;
+    private StackPane customerListPanelPlaceholder;
 
     @FXML
     private StackPane propertyListPanelPlaceholder;
@@ -117,8 +119,8 @@ public class MainWindow extends UiPart<Stage> {
      * Fills up all the placeholders of this window.
      */
     void fillInnerParts() {
-        personListPanel = new PersonListPanel(logic.getFilteredPersonList());
-        personListPanelPlaceholder.getChildren().add(personListPanel.getRoot());
+        customerListPanel = new CustomerListPanel(logic.getFilteredCustomerList());
+        customerListPanelPlaceholder.getChildren().add(customerListPanel.getRoot());
         propertyListPanel = new PropertyListPanel(logic.getFilteredPropertyList());
         propertyListPanelPlaceholder.getChildren().add(propertyListPanel.getRoot());
 
@@ -172,11 +174,14 @@ public class MainWindow extends UiPart<Stage> {
                 (int) primaryStage.getX(), (int) primaryStage.getY());
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
-        primaryStage.hide();
+
+        PauseTransition delay = new PauseTransition(Duration.seconds(3));
+        delay.setOnFinished(e -> primaryStage.hide());
+        delay.play();
     }
 
-    public PersonListPanel getPersonListPanel() {
-        return personListPanel;
+    public CustomerListPanel getCustomerListPanel() {
+        return customerListPanel;
     }
     public PropertyListPanel getPropertyListPanel() {
         return propertyListPanel;

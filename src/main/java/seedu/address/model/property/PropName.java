@@ -51,11 +51,11 @@ public class PropName {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof seedu.address.model.person.Name)) {
+        if (!(other instanceof seedu.address.model.property.PropName)) {
             return false;
         }
 
-        seedu.address.model.person.Name otherName = (seedu.address.model.person.Name) other;
+        seedu.address.model.property.PropName otherName = (seedu.address.model.property.PropName) other;
         return fullName.equals(otherName.fullName);
     }
 

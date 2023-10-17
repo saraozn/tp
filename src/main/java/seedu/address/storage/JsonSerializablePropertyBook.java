@@ -23,7 +23,7 @@ class JsonSerializablePropertyBook {
     private final List<JsonAdaptedProperty> properties = new ArrayList<>();
 
     /**
-     * Constructs a {@code JsonSerializableAddressBook} with the given properties.
+     * Constructs a {@code JsonSerializablePropertyBook} with the given properties.
      */
     @JsonCreator
     public JsonSerializablePropertyBook(@JsonProperty("properties") List<JsonAdaptedProperty> properties) {

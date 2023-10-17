@@ -49,11 +49,11 @@ public class PropAddress {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof seedu.address.model.person.Address)) {
+        if (!(other instanceof seedu.address.model.property.PropAddress)) {
             return false;
         }
 
-        seedu.address.model.person.Address otherAddress = (seedu.address.model.person.Address) other;
+        seedu.address.model.property.PropAddress otherAddress = (seedu.address.model.property.PropAddress) other;
         return value.equals(otherAddress.value);
     }
 

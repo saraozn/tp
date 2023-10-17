@@ -5,15 +5,15 @@ import java.util.function.Predicate;
 
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
-import seedu.address.model.person.Person;
 import seedu.address.model.property.Property;
+import seedu.address.model.customer.Customer;
 
 /**
  * The API of the Model component.
  */
 public interface Model {
     /** {@code Predicate} that always evaluate to true */
-    Predicate<Person> PREDICATE_SHOW_ALL_PERSONS = unused -> true;
+    Predicate<Customer> PREDICATE_SHOW_ALL_CUSTOMERS = unused -> true;
 
     /** {@code Predicate} that always evaluate to true */
     Predicate<Property> PREDICATE_SHOW_ALL_PROPERTIES = unused -> true;
@@ -75,9 +75,9 @@ public interface Model {
     ReadOnlyPropertyBook getPropertyBook();
 
     /**
-     * Returns true if a person with the same identity as {@code person} exists in the address book.
+     * Returns true if a customer with the same identity as {@code customer} exists in the address book.
      */
-    boolean hasPerson(Person person);
+    boolean hasCustomer(Customer customer);
 
     /**
      * Returns true if a property with the same identity as {@code property} exists in the PropertyMatch.
@@ -85,10 +85,10 @@ public interface Model {
     boolean hasProperty(Property property);
 
     /**
-     * Deletes the given person.
-     * The person must exist in the address book.
+     * Deletes the given customer.
+     * The customer must exist in the address book.
      */
-    void deletePerson(Person target);
+    void deleteCustomer(Customer target);
 
     /**
      * Deletes the given property.
@@ -96,11 +96,10 @@ public interface Model {
      */
     void deleteProperty(Property property);
 
-    /**
-     * Adds the given person.
-     * {@code person} must not already exist in the address book.
+     /** Adds the given customer.
+     * {@code customer} must not already exist in the address book.
      */
-    void addPerson(Person person);
+    void addCustomer(Customer customer);
 
     /**
      * Adds the given property.
@@ -109,11 +108,12 @@ public interface Model {
     void addProperty(Property property);
 
     /**
-     * Replaces the given person {@code target} with {@code editedPerson}.
+     * Replaces the given customer {@code target} with {@code editedCustomer}.
      * {@code target} must exist in the address book.
-     * The person identity of {@code editedPerson} must not be the same as another existing person in the address book.
+     * The customer identity of {@code editedCustomer} must not be the same as
+     * another existing customer in the address book.
      */
-    void setPerson(Person target, Person editedPerson);
+    void setCustomer(Customer target, Customer editedCustomer);
 
     /**
      * Replaces the given person {@code target} with {@code editedProperty}.
@@ -123,17 +123,17 @@ public interface Model {
      */
     void setProperty(Property target, Property editedProperty);
 
-    /** Returns an unmodifiable view of the filtered person list */
-    ObservableList<Person> getFilteredPersonList();
+    /** Returns an unmodifiable view of the filtered customer list */
+    ObservableList<Customer> getFilteredCustomerList();
 
     /** Returns an unmodifiable view of the filtered property list */
     ObservableList<Property> getFilteredPropertyList();
 
     /**
-     * Updates the filter of the filtered person list to filter by the given {@code predicate}.
+     * Updates the filter of the filtered customer list to filter by the given {@code predicate}.
      * @throws NullPointerException if {@code predicate} is null.
      */
-    void updateFilteredPersonList(Predicate<Person> predicate);
+    void updateFilteredCustomerList(Predicate<Customer> predicate);
 
     /**
      * Updates the filter of the filtered person list to filter by the given {@code predicate}.

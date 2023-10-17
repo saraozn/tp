@@ -95,19 +95,19 @@ When command fails:
 
 Adds a customer to the application.
 
-Format: `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]`
+Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
 Parameter:
-* `NAME`				         : The name of the customer (String)
-* `PHONE`		                 : The phone number of the customer (String)
-* `EMAIL`				         : The email of the customer (String)
-* `BUDGET` (Optional)		     : The budget of the customer (Integer)
-* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)                                      : The price of the property in psf (Number)
+* `n/NAME`				         : The name of the customer (String)
+* `p/PHONE`		                 : The phone number of the customer (String)
+* `e/EMAIL`				         : The email of the customer (String)
+* `b/BUDGET`		             : The budget of the customer (Integer)
+* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
 
 Examples:
 * `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`
-* `addcust n/Boedi p/88888888 e/boedi@gmail.com c/white`
-* `addcust n/Phoebe p/87654321 e/pb@gmail.com`
+* `addcust n/Boedi p/88888888 e/boedi@gmail.com b/250000 c/white`
+* `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000`
 
 When command succeeds:
 * `Customer NAME has been added`
@@ -154,7 +154,7 @@ Format: `delcust INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delcust 2` deletes the 2nd person in the customer list.
+* `list` followed by `delcust 2` deletes the 2nd customer in the customer list.
 
 When command succeeds:
 * `deleted customer 3`
@@ -206,6 +206,9 @@ When command fails: Invalid command for misspelling of command
 
 **Q**: Help! I can’t seem to get a command to work…<br>
 **A**: Refer to the features section of our guide for command information and syntax. Make sure that you have supplied all necessary inputs for the command and specified the flags in a correct manner.
+
+**Q**: I don’t understand some terms used in the guide…<br>
+**A**: Please check out the key definitions portion of the guide and see if the term that you are confused about is documented there!
 
 **Q**: I deleted my data file! Is there any way to recover the data that I lost?<br>
 **A**: Try looking in your computer’s trash bin on macOS or recycle bin on Windows for the files that were deleted. If the files can’t be found, then we apologise, but there is currently no way for you to retrieve lost data. 🙁
