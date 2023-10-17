@@ -70,8 +70,8 @@ Adds a property to the application.
 Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/price`
 
 Parameter:
-* `n/NAME`				         : The name of the property (String)
-* `a/ADDRESS`		             : The address of the property (String)
+* `n/NAME`				         : The propName of the property (String)
+* `a/ADDRESS`		             : The propAddress of the property (String)
 * `c/CHARACTERISTIC` (Optional)  : The characteristics of the property (String)
 * `ph/NUMBER`                    : The contact number (Integer)
 * `pr/PRICE`                     : The price of the property in psf (Number)                                  : The price of the property in psf (Number)
@@ -84,10 +84,10 @@ When command succeeds:
 * `Property NAME has been added`
 
 When command fails:
-* `This property already exist` if the property have the same name and address
-* `Missing name parameter for add properties command` for missing name parameter
-* `Missing address parameter for add properties command` for missing address parameter
-* `Missing number parameter for add properties command` for missing name parameter
+* `This property already exist` if the property have the same propName and propAddress
+* `Missing propName parameter for add properties command` for missing propName parameter
+* `Missing propAddress parameter for add properties command` for missing propAddress parameter
+* `Missing number parameter for add properties command` for missing propName parameter
 * `Missing price parameter for add properties command` for missing price parameter
 * `Invalid Command` for mispelling of command
 
