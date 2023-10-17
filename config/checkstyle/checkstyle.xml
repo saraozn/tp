@@ -38,7 +38,7 @@
   <module name="TreeWalker">
 
     <!-- Required to allow exceptions in code style -->
-    <modulen name="SuppressionCommentFilter">
+    <module name="SuppressionCommentFilter">
       <property name="offCommentFormat" value="CHECKSTYLE.OFF\: ([\w\|]+)"/>
       <property name="onCommentFormat" value="CHECKSTYLE.ON\: ([\w\|]+)"/>
       <property name="checkFormat" value="$1"/>
@@ -83,7 +83,7 @@
     NAMING CHECKS
     -->
 
-    <!-- Validate abbreviations (consecutive capital letters) length in identifier propName -->
+    <!-- Validate abbreviations (consecutive capital letters) length in identifier name -->
     <module name="AbbreviationAsWordInName">
       <property name="ignoreFinal" value="false"/>
       <property name="allowedAbbreviationLength" value="1"/>
@@ -105,7 +105,7 @@
       <!-- Validates non-private, static, final fields against the expression "^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$". -->
       <metadata name="altname" value="ConstantName"/>
       <property name="applyToPrivate" value="false"/>
-      <message key="propName.invalidPattern"
+      <message key="name.invalidPattern"
                value="Variable ''{0}'' should be in ALL_CAPS (if it is a constant) or be private (otherwise)."/>
       <property name="severity" value="warning"/>
     </module>
@@ -243,7 +243,7 @@
       3. Constructors
       4. Methods
     -->
-    <module name="DeclarationOrder"/>
+    <module name ="DeclarationOrder"/>
 
     <!-- Checks that default is after all cases in a switch statement -->
     <module name="DefaultComesLast"/>
@@ -354,7 +354,7 @@
 
     <module name="NoWhitespaceBeforeCaseDefaultColon"/>
 
-    <!-- Checks that there is no whitespace between method/constructor propName and open parenthesis. -->
+    <!-- Checks that there is no whitespace between method/constructor name and open parenthesis. -->
     <module name="MethodParamPad"/>
 
     <module name="ParenPad">
