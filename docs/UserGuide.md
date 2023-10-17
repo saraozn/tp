@@ -98,8 +98,8 @@ Adds a customer to the application.
 Format: `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]`
 
 Parameter:
-* `NAME`				         : The propName of the customer (String)
-* `PHONE`		                 : The propPhone number of the customer (String)
+* `NAME`				         : The Name of the customer (String)
+* `PHONE`		                 : The Phone number of the customer (String)
 * `EMAIL`				         : The email of the customer (String)
 * `BUDGET` (Optional)		     : The budget of the customer (Integer)
 * `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)                                      : The price of the property in psf (Number)
