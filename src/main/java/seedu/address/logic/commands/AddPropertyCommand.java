@@ -18,7 +18,7 @@ import seedu.address.model.property.Property;
  */
 public class AddPropertyCommand extends Command {
 
-    public static final String COMMAND_WORD = "adprop";
+    public static final String COMMAND_WORD = "addprop";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Adds a property to the PropertyMatch. "
             + "Parameters: "
