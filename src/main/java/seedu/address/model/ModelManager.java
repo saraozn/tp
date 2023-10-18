@@ -41,8 +41,8 @@ public class ModelManager implements Model {
         this.addressBook = new AddressBook(addressBook);
         this.propertyBook = new PropertyBook(propertyBook);
         this.userPrefs = new UserPrefs(userPrefs);
-        filteredProperties = new FilteredList<>(this.propertyBook.getPropertyList());
         filteredCustomers = new FilteredList<>(this.addressBook.getCustomerList());
+        filteredProperties = new FilteredList<>(this.propertyBook.getPropertyList());
     }
 
     public ModelManager() {
@@ -177,20 +177,22 @@ public class ModelManager implements Model {
         return filteredCustomers;
     }
 
+    @Override
+    public void updateFilteredCustomerList(Predicate<Customer> predicate) {
+        requireNonNull(predicate);
+        filteredCustomers.setPredicate(predicate);
+    }
+
+    //=========== Filtered Property List Accessors =============================================================
+
     /**
      * Returns an unmodifiable view of the list of {@code Property} backed by the internal list of
      * {@code versionedAddressBook}
      */
     @Override
     public ObservableList<Property> getFilteredPropertyList() {
+        System.out.println(filteredProperties);
         return filteredProperties;
-    }
-
-
-    @Override
-    public void updateFilteredCustomerList(Predicate<Customer> predicate) {
-        requireNonNull(predicate);
-        filteredCustomers.setPredicate(predicate);
     }
 
     @Override
