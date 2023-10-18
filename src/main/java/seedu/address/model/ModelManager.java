@@ -12,6 +12,7 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.customer.Customer;
+import seedu.address.model.property.Property;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -20,24 +21,32 @@ public class ModelManager implements Model {
     private static final Logger logger = LogsCenter.getLogger(ModelManager.class);
 
     private final AddressBook addressBook;
+    private final PropertyBook propertyBook;
     private final UserPrefs userPrefs;
     private final FilteredList<Customer> filteredCustomers;
+
+    private final FilteredList<Property> filteredProperties;
 
     /**
      * Initializes a ModelManager with the given addressBook and userPrefs.
      */
-    public ModelManager(ReadOnlyAddressBook addressBook, ReadOnlyUserPrefs userPrefs) {
-        requireAllNonNull(addressBook, userPrefs);
+    public ModelManager(ReadOnlyAddressBook addressBook,
+            ReadOnlyPropertyBook propertyBook, ReadOnlyUserPrefs userPrefs) {
 
-        logger.fine("Initializing with address book: " + addressBook + " and user prefs " + userPrefs);
+        requireAllNonNull(addressBook, propertyBook, userPrefs);
+
+        logger.fine("Initializing with address book: " + addressBook
+                + ", property book:" + propertyBook + " and user prefs " + userPrefs);
 
         this.addressBook = new AddressBook(addressBook);
+        this.propertyBook = new PropertyBook(propertyBook);
         this.userPrefs = new UserPrefs(userPrefs);
+        filteredProperties = new FilteredList<>(this.propertyBook.getPropertyList());
         filteredCustomers = new FilteredList<>(this.addressBook.getCustomerList());
     }
 
     public ModelManager() {
-        this(new AddressBook(), new UserPrefs());
+        this(new AddressBook(), new PropertyBook(), new UserPrefs());
     }
 
     //=========== UserPrefs ==================================================================================
@@ -70,9 +79,20 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public Path getPropertyBookFilePath() {
+        return userPrefs.getPropertyBookFilePath();
+    }
+
+    @Override
     public void setAddressBookFilePath(Path addressBookFilePath) {
         requireNonNull(addressBookFilePath);
         userPrefs.setAddressBookFilePath(addressBookFilePath);
+    }
+
+    @Override
+    public void setPropertyBookFilePath(Path propertyBookFilePath) {
+        requireNonNull(propertyBookFilePath);
+        userPrefs.setAddressBookFilePath(propertyBookFilePath);
     }
 
     //=========== AddressBook ================================================================================
@@ -83,8 +103,18 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void setPropertyBook(ReadOnlyPropertyBook propertyBook) {
+        this.propertyBook.resetData(propertyBook);
+    }
+
+    @Override
     public ReadOnlyAddressBook getAddressBook() {
         return addressBook;
+    }
+
+    @Override
+    public ReadOnlyPropertyBook getPropertyBook() {
+        return propertyBook;
     }
 
     @Override
@@ -94,8 +124,20 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public boolean hasProperty(Property property) {
+        requireNonNull(property);
+        return propertyBook.hasProperty(property);
+    }
+
+    @Override
     public void deleteCustomer(Customer target) {
         addressBook.removeCustomer(target);
+    }
+
+
+    @Override
+    public void deleteProperty(Property target) {
+        propertyBook.removeProperty(target);
     }
 
     @Override
@@ -105,10 +147,23 @@ public class ModelManager implements Model {
     }
 
     @Override
+    public void addProperty(Property property) {
+        propertyBook.addProperty(property);
+        updateFilteredPropertyList(PREDICATE_SHOW_ALL_PROPERTIES);
+    }
+
+    @Override
     public void setCustomer(Customer target, Customer editedCustomer) {
         requireAllNonNull(target, editedCustomer);
 
         addressBook.setCustomer(target, editedCustomer);
+    }
+
+    @Override
+    public void setProperty(Property target, Property editedProperty) {
+        requireAllNonNull(target, editedProperty);
+
+        propertyBook.setProperty(target, editedProperty);
     }
 
     //=========== Filtered Customer List Accessors =============================================================
@@ -122,11 +177,28 @@ public class ModelManager implements Model {
         return filteredCustomers;
     }
 
+    /**
+     * Returns an unmodifiable view of the list of {@code Property} backed by the internal list of
+     * {@code versionedAddressBook}
+     */
+    @Override
+    public ObservableList<Property> getFilteredPropertyList() {
+        return filteredProperties;
+    }
+
+
     @Override
     public void updateFilteredCustomerList(Predicate<Customer> predicate) {
         requireNonNull(predicate);
         filteredCustomers.setPredicate(predicate);
     }
+
+    @Override
+    public void updateFilteredPropertyList(Predicate<Property> predicate) {
+        requireNonNull(predicate);
+        filteredProperties.setPredicate(predicate);
+    }
+
 
     @Override
     public boolean equals(Object other) {
@@ -141,8 +213,10 @@ public class ModelManager implements Model {
 
         ModelManager otherModelManager = (ModelManager) other;
         return addressBook.equals(otherModelManager.addressBook)
+                && propertyBook.equals(otherModelManager.propertyBook)
                 && userPrefs.equals(otherModelManager.userPrefs)
-                && filteredCustomers.equals(otherModelManager.filteredCustomers);
+                && filteredCustomers.equals(otherModelManager.filteredCustomers)
+                && filteredProperties.equals(otherModelManager.filteredProperties);
     }
 
 }

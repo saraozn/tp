@@ -34,6 +34,7 @@ public class MainWindow extends UiPart<Stage> {
 
     // Independent Ui parts residing in this Ui container
     private CustomerListPanel customerListPanel;
+    private PropertyListPanel propertyListPanel;
     private ResultDisplay resultDisplay;
     private HelpWindow helpWindow;
 
@@ -47,10 +48,16 @@ public class MainWindow extends UiPart<Stage> {
     private StackPane customerListPanelPlaceholder;
 
     @FXML
+    private StackPane propertyListPanelPlaceholder;
+
+    @FXML
     private StackPane resultDisplayPlaceholder;
 
     @FXML
     private StackPane statusbarPlaceholder;
+
+    @FXML
+    private StackPane propertyStatusbarPlaceholder;
 
     /**
      * Creates a {@code MainWindow} with the given {@code Stage} and {@code Logic}.
@@ -114,12 +121,17 @@ public class MainWindow extends UiPart<Stage> {
     void fillInnerParts() {
         customerListPanel = new CustomerListPanel(logic.getFilteredCustomerList());
         customerListPanelPlaceholder.getChildren().add(customerListPanel.getRoot());
+        propertyListPanel = new PropertyListPanel(logic.getFilteredPropertyList());
+        propertyListPanelPlaceholder.getChildren().add(propertyListPanel.getRoot());
 
         resultDisplay = new ResultDisplay();
         resultDisplayPlaceholder.getChildren().add(resultDisplay.getRoot());
 
         StatusBarFooter statusBarFooter = new StatusBarFooter(logic.getAddressBookFilePath());
         statusbarPlaceholder.getChildren().add(statusBarFooter.getRoot());
+
+        PropertyStatusBarFooter propertyStatusBarFooter = new PropertyStatusBarFooter(logic.getPropertyBookFilePath());
+        propertyStatusbarPlaceholder.getChildren().add(propertyStatusBarFooter.getRoot());
 
         CommandBox commandBox = new CommandBox(this::executeCommand);
         commandBoxPlaceholder.getChildren().add(commandBox.getRoot());
@@ -170,6 +182,9 @@ public class MainWindow extends UiPart<Stage> {
 
     public CustomerListPanel getCustomerListPanel() {
         return customerListPanel;
+    }
+    public PropertyListPanel getPropertyListPanel() {
+        return propertyListPanel;
     }
 
     /**
