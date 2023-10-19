@@ -48,6 +48,7 @@ public class CustomerCard extends UiPart<Region> {
         super(FXML);
         this.customer = customer;
         id.setText(displayedIndex + ". ");
+        System.out.println(customer.getName().fullName);
         name.setText(customer.getName().fullName);
         phone.setText(customer.getPhone().value);
         budget.setText(customer.getBudget().toString());
