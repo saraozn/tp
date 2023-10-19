@@ -121,6 +121,7 @@ public class MainWindow extends UiPart<Stage> {
     void fillInnerParts() {
         customerListPanel = new CustomerListPanel(logic.getFilteredCustomerList());
         customerListPanelPlaceholder.getChildren().add(customerListPanel.getRoot());
+
         propertyListPanel = new PropertyListPanel(logic.getFilteredPropertyList());
         propertyListPanelPlaceholder.getChildren().add(propertyListPanel.getRoot());
 

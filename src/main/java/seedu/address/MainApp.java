@@ -105,7 +105,7 @@ public class MainApp extends Application {
             }
             initialProperty = propertyBookOptional.orElseGet(SampleDataUtil::getSamplePropertyBook);
         } catch (DataLoadingException e) {
-            logger.warning("Data file at " + storage.getAddressBookFilePath() + " could not be loaded."
+            logger.warning("Data file at " + storage.getPropertyBookFilePath() + " could not be loaded."
                     + " Will be starting with an empty PropertyBook.");
             initialProperty = new PropertyBook();
         }

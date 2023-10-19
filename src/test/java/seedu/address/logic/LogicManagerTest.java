@@ -20,7 +20,7 @@ import org.junit.jupiter.api.io.TempDir;
 
 import seedu.address.logic.commands.AddCustomerCommand;
 import seedu.address.logic.commands.CommandResult;
-import seedu.address.logic.commands.ListCommand;
+import seedu.address.logic.commands.ListCustomerCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.Model;
@@ -70,8 +70,8 @@ public class LogicManagerTest {
 
     @Test
     public void execute_validCommand_success() throws Exception {
-        String listCommand = ListCommand.COMMAND_WORD;
-        assertCommandSuccess(listCommand, ListCommand.MESSAGE_SUCCESS, model);
+        String listCommand = ListCustomerCommand.COMMAND_WORD;
+        assertCommandSuccess(listCommand, ListCustomerCommand.MESSAGE_SUCCESS, model);
     }
 
     @Test
@@ -91,6 +91,27 @@ public class LogicManagerTest {
         assertThrows(UnsupportedOperationException.class, () -> logic.getFilteredCustomerList().remove(0));
     }
 
+    @Test
+    public void getAddressBookMethod() {
+        assertEquals(logic.getAddressBook(), model.getAddressBook());
+    }
+
+    @Test
+    public void getAddressBookFilePathMethod() {
+        assertEquals(logic.getAddressBookFilePath(), model.getAddressBookFilePath());
+    }
+
+    @Test
+    public void getGuiSettingsMethod() {
+        assertEquals(logic.getGuiSettings(), model.getGuiSettings());
+    }
+
+    @Test
+    public void setGuiSettingsMethod() {
+        logic.getGuiSettings();
+        model.getGuiSettings();
+        assertEquals(logic.getGuiSettings(), model.getGuiSettings());
+    }
     /**
      * Executes the command and confirms that
      * - no exceptions are thrown <br>
