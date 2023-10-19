@@ -5,7 +5,6 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
-import seedu.address.model.customer.Customer;
 import seedu.address.model.property.Property;
 
 import java.util.List;
