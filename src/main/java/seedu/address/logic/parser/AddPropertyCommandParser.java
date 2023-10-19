@@ -22,7 +22,7 @@ import seedu.address.model.tag.Tag;
 /**
  * Parses input arguments and creates a new AddCommand object
  */
-public class AddCommandPropertyParser implements Parser<AddPropertyCommand> {
+public class AddPropertyCommandParser implements Parser<AddPropertyCommand> {
 
     /**
      * Parses the given {@code String} of arguments in the context of the AddCommand

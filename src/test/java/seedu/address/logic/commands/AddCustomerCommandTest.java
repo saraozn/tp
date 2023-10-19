@@ -21,8 +21,10 @@ import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.ReadOnlyAddressBook;
+import seedu.address.model.ReadOnlyPropertyBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.customer.Customer;
+import seedu.address.model.property.Property;
 import seedu.address.testutil.CustomerBuilder;
 
 public class AddCustomerCommandTest {
@@ -114,8 +116,16 @@ public class AddCustomerCommandTest {
             throw new AssertionError("This method should not be called.");
         }
 
+        public Path getPropertyBookFilePath() {
+            throw new AssertionError("This method should not be called.");
+        }
+
         @Override
         public void setAddressBookFilePath(Path addressBookFilePath) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        public void setPropertyBookFilePath(Path propertyBookFilePath) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -125,7 +135,17 @@ public class AddCustomerCommandTest {
         }
 
         @Override
+        public void addProperty(Property property) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void setAddressBook(ReadOnlyAddressBook newData) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void setPropertyBook(ReadOnlyPropertyBook newData) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -135,7 +155,17 @@ public class AddCustomerCommandTest {
         }
 
         @Override
+        public ReadOnlyPropertyBook getPropertyBook() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public boolean hasCustomer(Customer customer) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public boolean hasProperty(Property property) {
             throw new AssertionError("This method should not be called.");
         }
 
@@ -145,9 +175,20 @@ public class AddCustomerCommandTest {
         }
 
         @Override
+        public void deleteProperty(Property target) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void setCustomer(Customer target, Customer editedCustomer) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void setProperty(Property target, Property editedProperty) {
+            throw new AssertionError("This method should not be called.");
+        }
+
 
         @Override
         public ObservableList<Customer> getFilteredCustomerList() {
@@ -155,7 +196,17 @@ public class AddCustomerCommandTest {
         }
 
         @Override
+        public ObservableList<Property> getFilteredPropertyList() {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
         public void updateFilteredCustomerList(Predicate<Customer> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateFilteredPropertyList(Predicate<Property> predicate) {
             throw new AssertionError("This method should not be called.");
         }
     }
