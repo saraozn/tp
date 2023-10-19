@@ -17,7 +17,7 @@ import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_CUSTOMER;
 
 /**
  * Contains integration tests (interaction with the Model) and unit tests for
- * {@code DeleteCommand}.
+ * {@code DeleteCustomerCommand}.
  */
 public class DeleteCustomerCommandTest {
 
