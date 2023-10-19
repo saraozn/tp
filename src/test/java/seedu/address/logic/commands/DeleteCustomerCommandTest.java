@@ -1,17 +1,6 @@
 package seedu.address.logic.commands;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertFalse;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandFailure;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
-import static seedu.address.logic.commands.CommandTestUtil.showCustomerAtIndex;
-import static seedu.address.testutil.TypicalCustomers.getTypicalAddressBook;
-import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
-import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_CUSTOMER;
-
 import org.junit.jupiter.api.Test;
-
 import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.model.Model;
@@ -20,34 +9,40 @@ import seedu.address.model.PropertyBook;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.customer.Customer;
 
+import static org.junit.jupiter.api.Assertions.*;
+import static seedu.address.logic.commands.CommandTestUtil.*;
+import static seedu.address.testutil.TypicalCustomers.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
+import static seedu.address.testutil.TypicalIndexes.INDEX_SECOND_CUSTOMER;
+
 /**
  * Contains integration tests (interaction with the Model) and unit tests for
- * {@code DeleteCommand}.
+ * {@code DeleteCustomerCommand}.
  */
-public class DeleteCommandTest {
+public class DeleteCustomerCommandTest {
 
     private Model model = new ModelManager(getTypicalAddressBook(), new PropertyBook(), new UserPrefs());
 
     @Test
     public void execute_validIndexUnfilteredList_success() {
         Customer customerToDelete = model.getFilteredCustomerList().get(INDEX_FIRST_CUSTOMER.getZeroBased());
-        DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_CUSTOMER);
+        DeleteCustomerCommand delcustCommand = new DeleteCustomerCommand(INDEX_FIRST_CUSTOMER);
 
-        String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_CUSTOMER_SUCCESS,
+        String expectedMessage = String.format(DeleteCustomerCommand.MESSAGE_DELETE_CUSTOMER_SUCCESS,
                 Messages.format(customerToDelete));
 
         ModelManager expectedModel = new ModelManager(model.getAddressBook(), new PropertyBook(), new UserPrefs());
         expectedModel.deleteCustomer(customerToDelete);
 
-        assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(delcustCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
     public void execute_invalidIndexUnfilteredList_throwsCommandException() {
         Index outOfBoundIndex = Index.fromOneBased(model.getFilteredCustomerList().size() + 1);
-        DeleteCommand deleteCommand = new DeleteCommand(outOfBoundIndex);
+        DeleteCustomerCommand delcustCommand = new DeleteCustomerCommand(outOfBoundIndex);
 
-        assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_CUSTOMER_DISPLAYED_INDEX);
+        assertCommandFailure(delcustCommand, model, Messages.MESSAGE_INVALID_CUSTOMER_DISPLAYED_INDEX);
     }
 
     @Test
@@ -55,16 +50,16 @@ public class DeleteCommandTest {
         showCustomerAtIndex(model, INDEX_FIRST_CUSTOMER);
 
         Customer customerToDelete = model.getFilteredCustomerList().get(INDEX_FIRST_CUSTOMER.getZeroBased());
-        DeleteCommand deleteCommand = new DeleteCommand(INDEX_FIRST_CUSTOMER);
+        DeleteCustomerCommand delcustCommand = new DeleteCustomerCommand(INDEX_FIRST_CUSTOMER);
 
-        String expectedMessage = String.format(DeleteCommand.MESSAGE_DELETE_CUSTOMER_SUCCESS,
+        String expectedMessage = String.format(DeleteCustomerCommand.MESSAGE_DELETE_CUSTOMER_SUCCESS,
                 Messages.format(customerToDelete));
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new PropertyBook(), new UserPrefs());
         expectedModel.deleteCustomer(customerToDelete);
         showNoCustomer(expectedModel);
 
-        assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
+        assertCommandSuccess(delcustCommand, model, expectedMessage, expectedModel);
     }
 
     @Test
@@ -75,39 +70,39 @@ public class DeleteCommandTest {
         // ensures that outOfBoundIndex is still in bounds of budget book list
         assertTrue(outOfBoundIndex.getZeroBased() < model.getAddressBook().getCustomerList().size());
 
-        DeleteCommand deleteCommand = new DeleteCommand(outOfBoundIndex);
+        DeleteCustomerCommand delcustCommand = new DeleteCustomerCommand(outOfBoundIndex);
 
-        assertCommandFailure(deleteCommand, model, Messages.MESSAGE_INVALID_CUSTOMER_DISPLAYED_INDEX);
+        assertCommandFailure(delcustCommand, model, Messages.MESSAGE_INVALID_CUSTOMER_DISPLAYED_INDEX);
     }
 
     @Test
     public void equals() {
-        DeleteCommand deleteFirstCommand = new DeleteCommand(INDEX_FIRST_CUSTOMER);
-        DeleteCommand deleteSecondCommand = new DeleteCommand(INDEX_SECOND_CUSTOMER);
+        DeleteCustomerCommand delcustFirstCommand = new DeleteCustomerCommand(INDEX_FIRST_CUSTOMER);
+        DeleteCustomerCommand delcustSecondCommand = new DeleteCustomerCommand(INDEX_SECOND_CUSTOMER);
 
         // same object -> returns true
-        assertTrue(deleteFirstCommand.equals(deleteFirstCommand));
+        assertTrue(delcustFirstCommand.equals(delcustFirstCommand));
 
         // same values -> returns true
-        DeleteCommand deleteFirstCommandCopy = new DeleteCommand(INDEX_FIRST_CUSTOMER);
-        assertTrue(deleteFirstCommand.equals(deleteFirstCommandCopy));
+        DeleteCustomerCommand deleteFirstCommandCopy = new DeleteCustomerCommand(INDEX_FIRST_CUSTOMER);
+        assertTrue(delcustFirstCommand.equals(deleteFirstCommandCopy));
 
         // different types -> returns false
-        assertFalse(deleteFirstCommand.equals(1));
+        assertFalse(delcustFirstCommand.equals(1));
 
         // null -> returns false
-        assertFalse(deleteFirstCommand.equals(null));
+        assertFalse(delcustFirstCommand.equals(null));
 
         // different customer -> returns false
-        assertFalse(deleteFirstCommand.equals(deleteSecondCommand));
+        assertFalse(delcustFirstCommand.equals(delcustSecondCommand));
     }
 
     @Test
     public void toStringMethod() {
         Index targetIndex = Index.fromOneBased(1);
-        DeleteCommand deleteCommand = new DeleteCommand(targetIndex);
-        String expected = DeleteCommand.class.getCanonicalName() + "{targetIndex=" + targetIndex + "}";
-        assertEquals(expected, deleteCommand.toString());
+        DeleteCustomerCommand delcustCommand = new DeleteCustomerCommand(targetIndex);
+        String expected = DeleteCustomerCommand.class.getCanonicalName() + "{targetIndex=" + targetIndex + "}";
+        assertEquals(expected, delcustCommand.toString());
     }
 
     /**
