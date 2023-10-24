@@ -31,7 +31,8 @@ public class PropAddressTest {
         // valid property addresses
         assertTrue(PropAddress.isValidAddress("Blk 456, Den Road, #01-355"));
         assertTrue(PropAddress.isValidAddress("-")); // one character
-        assertTrue(PropAddress.isValidAddress("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long budget
+        assertTrue(PropAddress.isValidAddress("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA"));
+        // long budget
     }
 
     @Test

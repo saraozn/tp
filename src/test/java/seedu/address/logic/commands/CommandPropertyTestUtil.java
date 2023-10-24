@@ -2,10 +2,10 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PRICE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRICE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -62,7 +62,8 @@ public class CommandPropertyTestUtil {
     //
     //    static {
     //        DESC_AQUAVIEW = new EditPropertyDescriptorBuilder().withName(VALID_NAME_AQUAVIEW)
-    //                .withPhone(VALID_PHONE_AQUAVIEW).withAddress(VALID_ADDRESS_AQUAVIEW).withPrice(VALID_PRICE_AQUAVIEW)
+    //                .withPhone(VALID_PHONE_AQUAVIEW).withAddress(VALID_ADDRESS_AQUAVIEW)
+    //                .withPrice(VALID_PRICE_AQUAVIEW)
     //                .withTags(VALID_TAG_SQUARE).build();
     //        DESC_SKYVIEW = new EditPropertyDescriptorBuilder().withName(VALID_NAME_SKYVIEW)
     //                .withPhone(VALID_PHONE_SKYVIEW).withAddress(VALID_ADDRESS_SKYVIEW).withPrice(VALID_PRICE_SKYVIEW)
