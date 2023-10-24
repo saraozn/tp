@@ -24,7 +24,7 @@ import seedu.address.model.property.Property;
  * Contains integration tests (interaction with the Model) and unit tests for
  * {@code DeleteCommand}.
  */
-public class DeleteCommandTest {
+public class DeletePropertyCommandTest {
 
     private Model model = new ModelManager(getTypicalAddressBook(), new PropertyBook(), new UserPrefs());
 
