@@ -14,8 +14,9 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddCustomerCommand;
+import seedu.address.logic.commands.AddPropertyCommand;
 import seedu.address.logic.commands.ClearCommand;
-import seedu.address.logic.commands.DeleteCommand;
+import seedu.address.logic.commands.DeleteCustomerCommand;
 import seedu.address.logic.commands.EditCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
@@ -24,20 +25,31 @@ import seedu.address.logic.commands.ListCustomerCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.customer.NameContainsKeywordsPredicate;
+import seedu.address.model.property.Property;
 import seedu.address.testutil.CustomerBuilder;
 import seedu.address.testutil.CustomerUtil;
 import seedu.address.testutil.EditCustomerDescriptorBuilder;
+import seedu.address.testutil.PropertyBuilder;
+import seedu.address.testutil.PropertyUtil;
 
 public class AddressBookParserTest {
 
     private final AddressBookParser parser = new AddressBookParser();
 
     @Test
-    public void parseCommand_add() throws Exception {
+    public void parseCommand_addcust() throws Exception {
         Customer customer = new CustomerBuilder().build();
         AddCustomerCommand command = (AddCustomerCommand) parser.parseCommand(CustomerUtil.getAddCommand(customer));
         assertEquals(new AddCustomerCommand(customer), command);
     }
+
+    @Test
+    public void parseCommand_addprop() throws Exception {
+        Property property = new PropertyBuilder().build();
+        AddPropertyCommand command = (AddPropertyCommand) parser.parseCommand(PropertyUtil.getAddCommand(property));
+        assertEquals(new AddPropertyCommand(property), command);
+    }
+
 
     @Test
     public void parseCommand_clear() throws Exception {
