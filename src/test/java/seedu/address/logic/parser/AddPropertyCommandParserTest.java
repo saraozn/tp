@@ -1,18 +1,18 @@
 package seedu.address.logic.parser;
 
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.commands.CommandPropertyTestUtil.PRICE_DESC_AQUAVISTA;
+import static seedu.address.logic.commands.CommandPropertyTestUtil.PRICE_DESC_AQUAVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.PRICE_DESC_SKYVIEW;
-import static seedu.address.logic.commands.CommandPropertyTestUtil.ADDRESS_DESC_AQUAVISTA;
+import static seedu.address.logic.commands.CommandPropertyTestUtil.ADDRESS_DESC_AQUAVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.ADDRESS_DESC_SKYVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.INVALID_PRICE_DESC;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.INVALID_ADDRESS_DESC;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.INVALID_NAME_DESC;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.INVALID_PHONE_DESC;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.INVALID_TAG_DESC;
-import static seedu.address.logic.commands.CommandPropertyTestUtil.NAME_DESC_AQUAVISTA;
+import static seedu.address.logic.commands.CommandPropertyTestUtil.NAME_DESC_AQUAVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.NAME_DESC_SKYVIEW;
-import static seedu.address.logic.commands.CommandPropertyTestUtil.PHONE_DESC_AQUAVISTA;
+import static seedu.address.logic.commands.CommandPropertyTestUtil.PHONE_DESC_AQUAVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.PHONE_DESC_SKYVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.PREAMBLE_NON_EMPTY;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.PREAMBLE_WHITESPACE;
@@ -30,7 +30,7 @@ import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
-import static seedu.address.testutil.TypicalProperties.AQUAVISTA;
+import static seedu.address.testutil.TypicalProperties.AQUAVIEW;
 import static seedu.address.testutil.TypicalProperties.SKYVIEW;
 
 import org.junit.jupiter.api.Test;
@@ -71,24 +71,24 @@ public class AddPropertyCommandParserTest {
                 + PRICE_DESC_SKYVIEW + TAG_DESC_SQUARE;
 
         // multiple names
-        assertParseFailure(parser, NAME_DESC_AQUAVISTA + validExpectedPROPERTYString,
+        assertParseFailure(parser, NAME_DESC_AQUAVIEW + validExpectedPROPERTYString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NAME));
 
         // multiple phones
-        assertParseFailure(parser, PHONE_DESC_AQUAVISTA + validExpectedPROPERTYString,
+        assertParseFailure(parser, PHONE_DESC_AQUAVIEW + validExpectedPROPERTYString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PHONE));
 
         // multiple ADDRESSs
-        assertParseFailure(parser, ADDRESS_DESC_AQUAVISTA + validExpectedPROPERTYString,
+        assertParseFailure(parser, ADDRESS_DESC_AQUAVIEW + validExpectedPROPERTYString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_ADDRESS));
 
         // multiple PRICEs
-        assertParseFailure(parser, PRICE_DESC_AQUAVISTA + validExpectedPROPERTYString,
+        assertParseFailure(parser, PRICE_DESC_AQUAVIEW + validExpectedPROPERTYString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_PRICE));
 
         // multiple fields repeated
         assertParseFailure(parser,
-                validExpectedPROPERTYString + PHONE_DESC_AQUAVISTA + ADDRESS_DESC_AQUAVISTA + NAME_DESC_AQUAVISTA + PRICE_DESC_AQUAVISTA
+                validExpectedPROPERTYString + PHONE_DESC_AQUAVIEW + ADDRESS_DESC_AQUAVIEW + NAME_DESC_AQUAVIEW + PRICE_DESC_AQUAVIEW
                         + validExpectedPROPERTYString,
                 Messages.getErrorMessageForDuplicatePrefixes(PREFIX_NAME, PREFIX_PRICE, PREFIX_ADDRESS, PREFIX_PHONE));
 
@@ -132,8 +132,8 @@ public class AddPropertyCommandParserTest {
     @Test
     public void parse_optionalFieldsMissing_success() {
         // zero tags
-        Property expectedPROPERTY = new PropertyBuilder(AQUAVISTA).withTags().build();
-        assertParseSuccess(parser, NAME_DESC_AQUAVISTA + PHONE_DESC_AQUAVISTA + ADDRESS_DESC_AQUAVISTA + PRICE_DESC_AQUAVISTA,
+        Property expectedPROPERTY = new PropertyBuilder(AQUAVIEW).withTags().build();
+        assertParseSuccess(parser, NAME_DESC_AQUAVIEW + PHONE_DESC_AQUAVIEW + ADDRESS_DESC_AQUAVIEW + PRICE_DESC_AQUAVIEW,
                 new AddPropertyCommand(expectedPROPERTY));
     }
 
