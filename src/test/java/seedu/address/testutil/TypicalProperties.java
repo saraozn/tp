@@ -1,13 +1,13 @@
 package seedu.address.testutil;
 
-import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_PRICE_AQUAVIEW;
-import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_PRICE_SKYVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_ADDRESS_AQUAVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_ADDRESS_SKYVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_NAME_AQUAVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_NAME_SKYVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_PHONE_AQUAVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_PHONE_SKYVIEW;
+import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_PRICE_AQUAVIEW;
+import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_PRICE_SKYVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_TAG_BIG;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_TAG_SQUARE;
 
@@ -49,15 +49,16 @@ public class TypicalProperties {
             .withAddress(" 808 Colorful Street, Singapore 456012").withPrice("500000").build();
 
     // Manually added - Customer's details found in {@code CommandTestUtil}
-    public static final Property AQUAVIEW = new PropertyBuilder().withName(VALID_NAME_AQUAVIEW).withPhone(VALID_PHONE_AQUAVIEW)
-            .withAddress(VALID_ADDRESS_AQUAVIEW).withPrice(VALID_PRICE_AQUAVIEW).withTags(VALID_TAG_SQUARE).build();
-    public static final Property SKYVIEW = new PropertyBuilder().withName(VALID_NAME_SKYVIEW).withPhone(VALID_PHONE_SKYVIEW)
-            .withAddress(VALID_ADDRESS_SKYVIEW).withPrice(VALID_PRICE_SKYVIEW).withTags(VALID_TAG_BIG, VALID_TAG_SQUARE)
-            .build();
+    public static final Property AQUAVIEW = new PropertyBuilder().withName(VALID_NAME_AQUAVIEW)
+            .withPhone(VALID_PHONE_AQUAVIEW).withAddress(VALID_ADDRESS_AQUAVIEW).withPrice(VALID_PRICE_AQUAVIEW)
+            .withTags(VALID_TAG_SQUARE).build();
+    public static final Property SKYVIEW = new PropertyBuilder().withName(VALID_NAME_SKYVIEW)
+            .withPhone(VALID_PHONE_SKYVIEW).withAddress(VALID_ADDRESS_SKYVIEW).withPrice(VALID_PRICE_SKYVIEW)
+            .withTags(VALID_TAG_BIG, VALID_TAG_SQUARE).build();
 
     public static final String KEYWORD_MATCHING_MEIER = "Meier"; // A keyword that matches MEIER
 
-    private void TypicalProperty() {} // prevents instantiation
+    private TypicalProperties() {} // prevents instantiation
 
     /**
      * Returns an {@code AddressBook} with all the typical customers.

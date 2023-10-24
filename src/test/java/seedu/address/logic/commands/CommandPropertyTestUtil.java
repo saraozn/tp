@@ -1,31 +1,31 @@
 package seedu.address.logic.commands;
 
-import seedu.address.commons.core.index.Index;
-import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.AddressBook;
-import seedu.address.model.Model;
-import seedu.address.model.PropertyBook;
-import seedu.address.model.customer.Customer;
-import seedu.address.model.customer.NameContainsKeywordsPredicate;
-import seedu.address.model.property.PropNameContainsKeywordsPredicate;
-import seedu.address.model.property.Property;
-import seedu.address.testutil.EditCustomerDescriptorBuilder;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRICE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+import static seedu.address.testutil.Assert.assertThrows;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.parser.CliSyntax.*;
-import static seedu.address.testutil.Assert.assertThrows;
+import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.exceptions.CommandException;
+import seedu.address.model.Model;
+import seedu.address.model.PropertyBook;
+import seedu.address.model.property.PropNameContainsKeywordsPredicate;
+import seedu.address.model.property.Property;
 
 /**
  * Contains helper methods for testing commands.
  */
 public class CommandPropertyTestUtil {
 
-    public static final String VALID_NAME_AQUAVIEW = "AquaVIEW";
+    public static final String VALID_NAME_AQUAVIEW = "Aquaview";
     public static final String VALID_NAME_SKYVIEW = "Skyview";
     public static final String VALID_PHONE_AQUAVIEW = "11111111";
     public static final String VALID_PHONE_SKYVIEW = "22222222";
@@ -49,25 +49,25 @@ public class CommandPropertyTestUtil {
 
     public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
-    public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS + "SKYVIEW!yahoo"; // missing '@' symbol
+    public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS + "SKYVIEW!"; // ! not allowed in address
     public static final String INVALID_PRICE_DESC = " " + PREFIX_PRICE; // empty string not allowed for PRICE
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
 
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 
-//uncomment after edit command is done
-//    public static final EditCommand.EditPropertyDescriptor DESC_AQUAVIEW;
-//    public static final EditCommand.EditPropertyDescriptor DESC_SKYVIEW;
-//
-//    static {
-//        DESC_AQUAVIEW = new EditPropertyDescriptorBuilder().withName(VALID_NAME_AQUAVIEW)
-//                .withPhone(VALID_PHONE_AQUAVIEW).withAddress(VALID_ADDRESS_AQUAVIEW).withPrice(VALID_PRICE_AQUAVIEW)
-//                .withTags(VALID_TAG_SQUARE).build();
-//        DESC_SKYVIEW = new EditPropertyDescriptorBuilder().withName(VALID_NAME_SKYVIEW)
-//                .withPhone(VALID_PHONE_SKYVIEW).withAddress(VALID_ADDRESS_SKYVIEW).withPrice(VALID_PRICE_SKYVIEW)
-//                .withTags(VALID_TAG_BIG, VALID_TAG_SQUARE).build();
-//    }
+    //uncomment after editprop command is done
+    //    public static final EditCommand.EditPropertyDescriptor DESC_AQUAVIEW;
+    //    public static final EditCommand.EditPropertyDescriptor DESC_SKYVIEW;
+    //
+    //    static {
+    //        DESC_AQUAVIEW = new EditPropertyDescriptorBuilder().withName(VALID_NAME_AQUAVIEW)
+    //                .withPhone(VALID_PHONE_AQUAVIEW).withAddress(VALID_ADDRESS_AQUAVIEW).withPrice(VALID_PRICE_AQUAVIEW)
+    //                .withTags(VALID_TAG_SQUARE).build();
+    //        DESC_SKYVIEW = new EditPropertyDescriptorBuilder().withName(VALID_NAME_SKYVIEW)
+    //                .withPhone(VALID_PHONE_SKYVIEW).withAddress(VALID_ADDRESS_SKYVIEW).withPrice(VALID_PRICE_SKYVIEW)
+    //                .withTags(VALID_TAG_BIG, VALID_TAG_SQUARE).build();
+    //    }
 
     /**
      * Executes the given {@code command}, confirms that <br>

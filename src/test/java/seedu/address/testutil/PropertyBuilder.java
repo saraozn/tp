@@ -5,9 +5,9 @@ import java.util.Set;
 
 import seedu.address.model.property.Price;
 import seedu.address.model.property.PropAddress;
-import seedu.address.model.property.Property;
 import seedu.address.model.property.PropName;
 import seedu.address.model.property.PropPhone;
+import seedu.address.model.property.Property;
 import seedu.address.model.tag.Tag;
 import seedu.address.model.util.SampleDataUtil;
 

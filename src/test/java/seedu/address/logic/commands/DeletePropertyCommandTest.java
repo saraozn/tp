@@ -62,7 +62,7 @@ public class DeletePropertyCommandTest {
 
         Model expectedModel = new ModelManager(model.getAddressBook(), new PropertyBook(), new UserPrefs());
         expectedModel.deleteProperty(propertyToDelete);
-        showNoPROPERTY(expectedModel);
+        showNoProperty(expectedModel);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
     }
@@ -113,7 +113,7 @@ public class DeletePropertyCommandTest {
     /**
      * Updates {@code model}'s filtered list to show no one.
      */
-    private void showNoPROPERTY(Model model) {
+    private void showNoProperty(Model model) {
         model.updateFilteredPropertyList(p -> false);
 
         assertTrue(model.getFilteredPropertyList().isEmpty());

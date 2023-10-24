@@ -1,13 +1,12 @@
 package seedu.address.model.property;
 
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
-import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_PRICE_SKYVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_ADDRESS_SKYVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_NAME_SKYVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_PHONE_SKYVIEW;
+import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_PRICE_SKYVIEW;
 import static seedu.address.logic.commands.CommandPropertyTestUtil.VALID_TAG_BIG;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalProperties.AQUAVISTA;
@@ -34,7 +33,8 @@ public class PropertyTest {
         assertFalse(AQUAVISTA.isSameProperty(null));
 
         // same name, all other attributes different -> returns true
-        Property editedAlice = new PropertyBuilder(AQUAVISTA).withPhone(VALID_PHONE_SKYVIEW).withAddress(VALID_ADDRESS_SKYVIEW)
+        Property editedAlice = new PropertyBuilder(AQUAVISTA).withPhone(VALID_PHONE_SKYVIEW)
+                .withAddress(VALID_ADDRESS_SKYVIEW)
                 .withPrice(VALID_PRICE_SKYVIEW).withTags(VALID_TAG_BIG).build();
         assertTrue(AQUAVISTA.isSameProperty(editedAlice));
 
@@ -93,8 +93,9 @@ public class PropertyTest {
 
     @Test
     public void toStringMethod() {
-        String expected = Property.class.getCanonicalName() + "{name=" + AQUAVISTA.getName() + ", phone=" + AQUAVISTA.getPhone()
-                + ", address=" + AQUAVISTA.getAddress() + ", price=" + AQUAVISTA.getPrice() + ", tags=" + AQUAVISTA.getTags() + "}";
+        String expected = Property.class.getCanonicalName() + "{name=" + AQUAVISTA.getName()
+                + ", phone=" + AQUAVISTA.getPhone() + ", address=" + AQUAVISTA.getAddress()
+                + ", price=" + AQUAVISTA.getPrice() + ", tags=" + AQUAVISTA.getTags() + "}";
         assertEquals(expected, AQUAVISTA.toString());
     }
 }

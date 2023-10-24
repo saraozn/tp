@@ -18,8 +18,8 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.PropertyBook;
 import seedu.address.model.Model;
+import seedu.address.model.PropertyBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyPropertyBook;
 import seedu.address.model.ReadOnlyUserPrefs;
@@ -58,7 +58,7 @@ public class AddPropertyCommandTest {
 
     @Test
     public void equals() {
-        Property aquavista= new PropertyBuilder().withName("Aquavista").build();
+        Property aquavista = new PropertyBuilder().withName("Aquavista").build();
         Property skyvista = new PropertyBuilder().withName("Skyvista").build();
         AddPropertyCommand addAquavistaCommand = new AddPropertyCommand(aquavista);
         AddPropertyCommand addSkyvistaCommand = new AddPropertyCommand(skyvista);
@@ -83,7 +83,7 @@ public class AddPropertyCommandTest {
     @Test
     public void toStringMethod() {
         AddPropertyCommand addPropertyCommand = new AddPropertyCommand(AQUAVISTA);
-        String expected = AddPropertyCommand.class.getCanonicalName() + "{toAdd=" + AQUAVISTA+ "}";
+        String expected = AddPropertyCommand.class.getCanonicalName() + "{toAdd=" + AQUAVISTA + "}";
         assertEquals(expected, addPropertyCommand.toString());
     }
 
@@ -223,7 +223,7 @@ public class AddPropertyCommandTest {
         }
 
         @Override
-        public boolean hasProperty(Property Property) {
+        public boolean hasProperty(Property property) {
             requireNonNull(property);
             return this.property.isSameProperty(property);
         }
@@ -236,15 +236,15 @@ public class AddPropertyCommandTest {
         final ArrayList<Property> propertiesAdded = new ArrayList<>();
 
         @Override
-        public boolean hasProperty(Property Property) {
-            requireNonNull(Property);
-            return propertiesAdded.stream().anyMatch(Property::isSameProperty);
+        public boolean hasProperty(Property property) {
+            requireNonNull(property);
+            return propertiesAdded.stream().anyMatch(property::isSameProperty);
         }
 
         @Override
-        public void addProperty(Property Property) {
-            requireNonNull(Property);
-            propertiesAdded.add(Property);
+        public void addProperty(Property property) {
+            requireNonNull(property);
+            propertiesAdded.add(property);
         }
 
         @Override
