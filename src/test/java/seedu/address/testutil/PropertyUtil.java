@@ -1,9 +1,9 @@
 package seedu.address.testutil;
 
-import static seedu.address.logic.parser.CliSyntax.PREFIX_BUDGET;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRICE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import seedu.address.logic.commands.AddPropertyCommand;
@@ -28,8 +28,8 @@ public class PropertyUtil {
         StringBuilder sb = new StringBuilder();
         sb.append(PREFIX_NAME + property.getName().fullName + " ");
         sb.append(PREFIX_PHONE + property.getPhone().value + " ");
-        sb.append(PREFIX_EMAIL + property.getAddress().value + " ");
-        sb.append(PREFIX_BUDGET + property.getPrice().value + " ");
+        sb.append(PREFIX_ADDRESS + property.getAddress().value + " ");
+        sb.append(PREFIX_PRICE + property.getPrice().value + " ");
         property.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );

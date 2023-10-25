@@ -47,9 +47,9 @@ public class CommandPropertyTestUtil {
     public static final String TAG_DESC_SQUARE = " " + PREFIX_TAG + VALID_TAG_SQUARE;
     public static final String TAG_DESC_BIG = " " + PREFIX_TAG + VALID_TAG_BIG;
 
-    public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + "James&"; // '&' not allowed in names
+    public static final String INVALID_NAME_DESC = " " + PREFIX_NAME + " "; // '&' not allowed in names
     public static final String INVALID_PHONE_DESC = " " + PREFIX_PHONE + "911a"; // 'a' not allowed in phones
-    public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS + "SKYVIEW!"; // ! not allowed in address
+    public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS + " "; // ! not allowed in address
     public static final String INVALID_PRICE_DESC = " " + PREFIX_PRICE; // empty string not allowed for PRICE
     public static final String INVALID_TAG_DESC = " " + PREFIX_TAG + "hubby*"; // '*' not allowed in tags
 

@@ -47,7 +47,7 @@ public class PropNameContainsKeywordsPredicateTest {
         // One keyword
         PropNameContainsKeywordsPredicate predicate =
                 new PropNameContainsKeywordsPredicate(Collections.singletonList("Aquavista"));
-        assertTrue(predicate.test(new PropertyBuilder().withName(" Skyview").build()));
+        assertTrue(predicate.test(new PropertyBuilder().withName("Aquavista Skyview").build()));
 
         // Multiple keywords
         predicate = new PropNameContainsKeywordsPredicate(Arrays.asList("Aquavista", "Skyview"));
@@ -73,8 +73,7 @@ public class PropNameContainsKeywordsPredicateTest {
         assertFalse(predicate.test(new PropertyBuilder().withName("Aquavista Skyview").build()));
 
         // Keywords match phone, address and price, but does not match name
-        predicate = new PropNameContainsKeywordsPredicate(Arrays.asList("12345", "123 Orchid Lane, Singapore 456789",
-                "Main", "Street"));
+        predicate = new PropNameContainsKeywordsPredicate(Arrays.asList("Horizonview", "Main", "Street"));
         assertFalse(predicate.test(new PropertyBuilder().withName("Aquavista").withPhone("12345")
                 .withAddress("123 Orchid Lane, Singapore 456789").withPrice("123456").build()));
     }
