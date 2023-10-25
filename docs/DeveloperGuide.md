@@ -154,6 +154,66 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Deleting of customers and properties
+[Back to top](#table-of-contents)
+
+#### Motivation
+The property agent may want to delete the profile of any customer or property that has been previously added into the app. For example, the property agent might want to remove a particular property after it has been sold.
+Or, a particular client is no longer interested in buying a house anymore.
+
+#### Implementation
+The `DeleteCustomerCommand` and `DeletePropertyComannd` classes extends from the `Command` class. They are used to delete the details of a Customer or Property respectively. The command expects exactly one `INDEX` of the Customer or Property to be deleted, otherwise and error message will be displayed.
+When the delete command is inputted, the `DeleteCustomerCommandParser` and `DeletePropertyCommandParser` classes are used to parse the user input and create the `DeleteCustomerCommand` and `DeletePropertyCommand` objects respectively.
+When these created command objects are executed by the `LogicManager`, the `DeleteCustomerCommand#execute(Model model)` or `DeletePropertyCommand#execute(Model model)` methods are called. These methods will delete the customer or property in the model, and return a `CommandResult` object.
+
+The following sequence diagram shows how the `DeleteCustomerCommand` is executed.
+**INSERT SEQUENCE DIAGRAM HERE**
+
+#### Design Considerations
+**Aspect: How the delete commands should relate to each other:**
+
+* **Alternative 1 (current choice):** `DeleteCustomerCommand` and `DeletePropertyCommand` are separate, and both inherit from the `Command` class.
+    * Pros:
+        * Both the `Customer` and `Property` classes have different fields that are exclusive to each other.
+        * This reduces complexity of the system, and unexpected behaviours.
+        * The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
+    * Cons:
+        * More boilerplate code for each of the classes, which increases the size of the codebase.
+* **Alternative 2:** A single `DeleteCommand` class is used to edit both customer and property.
+    * Cons:
+        * Unnecessary complexity is introduced into the system.
+
+
+### Finding of Customers and Properties
+[Back to top](#table-of-contents)
+
+#### Motivation
+The property agent may want to find and access the details of a particular Customer or Property that has been previously added into the app. For example, the property agent may want to refresh their memory on a particular customer's budget. Or the property agent may want to check the details of a particular property. 
+
+#### Implementation
+The `FindCustomerCommand` and `FindPropertyCommand` classes extends the `Command` class. They are used to find the profiles of a customer or property, respectively.
+Both commands allow the user to find any customer or property. The commands expect at least one substring to base the search on, otherwise an error message will be displayed.
+
+When the find command is inputted, the `FindCustomerCommandParser` and `FindPropertyCommandParser` classes are used to parse the user input and create the respective `FindCustomerCommand` and `FindPropertyCommand` objects.
+When these created command objects are executed by the `LogicManager`, the `FindCustomerCommand#execute(Model model)` or `FindPropertyCommand#execute(Model model)` methods are called. These methods will find the customer or property in the model, and return a `CommandResult` object.
+
+The following sequence diagram shows how the `FindCustomerCommand` is executed.
+**INSERT SEQUENCE DIAGRAM HERE**
+
+#### Design Considerations
+**Aspect: How the find commands should relate to each other:**
+
+* **Alternative 1 (current choice):** `FindCustomerCommand` and `FindPropertyCommand` are separate, and both inherit from the `Command` class.
+    * Pros:
+        * Both the `Customer` and `Property` classes have different fields that are exclusive to each other.
+        * This reduces complexity of the system, and unexpected behaviours.
+        * The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
+    * Cons:
+        * More boilerplate code for each of the classes, which increases the size of the codebase.
+* **Alternative 2:** A single `FindCommand` class is used to find both customer and property.
+    * Cons:
+        * Unnecessary complexity is introduced into the system.
+  
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
