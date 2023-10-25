@@ -94,7 +94,6 @@ public class AddressBookTest {
      */
     private static class AddressBookStub implements ReadOnlyAddressBook {
         private final ObservableList<Customer> customers = FXCollections.observableArrayList();
-
         AddressBookStub(Collection<Customer> customers) {
             this.customers.setAll(customers);
         }

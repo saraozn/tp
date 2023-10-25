@@ -9,6 +9,7 @@ import static seedu.address.testutil.TypicalCustomers.CARL;
 import static seedu.address.testutil.TypicalCustomers.ELLE;
 import static seedu.address.testutil.TypicalCustomers.FIONA;
 import static seedu.address.testutil.TypicalCustomers.getTypicalAddressBook;
+import static seedu.address.testutil.TypicalProperties.getTypicalPropertyBook;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -17,7 +18,6 @@ import org.junit.jupiter.api.Test;
 
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
-import seedu.address.model.PropertyBook;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.customer.NameContainsKeywordsPredicate;
 
@@ -25,8 +25,8 @@ import seedu.address.model.customer.NameContainsKeywordsPredicate;
  * Contains integration tests (interaction with the Model) for {@code FindCommand}.
  */
 public class FindCommandTest {
-    private Model model = new ModelManager(getTypicalAddressBook(), new PropertyBook(), new UserPrefs());
-    private Model expectedModel = new ModelManager(getTypicalAddressBook(), new PropertyBook(), new UserPrefs());
+    private Model model = new ModelManager(getTypicalAddressBook(), getTypicalPropertyBook(), new UserPrefs());
+    private Model expectedModel = new ModelManager(getTypicalAddressBook(), getTypicalPropertyBook(), new UserPrefs());
 
     @Test
     public void equals() {
