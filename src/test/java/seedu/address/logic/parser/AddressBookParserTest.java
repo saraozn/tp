@@ -6,6 +6,7 @@ import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.Messages.MESSAGE_UNKNOWN_COMMAND;
 import static seedu.address.testutil.Assert.assertThrows;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
+import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_PROPERTY;
 
 import java.util.Arrays;
 import java.util.List;
@@ -17,7 +18,9 @@ import seedu.address.logic.commands.AddCustomerCommand;
 import seedu.address.logic.commands.AddPropertyCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCustomerCommand;
+import seedu.address.logic.commands.DeletePropertyCommand;
 import seedu.address.logic.commands.EditCommand;
+import seedu.address.logic.commands.EditPropertyCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FindCommand;
 import seedu.address.logic.commands.HelpCommand;
@@ -29,6 +32,7 @@ import seedu.address.model.property.Property;
 import seedu.address.testutil.CustomerBuilder;
 import seedu.address.testutil.CustomerUtil;
 import seedu.address.testutil.EditCustomerDescriptorBuilder;
+import seedu.address.testutil.EditPropertyDescriptorBuilder;
 import seedu.address.testutil.PropertyBuilder;
 import seedu.address.testutil.PropertyUtil;
 
@@ -60,11 +64,17 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_delcust() throws Exception {
-        DeleteCustomerCommand command = (DeleteCustomerCommand) parser.parseCommand(
-                DeleteCustomerCommand.COMMAND_WORD + " " + INDEX_FIRST_CUSTOMER.getOneBased());
-        assertEquals(new DeleteCustomerCommand(INDEX_FIRST_CUSTOMER), command);
+        DeletePropertyCommand command = (DeletePropertyCommand) parser.parseCommand(
+                DeletePropertyCommand.COMMAND_WORD + " " + INDEX_FIRST_PROPERTY.getOneBased());
+        assertEquals(new DeletePropertyCommand(INDEX_FIRST_PROPERTY), command);
     }
 
+    @Test
+    public void parseCommand_delprop() throws Exception {
+        DeleteCustomerCommand command = (DeleteCustomerCommand) parser.parseCommand(
+                DeleteCustomerCommand.COMMAND_WORD + " " + INDEX_FIRST_PROPERTY.getOneBased());
+        assertEquals(new DeleteCustomerCommand(INDEX_FIRST_PROPERTY), command);
+    }
     @Test
     public void parseCommand_edit() throws Exception {
         Customer customer = new CustomerBuilder().build();
@@ -72,6 +82,14 @@ public class AddressBookParserTest {
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
                 + INDEX_FIRST_CUSTOMER.getOneBased() + " " + CustomerUtil.getEditCustomerDescriptorDetails(descriptor));
         assertEquals(new EditCommand(INDEX_FIRST_CUSTOMER, descriptor), command);
+    }
+    @Test
+    public void parseCommand_editprop() throws Exception {
+        Property property = new PropertyBuilder().build();
+        EditPropertyCommand.EditPropertyDescriptor descriptor = new EditPropertyDescriptorBuilder(property).build();
+        EditPropertyCommand command = (EditPropertyCommand) parser.parseCommand(EditPropertyCommand.COMMAND_WORD + " "
+                + INDEX_FIRST_PROPERTY.getOneBased() + " " + PropertyUtil.getEditPropertyDescriptorDetails(descriptor));
+        assertEquals(new EditPropertyCommand(INDEX_FIRST_PROPERTY, descriptor), command);
     }
 
     @Test

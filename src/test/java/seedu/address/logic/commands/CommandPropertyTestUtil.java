@@ -19,6 +19,7 @@ import seedu.address.model.Model;
 import seedu.address.model.PropertyBook;
 import seedu.address.model.property.PropNameContainsKeywordsPredicate;
 import seedu.address.model.property.Property;
+import seedu.address.testutil.EditPropertyDescriptorBuilder;
 
 /**
  * Contains helper methods for testing commands.
@@ -56,19 +57,18 @@ public class CommandPropertyTestUtil {
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 
-    //uncomment after editprop command is done
-    //    public static final EditCommand.EditPropertyDescriptor DESC_AQUAVIEW;
-    //    public static final EditCommand.EditPropertyDescriptor DESC_SKYVIEW;
-    //
-    //    static {
-    //        DESC_AQUAVIEW = new EditPropertyDescriptorBuilder().withName(VALID_NAME_AQUAVIEW)
-    //                .withPhone(VALID_PHONE_AQUAVIEW).withAddress(VALID_ADDRESS_AQUAVIEW)
-    //                .withPrice(VALID_PRICE_AQUAVIEW)
-    //                .withTags(VALID_TAG_SQUARE).build();
-    //        DESC_SKYVIEW = new EditPropertyDescriptorBuilder().withName(VALID_NAME_SKYVIEW)
-    //                .withPhone(VALID_PHONE_SKYVIEW).withAddress(VALID_ADDRESS_SKYVIEW).withPrice(VALID_PRICE_SKYVIEW)
-    //                .withTags(VALID_TAG_BIG, VALID_TAG_SQUARE).build();
-    //    }
+    public static final EditPropertyCommand.EditPropertyDescriptor DESC_AQUAVIEW;
+    public static final EditPropertyCommand.EditPropertyDescriptor DESC_SKYVIEW;
+
+    static {
+        DESC_AQUAVIEW = new EditPropertyDescriptorBuilder().withName(VALID_NAME_AQUAVIEW)
+                .withPhone(VALID_PHONE_AQUAVIEW).withAddress(VALID_ADDRESS_AQUAVIEW)
+                .withPrice(VALID_PRICE_AQUAVIEW)
+                .withTags(VALID_TAG_SQUARE).build();
+        DESC_SKYVIEW = new EditPropertyDescriptorBuilder().withName(VALID_NAME_SKYVIEW)
+                .withPhone(VALID_PHONE_SKYVIEW).withAddress(VALID_ADDRESS_SKYVIEW).withPrice(VALID_PRICE_SKYVIEW)
+                .withTags(VALID_TAG_BIG, VALID_TAG_SQUARE).build();
+    }
 
     /**
      * Executes the given {@code command}, confirms that <br>
