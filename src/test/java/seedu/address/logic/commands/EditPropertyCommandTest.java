@@ -48,7 +48,7 @@ public class EditPropertyCommandTest {
                 Messages.format(editedProperty));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()),
-                new PropertyBook(), new UserPrefs());
+                new PropertyBook(model.getPropertyBook()), new UserPrefs());
         expectedModel.setProperty(model.getFilteredPropertyList().get(0), editedProperty);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -71,7 +71,7 @@ public class EditPropertyCommandTest {
                 Messages.format(editedProperty));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()),
-                new PropertyBook(), new UserPrefs());
+                new PropertyBook(model.getPropertyBook()), new UserPrefs());
         expectedModel.setProperty(lastProperty, editedProperty);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
@@ -86,7 +86,7 @@ public class EditPropertyCommandTest {
                 Messages.format(editedProperty));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()),
-                new PropertyBook(), new UserPrefs());
+                new PropertyBook(model.getPropertyBook()), new UserPrefs());
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
     }
@@ -104,7 +104,7 @@ public class EditPropertyCommandTest {
                 Messages.format(editedProperty));
 
         Model expectedModel = new ModelManager(new AddressBook(model.getAddressBook()),
-                new PropertyBook(), new UserPrefs());
+                new PropertyBook(model.getPropertyBook()), new UserPrefs());
         expectedModel.setProperty(model.getFilteredPropertyList().get(0), editedProperty);
 
         assertCommandSuccess(editCommand, model, expectedMessage, expectedModel);
