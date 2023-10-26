@@ -32,9 +32,9 @@ public class TypicalProperties {
             .withAddress("456 Sapphire Avenue, Singapore 987654").withPhone("98765432")
             .withTags("square", "garden").build();
     public static final Property HORIZONVIEW = new PropertyBuilder().withName("Horizonview").withPhone("95352563")
-            .withAddress("789 Palm Grove Road, Singapore 321012").withPrice("40000").build();
+            .withAddress("789 Palm Grove Road, Singapore 321012").withPrice("400000").build();
     public static final Property LUXELOFT = new PropertyBuilder().withName("Luxeloft").withPhone("87652533")
-            .withAddress("234 Amber Crescent, Singapore 567890").withPrice("10000").withTags("garage").build();
+            .withAddress("234 Amber Crescent, Singapore 567890").withPrice("100000").withTags("garage").build();
     public static final Property RIVERIA = new PropertyBuilder().withName("Riveria").withPhone("9482224")
             .withAddress("567 Maple Lane, Singapore 109876").withPrice("4000000").build();
     public static final Property AZURE = new PropertyBuilder().withName("Azure").withPhone("9482427")
