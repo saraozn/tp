@@ -4,9 +4,6 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BUDGET;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 
 import java.util.Set;
@@ -34,7 +31,7 @@ public class FilterCustomerCommandParser implements Parser<FilterCustomerCommand
         ArgumentMultimap argMultimap =
                 ArgumentTokenizer.tokenize(args, PREFIX_BUDGET, PREFIX_TAG);
 
-        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_NAME, PREFIX_PHONE, PREFIX_EMAIL, PREFIX_BUDGET);
+        argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_BUDGET);
         if (argMultimap.getValue(PREFIX_BUDGET).isPresent()) {
             budget = ParserUtil.parseBudget(argMultimap.getValue(PREFIX_BUDGET).get());
         }
