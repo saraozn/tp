@@ -17,7 +17,6 @@ import seedu.address.commons.core.index.Index;
 import seedu.address.logic.Messages;
 import seedu.address.model.Model;
 import seedu.address.model.ModelManager;
-import seedu.address.model.PropertyBook;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.property.Property;
 
@@ -37,7 +36,7 @@ public class DeletePropertyCommandTest {
         String expectedMessage = String.format(DeletePropertyCommand.MESSAGE_DELETE_PROPERTY_SUCCESS,
                 Messages.format(propertyToDelete));
 
-        ModelManager expectedModel = new ModelManager(model.getAddressBook(), new PropertyBook(), new UserPrefs());
+        ModelManager expectedModel = new ModelManager(model.getAddressBook(), model.getPropertyBook(), new UserPrefs());
         expectedModel.deleteProperty(propertyToDelete);
 
         assertCommandSuccess(deleteCommand, model, expectedMessage, expectedModel);
@@ -61,7 +60,7 @@ public class DeletePropertyCommandTest {
         String expectedMessage = String.format(DeletePropertyCommand.MESSAGE_DELETE_PROPERTY_SUCCESS,
                 Messages.format(propertyToDelete));
 
-        Model expectedModel = new ModelManager(model.getAddressBook(), new PropertyBook(), new UserPrefs());
+        Model expectedModel = new ModelManager(model.getAddressBook(), model.getPropertyBook(), new UserPrefs());
         expectedModel.deleteProperty(propertyToDelete);
         showNoProperty(expectedModel);
 
