@@ -154,6 +154,39 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### Matching for Customers and Properties
+[Back to top](#table-of-contents)
+
+#### Motivation
+The property agent may want to get all properties that satisfy the customers criteria or get all customers that want the properties characteristics. For example, the property agent want to get all properties that certain specified customer want and can afford.
+Or, the property agent want to get all customers that might want to buy certain specified property.
+
+#### Implementation
+The `MatchCustomerCommand` and `MacthPropertyCommand` classes extends the `Command` class.
+They are used to match the details of a customer or property, respectively.
+The command expects exactly one "Index" of the customer or property to be match, otherwise an error message will be displayed.
+When the match command is inputted, the `MatchCustomerCommandParser` or `MatchPropertyCommandParser` classes are used to parse the user input and create the `MatchCustomerCommand` or `MacthPropertyCommand` objects respectively.
+When these created command objects are executed by the `Logic Manager`, the `MatchCustomerCommand#execute(Model model)` or `MatchProeprtyCommand#execute(Model model)` method is called.
+These methods will match the customer or property in the model, and return a `ComandResult` object.
+
+The following sequence diagram shows how the `MatchCustomerCommand` is executed.
+![MatchCustomerSequenceDiagram](images/MatchCustomerSequenceDiagram.png)
+
+#### Design Consideration
+
+* *Alternative 1 (current choice):* `MatchPropertyCommand` and `MatchCustomerCommand` are separate, and both inherit from the `Command` class.
+    * Pros:
+        * Allows the property agent to match only customers or properties.
+        * The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
+    * Cons:
+        * More code for each of the classes, which increases the size of the codebase
+        * More commands for the property agent to remember
+* *Alternative 2:* A single `MacthCommand` class is used to match both customers and properties.
+    * Pros:
+        * Lesser commands for the property agent to remember
+    * Cons:
+        * Unable to match only customers or properties without specify it which increase the complexity of the commands
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
