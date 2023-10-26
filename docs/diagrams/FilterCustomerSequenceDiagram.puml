@@ -1,0 +1,89 @@
+@startuml
+!include style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":FilterCustomerCommandParser" as FilterCustomerCommandParser LOGIC_COLOR
+participant ":Budget" as Budget LOGIC_COLOR
+participant ":Tag" as Tag LOGIC_COLOR
+participant ":BudgetAndTagsInRangePredicate" as BudgetAndTagsInRangePredicate LOGIC_COLOR
+participant "command:FilterCustomerCommand" as FilterCustomerCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+end box
+
+[-> LogicManager : execute("filtercust b/100000 c/pink")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("filtercust b/100000 c/pink")
+activate AddressBookParser
+
+create FilterCustomerCommandParser
+AddressBookParser -> FilterCustomerCommandParser : new FilterCustomerCommandParser("b/100000 c/pink")
+activate FilterCustomerCommandParser
+
+FilterCustomerCommandParser --> AddressBookParser
+deactivate FilterCustomerCommandParser
+
+AddressBookParser -> FilterCustomerCommandParser : parse("b/100000 c/pink")
+activate FilterCustomerCommandParser
+
+create Budget
+FilterCustomerCommandParser -> Budget: new Budget(100000)
+activate Budget
+
+Budget --> FilterCustomerCommandParser: budget
+deactivate Budget
+
+create Tag
+FilterCustomerCommandParser -> Tag: new Tag("pink")
+activate Tag
+
+Tag --> FilterCustomerCommandParser: tag
+deactivate Tag
+
+create BudgetAndTagsInRangePredicate
+FilterCustomerCommandParser -> BudgetAndTagsInRangePredicate: new BudgetAndTagsInRangePredicate(budget, tags)
+activate BudgetAndTagsInRangePredicate
+
+BudgetAndTagsInRangePredicate --> FilterCustomerCommandParser: budgetAndTagsInRangePredicate
+deactivate BudgetAndTagsInRangePredicate
+
+create FilterCustomerCommand
+FilterCustomerCommandParser -> FilterCustomerCommand : new FilterCustomerCommand(budgetAndTagsInRangePredicate)
+activate FilterCustomerCommand
+
+FilterCustomerCommand --> FilterCustomerCommandParser : command
+deactivate FilterCustomerCommand
+
+FilterCustomerCommandParser --> AddressBookParser : command
+deactivate FilterCustomerCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+FilterCustomerCommandParser -[hidden]-> AddressBookParser
+destroy FilterCustomerCommandParser
+
+AddressBookParser --> LogicManager : command
+deactivate AddressBookParser
+
+LogicManager -> FilterCustomerCommand : execute()
+activate FilterCustomerCommand
+
+FilterCustomerCommand -> Model : updateFilteredCustomerList(budgetAndTagsInRangePredicate)
+
+create CommandResult
+FilterCustomerCommand -> CommandResult : new CommandResult(numberOfFilteredCustomer + " customers listed!")
+activate CommandResult
+
+CommandResult --> FilterCustomerCommand
+deactivate CommandResult
+
+FilterCustomerCommand --> LogicManager : commandResult
+deactivate FilterCustomerCommand
+
+[<--LogicManager : commandResult
+deactivate LogicManager
+@enduml
