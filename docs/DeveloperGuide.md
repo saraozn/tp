@@ -307,6 +307,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user with a lot of properties                          | find properties based on properties' details        | access specific properties with the detail                                    |
 | `* *`    | user with a lot of customers                           | filter customers based on customers' details        | get a list of specific customers with the detail                              |
 | `* *`    | user with a lot of properties                          | filter properties based on properties' details      | get a list of specific properties with the detail                             |
+| `* *`    | user with a lot of customers                           | get properties based on customers' details          | get a list of specific properties with the detail satisfy the customer        |
+| `* *`    | user with a lot of properties                          | get customers based on properties' details          | get a list of specific customers with the detail satisfy the property         |
 | `*`      | user                                                   | add notes to customers' profiles                    | streamline customer management profile                                        |
 | `*`      | user                                                   | add notes to properties' profiles                   | streamline customer property profile                                          |
 | `*`      | experienced user using the application with new device | import and export customers' data                   | transfer customers' data across devices                                       |
@@ -387,7 +389,17 @@ Actor: Property Agent
 2. Property agent enters the characteristics of the properties into the CLI
 3. Property agent views the properties that adheres to the conditions given
 
-**Use Case: UC08 - Find specific entity**
+**Use Case: UC08 - Match customers to properties**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent identifies the characteristics the customers want that belong to properties
+2. Property agent enters the characteristics of the customers into the CLI
+3. Property agent views the customers that adheres to the conditions given
+
+**Use Case: UC09 - Find specific entity**
 
 System: PropertyMatch address book
 
@@ -397,7 +409,7 @@ Actor: Property Agent
 2. Property agent enters the entity index he wants
 3. Property agent views the entity
 
-**Use Case: UC09 - Import and export data**
+**Use Case: UC10 - Import and export data**
 
 System: PropertyMatch address book
 
