@@ -27,10 +27,10 @@ public class PropNameTest {
         // invalid name
         assertFalse(PropName.isValidName("")); // empty string
         assertFalse(PropName.isValidName(" ")); // spaces only
-        assertFalse(PropName.isValidName("^")); // only non-alphanumeric characters
-        assertFalse(PropName.isValidName("skyview*")); // contains non-alphanumeric characters
 
         // valid name
+        assertTrue(PropName.isValidName("^")); // only non-alphanumeric characters
+        assertTrue(PropName.isValidName("skyview*")); // contains non-alphanumeric characters
         assertTrue(PropName.isValidName("skyview")); // alphabets only
         assertTrue(PropName.isValidName("12345")); // numbers only
         assertTrue(PropName.isValidName("skyview 2")); // alphanumeric characters

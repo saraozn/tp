@@ -43,30 +43,30 @@ public class SampleDataUtil {
                 getTagSet("small")),
             new Customer(new Name("Roy Balakrishnan"), new Phone("92624417"), new Email("royb@example.com"),
                 new Budget("200000"),
-                getTagSet("city-center"))
+                getTagSet("city", "center"))
         };
     }
 
     public static Property[] getSampleProperties() {
         return new Property[] {
-            new Property(new PropName("Alex Yeoh"), new PropAddress("Blk 30 Geylang Street 29, #06-40"),
-                    new PropPhone("87438807"), new Price("10101010"),
-                        getTagSet("friends")),
-            new Property(new PropName("Bernice Yu"), new PropAddress("Blk 30 Lorong 3 Serangoon Gardens, #07-18"),
-                    new PropPhone("87438808"), new Price("2504830"),
-                        getTagSet("friends")),
-            new Property(new PropName("Charlotte Oliveiro"), new PropAddress("Blk 11 Ang Mo Kio Street 74, #11-04"),
-                    new PropPhone("87438809"), new Price("36817468"),
-                        getTagSet("friends")),
-            new Property(new PropName("David Li"), new PropAddress("Blk 436 Serangoon Gardens Street 26, #16-43"),
-                    new PropPhone("87438810"), new Price("81648137"),
-                        getTagSet("friends")),
-            new Property(new PropName("Irfan Ibrahim"), new PropAddress("Blk 47 Tampines Street 20, #17-35"),
-                    new PropPhone("87438811"), new Price("8276464"),
-                        getTagSet("friends")),
-            new Property(new PropName("Roy Balakrishnan"), new PropAddress("Blk 45 Aljunied Street 85, #11-31"),
-                    new PropPhone("87438812"), new Price("42846276"),
-                        getTagSet("friends"))
+            new Property(new PropName("Aquavista"), new PropAddress("123 Orchid Lane, Singapore 456789"),
+                    new PropPhone("94351253"), new Price("123456"),
+                        getTagSet("pink")),
+            new Property(new PropName("Skyvista"), new PropAddress("456 Sapphire Avenue, Singapore 987654"),
+                    new PropPhone("98765432"), new Price("8880000"),
+                        getTagSet("square", "garden")),
+            new Property(new PropName("Horizonview"), new PropAddress("789 Palm Grove Road, Singapore 321012"),
+                    new PropPhone("95352563"), new Price("400000"),
+                        getTagSet()),
+            new Property(new PropName("Luxeloft"), new PropAddress("234 Amber Crescent, Singapore 567890"),
+                    new PropPhone("87652533"), new Price("100000"),
+                        getTagSet("garage")),
+            new Property(new PropName("Riveria"), new PropAddress("567 Maple Lane, Singapore 109876"),
+                    new PropPhone("9482224"), new Price("4000000"),
+                        getTagSet()),
+            new Property(new PropName("Azure"), new PropAddress("202 Shoreline Street, Singapore 654321"),
+                    new PropPhone("9482442"), new Price("321950"),
+                        getTagSet())
         };
     }
 
@@ -79,11 +79,12 @@ public class SampleDataUtil {
     }
 
     public static ReadOnlyPropertyBook getSamplePropertyBook() {
-        PropertyBook sampleAb = new PropertyBook();
+        PropertyBook samplePb = new PropertyBook();
         for (Property sampleProperty : getSampleProperties()) {
-            sampleAb.addProperty(sampleProperty);
+            System.out.println(sampleProperty);
+            samplePb.addProperty(sampleProperty);
         }
-        return sampleAb;
+        return samplePb;
     }
     /**
      * Returns a tag set containing the list of strings given.

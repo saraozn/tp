@@ -94,7 +94,7 @@ public class PropertyTest {
     @Test
     public void toStringMethod() {
         String expected = Property.class.getCanonicalName() + "{name=" + AQUAVISTA.getName()
-                + ", phone=" + AQUAVISTA.getPhone() + ", address=" + AQUAVISTA.getAddress()
+                + ", address=" + AQUAVISTA.getAddress() + ", phone=" + AQUAVISTA.getPhone()
                 + ", price=" + AQUAVISTA.getPrice() + ", tags=" + AQUAVISTA.getTags() + "}";
         assertEquals(expected, AQUAVISTA.toString());
     }

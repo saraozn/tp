@@ -171,12 +171,42 @@ When these created command objects are executed by the `LogicManager`, the `Dele
 **Aspect: How the delete commands should relate to each other:**
 
 * **Alternative 1 (current choice):** `DeleteCustomerCommand` and `DeletePropertyCommand` are separate, and both inherit from the `Command` class.
+
+### Editing of buyers and properties
+[Back to top](#table-of-contents)
+
+#### Motivation
+The property agent may want to edit the details of a customer or property after adding it to the application. For example, the property agent may want to change the budget range of a customer after adding it to PropertyMatch.
+Or, the property agent may want to change the price of a property after adding it to PropertyMatch.
+
+#### Implementation
+The `EditCustomerCommand` and `EditPropertyCommand` classes extends the `Command` class. They are used to edit the details of a customer or property, respectively.
+Both commands allow the user to change any of the fields of a customer or property. The commands expect at least one flag to be edited, otherwise an error message will be displayed.
+When the edit command is inputted, the `EditCustomerCommandParser` and `EditPropertyCommandParser` classes are used to parse the user input and create the respective `EditCustomerCommand` and `EditPropertyCommand` objects.
+When these created command objects are executed by the `LogicManager`, the `EditCustomerCommand#execute(Model model)` or `EditPropertyCommand#execute(Model model)` methods are called. These methods will edit the customer or property in the model, and return a `CommandResult` object.
+
+<div markdown="span" class="alert alert-primary">:exclamation: **Note:**
+To be more concise, we will be referring to both customers and properties as entities in this section from here onwards.
+</div>
+
+During this execution process, the existing entity is first retrieved from the model. The fields of the entities are then edited according to what flags were passed in by the user during the edit commands.
+A new customer or property is then created with the edited fields, and any fields that have not been edited will be copied over from the original entity. The new entity is then added to the model, and the original entity is removed from the model.
+The new customer or property is then added into the model, replacing the old one. The new entity will then be displayed to the user, and a success message is displayed.
+
+The following sequence diagram shows how the `EditCustomerCommand` is executed.
+![EditCustomerSequenceDiagram](images/EditCustomerSequenceDiagram.png)
+
+#### Design Considerations
+**Aspect: How the edit commands should relate to each other:**
+
+* **Alternative 1 (current choice):** `EditCustomerCommand` and `EditPropertyCommand` are separate, and both inherit from the `Command` class.
     * Pros:
         * Both the `Customer` and `Property` classes have different fields that are exclusive to each other.
         * This reduces complexity of the system, and unexpected behaviours.
         * The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
     * Cons:
         * More boilerplate code for each of the classes, which increases the size of the codebase.
+
 * **Alternative 2:** A single `DeleteCommand` class is used to edit both customer and property.
     * Cons:
         * Unnecessary complexity is introduced into the system.
@@ -212,6 +242,57 @@ The following sequence diagram shows how the `FindCustomerCommand` is executed.
     * Cons:
         * Unnecessary complexity is introduced into the system.
   
+=======
+* **Alternative 2:** A single `EditCommand` class is used to edit both customer and property.
+    * Cons:
+        * Unnecessary complexity is introduced into the system.
+
+**Aspect: How the edited entities should interact with the model:**
+* We also decided for the edit commands to create a new entity, instead of editing the existing one. This allows us to not include any setters in the `Customer` and `Property` classes, which make the objects immutable, so there is less likelihood of unexpected changes to the object. This enables us to maintain the defensiveness of our code.
+  By creating a new entity every time the property agent edits, we can easily add the new customer or property into the model, and remove the old one. This also allows us to easily undo the edit command in the future, by simply adding the old entity back into the model.
+
+
+### Reset the application with `Clear`
+[Back to top](#table-of-contents)
+
+#### Motivation
+The property agent may want to clear the list of customers or properties to start from a clean slate.
+
+#### Implementation
+The `ClearCommand` extends the `Command` class. It is used to clear the list of customers or properties.
+
+#### Design Considerations
+
+* **Alternative 1:** `ClearPropertyCommand` and `ClearCustomerCommand` are separate, and both inherit from the `Command` class.
+    * Pros:
+        * Allows the property agent to clear only customers or properties.
+        * The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
+    * Cons:
+        * More boilerplate code for each of the classes, which increases the size of the codebase
+        * More commands for the property agent to remember
+* **Alternative 2 (current choice):** A single `ClearCommand` class is used to clear both customers and properties.
+    * Pros:
+        * Less overhead to deal with
+        * Lesser commands for the property agent to remember
+    * Cons:
+        * Unable to clear only customers or properties
+
+
+### Exit with a delay
+[Back to top](#table-of-contents)
+
+#### Motivation
+The property agent should exit the application with a peace of mind. A delay is required for the property agent to read the exit message before the application closes.
+
+#### Implementation
+The `ExitCommand` extends the `Command` class. It is used to close the application and display the goodbye message.
+The following code is used to implement the delay. There are many ways to implement a timeout, but since we are using JavaFX. This is probably the simplest way to accomplish it.
+```
+PauseTransition delay = new PauseTransition(Duration.seconds(3));
+delay.setOnFinished(e -> primaryStage.hide());
+delay.play();
+```
+
 ### \[Proposed\] Undo/redo feature
 
 #### Proposed Implementation
@@ -484,6 +565,8 @@ Actor: Property Agent
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
+* **Customer**: A customer interested in purchasing or investing in properties.
+* **Property**: A property that is listed or accessible in the market.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -511,7 +594,16 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
+### Listing all properties
+
+**Prerequisites**: Property list should be filtered to show a subset of the original list.
+
+1. Test case: `listprop`
+   Expected: Property list should return to its original state containing all properties. "Listed all properties" message should be displayed
+   on the screen.
+
+2. Test case: `listprop 1`, `listprop x`
+   Expected: Same behaviour as above.
 
 ### Deleting a customer
 
@@ -527,13 +619,3 @@ testers are expected to do more *exploratory* testing.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
-
-1. _{ more test cases …​ }_
-
-### Saving data
-
-1. Dealing with missing/corrupted data files
-
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
-
-1. _{ more test cases …​ }_
