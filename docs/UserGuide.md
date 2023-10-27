@@ -181,7 +181,31 @@ When command fails:
 * `Missing property index` for missing parameter
 * `No such property index` for wrong parameter or index beyond list size
 * `Invalid command` for misspelling of command
+### Editing a customer : `editcust`
+Edits an existing customer.
+Format: `editcust INDEX [n/NAME] [ph/PHONE] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​`
+* Edits the customer at the specified `INDEX`. The index refers to the index number shown in the displayed customer list. The index **must be a positive integer** 1, 2, 3, …​
+* At least one of the optional fields must be provided.
+* Existing values will be updated to the input values.
+* When editing tags, the existing tags of the property will be removed i.e adding of tags is not cumulative.
+* You can remove all the person’s tags by typing `c/` without
+  specifying any tags after it.
+  Examples:
+*  `editprop 1 ph/91234567 e/andrew@gmail.com` Edits the phone number and email of the 1st customer to be `91234567` and `andrew@gmail.com` respectively.
+*  `edit 2 n/Andrew c/` Edits the name of the 2nd customer to be `Andrew` and clears all existing tags.
 
+### Editing a property : `editprop`
+Edits an existing property.
+Format: `editprop INDEX [n/NAME] [ph/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERISTIC]…​`
+* Edits the property at the specified `INDEX`. The index refers to the index number shown in the displayed property list. The index **must be a positive integer** 1, 2, 3, …​
+* At least one of the optional fields must be provided.
+* Existing values will be updated to the input values.
+* When editing tags, the existing tags of the property will be removed i.e adding of tags is not cumulative.
+* You can remove all the person’s tags by typing `c/` without
+  specifying any tags after it.
+  Examples:
+*  `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543` Edits the phone number and address of the 1st property to be `91234567` and `43 Clementi Avenue 3 #03-543` respectively.
+*  `edit 2 n/Skyview t/` Edits the name of the 2nd property to be `Skyview` and clears all existing tags.
 ### Finding a customer : `findcust`
 
 Finds and returns a customer or a list of customers whose name contains the substring inputted.
