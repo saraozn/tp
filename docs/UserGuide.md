@@ -117,8 +117,7 @@ When command fails:
 * `Missing name parameter for add customers command` for missing name parameter
 * `Missing phone parameter for add customers command` for missing phone parameter
 * `Missing email parameter for add customers command` for missing email parameter
-* `Invalid Command` for mispelling of command
-
+* `Invalid Command` for misspelling of command
 
 ### Listing all customers : `listcust`
 
@@ -129,7 +128,6 @@ Format: `listcust`
 No additional parameters are needed for this command and they will be ignored if used.
 
 When command succeeds: Customer list will be updated to show all properties in your database.
-
 
 ### Listing all properties : `listprop`
 
@@ -184,6 +182,95 @@ When command fails:
 * `No such property index` for wrong parameter or index beyond list size
 * `Invalid command` for misspelling of command
 
+### Finding a customer : `findcust`
+
+Finds and returns a customer or a list of customers whose name contains the substring inputted.
+
+Format: `findcust String`
+
+* Finds and returns the customer(s) whose name contains the `String` substring.
+* The String must be in the same language as the name, i.e English.
+* The String should only contain the relevant alphabets
+
+Examples:
+* `list` followed by `findcust F` finds and returns the customer(s) with names that begin with "F" in the customer list.
+* `list` followed by `findcust F J` finds and returns the customer(s) with names that begin with "F" and/or "J" in the customer list.
+
+
+When command succeeds:
+* `1 customer listed`
+
+When command fails:
+* `Invalid command format` for missing parameter
+* `Unknown command` for misspelling of command
+
+### Finding a property : `findprop`
+
+Finds and returns a property or a list of properties whose name contains the substring inputted.
+
+Format: `findprop String`
+
+* Finds and returns the property or properties whose name contains the `String` substring.
+* The String must be in the same language as the name, i.e English.
+* The String should only contain the relevant alphabets
+
+Examples:
+* `list` followed by `findprop F` finds and returns the property or properties with names that begin with "F" in the property list.
+* `list` followed by `findprop F J` finds and returns the property or properties with names that begin with "F" and/or "J" in the property list.
+
+
+When command succeeds:
+* `1 property listed`
+
+When command fails:
+* `Invalid command format` for missing parameter
+* `Unknown command` for misspelling of command
+
+### Filter customers : `filtercust`
+
+Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
+
+Parameter:
+* `b/BUDGET` (optional)          : The budget of the customer (Integer)
+* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
+
+Notes:
+* Even though both `BUDGET` and `CHARACTERISTIC` are optional, at least one of them should exist.
+
+Examples:
+* `filtercust b/100000`
+* `filtercust b/250000 c/white`
+* `filtercust c/white`
+
+When command succeeds:
+* `4 customers listed!` when there are 4 customers fulfilling the filter.
+
+When command fails:
+* `Invalid command format!` for missing both `BUDGET` and `CHARACTERISTIC` parameters.
+* `Unknown command` for misspelling of command.
+
+### Filter properties : `filterprop`
+
+Format: `filtercust [pr/PRICE] [c/CHARACTERISTIC]…​`
+
+Parameter:
+* `pr/PRICE` (optional)          : The price of the property (Integer)
+* `c/CHARACTERISTIC` (optional)  : The characteristics of the property (String)
+
+Notes:
+* Even though both `PROPERTY` and `CHARACTERISTIC` are optional, at least one of them should exist.
+
+Examples:
+* `filterprop pr/100000`
+* `filterprop pr/250000 c/white`
+* `filterprop c/white`
+
+When command succeeds:
+* `4 properties listed!` when there are 4 properties fulfilling the filter.
+
+When command fails:
+* `Invalid command format!` for missing both `PRICE` and `CHARACTERISTIC` parameters.
+* `Unknown command` for misspelling of command.
 
 ### Exiting the program : `exit`
 

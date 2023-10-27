@@ -191,7 +191,6 @@ public class ModelManager implements Model {
      */
     @Override
     public ObservableList<Property> getFilteredPropertyList() {
-        System.out.println(filteredProperties);
         return filteredProperties;
     }
 

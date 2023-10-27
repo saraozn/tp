@@ -5,7 +5,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
-import static seedu.address.testutil.TypicalCustomers.ALICE;
+import static seedu.address.testutil.TypicalProperties.AQUAVISTA;
 
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -18,73 +18,73 @@ import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
-import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
+import seedu.address.model.PropertyBook;
 import seedu.address.model.ReadOnlyAddressBook;
 import seedu.address.model.ReadOnlyPropertyBook;
 import seedu.address.model.ReadOnlyUserPrefs;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.property.Property;
-import seedu.address.testutil.CustomerBuilder;
+import seedu.address.testutil.PropertyBuilder;
 
-public class AddCustomerCommandTest {
+public class AddPropertyCommandTest {
 
     @Test
-    public void constructor_nullCustomer_throwsNullPointerException() {
-        assertThrows(NullPointerException.class, () -> new AddCustomerCommand(null));
+    public void constructor_nullProperty_throwsNullPointerException() {
+        assertThrows(NullPointerException.class, () -> new AddPropertyCommand(null));
     }
 
     @Test
-    public void execute_customerAcceptedByModel_addSuccessful() throws Exception {
-        ModelStubAcceptingCustomerAdded modelStub = new ModelStubAcceptingCustomerAdded();
-        Customer validCustomer = new CustomerBuilder().build();
+    public void execute_propertyAcceptedByModel_addSuccessful() throws Exception {
+        ModelStubAcceptingPropertyAdded modelStub = new ModelStubAcceptingPropertyAdded();
+        Property validProperty = new PropertyBuilder().build();
 
-        CommandResult commandResult = new AddCustomerCommand(validCustomer).execute(modelStub);
+        CommandResult commandResult = new AddPropertyCommand(validProperty).execute(modelStub);
 
-        assertEquals(String.format(AddCustomerCommand.MESSAGE_SUCCESS, Messages.format(validCustomer)),
+        assertEquals(String.format(AddPropertyCommand.MESSAGE_SUCCESS, Messages.format(validProperty)),
                 commandResult.getFeedbackToUser());
-        assertEquals(Arrays.asList(validCustomer), modelStub.customersAdded);
+        assertEquals(Arrays.asList(validProperty), modelStub.propertiesAdded);
     }
 
     @Test
-    public void execute_duplicateCustomer_throwsCommandException() {
-        Customer validCustomer = new CustomerBuilder().build();
-        AddCustomerCommand addCustomerCommand = new AddCustomerCommand(validCustomer);
-        ModelStub modelStub = new ModelStubWithCustomer(validCustomer);
+    public void execute_duplicateProperty_throwsCommandException() {
+        Property validProperty = new PropertyBuilder().build();
+        AddPropertyCommand addPropertyCommand = new AddPropertyCommand(validProperty);
+        ModelStub modelStub = new ModelStubWithProperty(validProperty);
 
-        assertThrows(CommandException.class, AddCustomerCommand.MESSAGE_DUPLICATE_CUSTOMER, ()
-                -> addCustomerCommand.execute(modelStub));
+        assertThrows(CommandException.class, AddPropertyCommand.MESSAGE_DUPLICATE_PROPERTY, ()
+                -> addPropertyCommand.execute(modelStub));
     }
 
     @Test
     public void equals() {
-        Customer alice = new CustomerBuilder().withName("Alice").build();
-        Customer bob = new CustomerBuilder().withName("Bob").build();
-        AddCustomerCommand addAliceCommand = new AddCustomerCommand(alice);
-        AddCustomerCommand addBobCommand = new AddCustomerCommand(bob);
+        Property aquavista = new PropertyBuilder().withName("Aquavista").build();
+        Property skyvista = new PropertyBuilder().withName("Skyvista").build();
+        AddPropertyCommand addAquavistaCommand = new AddPropertyCommand(aquavista);
+        AddPropertyCommand addSkyvistaCommand = new AddPropertyCommand(skyvista);
 
         // same object -> returns true
-        assertTrue(addAliceCommand.equals(addAliceCommand));
+        assertTrue(addAquavistaCommand.equals(addAquavistaCommand));
 
         // same values -> returns true
-        AddCustomerCommand addAliceCommandCopy = new AddCustomerCommand(alice);
-        assertTrue(addAliceCommand.equals(addAliceCommandCopy));
+        AddPropertyCommand addAquavistaCommandCopy = new AddPropertyCommand(aquavista);
+        assertTrue(addAquavistaCommand.equals(addAquavistaCommandCopy));
 
         // different types -> returns false
-        assertFalse(addAliceCommand.equals(1));
+        assertFalse(addAquavistaCommand.equals(1));
 
         // null -> returns false
-        assertFalse(addAliceCommand.equals(null));
+        assertFalse(addAquavistaCommand.equals(null));
 
-        // different customer -> returns false
-        assertFalse(addAliceCommand.equals(addBobCommand));
+        // different property -> returns false
+        assertFalse(addAquavistaCommand.equals(addSkyvistaCommand));
     }
 
     @Test
     public void toStringMethod() {
-        AddCustomerCommand addCustomerCommand = new AddCustomerCommand(ALICE);
-        String expected = AddCustomerCommand.class.getCanonicalName() + "{toAdd=" + ALICE + "}";
-        assertEquals(expected, addCustomerCommand.toString());
+        AddPropertyCommand addPropertyCommand = new AddPropertyCommand(AQUAVISTA);
+        String expected = AddPropertyCommand.class.getCanonicalName() + "{toAdd=" + AQUAVISTA + "}";
+        assertEquals(expected, addPropertyCommand.toString());
     }
 
     /**
@@ -189,6 +189,7 @@ public class AddCustomerCommandTest {
             throw new AssertionError("This method should not be called.");
         }
 
+
         @Override
         public ObservableList<Customer> getFilteredCustomerList() {
             throw new AssertionError("This method should not be called.");
@@ -211,44 +212,44 @@ public class AddCustomerCommandTest {
     }
 
     /**
-     * A Model stub that contains a single customer.
+     * A Model stub that contains a single Property.
      */
-    private class ModelStubWithCustomer extends ModelStub {
-        private final Customer customer;
+    private class ModelStubWithProperty extends ModelStub {
+        private final Property property;
 
-        ModelStubWithCustomer(Customer customer) {
-            requireNonNull(customer);
-            this.customer = customer;
+        ModelStubWithProperty(Property property) {
+            requireNonNull(property);
+            this.property = property;
         }
 
         @Override
-        public boolean hasCustomer(Customer customer) {
-            requireNonNull(customer);
-            return this.customer.isSameCustomer(customer);
+        public boolean hasProperty(Property property) {
+            requireNonNull(property);
+            return this.property.isSameProperty(property);
         }
     }
 
     /**
-     * A Model stub that always accept the customer being added.
+     * A Model stub that always accept the Property being added.
      */
-    private class ModelStubAcceptingCustomerAdded extends ModelStub {
-        final ArrayList<Customer> customersAdded = new ArrayList<>();
+    private class ModelStubAcceptingPropertyAdded extends ModelStub {
+        final ArrayList<Property> propertiesAdded = new ArrayList<>();
 
         @Override
-        public boolean hasCustomer(Customer customer) {
-            requireNonNull(customer);
-            return customersAdded.stream().anyMatch(customer::isSameCustomer);
+        public boolean hasProperty(Property property) {
+            requireNonNull(property);
+            return propertiesAdded.stream().anyMatch(property::isSameProperty);
         }
 
         @Override
-        public void addCustomer(Customer customer) {
-            requireNonNull(customer);
-            customersAdded.add(customer);
+        public void addProperty(Property property) {
+            requireNonNull(property);
+            propertiesAdded.add(property);
         }
 
         @Override
-        public ReadOnlyAddressBook getAddressBook() {
-            return new AddressBook();
+        public ReadOnlyPropertyBook getPropertyBook() {
+            return new PropertyBook();
         }
     }
 

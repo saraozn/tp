@@ -1,13 +1,13 @@
 package seedu.address.logic.parser;
 
-import org.junit.jupiter.api.Test;
-import seedu.address.logic.commands.DeleteCustomerCommand;
-
 import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseFailure;
 import static seedu.address.logic.parser.CommandParserTestUtil.assertParseSuccess;
 import static seedu.address.testutil.TypicalIndexes.INDEX_FIRST_CUSTOMER;
 
+import org.junit.jupiter.api.Test;
+
+import seedu.address.logic.commands.DeleteCustomerCommand;
 /**
  * As we are only doing white-box testing, our test cases do not cover path variations
  * outside of the DeleteCustomerCommand code. For example, inputs "1" and "1 abc" take the
@@ -26,6 +26,7 @@ public class DeleteCustomerCommandParserTest {
 
     @Test
     public void parse_invalidArgs_throwsParseException() {
-        assertParseFailure(parser, "a", String.format(MESSAGE_INVALID_COMMAND_FORMAT, DeleteCustomerCommand.MESSAGE_USAGE));
+        assertParseFailure(parser, "a", String.format(MESSAGE_INVALID_COMMAND_FORMAT,
+                DeleteCustomerCommand.MESSAGE_USAGE));
     }
 }
