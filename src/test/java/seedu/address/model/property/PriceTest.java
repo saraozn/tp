@@ -48,6 +48,21 @@ public class PriceTest {
     }
 
     @Test
+    public void isInRangeBudget() {
+        // null price
+        assertTrue(new Price(VALID_PRICE).isInRangePrice(null));
+
+        // smaller price
+        assertFalse(new Price(LONG_VALID_PRICE).isInRangePrice(new Price(VALID_PRICE)));
+
+        // same price
+        assertTrue(new Price(VALID_PRICE).isInRangePrice(new Price(VALID_PRICE)));
+
+        // bigger price
+        assertTrue(new Price(VALID_PRICE).isInRangePrice(new Price(LONG_VALID_PRICE)));
+    }
+
+    @Test
     public void equals() {
         Price price = new Price(VALID_PRICE);
 
