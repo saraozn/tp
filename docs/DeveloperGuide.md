@@ -175,9 +175,6 @@ During this execution process, the existing entity is first retrieved from the m
 A new customer or property is then created with the edited fields, and any fields that have not been edited will be copied over from the original entity. The new entity is then added to the model, and the original entity is removed from the model.
 The new customer or property is then added into the model, replacing the old one. The new entity will then be displayed to the user, and a success message is displayed.
 
-The following sequence diagram shows how the `EditCustomerCommand` is executed.
-![EditCustomerSequenceDiagram](images/EditCustomerSequenceDiagram.png)
-
 #### Design Considerations
 **Aspect: How the edit commands should relate to each other:**
 
@@ -196,6 +193,13 @@ The following sequence diagram shows how the `EditCustomerCommand` is executed.
 * We also decided for the edit commands to create a new entity, instead of editing the existing one. This allows us to not include any setters in the `Customer` and `Property` classes, which make the objects immutable, so there is less likelihood of unexpected changes to the object. This enables us to maintain the defensiveness of our code.
   By creating a new entity every time the property agent edits, we can easily add the new customer or property into the model, and remove the old one. This also allows us to easily undo the edit command in the future, by simply adding the old entity back into the model.
 
+The following sequence diagram shows how the `EditCustomerCommand` is executed.
+
+![EditCustomerSequenceDiagram](images/EditCustomerSequenceDiagram.png)
+
+The following sequence diagram shows how the `EditPropertyCommand` is executed.
+
+![EditPropertySequenceDiagram](images/EditPropertySequenceDiagram.png)
 ### Deleting of customers and properties
 [Back to top](#table-of-contents)
 
@@ -218,7 +222,14 @@ When these created command objects are executed by the `LogicManager`, the `Dele
 * **Alternative 2:** A single `DeleteCommand` class is used to edit both customer and property.
     * Cons:
         * Unnecessary complexity is introduced into the system.
+      
+The following sequence diagram shows how the `DeleteCustomerCommand` is executed.
 
+![DeleteCustomerSequenceDiagram](images/DeleteCustomerSequenceDiagram.png)
+
+The following sequence diagram shows how the `DeletePropertyCommand` is executed.
+
+![DeletePropertySequenceDiagram](images/DeletePropertySequenceDiagram.png)
 ### Finding of Customers and Properties
 [Back to top](#table-of-contents)
 
