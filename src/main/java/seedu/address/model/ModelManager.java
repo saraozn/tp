@@ -7,7 +7,6 @@ import java.nio.file.Path;
 import java.util.function.Predicate;
 import java.util.logging.Logger;
 
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import javafx.collections.ObservableList;
 import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
@@ -187,7 +186,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void updateMatchedCustomerList(Customer targetCustomer,  Predicate<Property> predicate) {
+    public void updateMatchedCustomerList(Customer targetCustomer, Predicate<Property> predicate) {
         requireAllNonNull(targetCustomer, predicate);
         Predicate<Customer> custPredicate = new SameCustomerPredicate(targetCustomer);
         filteredCustomers.setPredicate(custPredicate);
@@ -212,7 +211,7 @@ public class ModelManager implements Model {
     }
 
     @Override
-    public void updateMatchedPropertyList(Property targetProperty,  Predicate<Customer> predicate) {
+    public void updateMatchedPropertyList(Property targetProperty, Predicate<Customer> predicate) {
         requireAllNonNull(targetProperty, predicate);
         Predicate<Property> propPredicate = new SamePropertyPredicate(targetProperty);
         filteredProperties.setPredicate(propPredicate);

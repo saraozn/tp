@@ -3,7 +3,6 @@ package seedu.address.model;
 import java.nio.file.Path;
 import java.util.function.Predicate;
 
-import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.customer.Customer;

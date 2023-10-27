@@ -1,10 +1,10 @@
 package seedu.address.model.customer;
 
-import seedu.address.model.property.Price;
-
 import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
+
+import seedu.address.model.property.Price;
 
 /**
  * Represents a Customer's budget in the address book.
@@ -53,7 +53,7 @@ public class Budget {
      *
      * @return a Price object that have the same amount with the budget.
      */
-    public Price ConvertToPrice() {
+    public Price convertToPrice() {
         return new Price(value);
     }
     @Override

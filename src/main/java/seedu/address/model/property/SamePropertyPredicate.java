@@ -3,7 +3,6 @@ package seedu.address.model.property;
 import java.util.function.Predicate;
 
 import seedu.address.commons.util.ToStringBuilder;
-import seedu.address.model.property.Property;
 
 /**
  * Tests that a {@code Customer} is same with the given customer.

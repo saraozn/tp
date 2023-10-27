@@ -1,8 +1,9 @@
 package seedu.address.logic.commands;
 
 import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_BUDGET;
-import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+
+import java.util.List;
+import java.util.Set;
 
 import seedu.address.commons.core.index.Index;
 import seedu.address.commons.util.ToStringBuilder;
@@ -10,16 +11,10 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.customer.Budget;
-import seedu.address.model.customer.BudgetAndTagsInRangePredicate;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.property.Price;
 import seedu.address.model.property.PriceAndTagsInRangePredicate;
-import seedu.address.model.property.Property;
 import seedu.address.model.tag.Tag;
-
-import java.util.List;
-import java.util.Set;
-import java.util.function.Predicate;
 
 /**
  * Match all properties in the property book to the user based on specific tags
@@ -52,7 +47,7 @@ public class MatchCustomerCommand extends Command {
         Budget budget = targetCustomer.getBudget();
         Set<Tag> tags = targetCustomer.getTags();
 
-        Price maxPrice = budget.ConvertToPrice();
+        Price maxPrice = budget.convertToPrice();
         PriceAndTagsInRangePredicate predicate = new PriceAndTagsInRangePredicate(maxPrice, tags);
 
         model.updateMatchedCustomerList(targetCustomer, predicate);
