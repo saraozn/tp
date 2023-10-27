@@ -74,7 +74,8 @@ Parameter:
 * `a/ADDRESS`		             : The propAddress of the property (String)
 * `c/CHARACTERISTIC` (Optional)  : The characteristics of the property (String)
 * `ph/NUMBER`                    : The contact number (Integer)
-* `pr/PRICE`                     : The price of the property in psf (Number)                                  : The price of the property in psf (Number)
+* `pr/PRICE`                     : The price of the property in psf (Number)
+
 
 Examples:
 * addprop n/Fredy a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5
@@ -313,12 +314,12 @@ When command fails: Invalid command for misspelling of command
 
 ## Command summary
 
-| Action       | Format, Examples                                                                                                                                         |
-|--------------|----------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Addprop**  | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/price` <br> e.g., `addprop n/Fredy a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5` |
-| **Addcust**  | `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`                |
-| **Delprop**  | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                    |
-| **Delcust**  | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                    |
-| **Listprop** | `listprop`                                                                                                                                               |
-| **Listcust** | `listcust`                                                                                                                                               |
-| **Exit** | `exit`|
+| Action       | Format, Examples                                                                                                                                            |
+|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Addprop**  | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/price` <br> e.g., `addprop n/Property a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5` |
+| **Addcust**  | `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`                   |
+| **Delprop**  | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                       |
+| **Delcust**  | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                       |
+| **Listprop** | `listprop`                                                                                                                                                  |
+| **Listcust** | `listcust`                                                                                                                                                  |
+| **Exit** | `exit`                                                                                                                                                      |

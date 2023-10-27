@@ -320,6 +320,39 @@ All properties will be tested using this `PriceAndTagsInRangePredicate`. Propert
 **Aspect: How the filtered properties should interact with the model:**
 * We also decided for the filter commands to put the filtered properties in a different list (`FilteredPropertyList`), instead of removing the 'unused' properties from the model.
 
+### Matching for Customers and Properties
+[Back to top](#table-of-contents)
+
+#### Motivation
+The property agent may want to get all properties that satisfy the customers criteria or get all customers that want the properties characteristics. For example, the property agent want to get all properties that certain specified customer want and can afford.
+Or, the property agent want to get all customers that might want to buy certain specified property.
+
+#### Implementation
+The `MatchCustomerCommand` and `MatchPropertyCommand` classes extends the `Command` class.
+They are used to match the details of a customer or property, respectively.
+The command expects exactly one "Index" of the customer or property to be match, otherwise an error message will be displayed.
+When the match command is inputted, the `MatchCustomerCommandParser` or `MatchPropertyCommandParser` classes are used to parse the user input and create the `MatchCustomerCommand` or `MacthPropertyCommand` objects respectively.
+When these created command objects are executed by the `Logic Manager`, the `MatchCustomerCommand#execute(Model model)` or `MatchProeprtyCommand#execute(Model model)` method is called.
+These methods will match the customer or property in the model, and return a `ComandResult` object.
+
+The following sequence diagram shows how the `MatchCustomerCommand` is executed.
+![MatchCustomerSequenceDiagram](images/MatchCustomerSequenceDiagram.png)
+
+#### Design Consideration
+
+* *Alternative 1 (current choice):* `MatchPropertyCommand` and `MatchCustomerCommand` are separate, and both inherit from the `Command` class.
+    * Pros:
+        * Allows the property agent to match only customers or properties.
+        * The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
+    * Cons:
+        * More code for each of the classes, which increases the size of the codebase
+        * More commands for the property agent to remember
+* *Alternative 2:* A single `MacthCommand` class is used to match both customers and properties.
+    * Pros:
+        * Lesser commands for the property agent to remember
+    * Cons:
+        * Unable to match only customers or properties without specify it which increase the complexity of the commands
+
 ### Reset the application with `Clear`
 [Back to top](#table-of-contents)
 
@@ -359,7 +392,6 @@ PauseTransition delay = new PauseTransition(Duration.seconds(3));
 delay.setOnFinished(e -> primaryStage.hide());
 delay.play();
 ```
-
 
 ### \[Proposed\] Undo/redo feature
 
@@ -514,6 +546,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user with a lot of properties                          | find properties based on properties' details        | access specific properties with the detail                                    |
 | `* *`    | user with a lot of customers                           | filter customers based on customers' details        | get a list of specific customers with the detail                              |
 | `* *`    | user with a lot of properties                          | filter properties based on properties' details      | get a list of specific properties with the detail                             |
+| `* *`    | user with a lot of customers                           | get properties based on customers' details          | get a list of specific properties with the detail satisfy the customer        |
+| `* *`    | user with a lot of properties                          | get customers based on properties' details          | get a list of specific customers with the detail satisfy the property         |
 | `*`      | user                                                   | add notes to customers' profiles                    | streamline customer management profile                                        |
 | `*`      | user                                                   | add notes to properties' profiles                   | streamline customer property profile                                          |
 | `*`      | experienced user using the application with new device | import and export customers' data                   | transfer customers' data across devices                                       |
@@ -594,7 +628,17 @@ Actor: Property Agent
 2. Property agent enters the characteristics of the properties into the CLI
 3. Property agent views the properties that adheres to the conditions given
 
-**Use Case: UC08 - Find specific entity**
+**Use Case: UC08 - Match customers to properties**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent identifies the characteristics the customers want that belong to properties
+2. Property agent enters the characteristics of the customers into the CLI
+3. Property agent views the customers that adheres to the conditions given
+
+**Use Case: UC09 - Find specific entity**
 
 System: PropertyMatch address book
 
@@ -604,7 +648,7 @@ Actor: Property Agent
 2. Property agent enters the entity index he wants
 3. Property agent views the entity
 
-**Use Case: UC09 - Import and export data**
+**Use Case: UC10 - Import and export data**
 
 System: PropertyMatch address book
 
