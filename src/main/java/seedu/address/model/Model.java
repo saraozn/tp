@@ -3,6 +3,7 @@ package seedu.address.model;
 import java.nio.file.Path;
 import java.util.function.Predicate;
 
+import com.fasterxml.jackson.databind.annotation.JsonAppend;
 import javafx.collections.ObservableList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.model.customer.Customer;
@@ -141,4 +142,16 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPropertyList(Predicate<Property> predicate);
+
+    /**
+     * Deletes the given customer.
+     * The customer must exist in the address book.
+     */
+    void updateMatchedCustomerList(Customer targetCustomer, Predicate<Property> predicate);
+
+    /**
+     * Deletes the given property.
+     * The property must exist in the PropertyMatch.
+     */
+    void updateMatchedPropertyList(Property targetProperty, Predicate<Customer> predicate);
 }

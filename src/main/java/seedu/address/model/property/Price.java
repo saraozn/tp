@@ -1,5 +1,7 @@
 package seedu.address.model.property;
 
+import seedu.address.model.customer.Budget;
+
 import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
@@ -46,6 +48,14 @@ public class Price {
         return isNull(other) || amount <= other.amount;
     }
 
+    /**
+     * Convert the price to a budget object.
+     *
+     * @return a budget object that have the same amount with the price.
+     */
+    public Budget ConvertToBudget() {
+        return new Budget(value);
+    }
     @Override
     public String toString() {
         return "$" + value;

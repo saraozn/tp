@@ -1,5 +1,7 @@
 package seedu.address.model.customer;
 
+import seedu.address.model.property.Price;
+
 import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
@@ -37,7 +39,7 @@ public class Budget {
     }
 
     /**
-     * Returns true if the other budget is greater or equal this budget
+     * Returns true if the other budget is greater or equal this budget.
      *
      * @param other the other budget being compared
      * @return whether the other budget is greater or equal to this budget
@@ -46,6 +48,14 @@ public class Budget {
         return isNull(other) || amount >= other.amount;
     }
 
+    /**
+     * Convert the budget to a price object.
+     *
+     * @return a Price object that have the same amount with the budget.
+     */
+    public Price ConvertToPrice() {
+        return new Price(value);
+    }
     @Override
     public String toString() {
         return "$" + value;
