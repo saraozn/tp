@@ -162,7 +162,7 @@ The property agent may want to get all properties that satisfy the customers cri
 Or, the property agent want to get all customers that might want to buy certain specified property.
 
 #### Implementation
-The `MatchCustomerCommand` and `MacthPropertyCommand` classes extends the `Command` class.
+The `MatchCustomerCommand` and `MatchPropertyCommand` classes extends the `Command` class.
 They are used to match the details of a customer or property, respectively.
 The command expects exactly one "Index" of the customer or property to be match, otherwise an error message will be displayed.
 When the match command is inputted, the `MatchCustomerCommandParser` or `MatchPropertyCommandParser` classes are used to parse the user input and create the `MatchCustomerCommand` or `MacthPropertyCommand` objects respectively.
