@@ -116,8 +116,7 @@ When command fails:
 * `Missing name parameter for add customers command` for missing name parameter
 * `Missing phone parameter for add customers command` for missing phone parameter
 * `Missing email parameter for add customers command` for missing email parameter
-* `Invalid Command` for mispelling of command
-
+* `Invalid Command` for misspelling of command
 
 ### Listing all customers : `listcust`
 
@@ -128,7 +127,6 @@ Format: `listcust`
 No additional parameters are needed for this command and they will be ignored if used.
 
 When command succeeds: Customer list will be updated to show all properties in your database.
-
 
 ### Listing all properties : `listprop`
 
@@ -226,6 +224,52 @@ When command succeeds:
 When command fails:
 * `Invalid command format` for missing parameter
 * `Unknown command` for misspelling of command
+
+### Filter customers : `filtercust`
+
+Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
+
+Parameter:
+* `b/BUDGET` (optional)          : The budget of the customer (Integer)
+* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
+
+Notes:
+* Even though both `BUDGET` and `CHARACTERISTIC` are optional, at least one of them should exist.
+
+Examples:
+* `filtercust b/100000`
+* `filtercust b/250000 c/white`
+* `filtercust c/white`
+
+When command succeeds:
+* `4 customers listed!` when there are 4 customers fulfilling the filter.
+
+When command fails:
+* `Invalid command format!` for missing both `BUDGET` and `CHARACTERISTIC` parameters.
+* `Unknown command` for misspelling of command.
+
+### Filter properties : `filterprop`
+
+Format: `filtercust [pr/PRICE] [c/CHARACTERISTIC]…​`
+
+Parameter:
+* `pr/PRICE` (optional)          : The price of the property (Integer)
+* `c/CHARACTERISTIC` (optional)  : The characteristics of the property (String)
+
+Notes:
+* Even though both `PROPERTY` and `CHARACTERISTIC` are optional, at least one of them should exist.
+
+Examples:
+* `filterprop pr/100000`
+* `filterprop pr/250000 c/white`
+* `filterprop c/white`
+
+When command succeeds:
+* `4 properties listed!` when there are 4 properties fulfilling the filter.
+
+When command fails:
+* `Invalid command format!` for missing both `PRICE` and `CHARACTERISTIC` parameters.
+* `Unknown command` for misspelling of command.
 
 ### Exiting the program : `exit`
 

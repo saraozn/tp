@@ -48,6 +48,21 @@ public class BudgetTest {
     }
 
     @Test
+    public void isInRangeBudget() {
+        // null budget
+        assertTrue(new Budget(VALID_BUDGET).isInRangeBudget(null));
+
+        // smaller budget
+        assertTrue(new Budget(LONG_VALID_BUDGET).isInRangeBudget(new Budget(VALID_BUDGET)));
+
+        // same budget
+        assertTrue(new Budget(VALID_BUDGET).isInRangeBudget(new Budget(VALID_BUDGET)));
+
+        // bigger budget
+        assertFalse(new Budget(VALID_BUDGET).isInRangeBudget(new Budget(LONG_VALID_BUDGET)));
+    }
+
+    @Test
     public void equals() {
         Budget budget = new Budget(VALID_BUDGET);
 
