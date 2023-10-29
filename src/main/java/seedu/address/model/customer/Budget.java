@@ -1,5 +1,6 @@
 package seedu.address.model.customer;
 
+import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
@@ -17,7 +18,7 @@ public class Budget {
     public final String value;
 
     /**
-     * Constructs a {@code Phone}.
+     * Constructs a {@code Budget}.
      *
      * @param budget A valid budget number.
      */
@@ -33,6 +34,16 @@ public class Budget {
      */
     public static boolean isValidBudget(String test) {
         return test.matches(VALIDATION_REGEX);
+    }
+
+    /**
+     * Returns true if the other budget is greater or equal this budget
+     *
+     * @param other the other budget being compared
+     * @return whether the other budget is greater or equal to this budget
+     */
+    public boolean isInRangeBudget(Budget other) {
+        return isNull(other) || amount >= other.amount;
     }
 
     @Override

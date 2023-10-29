@@ -154,24 +154,6 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### Deleting of customers and properties
-[Back to top](#table-of-contents)
-
-#### Motivation
-The property agent may want to delete the profile of any customer or property that has been previously added into the app. For example, the property agent might want to remove a particular property after it has been sold.
-Or, a particular client is no longer interested in buying a house anymore.
-
-#### Implementation
-The `DeleteCustomerCommand` and `DeletePropertyComannd` classes extends from the `Command` class. They are used to delete the details of a Customer or Property respectively. The command expects exactly one `INDEX` of the Customer or Property to be deleted, otherwise and error message will be displayed.
-When the delete command is inputted, the `DeleteCustomerCommandParser` and `DeletePropertyCommandParser` classes are used to parse the user input and create the `DeleteCustomerCommand` and `DeletePropertyCommand` objects respectively.
-When these created command objects are executed by the `LogicManager`, the `DeleteCustomerCommand#execute(Model model)` or `DeletePropertyCommand#execute(Model model)` methods are called. These methods will delete the customer or property in the model, and return a `CommandResult` object.
-
-
-#### Design Considerations
-**Aspect: How the delete commands should relate to each other:**
-
-* **Alternative 1 (current choice):** `DeleteCustomerCommand` and `DeletePropertyCommand` are separate, and both inherit from the `Command` class.
-
 ### Editing of buyers and properties
 [Back to top](#table-of-contents)
 
@@ -193,9 +175,6 @@ During this execution process, the existing entity is first retrieved from the m
 A new customer or property is then created with the edited fields, and any fields that have not been edited will be copied over from the original entity. The new entity is then added to the model, and the original entity is removed from the model.
 The new customer or property is then added into the model, replacing the old one. The new entity will then be displayed to the user, and a success message is displayed.
 
-The following sequence diagram shows how the `EditCustomerCommand` is executed.
-![EditCustomerSequenceDiagram](images/EditCustomerSequenceDiagram.png)
-
 #### Design Considerations
 **Aspect: How the edit commands should relate to each other:**
 
@@ -206,17 +185,56 @@ The following sequence diagram shows how the `EditCustomerCommand` is executed.
         * The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
     * Cons:
         * More boilerplate code for each of the classes, which increases the size of the codebase.
+* **Alternative 2:** A single `EditCommand` class is used to edit both customer and property.
+    * Cons:
+        * Unnecessary complexity is introduced into the system.
+
+**Aspect: How the edited entities should interact with the model:**
+* We also decided for the edit commands to create a new entity, instead of editing the existing one. This allows us to not include any setters in the `Customer` and `Property` classes, which make the objects immutable, so there is less likelihood of unexpected changes to the object. This enables us to maintain the defensiveness of our code.
+  By creating a new entity every time the property agent edits, we can easily add the new customer or property into the model, and remove the old one. This also allows us to easily undo the edit command in the future, by simply adding the old entity back into the model.
+
+The following sequence diagram shows how the `EditCustomerCommand` is executed.
+
+![EditCustomerSequenceDiagram](images/EditCustomerSequenceDiagram.png)
+
+The following sequence diagram shows how the `EditPropertyCommand` is executed.
+
+![EditPropertySequenceDiagram](images/EditPropertySequenceDiagram.png)
+### Deleting of customers and properties
+[Back to top](#table-of-contents)
+
+#### Motivation
+The property agent may want to delete the profile of any customer or property that has been previously added into the app. For example, the property agent might want to remove a particular property after it has been sold.
+Or, a particular client is no longer interested in buying a house anymore.
+
+#### Implementation
+The `DeleteCustomerCommand` and `DeletePropertyComannd` classes extends from the `Command` class. They are used to delete the details of a Customer or Property respectively. The command expects exactly one `INDEX` of the Customer or Property to be deleted, otherwise an error message will be displayed.
+When the delete command is inputted, the `DeleteCustomerCommandParser` and `DeletePropertyCommandParser` classes are used to parse the user input and create the `DeleteCustomerCommand` or `DeletePropertyCommand` objects respectively.
+
+When these created command objects are executed by the `LogicManager`, the `DeleteCustomerCommand#execute(Model model)` or `DeletePropertyCommand#execute(Model model)` methods are called. These methods will delete the customer or property in the model, and return a `CommandResult` object.
+
+#### Design Considerations
+**Aspect: How the delete commands should relate to each other:**
+
+* **Alternative 1 (current choice):** `DeleteCustomerCommand` and `DeletePropertyCommand` are separate, and both inherit from the `Command` class.
+
 
 * **Alternative 2:** A single `DeleteCommand` class is used to edit both customer and property.
     * Cons:
         * Unnecessary complexity is introduced into the system.
+      
+The following sequence diagram shows how the `DeleteCustomerCommand` is executed.
 
+![DeleteCustomerSequenceDiagram](images/DeleteCustomerSequenceDiagram.png)
 
+The following sequence diagram shows how the `DeletePropertyCommand` is executed.
+
+![DeletePropertySequenceDiagram](images/DeletePropertySequenceDiagram.png)
 ### Finding of Customers and Properties
 [Back to top](#table-of-contents)
 
 #### Motivation
-The property agent may want to find and access the details of a particular Customer or Property that has been previously added into the app. For example, the property agent may want to refresh their memory on a particular customer's budget. Or the property agent may want to check the details of a particular property. 
+The property agent may want to find and access the details of a particular Customer or Property that has been previously added into the app. For example, the property agent may want to refresh their memory on a particular customer's budget. Or the property agent may want to check the details of a particular property.
 
 #### Implementation
 The `FindCustomerCommand` and `FindPropertyCommand` classes extends the `Command` class. They are used to find the profiles of a customer or property, respectively.
@@ -241,16 +259,110 @@ The following sequence diagram shows how the `FindCustomerCommand` is executed.
 * **Alternative 2:** A single `FindCommand` class is used to find both customer and property.
     * Cons:
         * Unnecessary complexity is introduced into the system.
-  
-=======
-* **Alternative 2:** A single `EditCommand` class is used to edit both customer and property.
+
+### Filtering of customers
+[Back to top](#table-of-contents)
+
+#### Motivation
+The property agent may want to see a list of customers based on their budget. For example, the property agent may want to filter customers with budget more than $100000.
+Or, the property agent may want to see a list of customers based on the characteristics of the property they desired. For example, the property agent may want to filter customers who love pink properties.
+Or, the property agent may want to see a list of customers based on both budget and characteristics to enhance productivity.
+
+#### Implementation
+The `FilterCustomerCommand` class extends the `Command` class. They are used to filter customers.
+The command allows the user to filter customers based on their budget and/or properties' characteristics they love. The commands expect at least one flag, either budget or characteristics, to be used as a filter.
+When the filter command is inputted, the `FilterCustomerCommandParser` class is used to parse the user input and create the respective `FilterCustomerCommand` objects.
+When these created command objects are executed by the `LogicManager`, the `FilterCustomerCommand#execute(Model model)` methods are called. These methods will update the filtered customer list in the `model` which will eventually update the customers shown in the UI, and return a `CommandResult` object.
+
+During this execution process, a new `BudgetAndTagsInRangePredicate` object which is used as a predicate to check whether a customer's budget is higher and if all the characteristics are desired by the customer.
+All customers will be tested using this `BudgetAndTagsInRangePredicate`. Customers which satisfy this condition will be included into the `FilteredCustomerList` in the model.
+
+The following sequence diagram shows how the `FilterCustomerCommand` is executed.
+![FilterCustomerSequenceDiagram](images/FilterCustomerSequenceDiagram.png)
+
+#### Design Considerations
+**Aspect: How the filter customer commands should relate to filter property commands:**
+
+* **Alternative 1 (current choice):** `FilterCustomerCommand`  inherit from the `Command` class and separated with the command used to filter properties (`FilterPropertyCommand`).
+    * Pros:
+        * Both the `Customer` and `Property` classes have different fields that are exclusive to each other.
+        * This reduces complexity of the system, and unexpected behaviours.
+        * The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
+    * Cons:
+        * More boilerplate code for each of the classes, which increases the size of the codebase.
+* **Alternative 2:** A single `FilterCommand` class is used to edit both customer and property.
     * Cons:
         * Unnecessary complexity is introduced into the system.
 
-**Aspect: How the edited entities should interact with the model:**
-* We also decided for the edit commands to create a new entity, instead of editing the existing one. This allows us to not include any setters in the `Customer` and `Property` classes, which make the objects immutable, so there is less likelihood of unexpected changes to the object. This enables us to maintain the defensiveness of our code.
-  By creating a new entity every time the property agent edits, we can easily add the new customer or property into the model, and remove the old one. This also allows us to easily undo the edit command in the future, by simply adding the old entity back into the model.
+**Aspect: How the filtered customers should interact with the model:**
+* We also decided for the filter commands to put the filtered customers in a different list (`FilteredCustomerList`), instead of removing the 'unused' customers from the model.
 
+### Filtering of properties
+[Back to top](#table-of-contents)
+
+#### Motivation
+The property agent may want to see a list of properties based on their budget. For example, the property agent may want to filter properties with price less than $1000000.
+Or, the property agent may want to see a list of properties based on the characteristics. For example, the property agent may want to filter pink properties.
+Or, the property agent may want to see a list of properties based on both price and characteristics to enhance productivity.
+
+#### Implementation
+The `FilterPropertyCommand` class extends the `Command` class. They are used to filter properties.
+The command allows the user to filter properties based on their price and/or characteristics. The commands expect at least one flag, either price or characteristics, to be used as a filter.
+When the filter command is inputted, the `FilterPropertyCommandParser` class is used to parse the user input and create the respective `FilterPropertyCommand` objects.
+When these created command objects are executed by the `LogicManager`, the `FilterPropertyCommand#execute(Model model)` methods are called. These methods will update the filtered property list in the `model` which will eventually update the properties shown in the UI, and return a `CommandResult` object.
+
+During this execution process, a new `PriceAndTagsInRangePredicate` object which is used as a predicate to check whether a property's price is lower and if the property has all the characteristics.
+All properties will be tested using this `PriceAndTagsInRangePredicate`. Properties which satisfy this condition will be included into the `FilteredPropertyList` in the model.
+
+#### Design Considerations
+**Aspect: How the filter property commands should relate to filter property commands:**
+
+* **Alternative 1 (current choice):** `FilterPropertyCommand`  inherit from the `Command` class and separated with the command used to filter customers (`FilterCustomerCommand`).
+    * Pros:
+        * Both the `Customer` and `Property` classes have different fields that are exclusive to each other.
+        * This reduces complexity of the system, and unexpected behaviours.
+        * The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
+    * Cons:
+        * More boilerplate code for each of the classes, which increases the size of the codebase.
+* **Alternative 2:** A single `FilterCommand` class is used to edit both customer and property.
+    * Cons:
+        * Unnecessary complexity is introduced into the system.
+
+**Aspect: How the filtered properties should interact with the model:**
+* We also decided for the filter commands to put the filtered properties in a different list (`FilteredPropertyList`), instead of removing the 'unused' properties from the model.
+
+### Matching for Customers and Properties
+[Back to top](#table-of-contents)
+
+#### Motivation
+The property agent may want to get all properties that satisfy the customers criteria or get all customers that want the properties characteristics. For example, the property agent want to get all properties that certain specified customer want and can afford.
+Or, the property agent want to get all customers that might want to buy certain specified property.
+
+#### Implementation
+The `MatchCustomerCommand` and `MatchPropertyCommand` classes extends the `Command` class.
+They are used to match the details of a customer or property, respectively.
+The command expects exactly one "Index" of the customer or property to be match, otherwise an error message will be displayed.
+When the match command is inputted, the `MatchCustomerCommandParser` or `MatchPropertyCommandParser` classes are used to parse the user input and create the `MatchCustomerCommand` or `MacthPropertyCommand` objects respectively.
+When these created command objects are executed by the `Logic Manager`, the `MatchCustomerCommand#execute(Model model)` or `MatchProeprtyCommand#execute(Model model)` method is called.
+These methods will match the customer or property in the model, and return a `ComandResult` object.
+
+The following sequence diagram shows how the `MatchCustomerCommand` is executed.
+![MatchCustomerSequenceDiagram](images/MatchCustomerSequenceDiagram.png)
+
+#### Design Consideration
+
+* *Alternative 1 (current choice):* `MatchPropertyCommand` and `MatchCustomerCommand` are separate, and both inherit from the `Command` class.
+    * Pros:
+        * Allows the property agent to match only customers or properties.
+        * The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
+    * Cons:
+        * More code for each of the classes, which increases the size of the codebase
+        * More commands for the property agent to remember
+* *Alternative 2:* A single `MacthCommand` class is used to match both customers and properties.
+    * Pros:
+        * Lesser commands for the property agent to remember
+    * Cons:
+        * Unable to match only customers or properties without specify it which increase the complexity of the commands
 
 ### Reset the application with `Clear`
 [Back to top](#table-of-contents)
@@ -276,7 +388,6 @@ The `ClearCommand` extends the `Command` class. It is used to clear the list of 
         * Lesser commands for the property agent to remember
     * Cons:
         * Unable to clear only customers or properties
-
 
 ### Exit with a delay
 [Back to top](#table-of-contents)
@@ -446,6 +557,8 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `* *`    | user with a lot of properties                          | find properties based on properties' details        | access specific properties with the detail                                    |
 | `* *`    | user with a lot of customers                           | filter customers based on customers' details        | get a list of specific customers with the detail                              |
 | `* *`    | user with a lot of properties                          | filter properties based on properties' details      | get a list of specific properties with the detail                             |
+| `* *`    | user with a lot of customers                           | get properties based on customers' details          | get a list of specific properties with the detail satisfy the customer        |
+| `* *`    | user with a lot of properties                          | get customers based on properties' details          | get a list of specific customers with the detail satisfy the property         |
 | `*`      | user                                                   | add notes to customers' profiles                    | streamline customer management profile                                        |
 | `*`      | user                                                   | add notes to properties' profiles                   | streamline customer property profile                                          |
 | `*`      | experienced user using the application with new device | import and export customers' data                   | transfer customers' data across devices                                       |
@@ -526,7 +639,17 @@ Actor: Property Agent
 2. Property agent enters the characteristics of the properties into the CLI
 3. Property agent views the properties that adheres to the conditions given
 
-**Use Case: UC08 - Find specific entity**
+**Use Case: UC08 - Match customers to properties**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent identifies the characteristics the customers want that belong to properties
+2. Property agent enters the characteristics of the customers into the CLI
+3. Property agent views the customers that adheres to the conditions given
+
+**Use Case: UC09 - Find specific entity**
 
 System: PropertyMatch address book
 
@@ -536,7 +659,7 @@ Actor: Property Agent
 2. Property agent enters the entity index he wants
 3. Property agent views the entity
 
-**Use Case: UC09 - Import and export data**
+**Use Case: UC10 - Import and export data**
 
 System: PropertyMatch address book
 
@@ -565,8 +688,6 @@ Actor: Property Agent
 ### Glossary
 
 * **Mainstream OS**: Windows, Linux, Unix, OS-X
-* **Customer**: A customer interested in purchasing or investing in properties.
-* **Property**: A property that is listed or accessible in the market.
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -594,16 +715,7 @@ testers are expected to do more *exploratory* testing.
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
 
-### Listing all properties
-
-**Prerequisites**: Property list should be filtered to show a subset of the original list.
-
-1. Test case: `listprop`
-   Expected: Property list should return to its original state containing all properties. "Listed all properties" message should be displayed
-   on the screen.
-
-2. Test case: `listprop 1`, `listprop x`
-   Expected: Same behaviour as above.
+1. _{ more test cases …​ }_
 
 ### Deleting a customer
 
@@ -619,3 +731,13 @@ testers are expected to do more *exploratory* testing.
 
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
+
+1. _{ more test cases …​ }_
+
+### Saving data
+
+1. Dealing with missing/corrupted data files
+
+   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+
+1. _{ more test cases …​ }_

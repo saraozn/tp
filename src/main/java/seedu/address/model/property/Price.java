@@ -1,5 +1,6 @@
 package seedu.address.model.property;
 
+import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
@@ -33,6 +34,16 @@ public class Price {
      */
     public static boolean isValidPrice(String test) {
         return test.matches(VALIDATION_REGEX);
+    }
+
+    /**
+     * Returns true if the other price is lower or equal this price
+     *
+     * @param other the other budget being compared
+     * @return whether the other budget is lower or equal to this budget
+     */
+    public boolean isInRangePrice(Price other) {
+        return isNull(other) || amount <= other.amount;
     }
 
     @Override
