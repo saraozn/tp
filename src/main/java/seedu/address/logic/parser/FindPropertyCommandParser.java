@@ -1,13 +1,12 @@
 package seedu.address.logic.parser;
 
-import seedu.address.logic.commands.FindCommand;
-import seedu.address.logic.commands.FindPropertyCommand;
-import seedu.address.logic.parser.exceptions.ParseException;
-import seedu.address.model.property.PropNameContainsKeywordsPredicate;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
 
 import java.util.Arrays;
 
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import seedu.address.logic.commands.FindPropertyCommand;
+import seedu.address.logic.parser.exceptions.ParseException;
+import seedu.address.model.property.PropNameContainsKeywordsPredicate;
 
 /**
  * Parses input arguments and creates a new FindCommand object

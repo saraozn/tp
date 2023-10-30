@@ -1,24 +1,26 @@
 package seedu.address.logic.commands;
 
-import org.junit.jupiter.api.Test;
-import seedu.address.model.Model;
-import seedu.address.model.ModelManager;
-import seedu.address.model.UserPrefs;
-import seedu.address.model.property.PropNameContainsKeywordsPredicate;
-
-import java.util.Arrays;
-import java.util.Collections;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.Messages.MESSAGE_PROPERTIES_LISTED_OVERVIEW;
-import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
+import static seedu.address.logic.commands.CommandPropertyTestUtil.assertCommandSuccess;
 import static seedu.address.testutil.TypicalCustomers.getTypicalAddressBook;
 import static seedu.address.testutil.TypicalProperties.AQUAVISTA;
 import static seedu.address.testutil.TypicalProperties.HORIZONVIEW;
 import static seedu.address.testutil.TypicalProperties.SKYVISTA;
 import static seedu.address.testutil.TypicalProperties.getTypicalPropertyBook;
+
+import java.util.Arrays;
+import java.util.Collections;
+
+import org.junit.jupiter.api.Test;
+
+import seedu.address.model.Model;
+import seedu.address.model.ModelManager;
+import seedu.address.model.UserPrefs;
+import seedu.address.model.property.PropNameContainsKeywordsPredicate;
+
 
 /**
  * Contains integration tests (interaction with the Model) for {@code FindPropertyCommand}.
@@ -67,7 +69,7 @@ public class FindPropertyCommandTest {
     @Test
     public void execute_multipleKeywords_multiplePropertiesFound() {
         String expectedMessage = String.format(MESSAGE_PROPERTIES_LISTED_OVERVIEW, 3);
-        PropNameContainsKeywordsPredicate predicate = preparePredicate("Aquavista Skyvista Horizonview");
+        PropNameContainsKeywordsPredicate predicate = preparePredicate("Aquavi Skyvista Horizonview");
         FindPropertyCommand command = new FindPropertyCommand(predicate);
         expectedModel.updateFilteredPropertyList(predicate);
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
