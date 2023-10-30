@@ -88,12 +88,12 @@ public class Property {
             return false;
         }
 
-        Property otherPerson = (Property) other;
-        return propName.equals(otherPerson.propName)
-                && propPhone.equals(otherPerson.propPhone)
-                && price.equals(otherPerson.price)
-                && propAddress.equals(otherPerson.propAddress)
-                && tags.equals(otherPerson.tags);
+        Property otherProperty = (Property) other;
+        return propName.equals(otherProperty.propName)
+                && propPhone.equals(otherProperty.propPhone)
+                && price.equals(otherProperty.price)
+                && propAddress.equals(otherProperty.propAddress)
+                && tags.equals(otherProperty.tags);
     }
 
     @Override
