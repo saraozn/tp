@@ -20,8 +20,8 @@ import seedu.address.model.tag.Tag;
 public class FilterCustomerCommandParser implements Parser<FilterCustomerCommand> {
 
     /**
-     * Parses the given {@code String} of arguments in the context of the FilterCommand
-     * and returns a FilterCommand object for execution.
+     * Parses the given {@code String} of arguments in the context of the FilterCustomerCommand
+     * and returns a FilterPropertyCommand object for execution.
      * @throws ParseException if the user input does not conform the expected format
      */
     public FilterCustomerCommand parse(String args) throws ParseException {
