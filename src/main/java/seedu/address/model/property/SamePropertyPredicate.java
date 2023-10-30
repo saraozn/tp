@@ -5,7 +5,7 @@ import java.util.function.Predicate;
 import seedu.address.commons.util.ToStringBuilder;
 
 /**
- * Tests that a {@code Customer} is same with the given customer.
+ * Tests that a {@code Property} is same with the given property.
  */
 public class SamePropertyPredicate implements Predicate<Property> {
 

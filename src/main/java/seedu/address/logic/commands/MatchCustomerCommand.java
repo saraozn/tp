@@ -32,7 +32,7 @@ public class MatchCustomerCommand extends Command {
     private Index targetIndex;
 
     /**
-     * Creates an MatchCustomerCommand to get all the specified {@code Property}
+     * Creates a MatchCustomerCommand to get all the specified {@code Property}
      */
     public MatchCustomerCommand(Index targetIndex) {
         this.targetIndex = targetIndex;
