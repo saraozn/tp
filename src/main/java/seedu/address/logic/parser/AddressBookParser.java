@@ -59,51 +59,51 @@ public class AddressBookParser {
 
         switch (commandWord) {
 
-            case AddCustomerCommand.COMMAND_WORD:
-                return new AddCustomerCommandParser().parse(arguments);
+        case AddCustomerCommand.COMMAND_WORD:
+            return new AddCustomerCommandParser().parse(arguments);
 
-            case AddPropertyCommand.COMMAND_WORD:
-                return new AddPropertyCommandParser().parse(arguments);
+        case AddPropertyCommand.COMMAND_WORD:
+            return new AddPropertyCommandParser().parse(arguments);
 
-            case EditCommand.COMMAND_WORD:
-                return new EditCommandParser().parse(arguments);
+        case EditCommand.COMMAND_WORD:
+            return new EditCommandParser().parse(arguments);
 
-            case EditPropertyCommand.COMMAND_WORD:
-                return new EditPropertyCommandParser().parse(arguments);
+        case EditPropertyCommand.COMMAND_WORD:
+            return new EditPropertyCommandParser().parse(arguments);
 
-            case DeletePropertyCommand.COMMAND_WORD:
-                return new DeletePropertyCommandParser().parse(arguments);
+        case DeletePropertyCommand.COMMAND_WORD:
+            return new DeletePropertyCommandParser().parse(arguments);
 
-            case DeleteCustomerCommand.COMMAND_WORD:
-                return new DeleteCustomerCommandParser().parse(arguments);
+        case DeleteCustomerCommand.COMMAND_WORD:
+            return new DeleteCustomerCommandParser().parse(arguments);
 
-            case ClearCommand.COMMAND_WORD:
-                return new ClearCommand();
+        case ClearCommand.COMMAND_WORD:
+            return new ClearCommand();
 
-            case FindCommand.COMMAND_WORD:
-                return new FindCommandParser().parse(arguments);
+        case FindCommand.COMMAND_WORD:
+            return new FindCommandParser().parse(arguments);
 
-            case FindPropertyCommand.COMMAND_WORD:
-                return new FindPropertyCommandParser().parse(arguments);
+        case FindPropertyCommand.COMMAND_WORD:
+            return new FindPropertyCommandParser().parse(arguments);
 
-            case FilterCustomerCommand.COMMAND_WORD:
-                return new FilterCustomerCommandParser().parse(arguments);
+        case FilterCustomerCommand.COMMAND_WORD:
+            return new FilterCustomerCommandParser().parse(arguments);
 
-            case ListCustomerCommand.COMMAND_WORD:
-                return new ListCustomerCommand();
+        case ListCustomerCommand.COMMAND_WORD:
+            return new ListCustomerCommand();
 
-            case ListPropertyCommand.COMMAND_WORD:
-                return new ListPropertyCommand();
+        case ListPropertyCommand.COMMAND_WORD:
+            return new ListPropertyCommand();
 
-            case ExitCommand.COMMAND_WORD:
-                return new ExitCommand();
+        case ExitCommand.COMMAND_WORD:
+            return new ExitCommand();
 
-            case HelpCommand.COMMAND_WORD:
-                return new HelpCommand();
+        case HelpCommand.COMMAND_WORD:
+            return new HelpCommand();
 
-            default:
-                logger.finer("This user input caused a ParseException: " + userInput);
-                throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
+        default:
+            logger.finer("This user input caused a ParseException: " + userInput);
+            throw new ParseException(MESSAGE_UNKNOWN_COMMAND);
         }
     }
 
