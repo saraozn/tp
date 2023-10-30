@@ -28,6 +28,7 @@ public class MatchCustomerCommand extends Command {
             + "Index" + "\n"
             + "Example: " + COMMAND_WORD + "  2";
 
+    public static final String MESSAGE_FAIL = "There is no customer with index ";
     private Index targetIndex;
 
     /**
@@ -42,23 +43,25 @@ public class MatchCustomerCommand extends Command {
         requireNonNull(model);
         List<Customer> lastShownList = model.getFilteredCustomerList();
 
-        Customer targetCustomer = lastShownList.get(targetIndex.getZeroBased());
+        try {
+            Customer targetCustomer = lastShownList.get(targetIndex.getZeroBased());
+            Budget budget = targetCustomer.getBudget();
+            Set<Tag> tags = targetCustomer.getTags();
 
-        Budget budget = targetCustomer.getBudget();
-        Set<Tag> tags = targetCustomer.getTags();
+            Price maxPrice = budget.convertToPrice();
+            PriceAndTagsInRangePredicate predicate = new PriceAndTagsInRangePredicate(maxPrice, tags);
 
-        Price maxPrice = budget.convertToPrice();
-        PriceAndTagsInRangePredicate predicate = new PriceAndTagsInRangePredicate(maxPrice, tags);
+            model.updateMatchedCustomerList(targetCustomer, predicate);
 
-        model.updateMatchedCustomerList(targetCustomer, predicate);
-
-        return new CommandResult(
-                String.format(
-                        Messages.MESSAGE_ALL_LISTED_OVERVIEW,
-                        model.getFilteredCustomerList().size(),
-                        model.getFilteredPropertyList().size()
-                )
-        );
+            return new CommandResult(
+                    String.format(
+                            Messages.MESSAGE_CUSTOMERS_MATCH_OVERVIEW + targetIndex.getOneBased(),
+                            model.getFilteredPropertyList().size()
+                    )
+            );
+        } catch (IndexOutOfBoundsException e) {
+            throw new CommandException(MESSAGE_FAIL + targetIndex.getOneBased());
+        }
     }
 
     @Override

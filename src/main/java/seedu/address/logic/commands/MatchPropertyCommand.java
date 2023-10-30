@@ -28,6 +28,7 @@ public class MatchPropertyCommand extends Command {
             + "Index" + "\n"
             + "Example: " + COMMAND_WORD + "  2";
 
+    public static final String MESSAGE_FAIL = "There is no property with index ";
     private Index targetIndex;
 
     /**
@@ -42,23 +43,26 @@ public class MatchPropertyCommand extends Command {
         requireNonNull(model);
         List<Property> lastShownList = model.getFilteredPropertyList();
 
-        Property targetProperty = lastShownList.get(targetIndex.getZeroBased());
+        try {
+            Property targetProperty = lastShownList.get(targetIndex.getZeroBased());
 
-        Price price = targetProperty.getPrice();
-        Set<Tag> tags = targetProperty.getTags();
+            Price price = targetProperty.getPrice();
+            Set<Tag> tags = targetProperty.getTags();
 
-        Budget minBudget = price.convertToBudget();
-        BudgetAndTagsInRangePredicate predicate = new BudgetAndTagsInRangePredicate(minBudget, tags);
+            Budget minBudget = price.convertToBudget();
+            BudgetAndTagsInRangePredicate predicate = new BudgetAndTagsInRangePredicate(minBudget, tags);
 
-        model.updateMatchedPropertyList(targetProperty, predicate);
+            model.updateMatchedPropertyList(targetProperty, predicate);
 
-        return new CommandResult(
-                String.format(
-                        Messages.MESSAGE_ALL_LISTED_OVERVIEW,
-                        model.getFilteredCustomerList().size(),
-                        model.getFilteredPropertyList().size()
-                )
-        );
+            return new CommandResult(
+                    String.format(
+                            Messages.MESSAGE_PROPERTIES_MATCH_OVERVIEW + targetIndex.getOneBased(),
+                            model.getFilteredCustomerList().size()
+                    )
+            );
+        } catch (IndexOutOfBoundsException e) {
+            throw new CommandException(MESSAGE_FAIL + targetIndex.getOneBased());
+        }
     }
 
     @Override
