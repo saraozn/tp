@@ -52,7 +52,7 @@ public class PropertyCard extends UiPart<Region> {
         name.setText(property.getName().fullName);
         phone.setText(property.getPhone().value);
         address.setText(property.getAddress().value);
-        price.setText(property.getPrice().value);
+        price.setText(property.getPrice().toString());
         property.getTags().stream()
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));

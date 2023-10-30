@@ -81,6 +81,15 @@ class JsonAdaptedProperty {
         }
         final PropName modelPropName = new PropName(name);
 
+        if (address == null) {
+            throw new IllegalValueException(
+                    String.format(MISSING_FIELD_MESSAGE_FORMAT, PropAddress.class.getSimpleName()));
+        }
+        if (!PropAddress.isValidAddress(address)) {
+            throw new IllegalValueException(PropAddress.MESSAGE_CONSTRAINTS);
+        }
+        final PropAddress modelPropAddress = new PropAddress(address);
+
         if (phone == null) {
             throw new IllegalValueException(
                 String.format(MISSING_FIELD_MESSAGE_FORMAT, PropPhone.class.getSimpleName()));
@@ -98,15 +107,6 @@ class JsonAdaptedProperty {
             throw new IllegalValueException(Price.MESSAGE_CONSTRAINTS);
         }
         final Price modelPrice = new Price(price);
-
-        if (address == null) {
-            throw new IllegalValueException(
-                String.format(MISSING_FIELD_MESSAGE_FORMAT, PropAddress.class.getSimpleName()));
-        }
-        if (!PropAddress.isValidAddress(address)) {
-            throw new IllegalValueException(PropAddress.MESSAGE_CONSTRAINTS);
-        }
-        final PropAddress modelPropAddress = new PropAddress(address);
 
         final Set<Tag> modelTags = new HashSet<>(personTags);
         return new Property(modelPropName, modelPropAddress, modelPropPhone, modelPrice, modelTags);

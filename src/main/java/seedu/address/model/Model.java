@@ -141,4 +141,16 @@ public interface Model {
      * @throws NullPointerException if {@code predicate} is null.
      */
     void updateFilteredPropertyList(Predicate<Property> predicate);
+
+    /**
+     * Deletes the given customer.
+     * The customer must exist in the address book.
+     */
+    void updateMatchedCustomerList(Customer targetCustomer, Predicate<Property> predicate);
+
+    /**
+     * Deletes the given property.
+     * The property must exist in the PropertyMatch.
+     */
+    void updateMatchedPropertyList(Property targetProperty, Predicate<Customer> predicate);
 }

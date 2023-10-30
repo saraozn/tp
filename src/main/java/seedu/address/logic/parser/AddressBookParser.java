@@ -22,6 +22,8 @@ import seedu.address.logic.commands.FindCustomerCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCustomerCommand;
 import seedu.address.logic.commands.ListPropertyCommand;
+import seedu.address.logic.commands.MatchCustomerCommand;
+import seedu.address.logic.commands.MatchPropertyCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -90,6 +92,12 @@ public class AddressBookParser {
 
         case ListPropertyCommand.COMMAND_WORD:
             return new ListPropertyCommand();
+
+        case MatchCustomerCommand.COMMAND_WORD:
+            return new MatchCustomerCommandParser().parse(arguments);
+
+        case MatchPropertyCommand.COMMAND_WORD:
+            return new MatchPropertyCommandParser().parse(arguments);
 
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
