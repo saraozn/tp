@@ -12,7 +12,10 @@ import java.util.stream.Collectors;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.commons.exceptions.IllegalValueException;
-import seedu.address.model.property.*;
+import seedu.address.model.property.Price;
+import seedu.address.model.property.PropAddress;
+import seedu.address.model.property.PropName;
+import seedu.address.model.property.PropPhone;
 
 public class JsonAdaptedPropertyTest {
     private static final String INVALID_PROPNAME = " ";
@@ -79,7 +82,7 @@ public class JsonAdaptedPropertyTest {
     public void toModelType_nullPhone_throwsIllegalValueException() {
         JsonAdaptedProperty property = new JsonAdaptedProperty(VALID_PROPNAME, VALID_PROPADDRESS, null,
                 VALID_PRICE, VALID_TAGS);
-        String expectedMessage =  String.format(MISSING_FIELD_MESSAGE_FORMAT, PropPhone.class.getSimpleName());
+        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, PropPhone.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, property::toModelType);
     }
 
@@ -95,7 +98,7 @@ public class JsonAdaptedPropertyTest {
     public void toModelType_nullPrice_throwsIllegalValueException() {
         JsonAdaptedProperty property = new JsonAdaptedProperty(VALID_PROPNAME, VALID_PROPADDRESS, VALID_PROPPHONE,
                 null, VALID_TAGS);
-        String expectedMessage =  String.format(MISSING_FIELD_MESSAGE_FORMAT, Price.class.getSimpleName());
+        String expectedMessage = String.format(MISSING_FIELD_MESSAGE_FORMAT, Price.class.getSimpleName());
         assertThrows(IllegalValueException.class, expectedMessage, property::toModelType);
     }
 
