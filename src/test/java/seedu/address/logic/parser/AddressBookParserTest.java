@@ -19,10 +19,10 @@ import seedu.address.logic.commands.AddPropertyCommand;
 import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.DeleteCustomerCommand;
 import seedu.address.logic.commands.DeletePropertyCommand;
-import seedu.address.logic.commands.EditCommand;
+import seedu.address.logic.commands.EditCustomerCommand;
 import seedu.address.logic.commands.EditPropertyCommand;
 import seedu.address.logic.commands.ExitCommand;
-import seedu.address.logic.commands.FindCommand;
+import seedu.address.logic.commands.FindCustomerCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCustomerCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
@@ -78,10 +78,10 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_edit() throws Exception {
         Customer customer = new CustomerBuilder().build();
-        EditCommand.EditCustomerDescriptor descriptor = new EditCustomerDescriptorBuilder(customer).build();
-        EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
+        EditCustomerCommand.EditCustomerDescriptor descriptor = new EditCustomerDescriptorBuilder(customer).build();
+        EditCustomerCommand command = (EditCustomerCommand) parser.parseCommand(EditCustomerCommand.COMMAND_WORD + " "
                 + INDEX_FIRST_CUSTOMER.getOneBased() + " " + CustomerUtil.getEditCustomerDescriptorDetails(descriptor));
-        assertEquals(new EditCommand(INDEX_FIRST_CUSTOMER, descriptor), command);
+        assertEquals(new EditCustomerCommand(INDEX_FIRST_CUSTOMER, descriptor), command);
     }
     @Test
     public void parseCommand_editprop() throws Exception {
@@ -101,9 +101,9 @@ public class AddressBookParserTest {
     @Test
     public void parseCommand_find() throws Exception {
         List<String> keywords = Arrays.asList("foo", "bar", "baz");
-        FindCommand command = (FindCommand) parser.parseCommand(
-                FindCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
-        assertEquals(new FindCommand(new NameContainsKeywordsPredicate(keywords)), command);
+        FindCustomerCommand command = (FindCustomerCommand) parser.parseCommand(
+                FindCustomerCommand.COMMAND_WORD + " " + keywords.stream().collect(Collectors.joining(" ")));
+        assertEquals(new FindCustomerCommand(new NameContainsKeywordsPredicate(keywords)), command);
     }
 
     @Test
