@@ -24,6 +24,7 @@ public class Messages {
 
     public static final String MESSAGE_PROPERTIES_MATCH_OVERVIEW = "%1$d customers matched with property ";
     public static final String MESSAGE_CUSTOMERS_LISTED_OVERVIEW = "%1$d customers listed!";
+
     public static final String MESSAGE_PROPERTIES_LISTED_OVERVIEW = "%1$d properties listed!";
     public static final String MESSAGE_DUPLICATE_FIELDS =
                 "Multiple values specified for the following single-valued field(s): ";
