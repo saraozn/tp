@@ -77,8 +77,8 @@ public class FilterPropertyCommand extends Command {
      * Stores the details to filter the property with price and tags.
      */
     public static class FilterPropertyDescriptor {
-        private Price price = null;
-        private Set<Tag> tags = null;
+        private Price price;
+        private Set<Tag> tags;
 
         public FilterPropertyDescriptor() {}
 

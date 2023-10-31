@@ -159,7 +159,7 @@ This section describes some noteworthy details on how certain features are imple
 
 #### Motivation
 The property agent may want to edit the details of a customer or property after adding it to the application. For example, the property agent may want to change the budget range of a customer after adding it to PropertyMatch.
-Or, the property agent may want to change the price of a property after adding it to PropertyMatch.
+Or, the property agent may want to change the budget of a property after adding it to PropertyMatch.
 
 #### Implementation
 The `EditCustomerCommand` and `EditPropertyCommand` classes extends the `Command` class. They are used to edit the details of a customer or property, respectively.
@@ -301,17 +301,17 @@ The following sequence diagram shows how the `FilterCustomerCommand` is executed
 [Back to top](#table-of-contents)
 
 #### Motivation
-The property agent may want to see a list of properties based on their budget. For example, the property agent may want to filter properties with price less than $1000000.
+The property agent may want to see a list of properties based on their budget. For example, the property agent may want to filter properties with budget less than $1000000.
 Or, the property agent may want to see a list of properties based on the characteristics. For example, the property agent may want to filter pink properties.
-Or, the property agent may want to see a list of properties based on both price and characteristics to enhance productivity.
+Or, the property agent may want to see a list of properties based on both budget and characteristics to enhance productivity.
 
 #### Implementation
 The `FilterPropertyCommand` class extends the `Command` class. They are used to filter properties.
-The command allows the user to filter properties based on their price and/or characteristics. The commands expect at least one flag, either price or characteristics, to be used as a filter.
+The command allows the user to filter properties based on their budget and/or characteristics. The commands expect at least one flag, either budget or characteristics, to be used as a filter.
 When the filter command is inputted, the `FilterPropertyCommandParser` class is used to parse the user input and create the respective `FilterPropertyCommand` objects.
 When these created command objects are executed by the `LogicManager`, the `FilterPropertyCommand#execute(Model model)` methods are called. These methods will update the filtered property list in the `model` which will eventually update the properties shown in the UI, and return a `CommandResult` object.
 
-During this execution process, a new `PriceAndTagsInRangePredicate` object which is used as a predicate to check whether a property's price is lower and if the property has all the characteristics.
+During this execution process, a new `PriceAndTagsInRangePredicate` object which is used as a predicate to check whether a property's budget is lower and if the property has all the characteristics.
 All properties will be tested using this `PriceAndTagsInRangePredicate`. Properties which satisfy this condition will be included into the `FilteredPropertyList` in the model.
 
 #### Design Considerations
@@ -576,7 +576,7 @@ System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent fills in name, address, characteristics, number, price of property
+1. Property agent fills in name, address, characteristics, number, budget of property
 2. Property agent adds property to address book
 
 **Use Case: UC02 - Add customer**
