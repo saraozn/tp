@@ -2,10 +2,12 @@ package seedu.address.logic.commands;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_ADDRESS;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_BUDGET;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_EMAIL;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_NAME;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_PHONE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRICE;
 import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
 import static seedu.address.testutil.Assert.assertThrows;
 
@@ -14,18 +16,21 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.FilterPropertyCommand.FilterPropertyDescriptor;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
 import seedu.address.model.Model;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.customer.NameContainsKeywordsPredicate;
 import seedu.address.testutil.EditCustomerDescriptorBuilder;
+import seedu.address.testutil.FilterPropertyDescriptorBuilder;
 
 /**
  * Contains helper methods for testing commands.
  */
 public class CommandTestUtil {
 
+    // Customers
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
     public static final String VALID_PHONE_AMY = "11111111";
@@ -68,6 +73,39 @@ public class CommandTestUtil {
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withBudget(VALID_BUDGET_BOB)
                 .withTags(VALID_TAG_BIG, VALID_TAG_SQUARE).build();
     }
+
+    // Properties
+    public static final String VALID_NAME_LIGHT = "Light House";
+    public static final String VALID_NAME_HELIX = "Helix House";
+    public static final String VALID_PHONE_LIGHT = "333333333";
+    public static final String VALID_PHONE_HELIX = "44444444";
+    public static final String VALID_ADDRESS_LIGHT = "25 Prince George's Park, Singapore 118424";
+    public static final String VALID_ADDRESS_HELIX = "37 Prince George's Park, Singapore 118430";
+    public static final String VALID_PRICE_LIGHT = "1000000";
+    public static final String VALID_PRICE_HELIX = "5000000";
+
+    public static final String NAME_DESC_LIGHT = " " + PREFIX_NAME + VALID_NAME_LIGHT;
+    public static final String NAME_DESC_HELIX = " " + PREFIX_NAME + VALID_NAME_HELIX;
+    public static final String PHONE_DESC_LIGHT = " " + PREFIX_PHONE + VALID_PHONE_LIGHT;
+    public static final String PHONE_DESC_HELIX = " " + PREFIX_PHONE + VALID_PHONE_HELIX;
+    public static final String ADDRESS_DESC_LIGHT = " " + PREFIX_EMAIL + VALID_ADDRESS_LIGHT;
+    public static final String ADDRESS_DESC_HELIX = " " + PREFIX_EMAIL + VALID_ADDRESS_HELIX;
+    public static final String PRICE_DESC_LIGHT = " " + PREFIX_BUDGET + VALID_PRICE_LIGHT;
+    public static final String PRICE_DESC_HELIX = " " + PREFIX_BUDGET + VALID_PRICE_HELIX;
+
+    public static final String INVALID_PRICE_DESC = " " + PREFIX_PRICE; // empty string not allowed for Price
+    public static final String INVALID_ADDRESS_DESC = " " + PREFIX_ADDRESS; // empty string not allowed for Address
+
+    public static final FilterPropertyDescriptor FILTER_PROPERTY_DESCRIPTOR_LIGHT;
+    public static final FilterPropertyDescriptor FILTER_PROPERTY_DESCRIPTOR_HELIX;
+
+    static {
+        FILTER_PROPERTY_DESCRIPTOR_LIGHT = new FilterPropertyDescriptorBuilder().withPrice(VALID_PRICE_LIGHT)
+                .withTags(VALID_TAG_SQUARE).build();
+        FILTER_PROPERTY_DESCRIPTOR_HELIX = new FilterPropertyDescriptorBuilder().withPrice(VALID_PRICE_HELIX)
+                .withTags(VALID_TAG_BIG, VALID_TAG_SQUARE).build();
+    }
+
 
     /**
      * Executes the given {@code command}, confirms that <br>
