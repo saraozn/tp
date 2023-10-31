@@ -16,6 +16,8 @@ import java.util.Arrays;
 import java.util.List;
 
 import seedu.address.commons.core.index.Index;
+import seedu.address.logic.commands.EditCustomerCommand.EditCustomerDescriptor;
+import seedu.address.logic.commands.FilterCustomerCommand.FilterCustomerDescriptor;
 import seedu.address.logic.commands.FilterPropertyCommand.FilterPropertyDescriptor;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.AddressBook;
@@ -23,6 +25,7 @@ import seedu.address.model.Model;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.customer.NameContainsKeywordsPredicate;
 import seedu.address.testutil.EditCustomerDescriptorBuilder;
+import seedu.address.testutil.FilterCustomerDescriptorBuilder;
 import seedu.address.testutil.FilterPropertyDescriptorBuilder;
 
 /**
@@ -62,8 +65,10 @@ public class CommandTestUtil {
     public static final String PREAMBLE_WHITESPACE = "\t  \r  \n";
     public static final String PREAMBLE_NON_EMPTY = "NonEmptyPreamble";
 
-    public static final EditCustomerCommand.EditCustomerDescriptor DESC_AMY;
-    public static final EditCustomerCommand.EditCustomerDescriptor DESC_BOB;
+    public static final EditCustomerDescriptor DESC_AMY;
+    public static final EditCustomerDescriptor DESC_BOB;
+    public static final FilterCustomerDescriptor FILTER_CUSTOMER_DESCRIPTOR_AMY;
+    public static final FilterCustomerDescriptor FILTER_CUSTOMER_DESCRIPTOR_BOB;
 
     static {
         DESC_AMY = new EditCustomerDescriptorBuilder().withName(VALID_NAME_AMY)
@@ -71,6 +76,10 @@ public class CommandTestUtil {
                 .withTags(VALID_TAG_SQUARE).build();
         DESC_BOB = new EditCustomerDescriptorBuilder().withName(VALID_NAME_BOB)
                 .withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB).withBudget(VALID_BUDGET_BOB)
+                .withTags(VALID_TAG_BIG, VALID_TAG_SQUARE).build();
+        FILTER_CUSTOMER_DESCRIPTOR_AMY = new FilterCustomerDescriptorBuilder().withBudget(VALID_BUDGET_AMY)
+                .withTags(VALID_TAG_SQUARE).build();
+        FILTER_CUSTOMER_DESCRIPTOR_BOB = new FilterCustomerDescriptorBuilder().withBudget(VALID_BUDGET_BOB)
                 .withTags(VALID_TAG_BIG, VALID_TAG_SQUARE).build();
     }
 
