@@ -7,6 +7,7 @@ participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":FilterCustomerCommandParser" as FilterCustomerCommandParser LOGIC_COLOR
 participant ":Budget" as Budget LOGIC_COLOR
 participant ":Tag" as Tag LOGIC_COLOR
+participant "descriptor:FilterCustomerDescriptor" as FilterCustomerDescriptor LOGIC_COLOR
 participant ":BudgetAndTagsInRangePredicate" as BudgetAndTagsInRangePredicate LOGIC_COLOR
 participant "command:FilterCustomerCommand" as FilterCustomerCommand LOGIC_COLOR
 participant ":CommandResult" as CommandResult LOGIC_COLOR
@@ -32,12 +33,23 @@ deactivate FilterCustomerCommandParser
 AddressBookParser -> FilterCustomerCommandParser : parse("b/100000 c/pink")
 activate FilterCustomerCommandParser
 
+create FilterCustomerDescriptor
+FilterCustomerCommandParser -> FilterCustomerDescriptor: new FilterCustomerDescriptor
+activate FilterCustomerDescriptor
+
+FilterCustomerDescriptor --> FilterCustomerCommandParser: descriptor
+deactivate FilterCustomerDescriptor
+
 create Budget
 FilterCustomerCommandParser -> Budget: new Budget(100000)
 activate Budget
 
 Budget --> FilterCustomerCommandParser: budget
 deactivate Budget
+
+FilterCustomerCommandParser -> FilterCustomerDescriptor: setBudget(budget)
+activate FilterCustomerDescriptor
+deactivate FilterCustomerDescriptor
 
 create Tag
 FilterCustomerCommandParser -> Tag: new Tag("pink")
@@ -46,12 +58,22 @@ activate Tag
 Tag --> FilterCustomerCommandParser: tag
 deactivate Tag
 
+FilterCustomerCommandParser -> FilterCustomerDescriptor: setTags(tags)
+activate FilterCustomerDescriptor
+deactivate FilterCustomerDescriptor
+
+FilterCustomerCommandParser -> FilterCustomerDescriptor: getPredicate()
+activate FilterCustomerDescriptor
+
 create BudgetAndTagsInRangePredicate
-FilterCustomerCommandParser -> BudgetAndTagsInRangePredicate: new BudgetAndTagsInRangePredicate(budget, tags)
+FilterCustomerDescriptor -> BudgetAndTagsInRangePredicate: new BudgetAndTagsInRangePredicate(budget, tags)
 activate BudgetAndTagsInRangePredicate
 
-BudgetAndTagsInRangePredicate --> FilterCustomerCommandParser: budgetAndTagsInRangePredicate
+BudgetAndTagsInRangePredicate --> FilterCustomerDescriptor: budgetAndTagsInRangePredicate
 deactivate BudgetAndTagsInRangePredicate
+
+FilterCustomerDescriptor --> FilterCustomerCommandParser: budgetAndTagsInRangePredicate
+deactivate FilterCustomerDescriptor
 
 create FilterCustomerCommand
 FilterCustomerCommandParser -> FilterCustomerCommand : new FilterCustomerCommand(budgetAndTagsInRangePredicate)
