@@ -209,6 +209,16 @@ public class AddPropertyCommandTest {
         public void updateFilteredPropertyList(Predicate<Property> predicate) {
             throw new AssertionError("This method should not be called.");
         }
+
+        @Override
+        public void updateMatchedCustomerList(Customer targetCustomer, Predicate<Property> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
+
+        @Override
+        public void updateMatchedPropertyList(Property targetProperty, Predicate<Customer> predicate) {
+            throw new AssertionError("This method should not be called.");
+        }
     }
 
     /**

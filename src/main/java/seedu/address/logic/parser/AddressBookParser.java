@@ -14,15 +14,17 @@ import seedu.address.logic.commands.ClearCommand;
 import seedu.address.logic.commands.Command;
 import seedu.address.logic.commands.DeleteCustomerCommand;
 import seedu.address.logic.commands.DeletePropertyCommand;
-import seedu.address.logic.commands.EditCommand;
+import seedu.address.logic.commands.EditCustomerCommand;
 import seedu.address.logic.commands.EditPropertyCommand;
 import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.FilterCustomerCommand;
 import seedu.address.logic.commands.FilterPropertyCommand;
-import seedu.address.logic.commands.FindCommand;
+import seedu.address.logic.commands.FindCustomerCommand;
 import seedu.address.logic.commands.HelpCommand;
 import seedu.address.logic.commands.ListCustomerCommand;
 import seedu.address.logic.commands.ListPropertyCommand;
+import seedu.address.logic.commands.MatchCustomerCommand;
+import seedu.address.logic.commands.MatchPropertyCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 
 /**
@@ -65,8 +67,8 @@ public class AddressBookParser {
         case AddPropertyCommand.COMMAND_WORD:
             return new AddPropertyCommandParser().parse(arguments);
 
-        case EditCommand.COMMAND_WORD:
-            return new EditCommandParser().parse(arguments);
+        case EditCustomerCommand.COMMAND_WORD:
+            return new EditCustomerCommandParser().parse(arguments);
 
         case EditPropertyCommand.COMMAND_WORD:
             return new EditPropertyCommandParser().parse(arguments);
@@ -80,8 +82,8 @@ public class AddressBookParser {
         case ClearCommand.COMMAND_WORD:
             return new ClearCommand();
 
-        case FindCommand.COMMAND_WORD:
-            return new FindCommandParser().parse(arguments);
+        case FindCustomerCommand.COMMAND_WORD:
+            return new FindCustomerCommandParser().parse(arguments);
 
         case FilterCustomerCommand.COMMAND_WORD:
             return new FilterCustomerCommandParser().parse(arguments);
@@ -94,6 +96,12 @@ public class AddressBookParser {
 
         case ListPropertyCommand.COMMAND_WORD:
             return new ListPropertyCommand();
+
+        case MatchCustomerCommand.COMMAND_WORD:
+            return new MatchCustomerCommandParser().parse(arguments);
+
+        case MatchPropertyCommand.COMMAND_WORD:
+            return new MatchPropertyCommandParser().parse(arguments);
 
         case ExitCommand.COMMAND_WORD:
             return new ExitCommand();
