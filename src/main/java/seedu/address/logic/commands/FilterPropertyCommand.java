@@ -83,6 +83,15 @@ public class FilterPropertyCommand extends Command {
         public FilterPropertyDescriptor() {}
 
         /**
+         * Copy constructor.
+         * A defensive copy of {@code tags} is used internally.
+         */
+        public FilterPropertyDescriptor(FilterPropertyDescriptor toCopy) {
+            setPrice(toCopy.price);
+            setTags(toCopy.tags);
+        }
+
+        /**
          * Returns true if at least one field is edited.
          */
         public boolean isAnyFieldFiltered() {
