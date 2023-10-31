@@ -33,7 +33,7 @@ public class FilterPropertyDescriptorBuilder {
     }
 
     /**
-     * Sets the {@code Price} of the {@code EditpropertyDescriptor} that we are building.
+     * Sets the {@code Price} of the {@code EditPropertyDescriptor} that we are building.
      */
     public FilterPropertyDescriptorBuilder withPrice(String price) {
         descriptor.setPrice(new Price(price));
@@ -41,7 +41,7 @@ public class FilterPropertyDescriptorBuilder {
     }
 
     /**
-     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditpropertyDescriptor}
+     * Parses the {@code tags} into a {@code Set<Tag>} and set it to the {@code EditPropertyDescriptor}
      * that we are building.
      */
     public FilterPropertyDescriptorBuilder withTags(String... tags) {

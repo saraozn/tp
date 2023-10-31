@@ -67,14 +67,14 @@ PropertyMatch is a desktop application for property agents who want to organise 
 
 Adds a property to the application.
 
-Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/price`
+Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget`
 
 Parameter:
 * `n/NAME`				         : The propName of the property (String)
 * `a/ADDRESS`		             : The propAddress of the property (String)
 * `c/CHARACTERISTIC` (Optional)  : The characteristics of the property (String)
 * `ph/NUMBER`                    : The contact number (Integer)
-* `pr/PRICE`                     : The price of the property in psf (Number)
+* `pr/PRICE`                     : The budget of the property in psf (Number)
 
 
 Examples:
@@ -89,7 +89,7 @@ When command fails:
 * `Missing propName parameter for add properties command` for missing propName parameter
 * `Missing propAddress parameter for add properties command` for missing propAddress parameter
 * `Missing number parameter for add properties command` for missing propName parameter
-* `Missing price parameter for add properties command` for missing price parameter
+* `Missing budget parameter for add properties command` for missing budget parameter
 * `Invalid Command` for mispelling of command
 
 ### Adding a customer: `addcust`
@@ -278,7 +278,7 @@ When command fails:
 Format: `filtercust [pr/PRICE] [c/CHARACTERISTIC]…​`
 
 Parameter:
-* `pr/PRICE` (optional)          : The price of the property (Integer)
+* `pr/PRICE` (optional)          : The budget of the property (Integer)
 * `c/CHARACTERISTIC` (optional)  : The characteristics of the property (String)
 
 Notes:
@@ -340,7 +340,7 @@ When command fails: Invalid command for misspelling of command
 
 | Action       | Format, Examples                                                                                                                                            |
 |--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Addprop**  | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/price` <br> e.g., `addprop n/Property a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5` |
+| **Addprop**  | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget` <br> e.g., `addprop n/Property a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5` |
 | **Addcust**  | `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`                   |
 | **Delprop**  | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                       |
 | **Delcust**  | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                       |

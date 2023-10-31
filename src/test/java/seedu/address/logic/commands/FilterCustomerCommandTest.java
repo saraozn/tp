@@ -260,6 +260,27 @@ public class FilterCustomerCommandTest {
         assertEquals(Arrays.asList(BENSON), model.getFilteredCustomerList());
     }
 
+    @Test
+    public void toStringMethod() {
+        String firstTagString = "square";
+        String secondTagString = "garden";
+
+        Tag firstTag = new Tag(firstTagString);
+        Tag secondTag = new Tag(secondTagString);
+
+        Set<Tag> tags = new HashSet<>();
+        tags.add(firstTag);
+        tags.add(secondTag);
+
+        String budgetString = "100000000";
+        Budget budget = new Budget(budgetString);
+
+        BudgetAndTagsInRangePredicate predicate = new BudgetAndTagsInRangePredicate(budget, tags);
+        FilterCustomerCommand filterCustomerCommand = new FilterCustomerCommand(predicate);
+        String expected = FilterCustomerCommand.class.getCanonicalName() + "{predicate=" + predicate + "}";
+        assertEquals(expected, filterCustomerCommand.toString());
+    }
+
     private FilterCustomerCommand preparePredicate(String message) {
         try {
             return (new FilterCustomerCommandParser()).parse(message);
