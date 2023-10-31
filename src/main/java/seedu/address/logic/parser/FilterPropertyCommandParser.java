@@ -1,21 +1,21 @@
 package seedu.address.logic.parser;
 
-import seedu.address.logic.commands.FilterCustomerCommand;
+import static java.util.Objects.isNull;
+import static java.util.Objects.requireNonNull;
+import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_PRICE;
+import static seedu.address.logic.parser.CliSyntax.PREFIX_TAG;
+
+import java.util.Set;
+
 import seedu.address.logic.commands.FilterPropertyCommand;
 import seedu.address.logic.parser.exceptions.ParseException;
 import seedu.address.model.property.Price;
 import seedu.address.model.property.PriceAndTagsInRangePredicate;
 import seedu.address.model.tag.Tag;
 
-import java.util.Set;
-
-import static java.util.Objects.isNull;
-import static java.util.Objects.requireNonNull;
-import static seedu.address.logic.Messages.MESSAGE_INVALID_COMMAND_FORMAT;
-import static seedu.address.logic.parser.CliSyntax.*;
-
 /**
- * Filters and lists all properties in property book whose price and/or tags are selected.
+ * Filters and lists all properties in address book whose price and/or tags are selected.
  */
 public class FilterPropertyCommandParser implements Parser<FilterPropertyCommand> {
     /**
@@ -39,7 +39,7 @@ public class FilterPropertyCommandParser implements Parser<FilterPropertyCommand
 
         if (isNull(price) && tags.isEmpty()) {
             throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                    FilterCustomerCommand.MESSAGE_USAGE));
+                    FilterPropertyCommand.MESSAGE_USAGE));
         }
 
         return new FilterPropertyCommand(new PriceAndTagsInRangePredicate(price, tags));

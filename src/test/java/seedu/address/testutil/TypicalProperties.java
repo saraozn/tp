@@ -72,6 +72,7 @@ public class TypicalProperties {
     }
 
     public static List<Property> getTypicalProperties() {
-        return new ArrayList<>(Arrays.asList(AQUAVIEW, SKYVISTA, HORIZONVIEW, LUXELOFT, RIVERIA, AZURE, TRANQUILIS));
+        return new ArrayList<>(Arrays.asList(AQUAVISTA, AQUAVIEW, SKYVISTA, HORIZONVIEW,
+                LUXELOFT, RIVERIA, AZURE, TRANQUILIS));
     }
 }
