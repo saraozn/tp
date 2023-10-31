@@ -19,6 +19,10 @@ public class Messages {
     public static final String MESSAGE_INVALID_CUSTOMER_DISPLAYED_INDEX = "The customer index provided is invalid";
 
     public static final String MESSAGE_INVALID_PROPERTY_DISPLAYED_INDEX = "The property index provided is invalid";
+
+    public static final String MESSAGE_CUSTOMERS_MATCH_OVERVIEW = "%1$d properties matched with customer ";
+
+    public static final String MESSAGE_PROPERTIES_MATCH_OVERVIEW = "%1$d customers matched with property ";
     public static final String MESSAGE_CUSTOMERS_LISTED_OVERVIEW = "%1$d customers listed!";
 
     public static final String MESSAGE_PROPERTIES_LISTED_OVERVIEW = "%1$d properties listed!";

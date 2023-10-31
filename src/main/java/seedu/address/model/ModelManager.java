@@ -12,7 +12,9 @@ import javafx.collections.transformation.FilteredList;
 import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.model.customer.Customer;
+import seedu.address.model.customer.SameCustomerPredicate;
 import seedu.address.model.property.Property;
+import seedu.address.model.property.SamePropertyPredicate;
 
 /**
  * Represents the in-memory model of the address book data.
@@ -183,6 +185,14 @@ public class ModelManager implements Model {
         filteredCustomers.setPredicate(predicate);
     }
 
+    @Override
+    public void updateMatchedCustomerList(Customer targetCustomer, Predicate<Property> predicate) {
+        requireAllNonNull(targetCustomer, predicate);
+        Predicate<Customer> custPredicate = new SameCustomerPredicate(targetCustomer);
+        filteredCustomers.setPredicate(custPredicate);
+        filteredProperties.setPredicate(predicate);
+    }
+
     //=========== Filtered Property List Accessors =============================================================
 
     /**
@@ -200,6 +210,13 @@ public class ModelManager implements Model {
         filteredProperties.setPredicate(predicate);
     }
 
+    @Override
+    public void updateMatchedPropertyList(Property targetProperty, Predicate<Customer> predicate) {
+        requireAllNonNull(targetProperty, predicate);
+        Predicate<Property> propPredicate = new SamePropertyPredicate(targetProperty);
+        filteredProperties.setPredicate(propPredicate);
+        filteredCustomers.setPredicate(predicate);
+    }
 
     @Override
     public boolean equals(Object other) {

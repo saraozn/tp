@@ -4,6 +4,8 @@ import static java.util.Objects.isNull;
 import static java.util.Objects.requireNonNull;
 import static seedu.address.commons.util.AppUtil.checkArgument;
 
+import seedu.address.model.customer.Budget;
+
 /**
  * Represents a Price in the Property book.
  * Guarantees: details are present and not null, field values are validated, immutable.
@@ -46,6 +48,14 @@ public class Price {
         return isNull(other) || amount <= other.amount;
     }
 
+    /**
+     * Convert the price to a budget object.
+     *
+     * @return a budget object that have the same amount with the price.
+     */
+    public Budget convertToBudget() {
+        return new Budget(value);
+    }
     @Override
     public String toString() {
         return "$" + value;
