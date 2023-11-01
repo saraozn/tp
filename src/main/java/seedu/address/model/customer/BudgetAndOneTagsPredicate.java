@@ -7,27 +7,27 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.model.tag.Tag;
 
 /**
- * Tests that a {@code Customer}'s {@code Budget}
- * and/or minimum one {@code Tags} are in range of the specified budget and/or tags.
+ * Tests that a {@code Customer}'s {@code Budget} and/or {@code Tags} are in range of the specified budget and/or tags.
  */
-public class BudgetAndTagsInRangePredicate implements Predicate<Customer> {
+public class BudgetAndOneTagsPredicate implements Predicate<Customer> {
     private final Budget budget;
     private final Set<Tag> tags;
 
     /**
-     * Constructs a {@code BudgetAndTagsInRangePredicate}.
+     * Constructs a {@code BudgetAndOneTagsPredicate}.
      *
      * @param budget the specified budget if any
      * @param tags the specified tags if any
      */
-    public BudgetAndTagsInRangePredicate(Budget budget, Set<Tag> tags) {
+    public BudgetAndOneTagsPredicate(Budget budget, Set<Tag> tags) {
         this.budget = budget;
         this.tags = tags;
     }
 
     @Override
     public boolean test(Customer customer) {
-        return customer.getTags().containsAll(tags) && customer.getBudget().isInRangeBudget(budget);
+        return tags.stream().anyMatch(tag -> customer.getTags().contains(tag))
+                && customer.getBudget().isInRangeBudget(budget);
     }
 
     @Override
@@ -41,9 +41,9 @@ public class BudgetAndTagsInRangePredicate implements Predicate<Customer> {
             return false;
         }
 
-        BudgetAndTagsInRangePredicate otherBudgetAndTagsInRangePredicate = (BudgetAndTagsInRangePredicate) other;
-        return budget.equals(otherBudgetAndTagsInRangePredicate.budget)
-                && tags.equals(otherBudgetAndTagsInRangePredicate.tags);
+        BudgetAndOneTagsPredicate otherBudgetAndOneTagsPredicate = (BudgetAndOneTagsPredicate) other;
+        return budget.equals(otherBudgetAndOneTagsPredicate.budget)
+                && tags.equals(otherBudgetAndOneTagsPredicate.tags);
     }
 
     @Override

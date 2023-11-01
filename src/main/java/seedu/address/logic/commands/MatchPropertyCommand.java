@@ -11,7 +11,7 @@ import seedu.address.logic.Messages;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.model.Model;
 import seedu.address.model.customer.Budget;
-import seedu.address.model.customer.BudgetAndTagsInRangePredicate;
+import seedu.address.model.customer.BudgetAndOneTagsPredicate;
 import seedu.address.model.property.Price;
 import seedu.address.model.property.Property;
 import seedu.address.model.tag.Tag;
@@ -50,7 +50,7 @@ public class MatchPropertyCommand extends Command {
             Set<Tag> tags = targetProperty.getTags();
 
             Budget minBudget = price.convertToBudget();
-            BudgetAndTagsInRangePredicate predicate = new BudgetAndTagsInRangePredicate(minBudget, tags);
+            BudgetAndOneTagsPredicate predicate = new BudgetAndOneTagsPredicate(minBudget, tags);
 
             model.updateMatchedPropertyList(targetProperty, predicate);
 
