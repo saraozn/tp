@@ -26,7 +26,8 @@ public class BudgetAndOneTagsPredicate implements Predicate<Customer> {
 
     @Override
     public boolean test(Customer customer) {
-        return tags.stream().anyMatch(tag -> customer.getTags().contains(tag)) && customer.getBudget().isInRangeBudget(budget);
+        return tags.stream().anyMatch(tag -> customer.getTags().contains(tag))
+                && customer.getBudget().isInRangeBudget(budget);
     }
 
     @Override

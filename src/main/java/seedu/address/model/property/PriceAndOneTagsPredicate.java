@@ -7,7 +7,8 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.model.tag.Tag;
 
 /**
- * Tests that a {@code Property}'s {@code Price} and/or minimal one {@code Tags} are in range of the specified price and/or tags.
+ * Tests that a {@code Property}'s {@code Price}
+ * and/or minimal one {@code Tags} are in range of the specified price and/or tags.
  */
 public class PriceAndOneTagsPredicate implements Predicate<Property> {
     private final Price price;
@@ -26,7 +27,8 @@ public class PriceAndOneTagsPredicate implements Predicate<Property> {
 
     @Override
     public boolean test(Property property) {
-        return tags.stream().anyMatch(tag -> property.getTags().contains(tag)) && property.getPrice().isInRangePrice(price);
+        return tags.stream().anyMatch(tag -> property.getTags().contains(tag))
+                && property.getPrice().isInRangePrice(price);
     }
 
     @Override

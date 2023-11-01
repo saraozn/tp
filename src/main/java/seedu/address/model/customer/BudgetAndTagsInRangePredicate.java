@@ -7,7 +7,8 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.model.tag.Tag;
 
 /**
- * Tests that a {@code Customer}'s {@code Budget} and/or minimum one {@code Tags} are in range of the specified budget and/or tags.
+ * Tests that a {@code Customer}'s {@code Budget}
+ * and/or minimum one {@code Tags} are in range of the specified budget and/or tags.
  */
 public class BudgetAndTagsInRangePredicate implements Predicate<Customer> {
     private final Budget budget;
