@@ -13,7 +13,7 @@ import seedu.address.model.Model;
 import seedu.address.model.customer.Budget;
 import seedu.address.model.customer.Customer;
 import seedu.address.model.property.Price;
-import seedu.address.model.property.PriceAndTagsInRangePredicate;
+import seedu.address.model.property.PriceAndOneTagsPredicate;
 import seedu.address.model.tag.Tag;
 
 /**
@@ -49,7 +49,7 @@ public class MatchCustomerCommand extends Command {
             Set<Tag> tags = targetCustomer.getTags();
 
             Price maxPrice = budget.convertToPrice();
-            PriceAndTagsInRangePredicate predicate = new PriceAndTagsInRangePredicate(maxPrice, tags);
+            PriceAndOneTagsPredicate predicate = new PriceAndOneTagsPredicate(maxPrice, tags);
 
             model.updateMatchedCustomerList(targetCustomer, predicate);
 
