@@ -97,11 +97,11 @@ Adds a property to the application.
 Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget`
 
 Parameter:
-* `n/NAME`				         : The propName of the property (String)
-* `a/ADDRESS`		             : The propAddress of the property (String)
+* `n/NAME`				         : The Name of the property (String)
+* `a/ADDRESS`		             : The Address of the property (String)
 * `c/CHARACTERISTIC` (Optional)  : The characteristics of the property (String)
 * `ph/NUMBER`                    : The contact number (Integer)
-* `pr/PRICE`                     : The budget of the property in psf (Number)
+* `pr/PRICE`                     : The price of the property in psf (Number)
 
 
 Examples:
