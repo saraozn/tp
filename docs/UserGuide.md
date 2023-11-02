@@ -137,34 +137,6 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
-### Adding a property: `addprop`
-
-Adds a property to the application.
-
-Format: `addprop n/NAME a/ADDRESS p/number b/budget [c/CHARACTERISTIC]`
-
-Parameter:
-* `n/NAME`				         : The propName of the property (String)
-* `a/ADDRESS`		             : The propAddress of the property (String)
-* `p/NUMBER`                     : The contact number (Integer)
-* `pr/PRICE`                     : The budget of the property in psf (Number)
-* `c/CHARACTERISTIC` (Optional)  : The characteristics of the property (String)
-
-Examples:
-* addprop n/Fredy a/randomAddress c/bright c/sunny c/big c/square p/91135235 b/5
-* addprop n/Fredy a/randomAddress p/91135235 b/5
-
-When command succeeds:
-* `Property NAME has been added`
-
-When command fails:
-* `This property already exist` if the property have the same propName and propAddress
-* `Missing propName parameter for add properties command` for missing propName parameter
-* `Missing propAddress parameter for add properties command` for missing propAddress parameter
-* `Missing number parameter for add properties command` for missing propName parameter
-* `Missing budget parameter for add properties command` for missing budget parameter
-* `Invalid Command` for mispelling of command
-
 ### Adding a customer: `addcust`
 
 Adds a customer to the application.
@@ -179,18 +151,47 @@ Parameter:
 * `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
 
 Examples:
-* `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`
+* `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/1000000`
 * `addcust n/Boedi p/88888888 e/boedi@gmail.com b/250000 c/white`
 * `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000`
 
 When command succeeds:
-* `Customer NAME has been added`
+* `New customer added:Name; Phone:PHONE; Email:EMAIL; Budget:BUDGET; Tags:[TAGS]…​`
 
 When command fails:
 * `Missing name parameter for add customers command` for missing name parameter
 * `Missing phone parameter for add customers command` for missing phone parameter
 * `Missing email parameter for add customers command` for missing email parameter
 * `Invalid Command` for misspelling of command
+
+### Adding a property: `addprop`
+
+Adds a property to the application.
+
+Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget`
+
+Parameter:
+* `n/NAME`				         : The Name of the property (String)
+* `a/ADDRESS`		             : The Address of the property (String)
+* `c/CHARACTERISTIC` (Optional)  : The characteristics of the property (String)
+* `ph/NUMBER`                    : The contact number (Integer)
+* `pr/PRICE`                     : The price of the property in psf (Number)
+
+
+Examples:
+* addprop n/Fredy a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5
+* addprop n/Fredy a/randomAddress ph/91135235 pr/5
+
+When command succeeds:
+* `New property added:Name; Address:ADDRESS; Phone:PHONE; Price:price; Tags:[TAGS]…​`
+
+When command fails:
+* `This property already exist` if the property have the same Name and Address
+* `Missing Name parameter for add properties command` for missing Name parameter
+* `Missing Address parameter for add properties command` for missing Address parameter
+* `Missing number parameter for add properties command` for missing Name parameter
+* `Missing price parameter for add properties command` for missing price parameter
+* `Invalid Command` for mispelling of command
 
 ### Listing all customers : `listcust`
 
@@ -265,8 +266,8 @@ Format: `editcust INDEX [n/NAME] [ph/PHONE] [e/EMAIL] [b/BUDGET] [c/CHARACTERIST
 * You can remove all the person’s tags by typing `c/` without
   specifying any tags after it.
   Examples:
-*  `editprop 1 ph/91234567 e/andrew@gmail.com` Edits the phone number and email of the 1st customer to be `91234567` and `andrew@gmail.com` respectively.
-*  `edit 2 n/Andrew c/` Edits the name of the 2nd customer to be `Andrew` and clears all existing tags.
+*  `editcust 1 ph/91234567 e/andrew@gmail.com` Edits the phone number and email of the 1st customer to be `91234567` and `andrew@gmail.com` respectively.
+*  `editcust 2 n/Andrew c/` Edits the name of the 2nd customer to be `Andrew` and clears all existing tags.
 
 ### Editing a property : `editprop`
 Edits an existing property.
@@ -279,7 +280,8 @@ Format: `editprop INDEX [n/NAME] [ph/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERI
   specifying any tags after it.
   Examples:
 *  `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543` Edits the phone number and address of the 1st property to be `91234567` and `43 Clementi Avenue 3 #03-543` respectively.
-*  `edit 2 n/Skyview t/` Edits the name of the 2nd property to be `Skyview` and clears all existing tags.
+*  `editprop 2 n/Skyview t/` Edits the name of the 2nd property to be `Skyview` and clears all existing tags.
+* 
 ### Finding a customer : `findcust`
 
 Finds and returns a customer or a list of customers whose name contains the substring inputted.
@@ -324,6 +326,29 @@ When command fails:
 * `Invalid command format` for missing parameter
 * `Unknown command` for misspelling of command
 
+### Filter customers : `filtercust`
+
+Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
+
+Parameter:
+* `b/BUDGET` (optional)          : The budget of the customer (Integer)
+* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
+
+Notes:
+* Even though both `BUDGET` and `CHARACTERISTIC` are optional, at least one of them should exist.
+
+Examples:
+* `filtercust b/100000`
+* `filtercust b/250000 c/white`
+* `filtercust c/white`
+
+When command succeeds:
+* `4 customers listed!` when there are 4 customers fulfilling the filter.
+
+When command fails:
+* `Invalid command format!` for missing both `BUDGET` and `CHARACTERISTIC` parameters.
+* `Unknown command` for misspelling of command.
+
 ### Filter properties : `filterprop`
 
 Format: `filtercust [pr/PRICE] [c/CHARACTERISTIC]…​`
@@ -347,28 +372,51 @@ When command fails:
 * `Invalid command format!` for missing both `PRICE` and `CHARACTERISTIC` parameters.
 * `Unknown command` for misspelling of command.
 
-### Filter customers : `filtercust`
+### Matching properties to customer : `matchcust`
 
-Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
+Format: `matchcust [INDEX]`
 
 Parameter:
-* `b/BUDGET` (optional)          : The budget of the customer (Integer)
-* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
+* `INDEX`         : The index number of the customer you want to match.
 
 Notes:
-* Even though both `BUDGET` and `CHARACTERISTIC` are optional, at least one of them should exist.
+* The Index must in the range of customers you have added.
 
 Examples:
-* `filtercust b/100000`
-* `filtercust b/250000 c/white`
-* `filtercust c/white`
+* `matchcust 1`
+* `matchcust 10`
+* `matchcust 32`
 
 When command succeeds:
-* `4 customers listed!` when there are 4 customers fulfilling the filter.
+* `4 properties matched with customer 1!` when there are 4 properties fulfilling the criteria of the customer 1.
 
 When command fails:
-* `Invalid command format!` for missing both `BUDGET` and `CHARACTERISTIC` parameters.
+* `Invalid command format!` for missing `INDEX` parameters.
 * `Unknown command` for misspelling of command.
+* `There is no customer with index [INDEX]` for `INDEX` inputted is not in the range of the customers. 
+
+### Matching customers to property : `matchprop`
+
+Format: `matchprop [INDEX]`
+
+Parameter:
+* `INDEX`         : The index number of the property you want to match.
+
+Notes:
+* The Index must in the range of properties you have added.
+
+Examples:
+* `matchprop 1`
+* `matchprop 10`
+* `matchprop 32`
+
+When command succeeds:
+* `4 customers matched with property 1!` when there are 4 customers have the criteria of the property 1.
+
+When command fails:
+* `Invalid command format!` for missing `INDEX` parameters.
+* `Unknown command` for misspelling of command.
+* `There is no proeprty with index [INDEX]` for `INDEX` inputted is not in the range of the properties.
 
 ### Clear the data in the application : `clear`
 
@@ -394,7 +442,6 @@ Format: `exit`
 When command succeeds: Exit from application
 
 When command fails: Invalid command for misspelling of command
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
@@ -429,20 +476,20 @@ When command fails: Invalid command for misspelling of command
 
 | Action                           | Format, Examples                                                                                                                                                       |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add property**                 | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget` <br> e.g., `addprop n/Property a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000` |
 | **Add customer**                 | `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`                              |
-| **Delete property**              | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                                  |
+| **Add property**                 | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget` <br> e.g., `addprop n/Property a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000` |
 | **Delete customer**              | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                                  |
-| **Edit property**                | `editprop INDEX n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget`                                                                                               |
-| **Edit customer**                | `editcust INDEX n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]`                                                                                                  |
+| **Delete property**              | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                                  |
+| **Edit customer**                | `editcust INDEX n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `editcust 1 ph/91234567 e/andrew@gmail.com`                                           |
+| **Edit property**                | `editprop INDEX n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget` <br> e.g., `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543`                            |
 | **List properties**              | `listprop`                                                                                                                                                             |
 | **List customers**               | `listcust`                                                                                                                                                             |
-| **Find properties**              | `findprop NAME`                                                                                                                                                        |
 | **Find customers**               | `findcust NAME`                                                                                                                                                        |
-| **Filter properties**            | `filterprop [pr/PRICE] [c/CHARACTERISTIC]`                                                                                                                             |
-| **Filter customers**             | `filtercust [b/BUDGET] [c/CHARACTERISTIC]`                                                                                                                             |
-| **Match customers to property**  | `matchprop INDEX`                                                                                                                                                      |
-| **Match properties to customer** | `matchcust INDEX`                                                                                                                                                      |
+| **Find properties**              | `findprop NAME`                                                                                                                                                        |
+| **Filter properties**            | `filterprop [pr/PRICE] [c/CHARACTERISTIC]` <br> e.g., `filterprop pr/250000 c/white`                                                                                   |
+| **Filter customers**             | `filtercust [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `filtercust b/250000 c/white`                                                                                    |
+| **Match properties to customer** | `matchcust INDEX` <br> e.g., `matchcust 1`                                                                                                                             |
+| **Match customers to property**  | `matchprop INDEX` <br> e.g., `matchprop 1`                                                                                                                             |
 | **Clear**                        | `clear`                                                                                                                                                                |
 | **Exit**                         | `exit`                                                                                                                                                                 |
 | **Help**                         | `help`                                                                                                                                                                 |
