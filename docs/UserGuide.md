@@ -63,6 +63,33 @@ PropertyMatch is a desktop application for property agents who want to organise 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
+### Adding a customer: `addcust`
+
+Adds a customer to the application.
+
+Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
+
+Parameter:
+* `n/NAME`				         : The name of the customer (String)
+* `p/PHONE`		                 : The phone number of the customer (String)
+* `e/EMAIL`				         : The email of the customer (String)
+* `b/BUDGET`		             : The budget of the customer (Integer)
+* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
+
+Examples:
+* `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/1000000`
+* `addcust n/Boedi p/88888888 e/boedi@gmail.com b/250000 c/white`
+* `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000`
+
+When command succeeds:
+* `New customer added:Name; Phone:PHONE; Email:EMAIL; Budget:BUDGET; Tags:[TAGS]…​`
+
+When command fails:
+* `Missing name parameter for add customers command` for missing name parameter
+* `Missing phone parameter for add customers command` for missing phone parameter
+* `Missing email parameter for add customers command` for missing email parameter
+* `Invalid Command` for misspelling of command
+
 ### Adding a property: `addprop`
 
 Adds a property to the application.
@@ -82,42 +109,15 @@ Examples:
 * addprop n/Fredy a/randomAddress ph/91135235 pr/5
 
 When command succeeds:
-* `Property NAME has been added`
+* `New property added:Name; Address:ADDRESS; Phone:PHONE; Price:price; Tags:[TAGS]…​`
 
 When command fails:
-* `This property already exist` if the property have the same propName and propAddress
-* `Missing propName parameter for add properties command` for missing propName parameter
-* `Missing propAddress parameter for add properties command` for missing propAddress parameter
-* `Missing number parameter for add properties command` for missing propName parameter
-* `Missing budget parameter for add properties command` for missing budget parameter
+* `This property already exist` if the property have the same Name and Address
+* `Missing Name parameter for add properties command` for missing Name parameter
+* `Missing Address parameter for add properties command` for missing Address parameter
+* `Missing number parameter for add properties command` for missing Name parameter
+* `Missing price parameter for add properties command` for missing price parameter
 * `Invalid Command` for mispelling of command
-
-### Adding a customer: `addcust`
-
-Adds a customer to the application.
-
-Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
-
-Parameter:
-* `n/NAME`				         : The name of the customer (String)
-* `p/PHONE`		                 : The phone number of the customer (String)
-* `e/EMAIL`				         : The email of the customer (String)
-* `b/BUDGET`		             : The budget of the customer (Integer)
-* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
-
-Examples:
-* `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`
-* `addcust n/Boedi p/88888888 e/boedi@gmail.com b/250000 c/white`
-* `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000`
-
-When command succeeds:
-* `Customer NAME has been added`
-
-When command fails:
-* `Missing name parameter for add customers command` for missing name parameter
-* `Missing phone parameter for add customers command` for missing phone parameter
-* `Missing email parameter for add customers command` for missing email parameter
-* `Invalid Command` for misspelling of command
 
 ### Listing all customers : `listcust`
 
@@ -206,6 +206,7 @@ Format: `editprop INDEX [n/NAME] [ph/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERI
   Examples:
 *  `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543` Edits the phone number and address of the 1st property to be `91234567` and `43 Clementi Avenue 3 #03-543` respectively.
 *  `edit 2 n/Skyview t/` Edits the name of the 2nd property to be `Skyview` and clears all existing tags.
+* 
 ### Finding a customer : `findcust`
 
 Finds and returns a customer or a list of customers whose name contains the substring inputted.
@@ -296,6 +297,52 @@ When command fails:
 * `Invalid command format!` for missing both `PRICE` and `CHARACTERISTIC` parameters.
 * `Unknown command` for misspelling of command.
 
+### Matching customer : `matchcust`
+
+Format: `matchcust [INDEX]`
+
+Parameter:
+* `INDEX`         : The index number of the customer.
+
+Notes:
+* The Index must in the range of customers you have added.
+
+Examples:
+* `matchcust 1`
+* `matchcust 10`
+* `matchcust 32`
+
+When command succeeds:
+* `4 properties matched with customer 1!` when there are 4 properties fulfilling the criteria of the customer 1.
+
+When command fails:
+* `Invalid command format!` for missing `INDEX` parameters.
+* `Unknown command` for misspelling of command.
+* `There is no customer with index [INDEX]` for `INDEX` inputted is not in the range of the customers. 
+
+### Matching property : `matchprop`
+
+Format: `matchprop [INDEX]`
+
+Parameter:
+* `INDEX`         : The index number of the property.
+
+Notes:
+* The Index must in the range of properties you have added.
+
+Examples:
+* `matchprop 1`
+* `matchprop 10`
+* `matchprop 32`
+
+When command succeeds:
+* `4 customers matched with property 1!` when there are 4 customers have the criteria of the property 1.
+
+When command fails:
+* `Invalid command format!` for missing `INDEX` parameters.
+* `Unknown command` for misspelling of command.
+* `There is no proeprty with index [INDEX]` for `INDEX` inputted is not in the range of the properties.
+
 ### Exiting the program : `exit`
 
 Displays a goodbye message. Exit the application after 3 seconds.
@@ -305,7 +352,6 @@ Format: `exit`
 When command succeeds: Exit from application
 
 When command fails: Invalid command for misspelling of command
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
@@ -338,12 +384,16 @@ When command fails: Invalid command for misspelling of command
 
 ## Command summary
 
-| Action       | Format, Examples                                                                                                                                            |
-|--------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Addprop**  | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget` <br> e.g., `addprop n/Property a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5` |
-| **Addcust**  | `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`                   |
-| **Delprop**  | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                       |
-| **Delcust**  | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                       |
-| **Listprop** | `listprop`                                                                                                                                                  |
-| **Listcust** | `listcust`                                                                                                                                                  |
-| **Exit** | `exit`                                                                                                                                                      |
+| Action         | Format, Examples                                                                                                                                             |
+|----------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Addprop**    | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget` <br> e.g., `addprop n/Property a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5` |
+| **Addcust**    | `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`                    |
+| **Delprop**    | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                        |
+| **Delcust**    | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                        |
+| **Listprop**   | `listprop`                                                                                                                                                   |
+| **Listcust**   | `listcust`                                                                                                                                                   |
+| **Filtercust** | `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `filtercust b/250000 c/white`                                                                        |
+| **Filterprop** | `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​` <br> e.g., `filterprop pr/250000 c/white`                                                                       |
+| **Matchcust**  | `matchcust INDEX`<br> e.g., `matchcust 1`                                                                                                                    |
+| **Matchprop**  | `matchprop INDEX`<br> e.g., `matchprop 1`                                                                                                                    |
+| **Exit**       | `exit`                                                                                                                                                       |
