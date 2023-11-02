@@ -302,7 +302,7 @@ When command fails:
 Format: `matchcust [INDEX]`
 
 Parameter:
-* `INDEX`         : The index number of the customer.
+* `INDEX`         : The index number of the customer you want to match.
 
 Notes:
 * The Index must in the range of customers you have added.
@@ -325,7 +325,7 @@ When command fails:
 Format: `matchprop [INDEX]`
 
 Parameter:
-* `INDEX`         : The index number of the property.
+* `INDEX`         : The index number of the property you want to match.
 
 Notes:
 * The Index must in the range of properties you have added.
