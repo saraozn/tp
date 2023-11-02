@@ -146,7 +146,7 @@ Format: `addprop n/NAME a/ADDRESS p/number b/budget [c/CHARACTERISTIC]`
 Parameter:
 * `n/NAME`				         : The propName of the property (String)
 * `a/ADDRESS`		             : The propAddress of the property (String)
-* `p/NUMBER`                    : The contact number (Integer)
+* `p/NUMBER`                     : The contact number (Integer)
 * `pr/PRICE`                     : The budget of the property in psf (Number)
 * `c/CHARACTERISTIC` (Optional)  : The characteristics of the property (String)
 
@@ -254,6 +254,7 @@ When command fails:
 * `Missing property index` for missing parameter
 * `No such property index` for wrong parameter or index beyond list size
 * `Invalid command` for misspelling of command
+
 ### Editing a customer : `editcust`
 Edits an existing customer.
 Format: `editcust INDEX [n/NAME] [ph/PHONE] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​`
@@ -283,11 +284,11 @@ Format: `editprop INDEX [n/NAME] [ph/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERI
 
 Finds and returns a customer or a list of customers whose name contains the substring inputted.
 
-Format: `findcust String`
+Format: `findcust NAME`
 
-* Finds and returns the customer(s) whose name contains the `String` substring.
-* The String must be in the same language as the name, i.e English.
-* The String should only contain the relevant alphabets
+* Finds and returns the customer(s) whose name contains the `NAME` substring.
+* The `NAME` must be in the same language as the name, i.e English.
+* The `NAME` should only contain the relevant alphabets
 
 Examples:
 * `list` followed by `findcust F` finds and returns the customer(s) with names that begin with "F" in the customer list.
@@ -305,11 +306,11 @@ When command fails:
 
 Finds and returns a property or a list of properties whose name contains the substring inputted.
 
-Format: `findprop String`
+Format: `findprop NAME`
 
-* Finds and returns the property or properties whose name contains the `String` substring.
-* The String must be in the same language as the name, i.e English.
-* The String should only contain the relevant alphabets
+* Finds and returns the property or properties whose name contains the `NAME` substring.
+* The `NAME` must be in the same language as the name, i.e English.
+* The `NAME` should only contain the relevant alphabets
 
 Examples:
 * `list` followed by `findprop F` finds and returns the property or properties with names that begin with "F" in the property list.
@@ -379,7 +380,6 @@ Format: `clear`
 Clearing the data in your application will result in all data being lost! Be careful when you perform this operation and be sure that you want to reset all data in the app.
 </div>
 <br>
-
 
 When command succeeds: All data in the application will be cleared.
 
