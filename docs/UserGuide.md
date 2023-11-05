@@ -3,55 +3,75 @@ layout: page
 title: User Guide
 ---
 
-PropertyMatch is a **contact and property management system** that aims to help property agents who want to organise their client profiles with their corresponding properties.
+![Logo](images/Logo.png)
 
-As property agents, you can make use of PropertyMatch’s powerful match and filter features to capitalise on your existing contacts and properties, allowing you to convert them into your valuable leads. This can give you the revenue boost you needed to become an all-star property agent. Leverage on PropertyMatch’s find feature to quickly locate customers that you want to retrieve information about.
+Greetings property agents! A warm welcome to our user guide, your companion for navigating and maximizing the full potential of PropertyMatch.
 
-The only tools you need to make use of the full suite of capabilities PropertyMatch has to offer are your hands and a keyboard.
+--------------------------------------------------------------------------------------------------------------------
 
-This **user guide** aims to provide you with an in-depth overview of how to set up, use, and debug PropertyMatch. Take a look at the Command Summary section for a quick overview of the different commands along with how to use them, or dive into the Quick Start section to get started.
+## Table of Contents
 
 * Table of Contents
   {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
-## Quick start
+## Introduction
 [Back to top](#table-of-contents)
 
-1. Ensure you have Java `11` or above installed in your Computer. If needed, this [link](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A) (external link to Oracle) provides a step-by-step installation guide for Java `11`.
+PropertyMatch is a **contact and property management system** that aims to help you, property agents, to organise their client profiles with their corresponding properties.
 
-1. Download the latest `propertymatch.jar` from our [releases page](https://github.com/AY2324S1-CS2103T-W11-2/tp/releases). After clicking into the release page, scroll down slightly until you reach the Assets section of the page. This section should look like this:<br>
-   ![Release page](images/user-guide/ReleasePage.png)
+With PropertyMatch, you can easily
+- **Match** your existing customers and properties
+- **Filter** your existing customers and properties to your needs
+- **Find** that customer or property you need instead of relying on your memory
+- and so much more...!
 
-1. Simply click on `propertymatch.jar`, and PropertyMatch should begin automatically downloading on your computer!
+With these powerful features, you can easily capitalise on your network, allowing you to convert them into your valuable leads. This can give you the revenue boost you needed to become an all-star property agent.
 
-1. Copy the `propertymatch.jar` file to the folder you want to use as the _home folder_ for PropertyMatch. All data will be created and stored in that folder. If you are unsure where to place the folder, go to your desktop and create a folder. You can then copy the `propertymatch.jar` file into the folder you just created.
+The only tools you need to make use of the full suite of capabilities PropertyMatch has to offer are your hands and a keyboard.
 
-1. Open the folder and double click on `propertymatch.jar` to open PropertyMatch. If this does not work, please open up the terminal on your computer and type in `java -jar propertymatch.jar` to start the application.
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
-
-Congratulations! PropertyMatch is now set up and ready to work on your system.
-
-If you encounter any bugs during the setup process, please check out the FAQ section of this guide, which hopefully contains some information that can help you diagnose your issue.
-
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution (for advanced users):**
-On first launch, PropertyMatch will create a few files that have the extension `.json` in its *home directory*. These files are used
-by PropertyMatch to store its data. **Edit these at your own risk**, as PropertyMatch will start with an empty database if it detects any
-error in the formatting of the data in these files.
-</div>
-<br>
+This **user guide** aims to provide you with an in-depth overview of how to set up, use, and debug PropertyMatch. Take a look at the Command Summary section for a quick overview of the different commands along with how to use them, or dive into the Quick Start section to get started.
 
 --------------------------------------------------------------------------------------------------------------------
+
+## Using this Guide
+[Back to top](#table-of-contents)
+
+Being property agents, we expect zero prior knowledge on how to use a [Command Line Interface (CLI)](https://en.wikipedia.org/wiki/Command-line_interface). Therefore, our application has been designed with that in mind, with easy to use command and simple prefixes that you will naturally reach to without having to remember how to use them.
+
+To get started, use our Quick Start Guide and you will get PropertyMatch up and running in no time!
+
+If you have any doubts while using PropertyMatch, do head over to our FAQ section to view comprehensive answers to some frequently asked questions. You may also contact us at [hello@propertymatch.com](mailto:hello@propertymatch.com) if you have any other questions.
+
+In addition, here are some symbols that will give you a more enjoyable time using our guide:
+
+| Symbol               | Meaning                                                                                        |
+|----------------------|------------------------------------------------------------------------------------------------|
+| :information_source: | Note. Provides additional information.                                                         |
+| :bulb:               | Helpful tip that will improve your experience.                                                 |
+| :exclamation:        | Warning. Attempting to perform an action with a warning will lead to undesirable consequences. |
+
+<div markdown="block" class="alert alert-info">
+**:information_source: Notes about the command format:**<br>
+* These symbols will be encapsulated in a box as such.
+</div>
+
+--------------------------------------------------------------------------------------------------------------------
+
 
 ## Interface Layout
 [Back to top](#table-of-contents)
 
-When you launch PropertyMatch, PropertyMatch will appear on your screen as a window. Let's take a look at the 4 different components
+When you launch PropertyMatch, PropertyMatch will appear on your screen as a window. Let's take a look at the 5 different components
 that make up this window.
 
-### 1. Command Input and Output Boxes
+![UserInterface](images/user-guide/UserInterface.png)
+
+### 1. Menu Bar
+
+
+### 2. Command Input and Output Boxes
 These boxes are located at the top section of the window.<br><br>
 ![CommandBox](images/user-guide/CommandBox.png)<br><br>
 The **command input box** is located where the placeholder text `Enter command here...` is.<br>
@@ -106,6 +126,35 @@ This will appear as a separate window.
 The __help window__ displays a link to PropertyMatch's User Guide, which is the online version of this document. :)
 
 It appears when you execute the [Help Command](#viewing-help-help).
+
+--------------------------------------------------------------------------------------------------------------------
+
+## Quick start
+[Back to top](#table-of-contents)
+
+1. Ensure you have Java `11` or above installed in your Computer. If needed, this [link](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A) (external link to Oracle) provides a step-by-step installation guide for Java `11`.
+
+1. Download the latest `propertymatch.jar` from our [releases page](https://github.com/AY2324S1-CS2103T-W11-2/tp/releases). After clicking into the release page, scroll down slightly until you reach the Assets section of the page. This section should look like this:<br>
+   ![Release page](images/user-guide/ReleasePage.png)
+
+1. Simply click on `propertymatch.jar`, and PropertyMatch should begin automatically downloading on your computer!
+
+1. Copy the `propertymatch.jar` file to the folder you want to use as the _home folder_ for PropertyMatch. All data will be created and stored in that folder. If you are unsure where to place the folder, go to your desktop and create a folder. You can then copy the `propertymatch.jar` file into the folder you just created.
+
+1. Open the folder and double-click on `propertymatch.jar` to open PropertyMatch. If this does not work, please open up the terminal on your computer and type in `java -jar propertymatch.jar` to start the application.
+   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
+   ![Ui](images/Ui.png)
+
+Congratulations! PropertyMatch is now set up and ready to work on your system.
+
+If you encounter any bugs during the setup process, please check out the FAQ section of this guide, which hopefully contains some information that can help you diagnose your issue.
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution (for advanced users):**
+On first launch, PropertyMatch will create a few files that have the extension `.json` in its *home directory*. These files are used
+by PropertyMatch to store its data. **Edit these at your own risk**, as PropertyMatch will start with an empty database if it detects any
+error in the formatting of the data in these files.
+</div>
+<br>
 
 --------------------------------------------------------------------------------------------------------------------
 
