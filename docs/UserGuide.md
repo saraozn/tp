@@ -240,8 +240,8 @@ Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget`
 * `pr/PRICE`                     : Price of the property
 
 Examples:
-* addprop n/Fredy a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000
-* addprop n/Fredy a/randomAddress p/91135235 pr/700000
+* `addprop n/Fredy a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000`
+* `addprop n/Fredy a/randomAddress p/91135235 pr/700000`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
 Similar to adding a duplicate customer, the characteristics field is optional.<br>
@@ -523,11 +523,11 @@ When command fails:
 * `Unknown command` for misspelling of command.
 * `There is no proeprty with index INDEX` for `INDEX` inputted is not in the range of the properties.
 
-
-### Clear the data in the application : `clear`
+### General Features
+#### Clear the data in the application : `clear`
 [Back to Table of Contents](#table-of-contents)
 
-Resets all data in the application.
+Resets all data in the application. (i.e. Deletes all entries in your Customer List and Property List)
 
 Format: `clear`
 
@@ -535,8 +535,7 @@ Format: `clear`
 Clearing the data in your application will result in all data being lost! Be careful when you perform this operation and be sure that you want to reset all data in the app.
 
 
-
-### Exiting the program : `exit`
+#### Exiting the program : `exit`
 [Back to Table of Contents](#table-of-contents)
 
 Displays a goodbye message. Exit the application after 3 seconds.
@@ -544,12 +543,30 @@ Displays a goodbye message. Exit the application after 3 seconds.
 Format: `exit`
 
 
-### Viewing help : `help`
+#### Viewing help : `help`
 [Back to Table of Contents](#table-of-contents)
 
 Displays a window containing the link to PropertyMatch's user guide for further help.
 
 Format: `help`
+
+
+#### Saving data
+[Back to Table of Contents](#table-of-contents)
+
+PropertyMatch data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+
+
+#### Editing the data file
+[Back to Table of Contents](#table-of-contents)
+
+PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data/addressbook.json` and `[JAR file location]/data/propertybook.json`. Advanced users are welcome to update data directly by editing those JSON files.
+
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution (for advanced users):**
+If your changes to the data file makes its format invalid, PropertyMatch will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
+</div>
+<br>
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -561,7 +578,7 @@ Format: `help`
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous PropertyMatch home folder.
 
 **Q**: How do I install Java 11?<br>
-**A**: Follow this [link](https://www3.ntu.edu.sg/home/ehchua/programming/howto/jdk_howto.html) for steps to download Java.
+**A**: Follow this [link](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A) for steps to download Java 11.
 
 **Q**: Help! I can’t seem to get a command to work…<br>
 **A**: Refer to the features section of our guide for command information and syntax. Make sure that you have supplied all necessary inputs for the command and specified the flags in a correct manner.
@@ -575,6 +592,9 @@ Format: `help`
 **Q**: How do I uninstall PropertyMatch?<br>
 **A**: We are sad to see you go 🙁 PropertyMatch is not installed onto your hard drive, so you only need to delete the folder that contains propertymatch.jar (that is, the home folder of PropertyMatch).
 
+**Q**: Do I need an active internet connection to use PropertyMatch?
+**A**: No, PropertyMatch is a standalone application that does not require an internet connection to function. However, you'll need an internet connection to download it to your machine.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues
@@ -587,22 +607,22 @@ Format: `help`
 ## Command summary
 [Back to Table of Contents](#table-of-contents)
 
-| Action                           | Format, Examples                                                                                                                                                       |
-|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add customer**                 | `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`                              |
-| **Add property**                 | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget` <br> e.g., `addprop n/Property a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000` |
-| **Delete customer**              | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                                  |
-| **Delete property**              | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                                  |
-| **Edit customer**                | `editcust INDEX n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `editcust 1 ph/91234567 e/andrew@gmail.com`                                           |
-| **Edit property**                | `editprop INDEX n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget` <br> e.g., `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543`                            |
-| **List properties**              | `listprop`                                                                                                                                                             |
-| **List customers**               | `listcust`                                                                                                                                                             |
-| **Find customers**               | `findcust NAME`                                                                                                                                                        |
-| **Find properties**              | `findprop NAME`                                                                                                                                                        |
-| **Filter properties**            | `filterprop [pr/PRICE] [c/CHARACTERISTIC]` <br> e.g., `filterprop pr/250000 c/white`                                                                                   |
-| **Filter customers**             | `filtercust [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `filtercust b/250000 c/white`                                                                                    |
-| **Match properties to customer** | `matchcust INDEX` <br> e.g., `matchcust 1`                                                                                                                             |
-| **Match customers to property**  | `matchprop INDEX` <br> e.g., `matchprop 1`                                                                                                                             |
-| **Clear**                        | `clear`                                                                                                                                                                |
-| **Exit**                         | `exit`                                                                                                                                                                 |
-| **Help**                         | `help`                                                                                                                                                                 |
+| Action                           | Format, Examples                                                                                                                                                        |
+|----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add customer**                 | `addcust n/NAME p/PHONE_NUMBER e/EMAIL b/BUDGET [c/CHARACTERISTIC]` <br> e.g., `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white`           |
+| **Add property**                 | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] p/PHONE_NUMBER pr/PRICE` <br> e.g., `addprop n/Fredy a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000` |
+| **Delete customer**              | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                                   |
+| **Delete property**              | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                                   |
+| **Edit customer**                | `editcust INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]...` <br> e.g., `editcust 1 p/91234567 e/andrew@gmail.com`                             |
+| **Edit property**                | `editprop INDEX [n/NAME] [a/ADDRESS] [c/CHARACTERISTIC]... [p/PHONE_NUMBER] [pr/PRICE]` <br> e.g., `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543`              |
+| **List properties**              | `listprop`                                                                                                                                                              |
+| **List customers**               | `listcust`                                                                                                                                                              |
+| **Find customers**               | `findcust NAME`                                                                                                                                                         |
+| **Find properties**              | `findprop NAME`                                                                                                                                                         |
+| **Filter properties**            | `filterprop [pr/PRICE] [c/CHARACTERISTIC]...` <br> e.g., `filterprop pr/250000 c/white`                                                                                 |
+| **Filter customers**             | `filtercust [b/BUDGET] [c/CHARACTERISTIC]...` <br> e.g., `filtercust b/250000 c/white`                                                                                  |
+| **Match properties to customer** | `matchcust INDEX` <br> e.g., `matchcust 1`                                                                                                                              |
+| **Match customers to property**  | `matchprop INDEX` <br> e.g., `matchprop 1`                                                                                                                              |
+| **Clear**                        | `clear`                                                                                                                                                                 |
+| **Exit**                         | `exit`                                                                                                                                                                  |
+| **Help**                         | `help`                                                                                                                                                                  |
