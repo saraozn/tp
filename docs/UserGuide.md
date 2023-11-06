@@ -377,13 +377,13 @@ Finds and returns a customer or a list of customers whose name contains the subs
 
 Format: `findcust NAME`
 
-* Finds and returns the customer(s) whose name contains the `NAME` substring.
+* Finds and returns the customer(s) whose names begins with the `NAME` substring at any position within their name.
 * The `NAME` must be in the same language as the name, i.e English.
 * The `NAME` should only contain the relevant alphabets
 
 Examples:
-* `list` followed by `findcust F` finds and returns the customer(s) with names that begin with "F" in the customer list.
-* `list` followed by `findcust F J` finds and returns the customer(s) with names that begin with "F" and/or "J" in the customer list.
+* `list` followed by `findcust F` finds and returns the customer(s) whose names begin with "F" at any position within their name in the customer list.
+* `list` followed by `findcust F J` finds and returns the customer(s) whose names begin with "F" or "J" at any position within their name in the customer list.
 
 
 When command succeeds:
