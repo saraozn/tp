@@ -231,7 +231,7 @@ To ensure that your database remains neat, PropertyMatch will warn you when you 
 
 Adds a property to the application.
 
-Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget`
+Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] p/number pr/budget`
 
 * `n/NAME`				         : Name of the property
 * `a/ADDRESS`		             : Address of the property
@@ -251,6 +251,7 @@ If it is not set, the characteristics field will be empty.
 <div markdown="span" class="alert alert-primary">:bulb: **Note:**
 Similar to adding a duplicate customer, PropertyMatch will warn you when you try to add duplicate customers that have the name.
 </div>
+
 
 ### List Commands
 
@@ -313,7 +314,7 @@ Examples:
 
 Edits an existing customer.
 
-Format: `editcust INDEX [n/NAME] [ph/PHONE] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​`
+Format: `editcust INDEX [n/NAME] [p/PHONE] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​`
 * Edits the customer at the specified `INDEX`. The index refers to the index number shown in the displayed customer list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
@@ -322,7 +323,7 @@ Format: `editcust INDEX [n/NAME] [ph/PHONE] [e/EMAIL] [b/BUDGET] [c/CHARACTERIST
   specifying any tags after it.
 
 Examples:
-*  `editcust 1 ph/91234567 e/andrew@gmail.com` Edits the phone number and email of the 1st customer to be `91234567` and `andrew@gmail.com` respectively.
+*  `editcust 1 p/91234567 e/andrew@gmail.com` Edits the phone number and email of the 1st customer to be `91234567` and `andrew@gmail.com` respectively.
 *  `editcust 2 n/Andrew c/` Edits the name of the 2nd customer to be `Andrew` and clears all existing tags.
 
 
@@ -330,7 +331,7 @@ Examples:
 [Back to Table of Contents](#table-of-contents)
 
 Edits an existing property.
-Format: `editprop INDEX [n/NAME] [ph/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERISTIC]…​`
+Format: `editprop INDEX [n/NAME] [p/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERISTIC]…​`
 * Edits the property at the specified `INDEX`. The index refers to the index number shown in the displayed property list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
@@ -339,7 +340,7 @@ Format: `editprop INDEX [n/NAME] [ph/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERI
   specifying any tags after it.
 
 Examples:
-*  `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543` Edits the phone number and address of the 1st property to be `91234567` and `43 Clementi Avenue 3 #03-543` respectively.
+*  `editprop 1 p/91234567 a/43 Clementi Avenue 3 #03-543` Edits the phone number and address of the 1st property to be `91234567` and `43 Clementi Avenue 3 #03-543` respectively.
 *  `editprop 2 n/Skyview t/` Edits the name of the 2nd property to be `Skyview` and clears all existing tags.
 
 
@@ -351,13 +352,13 @@ Finds and returns a customer or a list of customers whose name contains the subs
 
 Format: `findcust NAME`
 
-* Finds and returns the customer(s) whose name contains the `NAME` substring.
+* Finds and returns the customer(s) whose names begins with the `NAME` substring at any position within their name.
 * The `NAME` must be in the same language as the name, i.e English.
 * The `NAME` should only contain the relevant alphabets
 
 Examples:
-* `list` followed by `findcust F` finds and returns the customer(s) with names that begin with "F" in the customer list.
-* `list` followed by `findcust F J` finds and returns the customer(s) with names that begin with "F" and/or "J" in the customer list.
+* `list` followed by `findcust F` finds and returns the customer(s) whose names begin with "F" at any position within their name in the customer list.
+* `list` followed by `findcust F J` finds and returns the customer(s) whose names begin with "F" or "J" at any position within their name in the customer list.
 
 
 #### Finding a property: `findprop`
