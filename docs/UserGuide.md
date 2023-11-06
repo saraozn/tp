@@ -204,12 +204,11 @@ Adds a customer to the application.
 
 Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
-Parameter:
-* `n/NAME`				         : The name of the customer (String)
-* `p/PHONE`		                 : The phone number of the customer (String)
-* `e/EMAIL`				         : The email of the customer (String)
-* `b/BUDGET`		             : The budget of the customer (Integer)
-* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
+* `n/NAME`				         : Name of the customer
+* `p/PHONE`		                 : Phone number of the customer
+* `e/EMAIL`				         : Email of the customer
+* `b/BUDGET`		             : Budget of the customer
+* `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for 
 
 Examples:
 * `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/1000000`
@@ -217,7 +216,7 @@ Examples:
 * `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000`
 
 When command succeeds:
-* `New customer added:Name; Phone:PHONE; Email:EMAIL; Budget:BUDGET; Tags:[TAGS]…​`
+* `New customer added:NAME; Phone:PHONE; Email:EMAIL; Budget:BUDGET; Tags:[TAGS]…​`
 
 When command fails:
 * `Missing name parameter for add customers command` for missing name parameter
@@ -232,20 +231,18 @@ Adds a property to the application.
 
 Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget`
 
-Parameter:
-* `n/NAME`				         : The Name of the property (String)
-* `a/ADDRESS`		             : The Address of the property (String)
-* `c/CHARACTERISTIC` (Optional)  : The characteristics of the property (String)
-* `ph/NUMBER`                    : The contact number (Integer)
-* `pr/PRICE`                     : The price of the property in psf (Number)
-
+* `n/NAME`				         : Name of the property
+* `a/ADDRESS`		             : Address of the property
+* `c/CHARACTERISTIC` (Optional)  : Characteristics of the property
+* `ph/NUMBER`                    : Contact number
+* `pr/PRICE`                     : Price of the property
 
 Examples:
 * addprop n/Fredy a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5
 * addprop n/Fredy a/randomAddress ph/91135235 pr/5
 
 When command succeeds:
-* `New property added:Name; Address:ADDRESS; Phone:PHONE; Price:price; Tags:[TAGS]…​`
+* `New property added:NAME; Address:ADDRESS; Phone:PHONE; Price:price; Tags:[TAGS]…​`
 
 When command fails:
 * `This property already exist` if the property have the same Name and Address
@@ -264,7 +261,11 @@ Format: `listcust`
 
 No additional parameters are needed for this command and they will be ignored if used.
 
-When command succeeds: Customer list will be updated to show all properties in your database.
+When command succeeds: 
+* Customer list will be updated to show all properties in your database.
+
+When command fails: 
+* `Invalid command` for misspelling of command
 
 ### Listing all properties : `listprop`
 
@@ -274,10 +275,12 @@ Format: `listprop`
 
 No additional parameters are needed for this command and they will be ignored.
 
-When command succeeds: Property list will be updated to show all properties in your database.
+When command succeeds: 
+* Property list will be updated to show all properties in your database.
 
 
-When command fails: Invalid command for misspelling of command
+When command fails: 
+* `Invalid command` for misspelling of command
 
 ### Deleting a customer : `delcust`
 [Back to top](#table-of-contents)
@@ -325,6 +328,7 @@ When command fails:
 [Back to top](#table-of-contents)
 
 Edits an existing customer.
+
 Format: `editcust INDEX [n/NAME] [ph/PHONE] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​`
 * Edits the customer at the specified `INDEX`. The index refers to the index number shown in the displayed customer list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
@@ -332,9 +336,16 @@ Format: `editcust INDEX [n/NAME] [ph/PHONE] [e/EMAIL] [b/BUDGET] [c/CHARACTERIST
 * When editing tags, the existing tags of the property will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `c/` without
   specifying any tags after it.
-  Examples:
+
+Examples:
 *  `editcust 1 ph/91234567 e/andrew@gmail.com` Edits the phone number and email of the 1st customer to be `91234567` and `andrew@gmail.com` respectively.
 *  `editcust 2 n/Andrew c/` Edits the name of the 2nd customer to be `Andrew` and clears all existing tags.
+
+When command succeeds: 
+* `Edited customer:NAME; Phone:PHONE; Email:EMAIL; Budget:BUDGET; Tags:[TAGS]…​`
+
+When command fails: 
+* `Invalid command` for misspelling of command
 
 ### Editing a property : `editprop`
 [Back to top](#table-of-contents)
@@ -347,9 +358,16 @@ Format: `editprop INDEX [n/NAME] [ph/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERI
 * When editing tags, the existing tags of the property will be removed i.e adding of tags is not cumulative.
 * You can remove all the person’s tags by typing `c/` without
   specifying any tags after it.
-  Examples:
+
+Examples:
 *  `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543` Edits the phone number and address of the 1st property to be `91234567` and `43 Clementi Avenue 3 #03-543` respectively.
 *  `editprop 2 n/Skyview t/` Edits the name of the 2nd property to be `Skyview` and clears all existing tags.
+
+When command succeeds: 
+* `Edited property:NAME; Phone:PHONE; Address:ADDRESS; Price:PRICE; Tags:[TAGS]…​`
+
+When command fails:
+* `Invalid command` for misspelling of command
 
 
 ### Finding a customer : `findcust`
@@ -398,16 +416,17 @@ When command fails:
 * `Invalid command format` for missing parameter
 * `Unknown command` for misspelling of command
 
-### Filter customers : `filtercust`
+
+### Filtering customers : `filtercust`
 [Back to top](#table-of-contents)
+
+Filters the customer list to only show customers that fit the criteria.
 
 Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
 
-Parameter:
-* `b/BUDGET` (optional)          : The budget of the customer (Integer)
-* `c/CHARACTERISTIC` (optional)  : The characteristics of the property the customer is looking for (String)
+* `b/BUDGET` (optional)          : Budget of the customer
+* `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for
 
-Notes:
 * Even though both `BUDGET` and `CHARACTERISTIC` are optional, at least one of them should exist.
 
 Examples:
@@ -422,16 +441,17 @@ When command fails:
 * `Invalid command format!` for missing both `BUDGET` and `CHARACTERISTIC` parameters.
 * `Unknown command` for misspelling of command.
 
+
 ### Filter properties : `filterprop`
 [Back to top](#table-of-contents)
 
+Filters the property list to only show properties that fit the criteria.
+
 Format: `filtercust [pr/PRICE] [c/CHARACTERISTIC]…​`
 
-Parameter:
-* `pr/PRICE` (optional)          : The budget of the property (Integer)
-* `c/CHARACTERISTIC` (optional)  : The characteristics of the property (String)
+* `pr/PRICE` (optional)          : The budget of the property
+* `c/CHARACTERISTIC` (optional)  : The characteristics of the property
 
-Note:
 * Even though both `PROPERTY` and `CHARACTERISTIC` are optional, at least one of them should exist.
 
 Examples:
@@ -446,21 +466,21 @@ When command fails:
 * `Invalid command format!` for missing both `PRICE` and `CHARACTERISTIC` parameters.
 * `Unknown command` for misspelling of command.
 
-### Matching properties to customer : `matchcust`
+### Matching properties to a customer : `matchcust`
 [Back to top](#table-of-contents)
 
-Format: `matchcust [INDEX]`
+Shows the list of properties that matches the criteria of the customer.
 
-Parameter:
-* `INDEX`         : The index number of the customer you want to match.
+Format: `matchcust INDEX`
 
-Notes:
-* The Index must in the range of customers you have added.
+* Matches the customer at the specified `INDEX`.
+* The index refers to the index number shown in the displayed customer list.
+* Acceptable parameters are integers within the customer list size.
+* The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
 * `matchcust 1`
 * `matchcust 10`
-* `matchcust 32`
 
 When command succeeds:
 * `4 properties matched with customer 1!` when there are 4 properties fulfilling the criteria of the customer 1.
@@ -468,23 +488,24 @@ When command succeeds:
 When command fails:
 * `Invalid command format!` for missing `INDEX` parameters.
 * `Unknown command` for misspelling of command.
-* `There is no customer with index [INDEX]` for `INDEX` inputted is not in the range of the customers. 
+* `There is no customer with index INDEX` for `INDEX` inputted is not in the range of the customers. 
 
-### Matching customers to property : `matchprop`
+
+### Matching customers to a property : `matchprop`
 [Back to top](#table-of-contents)
 
-Format: `matchprop [INDEX]`
+Shows the list of customers that matches the criteria of the property.
 
-Parameter:
-* `INDEX`         : The index number of the property you want to match.
+Format: `matchprop INDEX`
 
-Notes:
-* The Index must in the range of properties you have added.
+* Matches the property at the specified `INDEX`.
+* The index refers to the index number shown in the displayed property list.
+* Acceptable parameters are integers within the property list size.
+* The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
 * `matchprop 1`
 * `matchprop 10`
-* `matchprop 32`
 
 When command succeeds:
 * `4 customers matched with property 1!` when there are 4 customers have the criteria of the property 1.
@@ -492,7 +513,7 @@ When command succeeds:
 When command fails:
 * `Invalid command format!` for missing `INDEX` parameters.
 * `Unknown command` for misspelling of command.
-* `There is no proeprty with index [INDEX]` for `INDEX` inputted is not in the range of the properties.
+* `There is no proeprty with index INDEX` for `INDEX` inputted is not in the range of the properties.
 
 ### Clear the data in the application : `clear`
 [Back to top](#table-of-contents)
@@ -501,14 +522,15 @@ Resets all data in the application.
 
 Format: `clear`
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Warning:**
+ **Warning:**
 Clearing the data in your application will result in all data being lost! Be careful when you perform this operation and be sure that you want to reset all data in the app.
-</div>
-<br>
 
-When command succeeds: All data in the application will be cleared.
 
-When command fails: Invalid command for misspelling of command
+When command succeeds: 
+* All data in the application will be cleared.
+
+When command fails: 
+* `Invalid command` for misspelling of command
 
 ### Exiting the program : `exit`
 [Back to top](#table-of-contents)
@@ -517,9 +539,14 @@ Displays a goodbye message. Exit the application after 3 seconds.
 
 Format: `exit`
 
-When command succeeds: Exit from application
+When command succeeds: 
+* Exits from application
+
+When command fails: 
+* `Invalid command` for misspelling of command
 
 When command fails: Invalid command for misspelling of command
+
 
 --------------------------------------------------------------------------------------------------------------------
 
