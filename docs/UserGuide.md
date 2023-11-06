@@ -255,10 +255,10 @@ Similar to adding a duplicate customer, PropertyMatch will warn you when you try
 ### List Commands
 
 <div markdown="span" class="alert alert-primary">:bulb: **Note:**
-The List Commands should be used to view all buyers and properties again, after a Filter Command, Find Command, or Match Command is executed.
+The List Commands should be used to view all buyers and properties again, after a [Filter Command](#filter-commands), [Find Command](#find-commands), or [Match Command](#match-commands) is executed.
 </div>
 
-#### Listing all customers : `listcust`
+#### Listing all customers: `listcust`
 [Back to Table of Contents](#table-of-contents)
 
 Updates the Customer List to show all customers in your database.
@@ -267,13 +267,8 @@ Format: `listcust`
 
 No additional parameters are needed for this command and they will be ignored if used.
 
-When command succeeds: 
-* Customer list will be updated to show all properties in your database.
 
-When command fails: 
-* `Invalid command` for misspelling of command
-
-#### Listing all properties : `listprop`
+#### Listing all properties: `listprop`
 
 Updates the Property List to show all properties in your database.
 
@@ -281,15 +276,9 @@ Format: `listprop`
 
 No additional parameters are needed for this command and they will be ignored.
 
-When command succeeds: 
-* Property list will be updated to show all properties in your database.
-
-
-When command fails: 
-* `Invalid command` for misspelling of command
 
 ### Delete Commands
-#### Deleting a customer : `delcust`
+#### Deleting a customer: `delcust`
 [Back to Table of Contents](#table-of-contents)
 
 Deletes the specified customer and their corresponding details from the database.
@@ -301,17 +290,10 @@ Format: `delcust INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delcust 2` deletes the 2nd customer in the customer list.
+* `listcust` followed by `delcust 2` deletes the 2nd customer in the customer list.
 
-When command succeeds:
-* `deleted customer 3`
 
-When command fails:
-* `Missing customer index` for missing parameter
-* `No such customer index` for wrong parameter/ index beyond list size
-* `Invalid command` for misspelling of command
-
-#### Deleting a property : `delprop`
+#### Deleting a property: `delprop`
 [Back to Table of Contents](#table-of-contents)
 
 Format: `delprop INDEX`
@@ -322,17 +304,11 @@ Format: `delprop INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `delprop 2` deletes the 2nd property in the address book.
+* `listprop` followed by `delprop 2` deletes the 2nd property in the address book.
 
-When command succeeds: `deleted property 2`
-
-When command fails:
-* `Missing property index` for missing parameter
-* `No such property index` for wrong parameter or index beyond list size
-* `Invalid command` for misspelling of command
 
 ### Edit Commands
-#### Editing a customer : `editcust`
+#### Editing a customer: `editcust`
 [Back to Table of Contents](#table-of-contents)
 
 Edits an existing customer.
@@ -349,13 +325,8 @@ Examples:
 *  `editcust 1 ph/91234567 e/andrew@gmail.com` Edits the phone number and email of the 1st customer to be `91234567` and `andrew@gmail.com` respectively.
 *  `editcust 2 n/Andrew c/` Edits the name of the 2nd customer to be `Andrew` and clears all existing tags.
 
-When command succeeds: 
-* `Edited customer:NAME; Phone:PHONE; Email:EMAIL; Budget:BUDGET; Tags:[TAGS]…​`
 
-When command fails: 
-* `Invalid command` for misspelling of command
-
-#### Editing a property : `editprop`
+#### Editing a property: `editprop`
 [Back to Table of Contents](#table-of-contents)
 
 Edits an existing property.
@@ -371,14 +342,9 @@ Examples:
 *  `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543` Edits the phone number and address of the 1st property to be `91234567` and `43 Clementi Avenue 3 #03-543` respectively.
 *  `editprop 2 n/Skyview t/` Edits the name of the 2nd property to be `Skyview` and clears all existing tags.
 
-When command succeeds: 
-* `Edited property:NAME; Phone:PHONE; Address:ADDRESS; Price:PRICE; Tags:[TAGS]…​`
-
-When command fails:
-* `Invalid command` for misspelling of command
 
 ### Find Commands
-#### Finding a customer : `findcust`
+#### Finding a customer: `findcust`
 [Back to Table of Contents](#table-of-contents)
 
 Finds and returns a customer or a list of customers whose name contains the substring inputted.
@@ -394,14 +360,7 @@ Examples:
 * `list` followed by `findcust F J` finds and returns the customer(s) with names that begin with "F" and/or "J" in the customer list.
 
 
-When command succeeds:
-* `1 customer listed`
-
-When command fails:
-* `Invalid command format` for missing parameter
-* `Unknown command` for misspelling of command
-
-#### Finding a property : `findprop`
+#### Finding a property: `findprop`
 [Back to Table of Contents](#table-of-contents)
 
 Finds and returns a property or a list of properties whose name contains the substring inputted.
@@ -417,15 +376,8 @@ Examples:
 * `list` followed by `findprop F J` finds and returns the property or properties with names that begin with "F" and/or "J" in the property list.
 
 
-When command succeeds:
-* `1 property listed`
-
-When command fails:
-* `Invalid command format` for missing parameter
-* `Unknown command` for misspelling of command
-
 ### Filter Commands
-#### Filtering customers : `filtercust`
+#### Filtering customers: `filtercust`
 [Back to Table of Contents](#table-of-contents)
 
 Filters the customer list to only show customers that fit the criteria.
@@ -442,14 +394,8 @@ Examples:
 * `filtercust b/250000 c/white`
 * `filtercust c/white`
 
-When command succeeds:
-* `4 customers listed!` when there are 4 customers fulfilling the filter.
 
-When command fails:
-* `Invalid command format!` for missing both `BUDGET` and `CHARACTERISTIC` parameters.
-* `Unknown command` for misspelling of command.
-
-#### Filter properties : `filterprop`
+#### Filter properties: `filterprop`
 [Back to Table of Contents](#table-of-contents)
 
 Filters the property list to only show properties that fit the criteria.
@@ -466,15 +412,9 @@ Examples:
 * `filterprop pr/250000 c/white`
 * `filterprop c/white`
 
-When command succeeds:
-* `4 properties listed!` when there are 4 properties fulfilling the filter.
-
-When command fails:
-* `Invalid command format!` for missing both `PRICE` and `CHARACTERISTIC` parameters.
-* `Unknown command` for misspelling of command.
 
 ### Match Commands
-#### Matching properties to a customer : `matchcust`
+#### Matching properties to a customer: `matchcust`
 [Back to Table of Contents](#table-of-contents)
 
 Shows the list of properties that matches the criteria of the customer.
@@ -490,16 +430,8 @@ Examples:
 * `matchcust 1`
 * `matchcust 10`
 
-When command succeeds:
-* `4 properties matched with customer 1!` when there are 4 properties fulfilling the criteria of the customer 1.
 
-When command fails:
-* `Invalid command format!` for missing `INDEX` parameters.
-* `Unknown command` for misspelling of command.
-* `There is no customer with index INDEX` for `INDEX` inputted is not in the range of the customers. 
-
-
-#### Matching customers to a property : `matchprop`
+#### Matching customers to a property: `matchprop`
 [Back to Table of Contents](#table-of-contents)
 
 Shows the list of customers that matches the criteria of the property.
@@ -515,16 +447,9 @@ Examples:
 * `matchprop 1`
 * `matchprop 10`
 
-When command succeeds:
-* `4 customers matched with property 1!` when there are 4 customers have the criteria of the property 1.
-
-When command fails:
-* `Invalid command format!` for missing `INDEX` parameters.
-* `Unknown command` for misspelling of command.
-* `There is no proeprty with index INDEX` for `INDEX` inputted is not in the range of the properties.
 
 ### General Features
-#### Clear the data in the application : `clear`
+#### Clear the data in the application: `clear`
 [Back to Table of Contents](#table-of-contents)
 
 Resets all data in the application. (i.e. Deletes all entries in your Customer List and Property List)
@@ -535,7 +460,7 @@ Format: `clear`
 Clearing the data in your application will result in all data being lost! Be careful when you perform this operation and be sure that you want to reset all data in the app.
 
 
-#### Exiting the program : `exit`
+#### Exiting the program: `exit`
 [Back to Table of Contents](#table-of-contents)
 
 Displays a goodbye message. Exit the application after 3 seconds.
@@ -543,7 +468,7 @@ Displays a goodbye message. Exit the application after 3 seconds.
 Format: `exit`
 
 
-#### Viewing help : `help`
+#### Viewing help: `help`
 [Back to Table of Contents](#table-of-contents)
 
 Displays a window containing the link to PropertyMatch's user guide for further help.
