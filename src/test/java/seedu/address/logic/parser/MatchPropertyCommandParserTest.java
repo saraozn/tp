@@ -28,7 +28,7 @@ public class MatchPropertyCommandParserTest {
         } catch (ParseException pe) {
             throw new ParseException(
                     String.format(MESSAGE_INVALID_COMMAND_FORMAT,
-                            MatchPropertyCommand.MESSAGE_USAGE),
+                    MatchPropertyCommand.MESSAGE_USAGE),
                     pe
             );
         }
