@@ -21,9 +21,7 @@ import seedu.address.model.ModelManager;
 import seedu.address.model.UserPrefs;
 import seedu.address.model.customer.Budget;
 import seedu.address.model.customer.BudgetAndTagsInRangePredicate;
-import seedu.address.model.customer.Customer;
 import seedu.address.model.property.Price;
-import seedu.address.model.property.PriceAndTagsInRangePredicate;
 import seedu.address.model.property.Property;
 import seedu.address.model.tag.Tag;
 
