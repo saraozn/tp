@@ -12,12 +12,12 @@ Greetings property agents! A warm welcome to our user guide, your companion for 
 ## Table of Contents
 
 * Table of Contents
-  {:toc}
+{:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Introduction
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 PropertyMatch is a **contact and property management system** that aims to help you, property agents, to organise their client profiles with their corresponding properties.
 
@@ -36,7 +36,7 @@ This **user guide** aims to provide you with an in-depth overview of how to set 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Using this Guide
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Being property agents, we expect zero prior knowledge on how to use a [Command Line Interface (CLI)](https://en.wikipedia.org/wiki/Command-line_interface). Therefore, our application has been designed with that in mind, with easy to use command and simple prefixes that you will naturally reach to without having to remember how to use them.
 
@@ -61,7 +61,7 @@ In addition, here are some symbols that will give you a more enjoyable time usin
 
 
 ## Interface Layout
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 When you launch PropertyMatch, PropertyMatch will appear on your screen as a window. Let's take a look at the 5 different components
 that make up this window.
@@ -130,7 +130,7 @@ It appears when you execute the [Help Command](#viewing-help-help).
 --------------------------------------------------------------------------------------------------------------------
 
 ## Quick start
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 1. Ensure you have Java `11` or above installed in your Computer.
     * The method to check the Java version you use will be different for every operating system.
@@ -170,7 +170,7 @@ error in the formatting of the data in these files.
 --------------------------------------------------------------------------------------------------------------------
 
 ## Features
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 PropertyMatch's features are mostly in the form of commands you can input into the [command input box](#1-command-input-and-output-boxes). We will now go into the details about each feature of PropertyMatch.
 If you just want a quick summary of all the feature PropertyMatch has, do take a look at the [command summary](#command-summary) section.
@@ -198,7 +198,7 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
 </div>
 
 ### Adding a customer: `addcust`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Adds a customer to the application.
 
@@ -225,7 +225,7 @@ When command fails:
 * `Invalid Command` for misspelling of command
 
 ### Adding a property: `addprop`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Adds a property to the application.
 
@@ -253,7 +253,7 @@ When command fails:
 * `Invalid Command` for mispelling of command
 
 ### Listing all customers : `listcust`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Updates the Customer List to show all customers in your database.
 
@@ -283,7 +283,7 @@ When command fails:
 * `Invalid command` for misspelling of command
 
 ### Deleting a customer : `delcust`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Deletes the specified customer and their corresponding details from the database.
 
@@ -305,7 +305,7 @@ When command fails:
 * `Invalid command` for misspelling of command
 
 ### Deleting a property : `delprop`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Format: `delprop INDEX`
 
@@ -325,7 +325,7 @@ When command fails:
 * `Invalid command` for misspelling of command
 
 ### Editing a customer : `editcust`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Edits an existing customer.
 
@@ -348,7 +348,7 @@ When command fails:
 * `Invalid command` for misspelling of command
 
 ### Editing a property : `editprop`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Edits an existing property.
 Format: `editprop INDEX [n/NAME] [ph/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERISTIC]…​`
@@ -371,7 +371,7 @@ When command fails:
 
 
 ### Finding a customer : `findcust`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Finds and returns a customer or a list of customers whose name contains the substring inputted.
 
@@ -394,7 +394,7 @@ When command fails:
 * `Unknown command` for misspelling of command
 
 ### Finding a property : `findprop`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Finds and returns a property or a list of properties whose name contains the substring inputted.
 
@@ -418,7 +418,7 @@ When command fails:
 
 
 ### Filtering customers : `filtercust`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Filters the customer list to only show customers that fit the criteria.
 
@@ -443,7 +443,7 @@ When command fails:
 
 
 ### Filter properties : `filterprop`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Filters the property list to only show properties that fit the criteria.
 
@@ -467,7 +467,7 @@ When command fails:
 * `Unknown command` for misspelling of command.
 
 ### Matching properties to a customer : `matchcust`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Shows the list of properties that matches the criteria of the customer.
 
@@ -492,7 +492,7 @@ When command fails:
 
 
 ### Matching customers to a property : `matchprop`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Shows the list of customers that matches the criteria of the property.
 
@@ -516,7 +516,7 @@ When command fails:
 * `There is no proeprty with index INDEX` for `INDEX` inputted is not in the range of the properties.
 
 ### Clear the data in the application : `clear`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Resets all data in the application.
 
@@ -533,7 +533,7 @@ When command fails:
 * `Invalid command` for misspelling of command
 
 ### Exiting the program : `exit`
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 Displays a goodbye message. Exit the application after 3 seconds.
 
@@ -551,7 +551,7 @@ When command fails: Invalid command for misspelling of command
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous PropertyMatch home folder.
@@ -574,14 +574,14 @@ When command fails: Invalid command for misspelling of command
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
-[Back to top](#table-of-contents)
+[Back to Table of Contents](#table-of-contents)
 
 | Action                           | Format, Examples                                                                                                                                                       |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
