@@ -27,8 +27,12 @@ public class PriceAndOneTagsPredicate implements Predicate<Property> {
 
     @Override
     public boolean test(Property property) {
-        return tags.stream().anyMatch(tag -> property.getTags().contains(tag))
-                && property.getPrice().isInRangePrice(price);
+        if (tags.size() == 0) {
+            return property.getPrice().isInRangePrice(price);
+        } else {
+            return tags.stream().anyMatch(tag -> property.getTags().contains(tag))
+                    && property.getPrice().isInRangePrice(price);
+        }
     }
 
     @Override
