@@ -145,14 +145,14 @@ It appears when you execute the [Help Command](#viewing-help-help).
  
     * If you do not see `11`, this [link](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A) (external link to Oracle) provides a step-by-step installation guide for Java `11`.
 
-1. Download the latest `propertymatch.jar` from our [releases page](https://github.com/AY2324S1-CS2103T-W11-2/tp/releases). After clicking into the release page, scroll down slightly until you reach the Assets section of the page. This section should look like this:<br>
+2. Download the latest `propertymatch.jar` from our [releases page](https://github.com/AY2324S1-CS2103T-W11-2/tp/releases). After clicking into the release page, scroll down slightly until you reach the Assets section of the page. This section should look like this:<br>
    ![Release page](images/user-guide/ReleasePage.png)
 
-1. Simply click on `propertymatch.jar`, and PropertyMatch should begin automatically downloading on your computer!
+3. Simply click on `propertymatch.jar`, and PropertyMatch should begin automatically downloading on your computer!
 
-1. Copy the `propertymatch.jar` file to the folder you want to use as the _home folder_ for PropertyMatch. All data will be created and stored in that folder. If you are unsure where to place the folder, go to your desktop and create a folder. You can then copy the `propertymatch.jar` file into the folder you just created.
+4. Copy the `propertymatch.jar` file to the folder you want to use as the _home folder_ for PropertyMatch. All data will be created and stored in that folder. If you are unsure where to place the folder, go to your desktop and create a folder. You can then copy the `propertymatch.jar` file into the folder you just created.
 
-1. Open the folder and double-click on `propertymatch.jar` to open PropertyMatch. If this does not work, please open up the terminal on your computer and type in `java -jar propertymatch.jar` to start the application.
+5. Open the folder and double-click on `propertymatch.jar` to open PropertyMatch. If this does not work, please open up the terminal on your computer and type in `java -jar propertymatch.jar` to start the application.
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui.png)
 
@@ -183,10 +183,10 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
   e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [t/TAG]` can be used as `n/John Doe t/friend` or as `n/John Doe`.
+  e.g `n/NAME [c/CHARACTERISTIC]` can be used as `n/Tim Cook c/smart` or as `n/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
-  e.g. `[t/TAG]…​` can be used as ` ` (i.e. 0 times), `t/friend`, `t/friend t/family` etc.
+  e.g. `[c/CHARACTERISTIC]…​` can be used as ` ` (i.e. 0 times), `c/smart`, `c/smart c/rich` etc.
 
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
@@ -197,7 +197,8 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
-### Adding a customer: `addcust`
+### Add Commands
+#### Adding a customer: `addcust`
 [Back to Table of Contents](#table-of-contents)
 
 Adds a customer to the application.
@@ -213,18 +214,19 @@ Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 Examples:
 * `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/1000000`
 * `addcust n/Boedi p/88888888 e/boedi@gmail.com b/250000 c/white`
-* `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000`
+* `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white`
 
-When command succeeds:
-* `New customer added:NAME; Phone:PHONE; Email:EMAIL; Budget:BUDGET; Tags:[TAGS]…​`
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The characteristics field is optional.<br>
+If it is not set, the characteristics field will be empty.
+</div>
 
-When command fails:
-* `Missing name parameter for add customers command` for missing name parameter
-* `Missing phone parameter for add customers command` for missing phone parameter
-* `Missing email parameter for add customers command` for missing email parameter
-* `Invalid Command` for misspelling of command
+<div markdown="span" class="alert alert-primary">:bulb: **Note:**
+To ensure that your database remains neat, PropertyMatch will warn you when you try to add duplicate customers that have the name.
+</div>
 
-### Adding a property: `addprop`
+
+#### Adding a property: `addprop`
 [Back to Table of Contents](#table-of-contents)
 
 Adds a property to the application.
@@ -238,21 +240,26 @@ Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] p/number pr/budget`
 * `pr/PRICE`                     : Price of the property
 
 Examples:
-* addprop n/Fredy a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5
-* addprop n/Fredy a/randomAddress p/91135235 pr/5
+* `addprop n/Fredy a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000`
+* `addprop n/Fredy a/randomAddress p/91135235 pr/700000`
 
-When command succeeds:
-* `New property added:NAME; Address:ADDRESS; Phone:PHONE; Price:price; Tags:[TAGS]…​`
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Similar to adding a duplicate customer, the characteristics field is optional.<br>
+If it is not set, the characteristics field will be empty.
+</div>
 
-When command fails:
-* `This property already exist` if the property have the same Name and Address
-* `Missing Name parameter for add properties command` for missing Name parameter
-* `Missing Address parameter for add properties command` for missing Address parameter
-* `Missing number parameter for add properties command` for missing Name parameter
-* `Missing price parameter for add properties command` for missing price parameter
-* `Invalid Command` for mispelling of command
+<div markdown="span" class="alert alert-primary">:bulb: **Note:**
+Similar to adding a duplicate customer, PropertyMatch will warn you when you try to add duplicate customers that have the name.
+</div>
 
-### Listing all customers : `listcust`
+
+### List Commands
+
+<div markdown="span" class="alert alert-primary">:bulb: **Note:**
+The List Commands should be used to view all buyers and properties again, after a [Filter Command](#filter-commands), [Find Command](#find-commands), or [Match Command](#match-commands) is executed.
+</div>
+
+#### Listing all customers: `listcust`
 [Back to Table of Contents](#table-of-contents)
 
 Updates the Customer List to show all customers in your database.
@@ -261,13 +268,8 @@ Format: `listcust`
 
 No additional parameters are needed for this command and they will be ignored if used.
 
-When command succeeds: 
-* Customer list will be updated to show all properties in your database.
 
-When command fails: 
-* `Invalid command` for misspelling of command
-
-### Listing all properties : `listprop`
+#### Listing all properties: `listprop`
 
 Updates the Property List to show all properties in your database.
 
@@ -275,14 +277,9 @@ Format: `listprop`
 
 No additional parameters are needed for this command and they will be ignored.
 
-When command succeeds: 
-* Property list will be updated to show all properties in your database.
 
-
-When command fails: 
-* `Invalid command` for misspelling of command
-
-### Deleting a customer : `delcust`
+### Delete Commands
+#### Deleting a customer: `delcust`
 [Back to Table of Contents](#table-of-contents)
 
 Deletes the specified customer and their corresponding details from the database.
@@ -294,17 +291,10 @@ Format: `delcust INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `list` followed by `delcust 2` deletes the 2nd customer in the customer list.
+* `listcust` followed by `delcust 2` deletes the 2nd customer in the customer list.
 
-When command succeeds:
-* `deleted customer 3`
 
-When command fails:
-* `Missing customer index` for missing parameter
-* `No such customer index` for wrong parameter/ index beyond list size
-* `Invalid command` for misspelling of command
-
-### Deleting a property : `delprop`
+#### Deleting a property: `delprop`
 [Back to Table of Contents](#table-of-contents)
 
 Format: `delprop INDEX`
@@ -315,16 +305,11 @@ Format: `delprop INDEX`
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
-* `delprop 2` deletes the 2nd property in the address book.
+* `listprop` followed by `delprop 2` deletes the 2nd property in the address book.
 
-When command succeeds: `deleted property 2`
 
-When command fails:
-* `Missing property index` for missing parameter
-* `No such property index` for wrong parameter or index beyond list size
-* `Invalid command` for misspelling of command
-
-### Editing a customer : `editcust`
+### Edit Commands
+#### Editing a customer: `editcust`
 [Back to Table of Contents](#table-of-contents)
 
 Edits an existing customer.
@@ -341,13 +326,8 @@ Examples:
 *  `editcust 1 p/91234567 e/andrew@gmail.com` Edits the phone number and email of the 1st customer to be `91234567` and `andrew@gmail.com` respectively.
 *  `editcust 2 n/Andrew c/` Edits the name of the 2nd customer to be `Andrew` and clears all existing tags.
 
-When command succeeds: 
-* `Edited customer:NAME; Phone:PHONE; Email:EMAIL; Budget:BUDGET; Tags:[TAGS]…​`
 
-When command fails: 
-* `Invalid command` for misspelling of command
-
-### Editing a property : `editprop`
+#### Editing a property: `editprop`
 [Back to Table of Contents](#table-of-contents)
 
 Edits an existing property.
@@ -363,14 +343,9 @@ Examples:
 *  `editprop 1 p/91234567 a/43 Clementi Avenue 3 #03-543` Edits the phone number and address of the 1st property to be `91234567` and `43 Clementi Avenue 3 #03-543` respectively.
 *  `editprop 2 n/Skyview t/` Edits the name of the 2nd property to be `Skyview` and clears all existing tags.
 
-When command succeeds: 
-* `Edited property:NAME; Phone:PHONE; Address:ADDRESS; Price:PRICE; Tags:[TAGS]…​`
 
-When command fails:
-* `Invalid command` for misspelling of command
-
-
-### Finding a customer : `findcust`
+### Find Commands
+#### Finding a customer: `findcust`
 [Back to Table of Contents](#table-of-contents)
 
 Finds and returns a customer or a list of customers whose name contains the substring inputted.
@@ -386,14 +361,7 @@ Examples:
 * `list` followed by `findcust F J` finds and returns the customer(s) whose names begin with "F" or "J" at any position within their name in the customer list.
 
 
-When command succeeds:
-* `1 customer listed`
-
-When command fails:
-* `Invalid command format` for missing parameter
-* `Unknown command` for misspelling of command
-
-### Finding a property : `findprop`
+#### Finding a property: `findprop`
 [Back to Table of Contents](#table-of-contents)
 
 Finds and returns a property or a list of properties whose name contains the substring inputted.
@@ -409,15 +377,8 @@ Examples:
 * `list` followed by `findprop F J` finds and returns the property or properties with names that begin with "F" and/or "J" in the property list.
 
 
-When command succeeds:
-* `1 property listed`
-
-When command fails:
-* `Invalid command format` for missing parameter
-* `Unknown command` for misspelling of command
-
-
-### Filtering customers : `filtercust`
+### Filter Commands
+#### Filtering customers: `filtercust`
 [Back to Table of Contents](#table-of-contents)
 
 Filters the customer list to only show customers that fit the criteria.
@@ -434,15 +395,8 @@ Examples:
 * `filtercust b/250000 c/white`
 * `filtercust c/white`
 
-When command succeeds:
-* `4 customers listed!` when there are 4 customers fulfilling the filter.
 
-When command fails:
-* `Invalid command format!` for missing both `BUDGET` and `CHARACTERISTIC` parameters.
-* `Unknown command` for misspelling of command.
-
-
-### Filter properties : `filterprop`
+#### Filter properties: `filterprop`
 [Back to Table of Contents](#table-of-contents)
 
 Filters the property list to only show properties that fit the criteria.
@@ -459,14 +413,9 @@ Examples:
 * `filterprop pr/250000 c/white`
 * `filterprop c/white`
 
-When command succeeds:
-* `4 properties listed!` when there are 4 properties fulfilling the filter.
 
-When command fails:
-* `Invalid command format!` for missing both `PRICE` and `CHARACTERISTIC` parameters.
-* `Unknown command` for misspelling of command.
-
-### Matching properties to a customer : `matchcust`
+### Match Commands
+#### Matching properties to a customer: `matchcust`
 [Back to Table of Contents](#table-of-contents)
 
 Shows the list of properties that matches the criteria of the customer.
@@ -482,16 +431,8 @@ Examples:
 * `matchcust 1`
 * `matchcust 10`
 
-When command succeeds:
-* `4 properties matched with customer 1!` when there are 4 properties fulfilling the criteria of the customer 1.
 
-When command fails:
-* `Invalid command format!` for missing `INDEX` parameters.
-* `Unknown command` for misspelling of command.
-* `There is no customer with index INDEX` for `INDEX` inputted is not in the range of the customers. 
-
-
-### Matching customers to a property : `matchprop`
+#### Matching customers to a property: `matchprop`
 [Back to Table of Contents](#table-of-contents)
 
 Shows the list of customers that matches the criteria of the property.
@@ -507,18 +448,12 @@ Examples:
 * `matchprop 1`
 * `matchprop 10`
 
-When command succeeds:
-* `4 customers matched with property 1!` when there are 4 customers have the criteria of the property 1.
 
-When command fails:
-* `Invalid command format!` for missing `INDEX` parameters.
-* `Unknown command` for misspelling of command.
-* `There is no proeprty with index INDEX` for `INDEX` inputted is not in the range of the properties.
-
-### Clear the data in the application : `clear`
+### General Features
+#### Clear the data in the application: `clear`
 [Back to Table of Contents](#table-of-contents)
 
-Resets all data in the application.
+Resets all data in the application. (i.e. Deletes all entries in your Customer List and Property List)
 
 Format: `clear`
 
@@ -526,26 +461,38 @@ Format: `clear`
 Clearing the data in your application will result in all data being lost! Be careful when you perform this operation and be sure that you want to reset all data in the app.
 
 
-When command succeeds: 
-* All data in the application will be cleared.
-
-When command fails: 
-* `Invalid command` for misspelling of command
-
-### Exiting the program : `exit`
+#### Exiting the program: `exit`
 [Back to Table of Contents](#table-of-contents)
 
 Displays a goodbye message. Exit the application after 3 seconds.
 
 Format: `exit`
 
-When command succeeds: 
-* Exits from application
 
-When command fails: 
-* `Invalid command` for misspelling of command
+#### Viewing help: `help`
+[Back to Table of Contents](#table-of-contents)
 
-When command fails: Invalid command for misspelling of command
+Displays a window containing the link to PropertyMatch's user guide for further help.
+
+Format: `help`
+
+
+#### Saving data
+[Back to Table of Contents](#table-of-contents)
+
+PropertyMatch data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+
+
+#### Editing the data file
+[Back to Table of Contents](#table-of-contents)
+
+PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data/addressbook.json` and `[JAR file location]/data/propertybook.json`. Advanced users are welcome to update data directly by editing those JSON files.
+
+
+<div markdown="span" class="alert alert-warning">:exclamation: **Caution (for advanced users):**
+If your changes to the data file makes its format invalid, PropertyMatch will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
+</div>
+<br>
 
 
 --------------------------------------------------------------------------------------------------------------------
@@ -557,7 +504,7 @@ When command fails: Invalid command for misspelling of command
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous PropertyMatch home folder.
 
 **Q**: How do I install Java 11?<br>
-**A**: Follow this [link](https://www3.ntu.edu.sg/home/ehchua/programming/howto/jdk_howto.html) for steps to download Java.
+**A**: Follow this [link](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A) for steps to download Java 11.
 
 **Q**: Help! I can’t seem to get a command to work…<br>
 **A**: Refer to the features section of our guide for command information and syntax. Make sure that you have supplied all necessary inputs for the command and specified the flags in a correct manner.
@@ -571,6 +518,9 @@ When command fails: Invalid command for misspelling of command
 **Q**: How do I uninstall PropertyMatch?<br>
 **A**: We are sad to see you go 🙁 PropertyMatch is not installed onto your hard drive, so you only need to delete the folder that contains propertymatch.jar (that is, the home folder of PropertyMatch).
 
+**Q**: Do I need an active internet connection to use PropertyMatch?
+**A**: No, PropertyMatch is a standalone application that does not require an internet connection to function. However, you'll need an internet connection to download it to your machine.
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues
@@ -583,22 +533,22 @@ When command fails: Invalid command for misspelling of command
 ## Command summary
 [Back to Table of Contents](#table-of-contents)
 
-| Action                           | Format, Examples                                                                                                                                                       |
-|----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add customer**                 | `addcust n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/100000`                              |
-| **Add property**                 | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget` <br> e.g., `addprop n/Property a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000` |
-| **Delete customer**              | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                                  |
-| **Delete property**              | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                                  |
-| **Edit customer**                | `editcust INDEX n/NAME p/PHONE e/EMAIL [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `editcust 1 ph/91234567 e/andrew@gmail.com`                                           |
-| **Edit property**                | `editprop INDEX n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget` <br> e.g., `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543`                            |
-| **List properties**              | `listprop`                                                                                                                                                             |
-| **List customers**               | `listcust`                                                                                                                                                             |
-| **Find customers**               | `findcust NAME`                                                                                                                                                        |
-| **Find properties**              | `findprop NAME`                                                                                                                                                        |
-| **Filter properties**            | `filterprop [pr/PRICE] [c/CHARACTERISTIC]` <br> e.g., `filterprop pr/250000 c/white`                                                                                   |
-| **Filter customers**             | `filtercust [b/BUDGET] [c/CHARACTERISTIC]` <br> e.g., `filtercust b/250000 c/white`                                                                                    |
-| **Match properties to customer** | `matchcust INDEX` <br> e.g., `matchcust 1`                                                                                                                             |
-| **Match customers to property**  | `matchprop INDEX` <br> e.g., `matchprop 1`                                                                                                                             |
-| **Clear**                        | `clear`                                                                                                                                                                |
-| **Exit**                         | `exit`                                                                                                                                                                 |
-| **Help**                         | `help`                                                                                                                                                                 |
+| Action                           | Format, Examples                                                                                                                                                          |
+|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **Add customer**                 | `addcust n/NAME p/PHONE_NUMBER e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​` <br> e.g., `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white`           |
+| **Add property**                 | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC]…​ p/PHONE_NUMBER pr/PRICE` <br> e.g., `addprop n/Fredy a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000` |
+| **Delete customer**              | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                                     |
+| **Delete property**              | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                                     |
+| **Edit customer**                | `editcust INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `editcust 1 p/91234567 e/andrew@gmail.com`                                |
+| **Edit property**                | `editprop INDEX [n/NAME] [a/ADDRESS] [c/CHARACTERISTIC]…​ [p/PHONE_NUMBER] [pr/PRICE]` <br> e.g., `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543`                 |
+| **List properties**              | `listprop`                                                                                                                                                                |
+| **List customers**               | `listcust`                                                                                                                                                                |
+| **Find customers**               | `findcust NAME`                                                                                                                                                           |
+| **Find properties**              | `findprop NAME`                                                                                                                                                           |
+| **Filter properties**            | `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​` <br> e.g., `filterprop pr/250000 c/white`                                                                                    |
+| **Filter customers**             | `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `filtercust b/250000 c/white`                                                                                     |
+| **Match properties to customer** | `matchcust INDEX` <br> e.g., `matchcust 1`                                                                                                                                |
+| **Match customers to property**  | `matchprop INDEX` <br> e.g., `matchprop 1`                                                                                                                                |
+| **Clear**                        | `clear`                                                                                                                                                                   |
+| **Exit**                         | `exit`                                                                                                                                                                    |
+| **Help**                         | `help`                                                                                                                                                                    |
