@@ -41,7 +41,7 @@ public class BudgetAndOneTagsPredicate implements Predicate<Customer> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof BudgetAndTagsInRangePredicate)) {
+        if (!(other instanceof BudgetAndOneTagsPredicate)) {
             return false;
         }
 

@@ -42,7 +42,7 @@ public class PriceAndOneTagsPredicate implements Predicate<Property> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof PriceAndTagsInRangePredicate)) {
+        if (!(other instanceof PriceAndOneTagsPredicate)) {
             return false;
         }
 
