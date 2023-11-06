@@ -197,7 +197,8 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
 
-### Adding a customer: `addcust`
+### Add Commands
+#### Adding a customer: `addcust`
 [Back to Table of Contents](#table-of-contents)
 
 Adds a customer to the application.
@@ -213,18 +214,19 @@ Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 Examples:
 * `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/1000000`
 * `addcust n/Boedi p/88888888 e/boedi@gmail.com b/250000 c/white`
-* `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000`
+* `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white`
 
-When command succeeds:
-* `New customer added:NAME; Phone:PHONE; Email:EMAIL; Budget:BUDGET; Tags:[TAGS]…​`
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+The characteristics field is optional.<br>
+If it is not set, the characteristics field will be empty.
+</div>
 
-When command fails:
-* `Missing name parameter for add customers command` for missing name parameter
-* `Missing phone parameter for add customers command` for missing phone parameter
-* `Missing email parameter for add customers command` for missing email parameter
-* `Invalid Command` for misspelling of command
+<div markdown="span" class="alert alert-primary">:bulb: **Note:**
+To ensure that your database remains neat, PropertyMatch will warn you when you try to add duplicate customers that have the name.
+</div>
 
-### Adding a property: `addprop`
+
+#### Adding a property: `addprop`
 [Back to Table of Contents](#table-of-contents)
 
 Adds a property to the application.
@@ -234,25 +236,29 @@ Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] ph/number pr/budget`
 * `n/NAME`				         : Name of the property
 * `a/ADDRESS`		             : Address of the property
 * `c/CHARACTERISTIC` (Optional)  : Characteristics of the property
-* `ph/NUMBER`                    : Contact number
+* `p/NUMBER`                    : Contact number
 * `pr/PRICE`                     : Price of the property
 
 Examples:
-* addprop n/Fredy a/randomAddress c/bright;sunny;big;square ph/91135235 pr/5
-* addprop n/Fredy a/randomAddress ph/91135235 pr/5
+* addprop n/Fredy a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000
+* addprop n/Fredy a/randomAddress p/91135235 pr/700000
 
-When command succeeds:
-* `New property added:NAME; Address:ADDRESS; Phone:PHONE; Price:price; Tags:[TAGS]…​`
+<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
+Similar to adding a duplicate customer, the characteristics field is optional.<br>
+If it is not set, the characteristics field will be empty.
+</div>
 
-When command fails:
-* `This property already exist` if the property have the same Name and Address
-* `Missing Name parameter for add properties command` for missing Name parameter
-* `Missing Address parameter for add properties command` for missing Address parameter
-* `Missing number parameter for add properties command` for missing Name parameter
-* `Missing price parameter for add properties command` for missing price parameter
-* `Invalid Command` for mispelling of command
+<div markdown="span" class="alert alert-primary">:bulb: **Note:**
+Similar to adding a duplicate customer, PropertyMatch will warn you when you try to add duplicate customers that have the name.
+</div>
 
-### Listing all customers : `listcust`
+### List Commands
+
+<div markdown="span" class="alert alert-primary">:bulb: **Note:**
+The List Commands should be used to view all buyers and properties again, after a Filter Command, Find Command, or Match Command is executed.
+</div>
+
+#### Listing all customers : `listcust`
 [Back to Table of Contents](#table-of-contents)
 
 Updates the Customer List to show all customers in your database.
@@ -267,7 +273,7 @@ When command succeeds:
 When command fails: 
 * `Invalid command` for misspelling of command
 
-### Listing all properties : `listprop`
+#### Listing all properties : `listprop`
 
 Updates the Property List to show all properties in your database.
 
@@ -282,7 +288,8 @@ When command succeeds:
 When command fails: 
 * `Invalid command` for misspelling of command
 
-### Deleting a customer : `delcust`
+### Delete Commands
+#### Deleting a customer : `delcust`
 [Back to Table of Contents](#table-of-contents)
 
 Deletes the specified customer and their corresponding details from the database.
@@ -304,7 +311,7 @@ When command fails:
 * `No such customer index` for wrong parameter/ index beyond list size
 * `Invalid command` for misspelling of command
 
-### Deleting a property : `delprop`
+#### Deleting a property : `delprop`
 [Back to Table of Contents](#table-of-contents)
 
 Format: `delprop INDEX`
@@ -324,7 +331,8 @@ When command fails:
 * `No such property index` for wrong parameter or index beyond list size
 * `Invalid command` for misspelling of command
 
-### Editing a customer : `editcust`
+### Edit Commands
+#### Editing a customer : `editcust`
 [Back to Table of Contents](#table-of-contents)
 
 Edits an existing customer.
@@ -347,7 +355,7 @@ When command succeeds:
 When command fails: 
 * `Invalid command` for misspelling of command
 
-### Editing a property : `editprop`
+#### Editing a property : `editprop`
 [Back to Table of Contents](#table-of-contents)
 
 Edits an existing property.
@@ -369,8 +377,8 @@ When command succeeds:
 When command fails:
 * `Invalid command` for misspelling of command
 
-
-### Finding a customer : `findcust`
+### Find Commands
+#### Finding a customer : `findcust`
 [Back to Table of Contents](#table-of-contents)
 
 Finds and returns a customer or a list of customers whose name contains the substring inputted.
@@ -393,7 +401,7 @@ When command fails:
 * `Invalid command format` for missing parameter
 * `Unknown command` for misspelling of command
 
-### Finding a property : `findprop`
+#### Finding a property : `findprop`
 [Back to Table of Contents](#table-of-contents)
 
 Finds and returns a property or a list of properties whose name contains the substring inputted.
@@ -416,8 +424,8 @@ When command fails:
 * `Invalid command format` for missing parameter
 * `Unknown command` for misspelling of command
 
-
-### Filtering customers : `filtercust`
+### Filter Commands
+#### Filtering customers : `filtercust`
 [Back to Table of Contents](#table-of-contents)
 
 Filters the customer list to only show customers that fit the criteria.
@@ -441,8 +449,7 @@ When command fails:
 * `Invalid command format!` for missing both `BUDGET` and `CHARACTERISTIC` parameters.
 * `Unknown command` for misspelling of command.
 
-
-### Filter properties : `filterprop`
+#### Filter properties : `filterprop`
 [Back to Table of Contents](#table-of-contents)
 
 Filters the property list to only show properties that fit the criteria.
@@ -466,7 +473,8 @@ When command fails:
 * `Invalid command format!` for missing both `PRICE` and `CHARACTERISTIC` parameters.
 * `Unknown command` for misspelling of command.
 
-### Matching properties to a customer : `matchcust`
+### Match Commands
+#### Matching properties to a customer : `matchcust`
 [Back to Table of Contents](#table-of-contents)
 
 Shows the list of properties that matches the criteria of the customer.
@@ -491,7 +499,7 @@ When command fails:
 * `There is no customer with index INDEX` for `INDEX` inputted is not in the range of the customers. 
 
 
-### Matching customers to a property : `matchprop`
+#### Matching customers to a property : `matchprop`
 [Back to Table of Contents](#table-of-contents)
 
 Shows the list of customers that matches the criteria of the property.
@@ -515,6 +523,7 @@ When command fails:
 * `Unknown command` for misspelling of command.
 * `There is no proeprty with index INDEX` for `INDEX` inputted is not in the range of the properties.
 
+
 ### Clear the data in the application : `clear`
 [Back to Table of Contents](#table-of-contents)
 
@@ -526,11 +535,6 @@ Format: `clear`
 Clearing the data in your application will result in all data being lost! Be careful when you perform this operation and be sure that you want to reset all data in the app.
 
 
-When command succeeds: 
-* All data in the application will be cleared.
-
-When command fails: 
-* `Invalid command` for misspelling of command
 
 ### Exiting the program : `exit`
 [Back to Table of Contents](#table-of-contents)
@@ -539,13 +543,13 @@ Displays a goodbye message. Exit the application after 3 seconds.
 
 Format: `exit`
 
-When command succeeds: 
-* Exits from application
 
-When command fails: 
-* `Invalid command` for misspelling of command
+### Viewing help : `help`
+[Back to Table of Contents](#table-of-contents)
 
-When command fails: Invalid command for misspelling of command
+Displays a window containing the link to PropertyMatch's user guide for further help.
+
+Format: `help`
 
 
 --------------------------------------------------------------------------------------------------------------------
