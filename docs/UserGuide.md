@@ -69,7 +69,7 @@ that make up this window.
 ![UserInterface](images/user-guide/UserInterface.png)
 
 ### 1. Menu Bar
-
+The Menu Bar is your command center, allowing you to exit the application and look for our user guide.
 
 ### 2. Command Input and Output Boxes
 These boxes are located at the top section of the window.<br><br>
@@ -102,7 +102,7 @@ Here are some commands you can test to start with.
 
 You can refer to the [Features](#features) below for the details of each command.
 
-### 2. Customer List
+### 3. Customer List
 You can find the customer list located at the left section of the window.<br><br>
 <img src="images/user-guide/CustomerList.png" width="300" /><br><br>
 The customer list displays information regarding customers who are currently stored in PropertyMatch's database.
@@ -111,7 +111,7 @@ Note that it might not be showing *all* the customers in the database all the ti
 
 You can also filter and modify the customer list using the commands given in the [Features](#features) section below.
 
-### 3. Property List
+### 4. Property List
 You can find the property list located at the right section of the window.<br><br>
 <img src="images/user-guide/PropertyList.png" width="300" /><br><br>
 The property list displays information regarding properties that are currently stored in PropertyMatch's database.
@@ -120,9 +120,9 @@ Note that it might not be showing *all* the properties in the database all the t
 
 You can also filter and modify the property list using the commands given in the [Features](#features) section below.
 
-### 4. Help Window
+### 5. Help Window
 This will appear as a separate window.
-![Help Window](images/HelpWindow.png)
+![Help Window](images/user-guide/HelpWindow.png)
 The __help window__ displays a link to PropertyMatch's User Guide, which is the online version of this document. :)
 
 It appears when you execute the [Help Command](#viewing-help-help).
