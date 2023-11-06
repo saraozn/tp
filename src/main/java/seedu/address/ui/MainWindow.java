@@ -16,6 +16,7 @@ import seedu.address.commons.core.GuiSettings;
 import seedu.address.commons.core.LogsCenter;
 import seedu.address.logic.Logic;
 import seedu.address.logic.commands.CommandResult;
+import seedu.address.logic.commands.ExitCommand;
 import seedu.address.logic.commands.exceptions.CommandException;
 import seedu.address.logic.parser.exceptions.ParseException;
 
@@ -175,7 +176,7 @@ public class MainWindow extends UiPart<Stage> {
                 (int) primaryStage.getX(), (int) primaryStage.getY());
         logic.setGuiSettings(guiSettings);
         helpWindow.hide();
-
+        resultDisplay.setFeedbackToUser(ExitCommand.MESSAGE_EXIT_ACKNOWLEDGEMENT);
         PauseTransition delay = new PauseTransition(Duration.seconds(3));
         delay.setOnFinished(e -> primaryStage.hide());
         delay.play();
