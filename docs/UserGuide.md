@@ -356,7 +356,7 @@ Format: `editprop INDEX [n/NAME] [p/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERIS
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
 * When editing tags, the existing tags of the property will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `c/` without
+* You can remove all the property’s tags by typing `c/` without
   specifying any tags after it.
 
 Examples:
