@@ -69,7 +69,7 @@ that make up this window.
 ![UserInterface](images/user-guide/UserInterface.png)
 
 ### 1. Menu Bar
-The Menu Bar is your command center, allowing you to exit the application and look for our user guide.
+The Menu Bar is your command center, allowing you to exit the application and look for the link to our user guide.
 
 ### 2. Command Input and Output Boxes
 These boxes are located at the top section of the window.<br><br>
