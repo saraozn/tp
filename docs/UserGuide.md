@@ -132,7 +132,18 @@ It appears when you execute the [Help Command](#viewing-help-help).
 ## Quick start
 [Back to top](#table-of-contents)
 
-1. Ensure you have Java `11` or above installed in your Computer. If needed, this [link](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A) (external link to Oracle) provides a step-by-step installation guide for Java `11`.
+1. Ensure you have Java `11` or above installed in your Computer.
+    * The method to check the Java version you use will be different for every operating system.
+        * **Windows** users: <br>
+          Click on the '**Windows**' key and search for '**Command Prompt**' <br>
+        * **Mac** users: <br>
+          Click on '**F4**' and search for '**Terminal**'
+        * **Linux** users: <br>
+          Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
+    * Once the application is open, type `java -version` and hit '**Enter/ Return**'.
+    * The application should state your Java version as `11`.
+ 
+    * If you do not see `11`, this [link](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A) (external link to Oracle) provides a step-by-step installation guide for Java `11`.
 
 1. Download the latest `propertymatch.jar` from our [releases page](https://github.com/AY2324S1-CS2103T-W11-2/tp/releases). After clicking into the release page, scroll down slightly until you reach the Assets section of the page. This section should look like this:<br>
    ![Release page](images/user-guide/ReleasePage.png)
@@ -187,6 +198,7 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
 </div>
 
 ### Adding a customer: `addcust`
+[Back to top](#table-of-contents)
 
 Adds a customer to the application.
 
@@ -214,6 +226,7 @@ When command fails:
 * `Invalid Command` for misspelling of command
 
 ### Adding a property: `addprop`
+[Back to top](#table-of-contents)
 
 Adds a property to the application.
 
@@ -243,6 +256,7 @@ When command fails:
 * `Invalid Command` for mispelling of command
 
 ### Listing all customers : `listcust`
+[Back to top](#table-of-contents)
 
 Updates the Customer List to show all customers in your database.
 
@@ -266,6 +280,7 @@ When command succeeds: Property list will be updated to show all properties in y
 When command fails: Invalid command for misspelling of command
 
 ### Deleting a customer : `delcust`
+[Back to top](#table-of-contents)
 
 Deletes the specified customer and their corresponding details from the database.
 
@@ -287,6 +302,7 @@ When command fails:
 * `Invalid command` for misspelling of command
 
 ### Deleting a property : `delprop`
+[Back to top](#table-of-contents)
 
 Format: `delprop INDEX`
 
@@ -306,6 +322,8 @@ When command fails:
 * `Invalid command` for misspelling of command
 
 ### Editing a customer : `editcust`
+[Back to top](#table-of-contents)
+
 Edits an existing customer.
 Format: `editcust INDEX [n/NAME] [ph/PHONE] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​`
 * Edits the customer at the specified `INDEX`. The index refers to the index number shown in the displayed customer list. The index **must be a positive integer** 1, 2, 3, …​
@@ -319,6 +337,8 @@ Format: `editcust INDEX [n/NAME] [ph/PHONE] [e/EMAIL] [b/BUDGET] [c/CHARACTERIST
 *  `editcust 2 n/Andrew c/` Edits the name of the 2nd customer to be `Andrew` and clears all existing tags.
 
 ### Editing a property : `editprop`
+[Back to top](#table-of-contents)
+
 Edits an existing property.
 Format: `editprop INDEX [n/NAME] [ph/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERISTIC]…​`
 * Edits the property at the specified `INDEX`. The index refers to the index number shown in the displayed property list. The index **must be a positive integer** 1, 2, 3, …​
@@ -330,8 +350,10 @@ Format: `editprop INDEX [n/NAME] [ph/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERI
   Examples:
 *  `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543` Edits the phone number and address of the 1st property to be `91234567` and `43 Clementi Avenue 3 #03-543` respectively.
 *  `editprop 2 n/Skyview t/` Edits the name of the 2nd property to be `Skyview` and clears all existing tags.
-* 
+
+
 ### Finding a customer : `findcust`
+[Back to top](#table-of-contents)
 
 Finds and returns a customer or a list of customers whose name contains the substring inputted.
 
@@ -354,6 +376,7 @@ When command fails:
 * `Unknown command` for misspelling of command
 
 ### Finding a property : `findprop`
+[Back to top](#table-of-contents)
 
 Finds and returns a property or a list of properties whose name contains the substring inputted.
 
@@ -376,6 +399,7 @@ When command fails:
 * `Unknown command` for misspelling of command
 
 ### Filter customers : `filtercust`
+[Back to top](#table-of-contents)
 
 Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
 
@@ -399,6 +423,7 @@ When command fails:
 * `Unknown command` for misspelling of command.
 
 ### Filter properties : `filterprop`
+[Back to top](#table-of-contents)
 
 Format: `filtercust [pr/PRICE] [c/CHARACTERISTIC]…​`
 
@@ -422,6 +447,7 @@ When command fails:
 * `Unknown command` for misspelling of command.
 
 ### Matching properties to customer : `matchcust`
+[Back to top](#table-of-contents)
 
 Format: `matchcust [INDEX]`
 
@@ -445,6 +471,7 @@ When command fails:
 * `There is no customer with index [INDEX]` for `INDEX` inputted is not in the range of the customers. 
 
 ### Matching customers to property : `matchprop`
+[Back to top](#table-of-contents)
 
 Format: `matchprop [INDEX]`
 
@@ -468,6 +495,7 @@ When command fails:
 * `There is no proeprty with index [INDEX]` for `INDEX` inputted is not in the range of the properties.
 
 ### Clear the data in the application : `clear`
+[Back to top](#table-of-contents)
 
 Resets all data in the application.
 
@@ -483,6 +511,7 @@ When command succeeds: All data in the application will be cleared.
 When command fails: Invalid command for misspelling of command
 
 ### Exiting the program : `exit`
+[Back to top](#table-of-contents)
 
 Displays a goodbye message. Exit the application after 3 seconds.
 
@@ -491,9 +520,11 @@ Format: `exit`
 When command succeeds: Exit from application
 
 When command fails: Invalid command for misspelling of command
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## FAQ
+[Back to top](#table-of-contents)
 
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous PropertyMatch home folder.
@@ -516,12 +547,14 @@ When command fails: Invalid command for misspelling of command
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues
+[Back to top](#table-of-contents)
 
 1. **When using multiple screens**, if you move the application to a secondary screen, and later switch to using only the primary screen, the GUI will open off-screen. The remedy is to delete the `preferences.json` file created by the application before running the application again.
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Command summary
+[Back to top](#table-of-contents)
 
 | Action                           | Format, Examples                                                                                                                                                       |
 |----------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
