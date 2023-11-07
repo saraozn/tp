@@ -385,14 +385,16 @@ Filters the customer list to only show customers that fit the criteria.
 
 Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
 
+* Filter and return the customers whose budget is bigger than or equals to the `BUDGET` and who is/are seeking for properties which have all the `CHARACTERISTIC`.
 * `b/BUDGET` (optional)          : Budget of the customer
 * `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for
-
 * Even though both `BUDGET` and `CHARACTERISTIC` are optional, at least one of them should exist.
+* Not giving the `BUDGET` will return the customers who is/are seeking for properties which have all the `CHARACTERISTIC`.
+* Not giving the `CHARACTERISTIC` will return the customers whose budget is bigger than or equal with `BUDGET`.
 
 Examples:
 * `filtercust b/100000`
-* `filtercust b/250000 c/white`
+* `filtercust b/250000 c/white c/big`
 * `filtercust c/white`
 
 
@@ -401,16 +403,18 @@ Examples:
 
 Filters the property list to only show properties that fit the criteria.
 
-Format: `filtercust [pr/PRICE] [c/CHARACTERISTIC]…​`
+Format: `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​`
 
-* `pr/PRICE` (optional)          : The budget of the property
+* Filter and return properties whose price is lower than or equals to the `pr/PRICE` and which has or have all the `c/CHARACTERISTIC`.
+* `pr/PRICE` (optional)          : The price of the property
 * `c/CHARACTERISTIC` (optional)  : The characteristics of the property
-
 * Even though both `PROPERTY` and `CHARACTERISTIC` are optional, at least one of them should exist.
+* Not giving the `PRICE` will return the properties who is/are seeking for properties which have all the `CHARACTERISTIC`.
+* Not giving the `CHARACTERISTIC` will return the properties whose price is lower than or equal with `PRICE`.
 
 Examples:
 * `filterprop pr/100000`
-* `filterprop pr/250000 c/white`
+* `filterprop pr/250000 c/white c/big`
 * `filterprop c/white`
 
 

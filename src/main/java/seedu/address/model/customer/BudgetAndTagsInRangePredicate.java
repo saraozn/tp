@@ -1,5 +1,7 @@
 package seedu.address.model.customer;
 
+import static java.util.Objects.isNull;
+
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -27,7 +29,8 @@ public class BudgetAndTagsInRangePredicate implements Predicate<Customer> {
 
     @Override
     public boolean test(Customer customer) {
-        return customer.getTags().containsAll(tags) && customer.getBudget().isInRangeBudget(budget);
+        return (isNull(tags) || customer.getTags().containsAll(tags))
+                && customer.getBudget().isInRangeBudget(budget);
     }
 
     @Override

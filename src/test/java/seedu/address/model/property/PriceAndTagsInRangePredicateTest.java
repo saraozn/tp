@@ -75,8 +75,14 @@ public class PriceAndTagsInRangePredicateTest {
         someTags.add(firstTag);
         someTags.add(secondTag);
 
+        // Null tag
+        PriceAndTagsInRangePredicate predicate = new PriceAndTagsInRangePredicate(highPrice, null);
+        assertTrue(predicate.test(new PropertyBuilder().withPrice(highPriceString).build()));
+        assertTrue(predicate.test(new PropertyBuilder()
+                .withPrice(highPriceString).withTags(firstTagString).build()));
+
         // Same price with empty tag
-        PriceAndTagsInRangePredicate predicate = new PriceAndTagsInRangePredicate(highPrice, emptyTags);
+        predicate = new PriceAndTagsInRangePredicate(highPrice, emptyTags);
         assertTrue(predicate.test(new PropertyBuilder().withPrice(highPriceString).build()));
         assertTrue(predicate.test(new PropertyBuilder()
                 .withPrice(highPriceString).withTags(firstTagString).build()));
