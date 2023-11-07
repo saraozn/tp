@@ -348,7 +348,7 @@ Examples:
 #### Finding a customer: `findcust`
 [Back to Table of Contents](#table-of-contents)
 
-Finds and returns a customer or a list of customers whose name contains the substring inputted.
+Finds and returns a customer or a list of customers, from all the customers whose name contains the substring inputted.
 
 Format: `findcust NAME`
 
@@ -364,7 +364,7 @@ Examples:
 #### Finding a property: `findprop`
 [Back to Table of Contents](#table-of-contents)
 
-Finds and returns a property or a list of properties whose name contains the substring inputted.
+Finds and returns a property or a list of properties, from all the properties whose name contains the substring inputted.
 
 Format: `findprop NAME`
 
@@ -378,10 +378,11 @@ Examples:
 
 
 ### Filter Commands
+
 #### Filtering customers: `filtercust`
 [Back to Table of Contents](#table-of-contents)
 
-Filters the customer list to only show customers that fit the criteria.
+Filters all the customers to only show customers that fit the criteria.
 
 Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
 
@@ -399,7 +400,7 @@ Examples:
 #### Filter properties: `filterprop`
 [Back to Table of Contents](#table-of-contents)
 
-Filters the property list to only show properties that fit the criteria.
+Filters all the properties to only show properties that fit the criteria.
 
 Format: `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​`
 
@@ -415,6 +416,7 @@ Examples:
 
 
 ### Match Commands
+
 #### Matching properties to a customer: `matchcust`
 [Back to Table of Contents](#table-of-contents)
 
@@ -543,8 +545,8 @@ If your changes to the data file makes its format invalid, PropertyMatch will di
 | **Edit property**                | `editprop INDEX [n/NAME] [a/ADDRESS] [c/CHARACTERISTIC]…​ [p/PHONE_NUMBER] [pr/PRICE]` <br> e.g., `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543`                 |
 | **List properties**              | `listprop`                                                                                                                                                                |
 | **List customers**               | `listcust`                                                                                                                                                                |
-| **Find customers**               | `findcust NAME`                                                                                                                                                           |
-| **Find properties**              | `findprop NAME`                                                                                                                                                           |
+| **Find customers**               | `findcust NAME` <br> e.g., `findcust Amy`                                                                                                                                 |
+| **Find properties**              | `findprop NAME` <br> e.g., `findprop Skyview`                                                                                                                             |
 | **Filter properties**            | `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​` <br> e.g., `filterprop pr/250000 c/white`                                                                                    |
 | **Filter customers**             | `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `filtercust b/250000 c/white`                                                                                     |
 | **Match properties to customer** | `matchcust INDEX` <br> e.g., `matchcust 1`                                                                                                                                |
