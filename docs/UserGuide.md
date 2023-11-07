@@ -142,7 +142,7 @@ It appears when you execute the [Help Command](#viewing-help-help).
           Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
     * Once the application is open, type `java -version` and hit '**Enter/ Return**'.
     * The application should state your Java version as `11`.
- 
+
     * If you do not see `11`, this [link](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A) (external link to Oracle) provides a step-by-step installation guide for Java `11`.
 
 1. Download the latest `propertymatch.jar` from our [releases page](https://github.com/AY2324S1-CS2103T-W11-2/tp/releases). After clicking into the release page, scroll down slightly until you reach the Assets section of the page. This section should look like this:<br>
@@ -208,7 +208,7 @@ Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 * `p/PHONE`		                 : Phone number of the customer
 * `e/EMAIL`				         : Email of the customer
 * `b/BUDGET`		             : Budget of the customer
-* `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for 
+* `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for
 
 Examples:
 * `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/1000000`

@@ -222,7 +222,7 @@ When these created command objects are executed by the `LogicManager`, the `Dele
 * **Alternative 2:** A single `DeleteCommand` class is used to edit both customer and property.
     * Cons:
         * Unnecessary complexity is introduced into the system.
-      
+
 The following sequence diagram shows how the `DeleteCustomerCommand` is executed.
 
 ![DeleteCustomerSequenceDiagram](images/DeleteCustomerSequenceDiagram.png)

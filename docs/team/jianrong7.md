@@ -39,7 +39,7 @@ Given below are my contributions to the project.
 * **Project management**:
   * Led weekly group meetings
   * Managed milestones `v1.2` - `v1.4` (4 milestones) on GitHub
-  * Managed releases `v1.2` - `v1.4` (4 releases) on GitHub 
+  * Managed releases `v1.2` - `v1.4` (4 releases) on GitHub
 
 
 * **Contributions to team-based tasks**:
@@ -51,7 +51,7 @@ Given below are my contributions to the project.
   * Set up CI for the team repository
   * Enabled assertions in Gradle
   * Filmed product demo for v1.2 and v1.3
-  
+
 
 * **Review/mentoring contributions**:
   * Reviewed 16 PRs (Links to PR reviews with non-trivial comments below)
@@ -76,13 +76,13 @@ Given below are my contributions to the project.
   * `EditCustomerCommand`
     * Added sequence diagram in [#98](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/98)
     * Added design considerations
-      > `EditCustomerCommand` and `EditPropertyCommand` are separate, and both  inherit from the `Command` class. 
-      > 
+      > `EditCustomerCommand` and `EditPropertyCommand` are separate, and both  inherit from the `Command` class.
+      >
       > Pros:
       > - Both the `Customer` and `Property` classes have different fields that are exclusive to each other.
       > - This reduces complexity of the system, and unexpected behaviours.
       > - The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
-      >  
+      > 
       > Cons:
       > - More boilerplate code for each of the classes, which increases the size of the codebase.
 
