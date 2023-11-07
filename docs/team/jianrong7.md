@@ -14,11 +14,18 @@ Given below are my contributions to the project.
 
 * **Enhancements implemented**:
   * Added `listprop` command and tests
+    * [#66](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/66)
+    * [#84](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/84)
   * Added goodbye message to `exit` command
+    * [#58](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/58)
   * Removed traces of AB3
+    * [#61](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/61)
   * Fix CI/CD pipeline errors
+    * [#94](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/94)
   * Added `editcust` command and tests
+    * [#110](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/110)
   * Added `clear` command and tests
+    * [#120](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/120)
 
 
 * **Contributions to the UG**:
