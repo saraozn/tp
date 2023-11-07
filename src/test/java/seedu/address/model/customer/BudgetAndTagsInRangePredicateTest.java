@@ -75,8 +75,15 @@ public class BudgetAndTagsInRangePredicateTest {
         someTags.add(firstTag);
         someTags.add(secondTag);
 
+        // Null tags
+        BudgetAndTagsInRangePredicate predicate = new BudgetAndTagsInRangePredicate(smallBudget, null);
+
+        assertTrue(predicate.test(new CustomerBuilder().withBudget(smallBudgetString).build()));
+        assertTrue(predicate.test(new CustomerBuilder()
+                .withBudget(smallBudgetString).withTags(firstTagString).build()));
+
         // Same budget with empty tag
-        BudgetAndTagsInRangePredicate predicate = new BudgetAndTagsInRangePredicate(smallBudget, emptyTags);
+        predicate = new BudgetAndTagsInRangePredicate(smallBudget, emptyTags);
         assertTrue(predicate.test(new CustomerBuilder().withBudget(smallBudgetString).build()));
         assertTrue(predicate.test(new CustomerBuilder()
                 .withBudget(smallBudgetString).withTags(firstTagString).build()));

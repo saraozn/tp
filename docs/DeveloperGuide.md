@@ -260,7 +260,7 @@ The following sequence diagram shows how the `FindCustomerCommand` is executed.
     * Cons:
         * Unnecessary complexity is introduced into the system.
 
-### Filtering of customers
+### Filtering of Customers and Properties
 [Back to top](#table-of-contents)
 
 #### Motivation
@@ -268,14 +268,19 @@ The property agent may want to see a list of customers based on their budget. Fo
 Or, the property agent may want to see a list of customers based on the characteristics of the property they desired. For example, the property agent may want to filter customers who love pink properties.
 Or, the property agent may want to see a list of customers based on both budget and characteristics to enhance productivity.
 
-#### Implementation
-The `FilterCustomerCommand` class extends the `Command` class. They are used to filter customers.
-The command allows the user to filter customers based on their budget and/or properties' characteristics they love. The commands expect at least one flag, either budget or characteristics, to be used as a filter.
-When the filter command is inputted, the `FilterCustomerCommandParser` class is used to parse the user input and create the respective `FilterCustomerCommand` objects.
-When these created command objects are executed by the `LogicManager`, the `FilterCustomerCommand#execute(Model model)` methods are called. These methods will update the filtered customer list in the `model` which will eventually update the customers shown in the UI, and return a `CommandResult` object.
+The property agent may also want to see a list of properties based on their budget. For example, the property agent may want to filter properties with budget less than $1000000.
+Or, the property agent may want to see a list of properties based on the characteristics. For example, the property agent may want to filter pink properties.
+Or, the property agent may want to see a list of properties based on both budget and characteristics to enhance productivity.
 
-During this execution process, a new `BudgetAndTagsInRangePredicate` object which is used as a predicate to check whether a customer's budget is higher and if all the characteristics are desired by the customer.
-All customers will be tested using this `BudgetAndTagsInRangePredicate`. Customers which satisfy this condition will be included into the `FilteredCustomerList` in the model.
+#### Implementation
+The `FilterCustomerCommand` and `FilterPropertyCommand` class extends the `Command` class. They are used to filter customers and properties, respectively.
+The `filtercust` command allows the user to filter customers based on their budget and/or properties' characteristics they love. While the `filterprop` command allows the user to filter properties based on their budget and/or characteristics.
+The commands expect at least one flag, either budget/price or characteristics, to be used as a filter.
+When the filter command is inputted, the `FilterCustomerCommandParser` and `FilterPropertyCommandParser` class is used to parse the user input and create the respective `FilterCustomerCommand` or `FilterPropertyCommand` objects.
+When these created command objects are executed by the `LogicManager`, the `FilterCustomerCommand#execute(Model model)` or `FilterCustomerCommand#execute(Model model)` methods are called. These methods will update the filtered customer or property list in the `model` which will eventually update the customers shown in the UI, and return a `CommandResult` object.
+
+During this execution process, a new `BudgetAndTagsInRangePredicate` or `PriceAndTagsInRangePredicate` object which is used as a predicate to check whether a customer's budget is bigger and all the characteristics are desired by the customer or whether a property's price is lower and the property has all the characteristics, respectively.
+All customers or properties will be tested using this `BudgetAndTagsInRangePredicate` or `PriceAndTagsInRangePredicate`. Customers or proeprties which satisfy this condition will be included into the `FilteredCustomerList` or `FilteredPropertyList` in the model.
 
 The following sequence diagram shows how the `FilterCustomerCommand` is executed.
 ![FilterCustomerSequenceDiagram](images/FilterCustomerSequenceDiagram.png)
@@ -283,7 +288,7 @@ The following sequence diagram shows how the `FilterCustomerCommand` is executed
 #### Design Considerations
 **Aspect: How the filter customer commands should relate to filter property commands:**
 
-* **Alternative 1 (current choice):** `FilterCustomerCommand`  inherit from the `Command` class and separated with the command used to filter properties (`FilterPropertyCommand`).
+* **Alternative 1 (current choice):** `FilterCustomerCommand`  and `FilterPropertyCommand` inherit from the `Command` class and separated with each other.
     * Pros:
         * Both the `Customer` and `Property` classes have different fields that are exclusive to each other.
         * This reduces complexity of the system, and unexpected behaviours.
@@ -294,42 +299,8 @@ The following sequence diagram shows how the `FilterCustomerCommand` is executed
     * Cons:
         * Unnecessary complexity is introduced into the system.
 
-**Aspect: How the filtered customers should interact with the model:**
-* We also decided for the filter commands to put the filtered customers in a different list (`FilteredCustomerList`), instead of removing the 'unused' customers from the model.
-
-### Filtering of properties
-[Back to top](#table-of-contents)
-
-#### Motivation
-The property agent may want to see a list of properties based on their budget. For example, the property agent may want to filter properties with budget less than $1000000.
-Or, the property agent may want to see a list of properties based on the characteristics. For example, the property agent may want to filter pink properties.
-Or, the property agent may want to see a list of properties based on both budget and characteristics to enhance productivity.
-
-#### Implementation
-The `FilterPropertyCommand` class extends the `Command` class. They are used to filter properties.
-The command allows the user to filter properties based on their budget and/or characteristics. The commands expect at least one flag, either budget or characteristics, to be used as a filter.
-When the filter command is inputted, the `FilterPropertyCommandParser` class is used to parse the user input and create the respective `FilterPropertyCommand` objects.
-When these created command objects are executed by the `LogicManager`, the `FilterPropertyCommand#execute(Model model)` methods are called. These methods will update the filtered property list in the `model` which will eventually update the properties shown in the UI, and return a `CommandResult` object.
-
-During this execution process, a new `PriceAndTagsInRangePredicate` object which is used as a predicate to check whether a property's budget is lower and if the property has all the characteristics.
-All properties will be tested using this `PriceAndTagsInRangePredicate`. Properties which satisfy this condition will be included into the `FilteredPropertyList` in the model.
-
-#### Design Considerations
-**Aspect: How the filter property commands should relate to filter property commands:**
-
-* **Alternative 1 (current choice):** `FilterPropertyCommand`  inherit from the `Command` class and separated with the command used to filter customers (`FilterCustomerCommand`).
-    * Pros:
-        * Both the `Customer` and `Property` classes have different fields that are exclusive to each other.
-        * This reduces complexity of the system, and unexpected behaviours.
-        * The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
-    * Cons:
-        * More boilerplate code for each of the classes, which increases the size of the codebase.
-* **Alternative 2:** A single `FilterCommand` class is used to edit both customer and property.
-    * Cons:
-        * Unnecessary complexity is introduced into the system.
-
-**Aspect: How the filtered properties should interact with the model:**
-* We also decided for the filter commands to put the filtered properties in a different list (`FilteredPropertyList`), instead of removing the 'unused' properties from the model.
+**Aspect: How the filtered customers or properties should interact with the model:**
+* We also decided for the filter commands to put the filtered customers or filtered properties in a different list (`FilteredCustomerList` and `FilteredPropertyList`), instead of removing the 'unused' customers and propertiesfrom the model.
 
 ### Matching for Customers and Properties
 [Back to top](#table-of-contents)

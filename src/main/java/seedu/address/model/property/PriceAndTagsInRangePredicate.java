@@ -1,5 +1,7 @@
 package seedu.address.model.property;
 
+import static java.util.Objects.isNull;
+
 import java.util.Set;
 import java.util.function.Predicate;
 
@@ -26,7 +28,8 @@ public class PriceAndTagsInRangePredicate implements Predicate<Property> {
 
     @Override
     public boolean test(Property property) {
-        return property.getTags().containsAll(tags) && property.getPrice().isInRangePrice(price);
+        return (isNull(tags) || property.getTags().containsAll(tags))
+                && property.getPrice().isInRangePrice(price);
     }
 
     @Override
