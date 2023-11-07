@@ -231,7 +231,7 @@ To ensure that your database remains neat, PropertyMatch will warn you when you 
 
 Adds a property to the application.
 
-Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] p/number pr/budget`
+Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] p/NUMBER pr/PRICE`
 
 * `n/NAME`				         : Name of the property
 * `a/ADDRESS`		             : Address of the property
@@ -341,7 +341,7 @@ Format: `editprop INDEX [n/NAME] [p/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERIS
 
 Examples:
 *  `editprop 1 p/91234567 a/43 Clementi Avenue 3 #03-543` Edits the phone number and address of the 1st property to be `91234567` and `43 Clementi Avenue 3 #03-543` respectively.
-*  `editprop 2 n/Skyview t/` Edits the name of the 2nd property to be `Skyview` and clears all existing tags.
+*  `editprop 2 n/Skyview c/` Edits the name of the 2nd property to be `Skyview` and clears all existing characteristics.
 
 
 ### Find Commands
@@ -401,7 +401,7 @@ Examples:
 
 Filters the property list to only show properties that fit the criteria.
 
-Format: `filtercust [pr/PRICE] [c/CHARACTERISTIC]…​`
+Format: `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​`
 
 * `pr/PRICE` (optional)          : The budget of the property
 * `c/CHARACTERISTIC` (optional)  : The characteristics of the property
