@@ -19,7 +19,7 @@ Given below are my contributions to the project.
   * Added `addprop` tests [#87](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/87)
   * Added `editprop` command and tests [#93](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/93)
 
-  
+
 * **Contributions to the UG**:
   * Updated UG for delcust command  [#17](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/17)
   * Updated UG for edit commands  [#106](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/106)
@@ -32,10 +32,10 @@ Given below are my contributions to the project.
 
 * **Contributions to team-based tasks**:
   * Updated landing page with new UI [#115](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/115)
-* 
+
 * **Contributions beyond the project team**:
   * Reported  bugs for other team's product during PED
-  
+
 
 * **Review/mentoring contributions**:
   * Reviewed 13 PRs (Links to some PR reviews)
