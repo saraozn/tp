@@ -25,8 +25,8 @@ Given below are my contributions to the project.
     * What it does: It takes in a command in the format `findcust NAME` where `NAME` represents the substring to search for. When executed, the findcust commands scans the customer address book for customers whose names begins with the `NAME` substring at any position within their name. The results are then returned.
 
     * Justification: The `findcust` feature enhances user convenience and improve customer management within the application. It provides a convenient way to quickly locate specific customers based on a partial name match.
-  
-    * Highlights: 
+
+    * Highlights:
       * Flexible Substring Matching: It allows for substring matching at any position within the customer's name, offering flexibility in identifying customers with diverse name structures.
 
   * Added `findprop` command and tests
@@ -45,10 +45,10 @@ Given below are my contributions to the project.
 * **Contributions to the UG**
   * [#101] (https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/101)
   * Updated `findcust` and `findprop` description
- 
+
 * **Contributions to the DG**
   * [#101] (https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/101)
-  * Updated description for `delprop`, `delcust`, `findcust` and `findprop` 
+  * Updated description for `delprop`, `delcust`, `findcust` and `findprop`
   * Added sequence diagram for `findcust`
 
 * **Contributions to team-based tasks**:
