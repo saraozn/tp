@@ -3,7 +3,18 @@ layout: page
 title: Developer Guide
 ---
 ![Logo](images/Logo.png)
-* Table of Contents
+# Introduction 
+
+PropertyMatch is a JavaFX application that helps property agents manage their database of customers and properties using a command-line interface.
+
+## Purpose of the Developer Guide
+
+This guide was made for developers looking to comprehend or build upon the functionalities of PropertyMatch, and software testers looking to test PropertyMatch’s features.
+
+## About the Guide
+This developer guide provides a high-level architecture overview of the workings of PropertyMatch, followed by main features and functions of PropertyMatch along with their explanations, design considerations and implementations
+
+# Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
@@ -388,7 +399,7 @@ delay.play();
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix 1: Requirements**
+## **Appendix A: Requirements**
 
 ### A.1 Product scope
 
@@ -630,7 +641,7 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-## **Appendix c: Proposed enhancements**
+## **Appendix C: Proposed enhancements**
 
 ### C.1 Importing client data
 
