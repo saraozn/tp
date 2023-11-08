@@ -30,9 +30,9 @@ public class JsonSerializablePropertyBookTest {
     public void toModelType_typicalPropertiesFile_success() throws Exception {
         JsonSerializablePropertyBook dataFromFile = JsonUtil.readJsonFile(TYPICAL_PROPERTIES_FILE,
                 JsonSerializablePropertyBook.class).get();
-        PropertyBook PropertyBookFromFile = dataFromFile.toModelType();
+        PropertyBook propertyBookFromFile = dataFromFile.toModelType();
         PropertyBook typicalPropertiesPropertyBook = TypicalProperties.getTypicalPropertyBook();
-        assertEquals(PropertyBookFromFile, typicalPropertiesPropertyBook);
+        assertEquals(propertyBookFromFile, typicalPropertiesPropertyBook);
     }
 
     @Test
