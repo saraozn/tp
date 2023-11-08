@@ -24,7 +24,7 @@ PropertyMatch is a **contact and property management system** that aims to help 
 With PropertyMatch, you can easily
 - **Match** your existing customers and properties
 - **Filter** your existing customers and properties to your needs
-- **Find** that customer or property you're looking for, instead of relying on your memory
+- **Find** that customer or property you are looking for, instead of relying on your memory
 - and so much more...!
 
 With these powerful features, you can easily capitalise on your network, allowing you to convert them into your valuable leads. This can give you the revenue boost you needed to become an all-star property agent.
