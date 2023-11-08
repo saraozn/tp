@@ -70,9 +70,8 @@ public class Property {
         }
 
         return otherProperty != null
-                && (otherProperty.getName().equals(getName())
-                || otherProperty.getPhone().equals(getPhone())
-                || otherProperty.getAddress().equals(getAddress()));
+                && (otherProperty.getPhone().equals(getPhone())
+                    || otherProperty.getAddress().equals(getAddress()));
     }
 
     /**

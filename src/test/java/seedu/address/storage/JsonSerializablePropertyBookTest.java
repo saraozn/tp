@@ -19,8 +19,6 @@ public class JsonSerializablePropertyBookTest {
     private static final Path TEST_DATA_FOLDER = Paths.get("src", "test", "data", "JsonSerializablePropertyBookTest");
     private static final Path TYPICAL_PROPERTIES_FILE = TEST_DATA_FOLDER.resolve("typicalPropertiesPropertyBook.json");
     private static final Path INVALID_PROPERTY_FILE = TEST_DATA_FOLDER.resolve("invalidPropertyPropertyBook.json");
-    private static final Path DUPLICATE_PROPERTY_FILE_BY_NAME = TEST_DATA_FOLDER
-            .resolve("duplicatePropertyByNamePropertyBook.json");
     private static final Path DUPLICATE_PROPERTY_FILE_BY_PHONE = TEST_DATA_FOLDER
             .resolve("duplicatePropertyByPhonePropertyBook.json");
     private static final Path DUPLICATE_PROPERTY_FILE_BY_ADDRESS = TEST_DATA_FOLDER
@@ -40,14 +38,6 @@ public class JsonSerializablePropertyBookTest {
         JsonSerializablePropertyBook dataFromFile = JsonUtil.readJsonFile(INVALID_PROPERTY_FILE,
                 JsonSerializablePropertyBook.class).get();
         assertThrows(IllegalValueException.class, dataFromFile::toModelType);
-    }
-
-    @Test
-    public void toModelType_duplicatePropertiesByName_throwsIllegalValueException() throws Exception {
-        JsonSerializablePropertyBook dataFromFile = JsonUtil.readJsonFile(DUPLICATE_PROPERTY_FILE_BY_NAME,
-                JsonSerializablePropertyBook.class).get();
-        assertThrows(IllegalValueException.class, JsonSerializablePropertyBook.MESSAGE_DUPLICATE_PROPERTY,
-                dataFromFile::toModelType);
     }
 
     @Test

@@ -62,7 +62,7 @@ public class Customer {
     }
 
     /**
-     * Returns true if both customers have the same name.
+     * Returns true if both customers have the same name or the same email or the same phone.
      * This defines a weaker notion of equality between two customers.
      */
     public boolean isSameCustomer(Customer otherCustomer) {
@@ -71,9 +71,8 @@ public class Customer {
         }
 
         return otherCustomer != null
-                && (otherCustomer.getName().equals(getName())
-                || otherCustomer.getEmail().equals(getEmail())
-                || otherCustomer.getPhone().equals(getPhone()));
+                && (otherCustomer.getEmail().equals(getEmail())
+                    || otherCustomer.getPhone().equals(getPhone()));
     }
 
     /**

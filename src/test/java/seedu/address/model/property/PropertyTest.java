@@ -39,7 +39,7 @@ public class PropertyTest {
         Property editedAquaVista = new PropertyBuilder(AQUAVISTA).withPhone(VALID_PHONE_SKYVIEW)
                 .withAddress(VALID_ADDRESS_SKYVIEW)
                 .withPrice(VALID_PRICE_SKYVIEW).withTags(VALID_TAG_BIG).build();
-        assertTrue(AQUAVISTA.isSameProperty(editedAquaVista));
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
 
         // same name, different phone, all other attributes same -> returns false
         editedAquaVista = new PropertyBuilder(AQUAVISTA).withPhone(VALID_PHONE_SKYVIEW).build();
