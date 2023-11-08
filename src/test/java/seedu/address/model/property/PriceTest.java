@@ -23,6 +23,7 @@ public class PriceTest {
     private static final String WHITESPACE_INVALID_PRICE = "12 345";
     private static final String THIRTEEN_DIGIT_INVALID_PRICE = "1234567891011";
     private static final String ONE_TRILLION_INVALID_PRICE = "1000000000000";
+    private static final String START_WITH_ZERO_INVALID_PRICE = "0123456";
     private static final String VALID_PRICE = "100000";
     private static final String INTEGER_VALID_PRICE = Integer.toString(Integer.MAX_VALUE);
     private static final String TWELVE_DIGIT_VALID_PRICE = "123456789101";
@@ -55,6 +56,7 @@ public class PriceTest {
         assertFalse(Price.isValidPrice(WHITESPACE_INVALID_PRICE));
         assertFalse(Price.isValidPrice(THIRTEEN_DIGIT_INVALID_PRICE)); // thirteen digit price
         assertFalse(Price.isValidPrice(ONE_TRILLION_INVALID_PRICE)); // one trillion
+        assertFalse(Price.isValidPrice(START_WITH_ZERO_INVALID_PRICE)); // starts with zero
 
         // valid prices
         assertTrue(Price.isValidPrice(VALID_PRICE));

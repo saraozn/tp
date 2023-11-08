@@ -23,6 +23,7 @@ public class BudgetTest {
     private static final String WHITESPACE_INVALID_BUDGET = "12 345";
     private static final String THIRTEEN_DIGIT_INVALID_BUDGET = "1234567891011";
     private static final String ONE_TRILLION_INVALID_BUDGET = "1000000000000";
+    private static final String START_WITH_ZERO_INVALID_BUDGET = "0123456";
     private static final String VALID_BUDGET = "100000";
     private static final String INTEGER_VALID_BUDGET = Integer.toString(Integer.MAX_VALUE);
     private static final String TWELVE_DIGIT_VALID_BUDGET = "123456789101";
@@ -55,6 +56,7 @@ public class BudgetTest {
         assertFalse(Budget.isValidBudget(WHITESPACE_INVALID_BUDGET));
         assertFalse(Budget.isValidBudget(THIRTEEN_DIGIT_INVALID_BUDGET)); // thirteen digit BUDGET
         assertFalse(Budget.isValidBudget(ONE_TRILLION_INVALID_BUDGET)); // one trillion
+        assertFalse(Price.isValidPrice(START_WITH_ZERO_INVALID_BUDGET)); // starts with zero
 
         // valid budgets
         assertTrue(Budget.isValidBudget(VALID_BUDGET));
