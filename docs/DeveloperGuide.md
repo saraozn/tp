@@ -634,10 +634,10 @@ testers are expected to do more *exploratory* testing.
 
 ### C.1 Importing client data
 
-#### C.1.1 Motivation: 
+#### C.1.1 Motivation:
 To streamline the process of managing client information. By allowing property agents to quickly and easily import data into the address book, they can eliminate the need to manually enter data, saving time and resources. Additionally, the feature would help ensure data accuracy by reducing chances of manual errors. Ultimately, the implementation of this feature would help property agents better manage their client data and provide a more efficient way to store and access important information.
 
-#### C.1.2 Implementation: 
+#### C.1.2 Implementation:
 1. Design a user-friendly interface with an `Import` button or menu item.
 2. Decide on supported file formats for import, e.g., CSV, Excel, JSON.
 3. Create a file selection mechanism for property agents to choose the import file.
@@ -666,7 +666,7 @@ Property agents can easily transfer their data to other systems or applications,
 
 ### C.3 Improved GUI
 
-#### C.3.1 Motivation: 
+#### C.3.1 Motivation:
 Our current GUI is not as user-friendly as we would like it to be. A well-designed and aesthetic GUI provides a more intuitive and user-friendly interface, making it easier for users to navigate, access features, and perform tasks within the app. It can also lead to higher user satisfaction.
 
 #### C.3.2 Implementation:
