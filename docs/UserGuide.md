@@ -206,7 +206,7 @@ Adds a customer to the application.
 Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
 * `n/NAME`				         : Name of the customer
-* `p/PHONE`		                 : Phone number of the customer
+* `p/PHONE_NUMBER`		         : Phone number of the customer
 * `e/EMAIL`				         : Email of the customer
 * `b/BUDGET`		             : Budget of the customer
 * `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for
@@ -231,16 +231,16 @@ To ensure that your database remains neat, PropertyMatch will warn you when you 
 
 Adds a property to the application.
 
-Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] p/NUMBER pr/PRICE`
+Format: `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…​`
 
 * `n/NAME`				         : Name of the property
 * `a/ADDRESS`		             : Address of the property
-* `c/CHARACTERISTIC` (Optional)  : Characteristics of the property
-* `p/NUMBER`                    : Contact number
+* `p/PHONE_NUMBER`               : Phone number of the owner of the property
 * `pr/PRICE`                     : Price of the property
+* `c/CHARACTERISTIC` (Optional)  : Characteristics of the property
 
 Examples:
-* `addprop n/Fredy a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000`
+* `addprop n/Fredy a/randomAddress p/91135235 pr/500000 c/bright c/sunny c/big c/square`
 * `addprop n/Fredy a/randomAddress p/91135235 pr/700000`
 
 <div markdown="span" class="alert alert-primary">:bulb: **Tip:**
@@ -266,7 +266,7 @@ Updates the Customer List to show all customers in your database.
 
 Format: `listcust`
 
-No additional parameters are needed for this command and they will be ignored if used.
+No additional parameters are needed for this command, and they will be ignored if used.
 
 
 #### Listing all properties: `listprop`
@@ -275,7 +275,7 @@ Updates the Property List to show all properties in your database.
 
 Format: `listprop`
 
-No additional parameters are needed for this command and they will be ignored.
+No additional parameters are needed for this command, and they will be ignored.
 
 
 ### Delete Commands
