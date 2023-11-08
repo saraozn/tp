@@ -26,8 +26,12 @@ public class BudgetAndOneTagsPredicate implements Predicate<Customer> {
 
     @Override
     public boolean test(Customer customer) {
-        return tags.stream().anyMatch(tag -> customer.getTags().contains(tag))
-                && customer.getBudget().isInRangeBudget(budget);
+        if (tags.size() == 0) {
+            return customer.getBudget().isInRangeBudget(budget);
+        } else {
+            return tags.stream().anyMatch(tag -> customer.getTags().contains(tag))
+                    && customer.getBudget().isInRangeBudget(budget);
+        }
     }
 
     @Override
@@ -37,7 +41,7 @@ public class BudgetAndOneTagsPredicate implements Predicate<Customer> {
         }
 
         // instanceof handles nulls
-        if (!(other instanceof BudgetAndTagsInRangePredicate)) {
+        if (!(other instanceof BudgetAndOneTagsPredicate)) {
             return false;
         }
 
