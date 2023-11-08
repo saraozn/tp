@@ -62,7 +62,7 @@ public class Customer {
     }
 
     /**
-     * Returns true if both customers have the same name or the same email or the same phone.
+     * Returns true if both customers have the same phone.
      * This defines a weaker notion of equality between two customers.
      */
     public boolean isSameCustomer(Customer otherCustomer) {
