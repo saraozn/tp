@@ -14,8 +14,12 @@ public class Budget {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Budget should be an integer and should be at least 10000 and less than 1 trillion (1 000 000 000 000)";
-    public static final String VALIDATION_REGEX = "\\d{5,12}";
+            "Budget should be \n"
+                    + "- an integer\n"
+                    + "- at least 10000\n"
+                    + "- less than 1 trillion (1 000 000 000 000)\n"
+                    + "- not start with 0\n";
+    public static final String VALIDATION_REGEX = "[1-9]\\d{4,11}";
     public final Long amount;
     public final String value;
 
