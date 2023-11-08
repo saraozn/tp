@@ -40,7 +40,7 @@ This **user guide** aims to provide you with an in-depth overview of how to set 
 
 As property agents, we understand that using a [Command Line Interface (CLI)](https://en.wikipedia.org/wiki/Command-line_interface) might not be your forte. Fear not! Our application is tailored just for you with simplicity in mind, with easy to use commands that you will naturally reach to without having to remember how to use them.
 
-* Embark on your PropertyMatch journey using our [Quick Start](#quick-start) Guide - the express lane to get PropertyMatch up and running in no time! 
+* Embark on your PropertyMatch journey using our [Quick Start](#quick-start) Guide - the express lane to get PropertyMatch up and running in no time!
 * Afterwhich, you can head over to our [Interface Layout](#interface-layout) section to familiarise yourself with our snazzy interface and discover the ins and outs of the [CLI](#2-command-input-and-output-boxes).
 
 Let the fun begin – because who said setting up can't be a joyride?
@@ -159,7 +159,7 @@ It appears when you execute the [Help Command](#viewing-help-help).
 4. Copy the `propertymatch.jar` file to the folder you want to use as the _home folder_ for PropertyMatch. All data will be created and stored in that folder. If you are unsure where to place the folder, go to your desktop and create a folder. You can then copy the `propertymatch.jar` file into the folder you just created.
 
 5. Open the folder and double-click on `propertymatch.jar` to open PropertyMatch. If this does not work, please open up the terminal on your computer and type in `java -jar propertymatch.jar` to start the application.
-   
+
 6. A GUI similar to the one below should appear in a few seconds. Note that the app already contains some sample data.<br>
    ![startUi](images/startUi.png)
 
@@ -216,7 +216,7 @@ Adds a customer to your application.
 Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
 * `n/NAME`				         : Name of the customer
-* `p/PHONE`		                 : Phone number of the customer
+* `p/PHONE_NUMBER`		         : Phone number of the customer
 * `e/EMAIL`				         : Email of the customer
 * `b/BUDGET`		             : Budget of the customer
 * `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for
@@ -247,13 +247,14 @@ You should see the message in the [output box](#2-command-input-and-output-boxes
 
 Adds a property to your application.
 
-Format: `addprop n/NAME p/PHONE a/ADDRESS pr/PRICE [c/CHARACTERISTIC]…​`
+Format: `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…​`
 
 * `n/NAME`				         : Name of the property
 * `p/PHONE`                      : Contact number
 * `a/ADDRESS`		             : Address of the property
+* `p/PHONE_NUMBER`               : Phone number of the owner of the property
 * `pr/PRICE`                     : Price of the property
-* `c/CHARACTERISTIC` (Optional): Characteristics of the property
+* `c/CHARACTERISTIC` (Optional)  : Characteristics of the property
 
 Examples:
 * `addprop n/Aqua Heights a/195 Paya Lebar 3 #18-32 p/91135235 pr/700000`
@@ -290,7 +291,7 @@ Updates the [Customer List](#3-customer-list) to show all customers in your data
 
 Format: `listcust`
 
-No additional parameters are needed for this command, they will be ignored if used.
+No additional parameters are needed for this command, and they will be ignored if used.
 
 
 #### Listing all properties: `listprop`
@@ -299,7 +300,7 @@ Updates the [Property List](#4-property-list) to show all properties in your dat
 
 Format: `listprop`
 
-No additional parameters are needed for this command, they will be ignored if used.
+No additional parameters are needed for this command, and they will be ignored if used.
 
 
 ### Delete Commands

@@ -31,24 +31,91 @@ public class CustomerTest {
 
         // null -> returns false
         assertFalse(ALICE.isSameCustomer(null));
+    }
 
+    @Test
+    public void isSameCustomer_sameName() {
         // same name, all other attributes different -> returns true
         Customer editedAlice = new CustomerBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
                 .withBudget(VALID_BUDGET_BOB).withTags(VALID_TAG_BIG).build();
         assertTrue(ALICE.isSameCustomer(editedAlice));
 
+        // same name, different email, all other attributes same -> returns false
+        editedAlice = new CustomerBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+
+        // same name, different phone, all other attributes same -> returns false
+        editedAlice = new CustomerBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+
+        // same name, different budget, all other attributes same -> returns false
+        editedAlice = new CustomerBuilder(ALICE).withBudget(VALID_BUDGET_BOB).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+
+        // same name, different characteristic, all other attributes same -> returns false
+        editedAlice = new CustomerBuilder(ALICE).withTags(VALID_TAG_BIG).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+
         // different name, all other attributes same -> returns false
         editedAlice = new CustomerBuilder(ALICE).withName(VALID_NAME_BOB).build();
-        assertFalse(ALICE.isSameCustomer(editedAlice));
+        assertTrue(ALICE.isSameCustomer(editedAlice));
 
         // name differs in case, all other attributes same -> returns false
         Customer editedBob = new CustomerBuilder(BOB).withName(VALID_NAME_BOB.toLowerCase()).build();
-        assertFalse(BOB.isSameCustomer(editedBob));
+        assertTrue(BOB.isSameCustomer(editedBob));
 
         // name has trailing spaces, all other attributes same -> returns false
         String nameWithTrailingSpaces = VALID_NAME_BOB + " ";
         editedBob = new CustomerBuilder(BOB).withName(nameWithTrailingSpaces).build();
-        assertFalse(BOB.isSameCustomer(editedBob));
+        assertTrue(BOB.isSameCustomer(editedBob));
+    }
+
+    @Test
+    public void isSameCustomer_sameEmail() {
+        // same email, all other attributes different -> returns true
+        Customer editedAlice = new CustomerBuilder(ALICE).withPhone(VALID_PHONE_BOB).withName(VALID_NAME_BOB)
+                .withBudget(VALID_BUDGET_BOB).withTags(VALID_TAG_BIG).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+
+        // same email, different name, all other attributes same -> returns false
+        editedAlice = new CustomerBuilder(ALICE).withName(VALID_NAME_BOB).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+
+        // same email, different phone, all other attributes same -> returns false
+        editedAlice = new CustomerBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+
+        // same email, different budget, all other attributes same -> returns false
+        editedAlice = new CustomerBuilder(ALICE).withBudget(VALID_BUDGET_BOB).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+
+        // same email, different characteristic, all other attributes same -> returns false
+        editedAlice = new CustomerBuilder(ALICE).withTags(VALID_TAG_BIG).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+    }
+
+    @Test
+    public void isSameCustomer_samePhone() {
+        // same phone, all other attributes different -> returns true
+        Customer editedAlice = new CustomerBuilder(ALICE).withEmail(VALID_EMAIL_BOB).withName(VALID_NAME_BOB)
+                .withBudget(VALID_BUDGET_BOB).withTags(VALID_TAG_BIG).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+
+        // same phone, different name, all other attributes same -> returns false
+        editedAlice = new CustomerBuilder(ALICE).withName(VALID_NAME_BOB).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+
+        // same phone, different email, all other attributes same -> returns false
+        editedAlice = new CustomerBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+
+        // same phone, different budget, all other attributes same -> returns false
+        editedAlice = new CustomerBuilder(ALICE).withBudget(VALID_BUDGET_BOB).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
+
+        // same phone, different characteristic, all other attributes same -> returns false
+        editedAlice = new CustomerBuilder(ALICE).withTags(VALID_TAG_BIG).build();
+        assertTrue(ALICE.isSameCustomer(editedAlice));
     }
 
     @Test

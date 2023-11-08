@@ -81,7 +81,6 @@ public class SampleDataUtil {
     public static ReadOnlyPropertyBook getSamplePropertyBook() {
         PropertyBook samplePb = new PropertyBook();
         for (Property sampleProperty : getSampleProperties()) {
-            System.out.println(sampleProperty);
             samplePb.addProperty(sampleProperty);
         }
         return samplePb;
