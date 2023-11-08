@@ -11,7 +11,7 @@ import seedu.address.commons.util.ToStringBuilder;
 import seedu.address.model.tag.Tag;
 
 /**
- * Represents a Person in the address book.
+ * Represents a Property in the property book.
  * Guarantees: details are present and not null, field values are validated, immutable.
  */
 public class Property {
@@ -61,7 +61,7 @@ public class Property {
     }
 
     /**
-     * Returns true if both persons have the same name.
+     * Returns true if both properties have the same address.
      * This defines a weaker notion of equality between two persons.
      */
     public boolean isSameProperty(Property otherProperty) {
@@ -69,14 +69,11 @@ public class Property {
             return true;
         }
 
-        return otherProperty != null
-                && (otherProperty.getName().equals(getName())
-                || otherProperty.getPhone().equals(getPhone())
-                || otherProperty.getAddress().equals(getAddress()));
+        return otherProperty != null && otherProperty.getAddress().equals(getAddress());
     }
 
     /**
-     * Returns true if both persons have the same identity and data fields.
+     * Returns true if both properties have the same identity and data fields.
      * This defines a stronger notion of equality between two persons.
      */
     @Override

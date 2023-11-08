@@ -62,10 +62,10 @@ public class SampleDataUtil {
                     new PropPhone("87652533"), new Price("100000"),
                         getTagSet("garage")),
             new Property(new PropName("Riveria"), new PropAddress("567 Maple Lane, Singapore 109876"),
-                    new PropPhone("9482224"), new Price("4000000"),
+                    new PropPhone("94821224"), new Price("4000000"),
                         getTagSet()),
             new Property(new PropName("Azure"), new PropAddress("202 Shoreline Street, Singapore 654321"),
-                    new PropPhone("9482442"), new Price("321950"),
+                    new PropPhone("94821442"), new Price("321950"),
                         getTagSet())
         };
     }

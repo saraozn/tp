@@ -38,7 +38,7 @@ public class CustomerTest {
         // same name, all other attributes different -> returns true
         Customer editedAlice = new CustomerBuilder(ALICE).withPhone(VALID_PHONE_BOB).withEmail(VALID_EMAIL_BOB)
                 .withBudget(VALID_BUDGET_BOB).withTags(VALID_TAG_BIG).build();
-        assertTrue(ALICE.isSameCustomer(editedAlice));
+        assertFalse(ALICE.isSameCustomer(editedAlice));
 
         // same name, different email, all other attributes same -> returns false
         editedAlice = new CustomerBuilder(ALICE).withEmail(VALID_EMAIL_BOB).build();
@@ -46,7 +46,7 @@ public class CustomerTest {
 
         // same name, different phone, all other attributes same -> returns false
         editedAlice = new CustomerBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
-        assertTrue(ALICE.isSameCustomer(editedAlice));
+        assertFalse(ALICE.isSameCustomer(editedAlice));
 
         // same name, different budget, all other attributes same -> returns false
         editedAlice = new CustomerBuilder(ALICE).withBudget(VALID_BUDGET_BOB).build();
@@ -75,7 +75,7 @@ public class CustomerTest {
         // same email, all other attributes different -> returns true
         Customer editedAlice = new CustomerBuilder(ALICE).withPhone(VALID_PHONE_BOB).withName(VALID_NAME_BOB)
                 .withBudget(VALID_BUDGET_BOB).withTags(VALID_TAG_BIG).build();
-        assertTrue(ALICE.isSameCustomer(editedAlice));
+        assertFalse(ALICE.isSameCustomer(editedAlice));
 
         // same email, different name, all other attributes same -> returns false
         editedAlice = new CustomerBuilder(ALICE).withName(VALID_NAME_BOB).build();
@@ -83,7 +83,7 @@ public class CustomerTest {
 
         // same email, different phone, all other attributes same -> returns false
         editedAlice = new CustomerBuilder(ALICE).withPhone(VALID_PHONE_BOB).build();
-        assertTrue(ALICE.isSameCustomer(editedAlice));
+        assertFalse(ALICE.isSameCustomer(editedAlice));
 
         // same email, different budget, all other attributes same -> returns false
         editedAlice = new CustomerBuilder(ALICE).withBudget(VALID_BUDGET_BOB).build();

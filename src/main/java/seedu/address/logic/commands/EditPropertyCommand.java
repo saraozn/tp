@@ -48,9 +48,10 @@ public class EditPropertyCommand extends Command {
             + PREFIX_PHONE + "91234567 "
             + PREFIX_ADDRESS + "311, Clementi Ave 2, #02-25";
 
-    public static final String MESSAGE_EDIT_PROPERTY_SUCCESS = "Edited property: %1$s";
+    public static final String MESSAGE_EDIT_PROPERTY_SUCCESS = "Edited Property: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PROPERTY = "This property already exists in PropertyMatch.";
+    public static final String MESSAGE_DUPLICATE_PROPERTY = "This property has a duplicate phone, "
+            + "or duplicate address.";
 
     private final Index index;
     private final EditPropertyDescriptor editPropertyDescriptor;

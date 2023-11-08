@@ -96,7 +96,7 @@ Here are some commands you can test to start with.
 
 * **`listcust`** : Lists all customers in the database.
 
-* **`addcust n/ Tim Cook p/91234567 e/cook@apple.com b/2500000 c/bright c/sunny`** :
+* **`addcust n/Tim Cook p/91234567 e/cook@apple.com b/2500000 c/bright c/sunny`** :
   Adds a customer named "Tim Cook" with a specified phone number and email to the database.
   This customer has a specified budget, and desired characteristics for the property he wants to buy.
 
@@ -208,8 +208,8 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
 </div>
 
 ### Add Commands
-#### Adding a customer: `addcust`
 [Back to Table of Contents](#table-of-contents)
+#### Adding a customer: `addcust`
 
 Adds a customer to your application.
 
@@ -222,7 +222,7 @@ Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 * `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for
 
 Examples:
-* `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/1000000`
+* `addcust n/Tim Cook p/91234567 e/cook@apple.com b/2500000 c/bright c/sunny`
 * `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white`
 
 You should see the message in the [output box](#2-command-input-and-output-boxes) as below when a customer is successfully added. The new customer will be added to the bottom of your list for easy reference!
@@ -231,19 +231,21 @@ You should see the message in the [output box](#2-command-input-and-output-boxes
 <div markdown="block" class="alert alert-warning">
 
 **:bulb: Tip:**<br>
+
 * If you encounter an error, ensure that you have typed the command accurately with all the parameters present. (refer to the example commands above)<br>
+
 * The characteristics field is optional. If it is not set, the characteristics field will be empty.
 </div>
 
 <div markdown="block" class="alert alert-primary">
 
 **:information_source: Note:**<br>
+
 * To ensure that your database remains neat, PropertyMatch will warn you when you try to add duplicate customers that have the same name.
 </div>
 
 
 #### Adding a property: `addprop`
-[Back to Table of Contents](#table-of-contents)
 
 Adds a property to your application.
 
@@ -258,7 +260,7 @@ Format: `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…�
 
 Examples:
 * `addprop n/Aqua Heights a/195 Paya Lebar 3 #18-32 p/91135235 pr/700000`
-* `addprop n/Skyview a/214 Clementi Ave 2 #09-78 p/91135235 pr/500000 c/bright c/sunny c/big c/square`
+* `addprop n/Skyview a/214 Clementi Ave 2 #09-78 p/98835235 pr/500000 c/bright c/sunny c/big c/square`
 
 You should get a result similar to adding customers when the property is successfully added!
 
@@ -277,15 +279,16 @@ You should get a result similar to adding customers when the property is success
 
 
 ### List Commands
+[Back to Table of Contents](#table-of-contents)
 
 <div markdown="block" class="alert alert-primary">
 
 **:information_source: Note:**<br>
+
 * The List Commands should be used to view all buyers and properties again, after a [Filter Command](#filter-commands), [Find Command](#find-commands), or [Match Command](#match-commands) is executed.
 </div>
 
 #### Listing all customers: `listcust`
-[Back to Table of Contents](#table-of-contents)
 
 Updates the [Customer List](#3-customer-list) to show all customers in your database.
 
@@ -304,8 +307,8 @@ No additional parameters are needed for this command, and they will be ignored i
 
 
 ### Delete Commands
-#### Deleting a customer: `delcust`
 [Back to Table of Contents](#table-of-contents)
+#### Deleting a customer: `delcust`
 
 Deletes the specified customer and their corresponding details from your database.
 
@@ -324,7 +327,6 @@ Upon successfully deleting a customer, the confirmation message will appear in t
 ![delcustcustUi](images/user-guide/delcustUi.png)
 
 #### Deleting a property: `delprop`
-[Back to Table of Contents](#table-of-contents)
 
 Deletes the specified property and its corresponding details from your database.
 
@@ -341,8 +343,8 @@ Examples:
 The result will be similar to deleting customers when the property is successfully deleted!
 
 ### Edit Commands
-#### Editing a customer: `editcust`
 [Back to Table of Contents](#table-of-contents)
+#### Editing a customer: `editcust`
 
 Edits the details of your customer.
 
@@ -375,9 +377,7 @@ When `editcust 1 n/Andrew c/` is entered
 ![editcustUi](images/user-guide/editcustUi.png)
 
 
-
 #### Editing a property: `editprop`
-[Back to Table of Contents](#table-of-contents)
 
 Edits the details of your property.
 
@@ -405,8 +405,8 @@ Examples:
 Successfully editing your property would produce a similar result as editing a customer!
 
 ### Find Commands
-#### Finding a customer: `findcust`
 [Back to Table of Contents](#table-of-contents)
+#### Finding a customer: `findcust`
 
 Finds and returns a customer or a list of customers, from all your customers whose name contains the substring inputted.
 
@@ -426,8 +426,8 @@ When `findcust B D` is entered.
 
 ![findcustUi](images/user-guide/findcustUi.png)
 
+
 #### Finding a property: `findprop`
-[Back to Table of Contents](#table-of-contents)
 
 Finds and returns a property or a list of properties, from all your properties whose name contains the substring inputted.
 
@@ -443,10 +443,10 @@ Examples:
 
 Successfully finding the property you want would produce a similar result as finding a customer!
 
-### Filter Commands
 
-#### Filtering customers: `filtercust`
+### Filter Commands
 [Back to Table of Contents](#table-of-contents)
+#### Filtering customers: `filtercust`
 
 Filters all your customers to only show customers that fit the criteria.
 
@@ -479,8 +479,8 @@ When `filtercust c/white` is entered.
 
 ![filtercustUi](images/user-guide/filtercustUi.png)
 
+
 #### Filter properties: `filterprop`
-[Back to Table of Contents](#table-of-contents)
 
 Filters all your properties to only show properties that fit the criteria.
 
@@ -511,9 +511,8 @@ Examples:
 Successfully filtering your properties would produce a similar result as filtering your customers!
 
 ### Match Commands
-
-#### Matching properties to a customer: `matchcust`
 [Back to Table of Contents](#table-of-contents)
+#### Matching properties to a customer: `matchcust`
 
 Shows the list of properties that matches the criteria of your customer.
 
@@ -533,7 +532,6 @@ A message in the [output box](#2-command-input-and-output-boxes) identical to th
 ![Ui](images/user-guide/Ui.png)
 
 #### Matching customers to a property: `matchprop`
-[Back to Table of Contents](#table-of-contents)
 
 Shows the list of customers that matches the criteria of your property.
 
@@ -551,8 +549,8 @@ Examples:
 Matching your properties successfully will output a similar message as matching your customers.
 
 ### General Features
-#### Clear the data in the application: `clear`
 [Back to Table of Contents](#table-of-contents)
+#### Clear the data in the application: `clear`
 
 Resets all data in the application. (i.e. Deletes all entries in your Customer List and Property List)
 
@@ -566,7 +564,6 @@ Format: `clear`
 <br>
 
 #### Exiting the program: `exit`
-[Back to Table of Contents](#table-of-contents)
 
 Displays a goodbye message. Exit the application after 3 seconds.
 
@@ -574,7 +571,6 @@ Format: `exit`
 
 
 #### Viewing help: `help`
-[Back to Table of Contents](#table-of-contents)
 
 Displays a window containing the link to PropertyMatch's user guide if you need further help.
 
@@ -582,13 +578,11 @@ Format: `help`
 
 
 #### Saving data
-[Back to Table of Contents](#table-of-contents)
 
 PropertyMatch data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 
 #### Editing the data file
-[Back to Table of Contents](#table-of-contents)
 
 PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data/addressbook.json` and `[JAR file location]/data/propertybook.json`. Advanced users are welcome to update data directly by editing those JSON files.
 
