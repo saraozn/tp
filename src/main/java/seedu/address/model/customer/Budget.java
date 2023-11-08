@@ -35,7 +35,9 @@ public class Budget {
      * Returns true if a given string is a valid budget.
      */
     public static boolean isValidBudget(String test) {
-        return test.matches(VALIDATION_REGEX) && Long.parseUnsignedLong(test) >= 10000;
+        return test.matches(VALIDATION_REGEX)
+                && Long.parseUnsignedLong(test) >= 10000
+                && Long.parseUnsignedLong(test) < Long.parseUnsignedLong("1000000000000");
     }
 
     /**
