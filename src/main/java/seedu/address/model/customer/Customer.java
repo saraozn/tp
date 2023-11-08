@@ -71,9 +71,9 @@ public class Customer {
         }
 
         return otherCustomer != null
-                && otherCustomer.getName().equals(getName())
-                && otherCustomer.getEmail().equals(getEmail())
-                && otherCustomer.getPhone().equals(getPhone());
+                && (otherCustomer.getName().equals(getName())
+                || otherCustomer.getEmail().equals(getEmail())
+                || otherCustomer.getPhone().equals(getPhone()));
     }
 
     /**
