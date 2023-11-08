@@ -35,17 +35,17 @@ public class TypicalCustomers {
             .withEmail("heinz@example.com").withBudget("40000").build();
     public static final Customer DANIEL = new CustomerBuilder().withName("Daniel Meier").withPhone("87652533")
             .withEmail("cornelia@example.com").withBudget("10000").withTags("garage").build();
-    public static final Customer ELLE = new CustomerBuilder().withName("Elle Meyer").withPhone("9482224")
+    public static final Customer ELLE = new CustomerBuilder().withName("Elle Meyer").withPhone("94821224")
             .withEmail("werner@example.com").withBudget("4000000").build();
-    public static final Customer FIONA = new CustomerBuilder().withName("Fiona Kunz").withPhone("9482427")
+    public static final Customer FIONA = new CustomerBuilder().withName("Fiona Kunz").withPhone("94821427")
             .withEmail("lydia@example.com").withBudget("874000").build();
-    public static final Customer GEORGE = new CustomerBuilder().withName("George Best").withPhone("9482442")
+    public static final Customer GEORGE = new CustomerBuilder().withName("George Best").withPhone("94821442")
             .withEmail("anna@example.com").withBudget("321950").build();
 
     // Manually added
-    public static final Customer HOON = new CustomerBuilder().withName("Hoon Meier").withPhone("8482424")
+    public static final Customer HOON = new CustomerBuilder().withName("Hoon Meier").withPhone("84821424")
             .withEmail("stefan@example.com").withBudget("4321000").build();
-    public static final Customer IDA = new CustomerBuilder().withName("Ida Mueller").withPhone("8482131")
+    public static final Customer IDA = new CustomerBuilder().withName("Ida Mueller").withPhone("84821131")
             .withEmail("hans@example.com").withBudget("500000").build();
 
     // Manually added - Customer's details found in {@code CommandTestUtil}

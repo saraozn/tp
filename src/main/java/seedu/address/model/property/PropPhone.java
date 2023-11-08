@@ -30,6 +30,7 @@ public class PropPhone {
      * Returns true if a given string is a valid phone number.
      */
     public static boolean isValidPhone(String test) {
+        System.out.println(test);
         return test.matches(VALIDATION_REGEX);
     }
 
