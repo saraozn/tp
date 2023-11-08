@@ -47,7 +47,7 @@ public class PropertyTest {
 
         // same name, different address, all other attributes same -> returns false
         editedAquaVista = new PropertyBuilder(AQUAVISTA).withAddress(VALID_ADDRESS_SKYVIEW).build();
-        assertTrue(AQUAVISTA.isSameProperty(editedAquaVista));
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
 
         // same name, different price, all other attributes same -> returns true
         editedAquaVista = new PropertyBuilder(AQUAVISTA).withPrice(VALID_PRICE_SKYVIEW).build();
@@ -73,7 +73,7 @@ public class PropertyTest {
         Property editedAquaVista = new PropertyBuilder(AQUAVISTA).withName(VALID_NAME_SKYVIEW)
                 .withAddress(VALID_ADDRESS_SKYVIEW)
                 .withPrice(VALID_PRICE_SKYVIEW).withTags(VALID_TAG_BIG).build();
-        assertTrue(AQUAVISTA.isSameProperty(editedAquaVista));
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
 
         // same phone, different name, all other attributes same -> returns false
         editedAquaVista = new PropertyBuilder(AQUAVISTA).withName(VALID_NAME_SKYVIEW).build();
@@ -81,7 +81,7 @@ public class PropertyTest {
 
         // same phone, different address, all other attributes same -> returns false
         editedAquaVista = new PropertyBuilder(AQUAVISTA).withAddress(VALID_ADDRESS_SKYVIEW).build();
-        assertTrue(AQUAVISTA.isSameProperty(editedAquaVista));
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
 
         // same phone, different price, all other attributes same -> returns true
         editedAquaVista = new PropertyBuilder(AQUAVISTA).withPrice(VALID_PRICE_SKYVIEW).build();

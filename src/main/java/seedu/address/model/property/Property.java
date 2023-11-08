@@ -69,9 +69,7 @@ public class Property {
             return true;
         }
 
-        return otherProperty != null
-                && (otherProperty.getPhone().equals(getPhone())
-                    || otherProperty.getAddress().equals(getAddress()));
+        return otherProperty != null && otherProperty.getAddress().equals(getAddress());
     }
 
     /**

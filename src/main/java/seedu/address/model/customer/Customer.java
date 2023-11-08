@@ -70,9 +70,7 @@ public class Customer {
             return true;
         }
 
-        return otherCustomer != null
-                && (otherCustomer.getEmail().equals(getEmail())
-                    || otherCustomer.getPhone().equals(getPhone()));
+        return otherCustomer != null && otherCustomer.getPhone().equals(getPhone());
     }
 
     /**
