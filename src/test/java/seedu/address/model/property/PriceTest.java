@@ -1,10 +1,14 @@
 package seedu.address.model.property;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.testutil.Assert.assertThrows;
 
 import org.junit.jupiter.api.Test;
+
+import seedu.address.model.customer.Budget;
 
 
 public class PriceTest {
@@ -91,5 +95,20 @@ public class PriceTest {
 
         // different values -> returns false
         assertFalse(price.equals(new Price(INTEGER_VALID_PRICE)));
+    }
+
+    @Test
+    public void convertToBudget_validPrice() {
+        Price price = new Price(VALID_PRICE);
+        Budget budget = new Budget(VALID_PRICE);
+        assertEquals(price.convertToBudget(), budget);
+    }
+
+    @Test
+    public void hashCode_validPrice() {
+        Price price1 = new Price(VALID_PRICE);
+        Price price2 = new Price(VALID_PRICE);
+        assertNotSame(price1, price2);
+        assertEquals(price1.hashCode(), price2.hashCode());
     }
 }
