@@ -31,16 +31,31 @@ public class PropertyTest {
 
         // null -> returns false
         assertFalse(AQUAVISTA.isSameProperty(null));
+    }
 
-        // same name, all other attributes different -> returns true
-        Property editedAlice = new PropertyBuilder(AQUAVISTA).withPhone(VALID_PHONE_SKYVIEW)
+    @Test
+    public void isSameProperty_sameName() {
+        // same name, all other attributes different -> returns false
+        Property editedAquaVista = new PropertyBuilder(AQUAVISTA).withPhone(VALID_PHONE_SKYVIEW)
                 .withAddress(VALID_ADDRESS_SKYVIEW)
                 .withPrice(VALID_PRICE_SKYVIEW).withTags(VALID_TAG_BIG).build();
-        assertTrue(AQUAVISTA.isSameProperty(editedAlice));
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
 
-        // different name, all other attributes same -> returns false
-        editedAlice = new PropertyBuilder(AQUAVISTA).withName(VALID_NAME_SKYVIEW).build();
-        assertFalse(AQUAVISTA.isSameProperty(editedAlice));
+        // same name, different phone, all other attributes same -> returns false
+        editedAquaVista = new PropertyBuilder(AQUAVISTA).withPhone(VALID_PHONE_SKYVIEW).build();
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
+
+        // same name, different address, all other attributes same -> returns false
+        editedAquaVista = new PropertyBuilder(AQUAVISTA).withAddress(VALID_ADDRESS_SKYVIEW).build();
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
+
+        // same name, different price, all other attributes same -> returns true
+        editedAquaVista = new PropertyBuilder(AQUAVISTA).withPrice(VALID_PRICE_SKYVIEW).build();
+        assertTrue(AQUAVISTA.isSameProperty(editedAquaVista));
+
+        // same name, different characteristic, all other attributes same -> returns true
+        editedAquaVista = new PropertyBuilder(AQUAVISTA).withTags(VALID_TAG_BIG).build();
+        assertTrue(AQUAVISTA.isSameProperty(editedAquaVista));
 
         // name differs in case, all other attributes same -> returns false
         Property editedSkyview = new PropertyBuilder(SKYVIEW).withName(VALID_NAME_SKYVIEW.toLowerCase()).build();
@@ -50,6 +65,58 @@ public class PropertyTest {
         String nameWithTrailingSpaces = VALID_NAME_SKYVIEW + " ";
         editedSkyview = new PropertyBuilder(SKYVIEW).withName(nameWithTrailingSpaces).build();
         assertFalse(SKYVIEW.isSameProperty(editedSkyview));
+    }
+
+    @Test
+    public void isSameProperty_samePhone() {
+//        addprop n/Skyview a/214 Clementi Ave 2 #09-78 p/91135235 pr/500000 c/bright c/sunny c/big c/square
+        // same phone, all other attributes different -> returns false
+        Property editedAquaVista = new PropertyBuilder(AQUAVISTA).withName(VALID_NAME_SKYVIEW)
+                .withPhone(VALID_PHONE_SKYVIEW)
+                .withPrice(VALID_PRICE_SKYVIEW).withTags(VALID_TAG_BIG).build();
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
+
+        // same address, different name, all other attributes same -> returns false
+        editedAquaVista = new PropertyBuilder(AQUAVISTA).withName(VALID_NAME_SKYVIEW).build();
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
+
+        // same address, different phone, all other attributes same -> returns false
+        editedAquaVista = new PropertyBuilder(AQUAVISTA).withPhone(VALID_PHONE_SKYVIEW).build();
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
+
+        // same address, different price, all other attributes same -> returns true
+        editedAquaVista = new PropertyBuilder(AQUAVISTA).withPrice(VALID_PRICE_SKYVIEW).build();
+        assertTrue(AQUAVISTA.isSameProperty(editedAquaVista));
+
+        // same address, different characteristic, all other attributes same -> returns true
+        editedAquaVista = new PropertyBuilder(AQUAVISTA).withTags(VALID_TAG_BIG).build();
+        assertTrue(AQUAVISTA.isSameProperty(editedAquaVista));
+    }
+
+    @Test
+    public void isSameProperty_sameAddress() {
+//        addprop n/Skyview a/214 Clementi Ave 2 #09-78 p/91135235 pr/500000 c/bright c/sunny c/big c/square
+        // same address, all other attributes different -> returns false
+        Property editedAquaVista = new PropertyBuilder(AQUAVISTA).withName(VALID_NAME_SKYVIEW)
+                .withAddress(VALID_ADDRESS_SKYVIEW)
+                .withPrice(VALID_PRICE_SKYVIEW).withTags(VALID_TAG_BIG).build();
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
+
+        // same phone, different name, all other attributes same -> returns false
+        editedAquaVista = new PropertyBuilder(AQUAVISTA).withName(VALID_NAME_SKYVIEW).build();
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
+
+        // same phone, different address, all other attributes same -> returns false
+        editedAquaVista = new PropertyBuilder(AQUAVISTA).withAddress(VALID_ADDRESS_SKYVIEW).build();
+        assertFalse(AQUAVISTA.isSameProperty(editedAquaVista));
+
+        // same phone, different price, all other attributes same -> returns true
+        editedAquaVista = new PropertyBuilder(AQUAVISTA).withPrice(VALID_PRICE_SKYVIEW).build();
+        assertTrue(AQUAVISTA.isSameProperty(editedAquaVista));
+
+        // same phone, different characteristic, all other attributes same -> returns true
+        editedAquaVista = new PropertyBuilder(AQUAVISTA).withTags(VALID_TAG_BIG).build();
+        assertTrue(AQUAVISTA.isSameProperty(editedAquaVista));
     }
 
     @Test
