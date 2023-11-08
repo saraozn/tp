@@ -74,7 +74,7 @@ public class PropNameContainsKeywordsPredicateTest {
 
         // Keywords match phone, address and price, but does not match name
         predicate = new PropNameContainsKeywordsPredicate(Arrays.asList("Horizonview", "Main", "Street"));
-        assertFalse(predicate.test(new PropertyBuilder().withName("Aquavista").withPhone("12345")
+        assertFalse(predicate.test(new PropertyBuilder().withName("Aquavista").withPhone("87612345")
                 .withAddress("123 Orchid Lane, Singapore 456789").withPrice("123456").build()));
     }
 

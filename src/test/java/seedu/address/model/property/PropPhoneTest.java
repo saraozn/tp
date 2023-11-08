@@ -31,19 +31,22 @@ public class PropPhoneTest {
         assertFalse(PropPhone.isValidPhone("phone")); // non-numeric
         assertFalse(PropPhone.isValidPhone("9011p041")); // alphabets within digits
         assertFalse(PropPhone.isValidPhone("9312 1534")); // spaces within digits
+        assertFalse(PropPhone.isValidPhone("911")); // exactly 3 numbers
+        assertFalse(PropPhone.isValidPhone("124293842033123")); // long phone numbers
+        assertFalse(PropPhone.isValidPhone("11234578"));
 
         // valid phone numbers
-        assertTrue(PropPhone.isValidPhone("911")); // exactly 3 numbers
         assertTrue(PropPhone.isValidPhone("93121534"));
-        assertTrue(PropPhone.isValidPhone("124293842033123")); // long phone numbers
+        assertTrue(PropPhone.isValidPhone("87654321"));
+        assertTrue(PropPhone.isValidPhone("61234578"));
     }
 
     @Test
     public void equals() {
-        PropPhone phone = new PropPhone("999");
+        PropPhone phone = new PropPhone("98765432");
 
         // same values -> returns true
-        assertTrue(phone.equals(new PropPhone("999")));
+        assertTrue(phone.equals(new PropPhone("98765432")));
 
         // same object -> returns true
         assertTrue(phone.equals(phone));
@@ -55,6 +58,6 @@ public class PropPhoneTest {
         assertFalse(phone.equals(5.0f));
 
         // different values -> returns false
-        assertFalse(phone.equals(new PropPhone("995")));
+        assertFalse(phone.equals(new PropPhone("91234567")));
     }
 }

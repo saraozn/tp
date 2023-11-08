@@ -26,19 +26,19 @@
     "tags" : [ "garage" ]
   }, {
     "name" : "Elle Meyer",
-    "phone" : "9482224",
+    "phone" : "94821224",
     "email" : "werner@example.com",
     "budget": "4000000",
     "tags" : [ ]
   }, {
     "name" : "Fiona Kunz",
-    "phone" : "9482427",
+    "phone" : "94821427",
     "email" : "lydia@example.com",
     "budget": "874000",
     "tags" : [ ]
   }, {
     "name" : "George Best",
-    "phone" : "9482442",
+    "phone" : "94821442",
     "email" : "anna@example.com",
     "budget": "321950",
     "tags" : [ ]
