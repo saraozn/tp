@@ -3,7 +3,7 @@ layout: page
 title: Developer Guide
 ---
 ![Logo](images/Logo.png)
-# Introduction 
+## Introduction 
 
 PropertyMatch is a JavaFX application that helps property agents manage their database of customers and properties using a command-line interface.
 
@@ -12,10 +12,11 @@ PropertyMatch is a JavaFX application that helps property agents manage their da
 This guide was made for developers looking to comprehend or build upon the functionalities of PropertyMatch, and software testers looking to test PropertyMatch’s features.
 
 ## About the Guide
+
 This developer guide provides a high-level architecture overview of the workings of PropertyMatch, followed by main features and functions of PropertyMatch along with their explanations, design considerations and implementations
 
-# Table of Contents
-{:toc}
+* Table of Contents
+ {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -126,6 +127,7 @@ How the parsing works:
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
 ### 3.4 Model component
+
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
 
 <img src="images/ModelClassDiagram.png" width="450" />
