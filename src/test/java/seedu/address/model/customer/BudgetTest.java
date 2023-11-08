@@ -14,8 +14,14 @@ public class BudgetTest {
     private static final String TWO_DIGIT_INVALID_BUDGET = "11";
     private static final String THREE_DIGIT_INVALID_BUDGET = "111";
     private static final String FOUR_DIGIT_INVALID_BUDGET = "1111";
+    private static final String FIVE_DIGIT_INVALID_BUDGET = "00000";
+    private static final String DECIMAL_INVALID_BUDGET = "12.345";
+    private static final String WHITESPACE_INVALID_BUDGET = "12 345";
+    private static final String THIRTEEN_DIGIT_INVALID_BUDGET = "1234567891011";
+    private static final String ONE_TRILLION_INVALID_BUDGET = "1000000000000";
     private static final String VALID_BUDGET = "100000";
-    private static final String LONG_VALID_BUDGET = Integer.toString(Integer.MAX_VALUE);
+    private static final String INTEGER_VALID_BUDGET = Integer.toString(Integer.MAX_VALUE);
+    private static final String TWELVE_DIGIT_VALID_BUDGET = "123456789101";
     @Test
     public void constructor_null_throwsNullPointerException() {
         assertThrows(NullPointerException.class, () -> new Budget(null));
@@ -40,11 +46,16 @@ public class BudgetTest {
         assertFalse(Budget.isValidBudget(TWO_DIGIT_INVALID_BUDGET)); // two digit only
         assertFalse(Budget.isValidBudget(THREE_DIGIT_INVALID_BUDGET)); // three digit only
         assertFalse(Budget.isValidBudget(FOUR_DIGIT_INVALID_BUDGET)); // four digit only
-
+        assertFalse(Budget.isValidBudget(FIVE_DIGIT_INVALID_BUDGET));
+        assertFalse(Budget.isValidBudget(DECIMAL_INVALID_BUDGET));
+        assertFalse(Budget.isValidBudget(WHITESPACE_INVALID_BUDGET));
+        assertFalse(Budget.isValidBudget(THIRTEEN_DIGIT_INVALID_BUDGET)); // thirteen digit BUDGET
+        assertFalse(Budget.isValidBudget(ONE_TRILLION_INVALID_BUDGET)); // one trillion
 
         // valid budgets
         assertTrue(Budget.isValidBudget(VALID_BUDGET));
-        assertTrue(Budget.isValidBudget(LONG_VALID_BUDGET)); // long budget
+        assertTrue(Budget.isValidBudget(INTEGER_VALID_BUDGET)); // integer budget
+        assertTrue(Budget.isValidBudget(TWELVE_DIGIT_VALID_BUDGET)); // twelve digit budget
     }
 
     @Test
@@ -53,13 +64,13 @@ public class BudgetTest {
         assertTrue(new Budget(VALID_BUDGET).isInRangeBudget(null));
 
         // smaller budget
-        assertTrue(new Budget(LONG_VALID_BUDGET).isInRangeBudget(new Budget(VALID_BUDGET)));
+        assertTrue(new Budget(INTEGER_VALID_BUDGET).isInRangeBudget(new Budget(VALID_BUDGET)));
 
         // same budget
         assertTrue(new Budget(VALID_BUDGET).isInRangeBudget(new Budget(VALID_BUDGET)));
 
         // bigger budget
-        assertFalse(new Budget(VALID_BUDGET).isInRangeBudget(new Budget(LONG_VALID_BUDGET)));
+        assertFalse(new Budget(VALID_BUDGET).isInRangeBudget(new Budget(INTEGER_VALID_BUDGET)));
     }
 
     @Test
@@ -79,6 +90,6 @@ public class BudgetTest {
         assertFalse(budget.equals(OTHER_TYPE_INVALID_BUDGET));
 
         // different values -> returns false
-        assertFalse(budget.equals(new Budget(LONG_VALID_BUDGET)));
+        assertFalse(budget.equals(new Budget(INTEGER_VALID_BUDGET)));
     }
 }
