@@ -57,7 +57,7 @@ In addition, here are some symbols that will give you a more enjoyable time usin
 
 <div markdown="block" class="alert alert-primary">
 
-**:information_source: Note:**
+**:information_source: Note:**<br>
 * These symbols will be encapsulated in a box as such.
 </div>
 
@@ -88,7 +88,7 @@ the [List Customers Command](#listing-all-customers-listcust).
 
 <div markdown="span" class="alert alert-primary">
 
-**:information_source: Note:**
+**:information_source: Note:**<br>
 * If a command is not successfully executed, the text within the command input box will turn <span style="color:red">red</span>.
 </div>
 
@@ -169,9 +169,9 @@ If you encounter any problems during the setup process, please check out the FAQ
 
 <div markdown="span" class="alert alert-danger">
 
-**:exclamation: Caution (for advanced users):**
+**:exclamation: Caution (for advanced users):**<br>
 * On first launch, PropertyMatch will create a few files that have the extension `.json` in its *home directory*. These files are used
-by PropertyMatch to store its data. 
+by PropertyMatch to store its data. <br>
 * **Edit these at your own risk**, as PropertyMatch will start with an empty database if it detects any
 error in the formatting of the data in these files.
 </div>
@@ -230,14 +230,14 @@ You should see the message in the [output box](#2-command-input-and-output-boxes
 
 <div markdown="span" class="alert alert-warning">
 
-**:bulb: Tip:**
-* If you encounter an error, ensure that you have typed the command accurately with all the parameters present. (refer to the example commands above)
+**:bulb: Tip:**<br>
+* If you encounter an error, ensure that you have typed the command accurately with all the parameters present. (refer to the example commands above)<br>
 * The characteristics field is optional. If it is not set, the characteristics field will be empty.
 </div>
 
 <div markdown="span" class="alert alert-primary">
 
-**:information_source: Note:**
+**:information_source: Note:**<br>
 * To ensure that your database remains neat, PropertyMatch will warn you when you try to add duplicate customers that have the same name.
 </div>
 
@@ -263,14 +263,14 @@ You should get a result similar to adding customers when the property is success
 
 <div markdown="span" class="alert alert-warning">
 
-**:bulb: Tip:**
-* Similar to adding a customer, ensure that you have typed the command accurately with all the parameters present. (refer to the example commands above)
+**:bulb: Tip:**<br>
+* Similar to adding a customer, ensure that you have typed the command accurately with all the parameters present. (refer to the example commands above)<br>
 * The characteristics field is also optional. If it is not set, the characteristics field will be empty.
 </div>
 
 <div markdown="span" class="alert alert-primary">
 
-**:information_source: Note:**
+**:information_source: Note:**<br>
 * Similar to adding a customer, PropertyMatch will warn you when you try to add duplicate customers that have the name.
 </div>
 
@@ -279,7 +279,7 @@ You should get a result similar to adding customers when the property is success
 
 <div markdown="span" class="alert alert-primary">
 
-**:information_source: Note:**
+**:information_source: Note:**<br>
 * The List Commands should be used to view all buyers and properties again, after a [Filter Command](#filter-commands), [Find Command](#find-commands), or [Match Command](#match-commands) is executed.
 </div>
 
@@ -319,6 +319,7 @@ Examples:
 * `listcust` followed by `delcust 2` deletes the 2nd customer in the customer list.
 
 Upon successfully deleting a customer, the confirmation message will appear in the [output box](#2-command-input-and-output-boxes) as below!
+
 ![delcustcustUi](images/user-guide/delcustUi.png)
 
 #### Deleting a property: `delprop`
@@ -350,13 +351,15 @@ Format: `editcust INDEX [n/NAME] [p/PHONE] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTI
 * Existing values will be updated to the input values.
 <div markdown="span" class="alert alert-primary">
 
-**:infomation_source: Note:**
+**:information_source: Note:**<br>
+
 * When editing tags, the existing tags of your customer will be removed i.e adding of tags is not cumulative.
 </div>
 
 <div markdown="span" class="alert alert-warning">
 
-**:bulb: Tip:**
+**:bulb: Tip:** <br>
+
 * You can remove all your customer’s tags by typing `c/` without specifying any tags after it.
 </div>
 
@@ -384,13 +387,13 @@ Format: `editprop INDEX [n/NAME] [p/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERIS
 
 <div markdown="span" class="alert alert-primary">
 
-**:infomation_source: Note:**
+**:information_source: Note:** <br>
 * When editing tags, the existing tags of the property will be removed i.e adding of tags is not cumulative.
 </div>
 
 <div markdown="span" class="alert alert-warning">
 
-**:bulb: Tip:**
+**:bulb: Tip:** <br>
 * You can remove all the property’s tags by typing `c/` without specifying any tags after it.
 </div>
 
@@ -454,14 +457,14 @@ Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
 
 <div markdown="span" class="alert alert-primary">
 
-**:infomation_source: Note:**
+**:information_source: Note:**<br>
 * While both `BUDGET` and `CHARACTERISTIC` are optional, note that at least one of them should be present.
 </div>
 
 <div markdown="span" class="alert alert-warning">
 
-**:bulb: Tip:**
-* Omitting`BUDGET` will return customers is search of properties with the specified `CHARACTERISTIC`.
+**:bulb: Tip:** <br>
+* Omitting`BUDGET` will return customers is search of properties with the specified `CHARACTERISTIC`.<br>
 * Omitting `CHARACTERISTIC` will return customers with a budget is greater than or equal to `BUDGET`.
 </div>
 
@@ -488,14 +491,14 @@ Format: `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​`
 
 <div markdown="span" class="alert alert-primary">
 
-**:infomation_source: Note:**
+**:information_source: Note:**<br>
 * While both `PROPERTY` and `CHARACTERISTIC` are optional, note that at least one of them should be present.
 </div>
 
 <div markdown="span" class="alert alert-warning">
 
-**:bulb: Tip:**
-* Omitting `PRICE` will return the properties which have all the `CHARACTERISTIC`.
+**:bulb: Tip:**<br>
+* Omitting `PRICE` will return the properties which have all the `CHARACTERISTIC`.<br>
 * Omitting `CHARACTERISTIC` will return properties priced lower than or equal to `PRICE`.
 </div>
 
@@ -556,7 +559,7 @@ Format: `clear`
 
  <div markdown="span" class="alert alert-danger">
 
-**:exclamation: Caution:**
+**:exclamation: Caution:**<br>
 * Clearing the data in your application will result in all data being lost! Be careful when you perform this operation and be sure that you want to reset all data in the app.
 </div>
 <br>
@@ -591,7 +594,7 @@ PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data
 
 <div markdown="span" class="alert alert-danger">
 
-**:exclamation: Caution (for advanced users):**
+**:exclamation: Caution (for advanced users):**<br>
 * If your changes to the data file makes its format invalid, PropertyMatch will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
 </div>
 <br>
