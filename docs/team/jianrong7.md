@@ -82,7 +82,6 @@ Given below are my contributions to the project.
       > - Both the `Customer` and `Property` classes have different fields that are exclusive to each other.
       > - This reduces complexity of the system, and unexpected behaviours.
       > - The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
-      > 
       > Cons:
       > - More boilerplate code for each of the classes, which increases the size of the codebase.
 

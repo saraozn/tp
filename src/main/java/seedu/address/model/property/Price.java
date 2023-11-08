@@ -12,11 +12,10 @@ import seedu.address.model.customer.Budget;
  */
 public class Price {
 
-
     public static final String MESSAGE_CONSTRAINTS =
-            "Price should only contain numbers at least 10000";
-    public static final String VALIDATION_REGEX = "\\d{5,}";
-    public final Integer amount;
+            "Price should be an integer and should be at least 10000 and less than 1 trillion (1 000 000 000 000)";
+    public static final String VALIDATION_REGEX = "\\d{5,12}";
+    public final Long amount;
     public final String value;
 
     /**
@@ -27,7 +26,7 @@ public class Price {
     public Price(String price) {
         requireNonNull(price);
         checkArgument(isValidPrice(price), MESSAGE_CONSTRAINTS);
-        amount = Integer.parseInt(price);
+        amount = Long.parseUnsignedLong(price);
         value = price;
     }
 
@@ -35,7 +34,9 @@ public class Price {
      * Returns true if a given string is a valid price.
      */
     public static boolean isValidPrice(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test.matches(VALIDATION_REGEX)
+                && Long.parseUnsignedLong(test) >= 10000
+                && Long.parseUnsignedLong(test) < Long.parseUnsignedLong("1000000000000");
     }
 
     /**

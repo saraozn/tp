@@ -35,17 +35,17 @@ public class TypicalProperties {
             .withAddress("789 Palm Grove Road, Singapore 321012").withPrice("400000").build();
     public static final Property LUXELOFT = new PropertyBuilder().withName("Luxeloft").withPhone("87652533")
             .withAddress("234 Amber Crescent, Singapore 567890").withPrice("100000").withTags("garage").build();
-    public static final Property RIVERIA = new PropertyBuilder().withName("Riveria").withPhone("9482224")
+    public static final Property RIVERIA = new PropertyBuilder().withName("Riveria").withPhone("94821224")
             .withAddress("567 Maple Lane, Singapore 109876").withPrice("4000000").build();
-    public static final Property AZURE = new PropertyBuilder().withName("Azure").withPhone("9482427")
+    public static final Property AZURE = new PropertyBuilder().withName("Azure").withPhone("94821427")
             .withAddress("101 Radiant Lane, Singapore 123456").withPrice("874000").build();
-    public static final Property TRANQUILIS = new PropertyBuilder().withName("Tranquilis").withPhone("9482442")
+    public static final Property TRANQUILIS = new PropertyBuilder().withName("Tranquilis").withPhone("94812442")
             .withAddress("202 Shoreline Street, Singapore 654321").withPrice("321950").build();
 
     // Manually added
-    public static final Property ASCEND = new PropertyBuilder().withName("Ascend").withPhone("8482424")
+    public static final Property ASCEND = new PropertyBuilder().withName("Ascend").withPhone("84821424")
             .withAddress("909 Skyline Boulevard, Singapore 789123").withPrice("4321000").build();
-    public static final Property SPECTRA = new PropertyBuilder().withName("Spectra").withPhone("8482131")
+    public static final Property SPECTRA = new PropertyBuilder().withName("Spectra").withPhone("84821131")
             .withAddress("808 Colorful Street, Singapore 456012").withPrice("500000").build();
 
     // Manually added - Customer's details found in {@code CommandTestUtil}

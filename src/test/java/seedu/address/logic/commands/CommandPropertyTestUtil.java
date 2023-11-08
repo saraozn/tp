@@ -28,8 +28,8 @@ public class CommandPropertyTestUtil {
 
     public static final String VALID_NAME_AQUAVIEW = "Aquaview";
     public static final String VALID_NAME_SKYVIEW = "Skyview";
-    public static final String VALID_PHONE_AQUAVIEW = "11111111";
-    public static final String VALID_PHONE_SKYVIEW = "22222222";
+    public static final String VALID_PHONE_AQUAVIEW = "91111111";
+    public static final String VALID_PHONE_SKYVIEW = "82222222";
     public static final String VALID_ADDRESS_AQUAVIEW = "42 Merlion Avenue, Garden City, Singapore 54321";
     public static final String VALID_ADDRESS_SKYVIEW = "17 Rainbow Crescent, Serene Heights, Singapore 67890";
     public static final String VALID_PRICE_AQUAVIEW = "1000000";

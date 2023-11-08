@@ -14,9 +14,9 @@ public class Budget {
 
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Budget should only contain numbers at least 10000";
-    public static final String VALIDATION_REGEX = "\\d{5,}";
-    public final Integer amount;
+            "Budget should be an integer and should be at least 10000 and less than 1 trillion (1 000 000 000 000)";
+    public static final String VALIDATION_REGEX = "\\d{5,12}";
+    public final Long amount;
     public final String value;
 
     /**
@@ -27,7 +27,7 @@ public class Budget {
     public Budget(String budget) {
         requireNonNull(budget);
         checkArgument(isValidBudget(budget), MESSAGE_CONSTRAINTS);
-        amount = Integer.parseInt(budget);
+        amount = Long.parseUnsignedLong(budget);
         value = budget;
     }
 
@@ -35,7 +35,9 @@ public class Budget {
      * Returns true if a given string is a valid budget.
      */
     public static boolean isValidBudget(String test) {
-        return test.matches(VALIDATION_REGEX);
+        return test.matches(VALIDATION_REGEX)
+                && Long.parseUnsignedLong(test) >= 10000
+                && Long.parseUnsignedLong(test) < Long.parseUnsignedLong("1000000000000");
     }
 
     /**

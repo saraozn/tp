@@ -36,8 +36,8 @@ public class CommandTestUtil {
     // Customers
     public static final String VALID_NAME_AMY = "Amy Bee";
     public static final String VALID_NAME_BOB = "Bob Choo";
-    public static final String VALID_PHONE_AMY = "11111111";
-    public static final String VALID_PHONE_BOB = "22222222";
+    public static final String VALID_PHONE_AMY = "91111111";
+    public static final String VALID_PHONE_BOB = "62222222";
     public static final String VALID_EMAIL_AMY = "amy@example.com";
     public static final String VALID_EMAIL_BOB = "bob@example.com";
     public static final String VALID_BUDGET_AMY = "1000000";
@@ -86,8 +86,8 @@ public class CommandTestUtil {
     // Properties
     public static final String VALID_NAME_LIGHT = "Light House";
     public static final String VALID_NAME_HELIX = "Helix House";
-    public static final String VALID_PHONE_LIGHT = "333333333";
-    public static final String VALID_PHONE_HELIX = "44444444";
+    public static final String VALID_PHONE_LIGHT = "93333333";
+    public static final String VALID_PHONE_HELIX = "84444444";
     public static final String VALID_ADDRESS_LIGHT = "25 Prince George's Park, Singapore 118424";
     public static final String VALID_ADDRESS_HELIX = "37 Prince George's Park, Singapore 118430";
     public static final String VALID_PRICE_LIGHT = "1000000";

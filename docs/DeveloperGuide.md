@@ -2,31 +2,32 @@
 layout: page
 title: Developer Guide
 ---
+![Logo](images/Logo.png)
 * Table of Contents
 {:toc}
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Acknowledgements**
+## **1. Acknowledgements**
 
-* {list here sources of all reused/adapted ideas, code, documentation, and third-party libraries -- include links to the original source as well}
+* Our developer guide is built upon [Addressbook-level3](https://se-education.org/addressbook-level3/DeveloperGuide.html)
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Setting up, getting started**
+## **2. Setting up, getting started**
 
 Refer to the guide [_Setting up and getting started_](SettingUp.md).
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Design**
+## **3. Design**
 
 <div markdown="span" class="alert alert-primary">
 
 :bulb: **Tip:** The `.puml` files used to create diagrams in this document `docs/diagrams` folder. Refer to the [_PlantUML Tutorial_ at se-edu/guides](https://se-education.org/guides/tutorials/plantUml.html) to learn how to create and edit diagrams.
 </div>
 
-### Architecture
+### 3.1 Architecture
 
 <img src="images/ArchitectureDiagram.png" width="280" />
 
@@ -66,7 +67,7 @@ For example, the `Logic` component defines its API in the `Logic.java` interface
 
 The sections below give more details of each component.
 
-### UI component
+### 3.2 UI component
 
 The **API** of this component is specified in [`Ui.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/ui/Ui.java)
 
@@ -83,7 +84,7 @@ The `UI` component,
 * keeps a reference to the `Logic` component, because the `UI` relies on the `Logic` to execute commands.
 * depends on some classes in the `Model` component, as it displays `Person` object residing in the `Model`.
 
-### Logic component
+### 3.3 Logic component
 
 **API** : [`Logic.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/logic/Logic.java)
 
@@ -113,7 +114,7 @@ How the parsing works:
 * When called upon to parse a user command, the `AddressBookParser` class creates an `XYZCommandParser` (`XYZ` is a placeholder for the specific command name e.g., `AddCommandParser`) which uses the other classes shown above to parse the user command and create a `XYZCommand` object (e.g., `AddCommand`) which the `AddressBookParser` returns back as a `Command` object.
 * All `XYZCommandParser` classes (e.g., `AddCommandParser`, `DeleteCommandParser`, ...) inherit from the `Parser` interface so that they can be treated similarly where possible e.g, during testing.
 
-### Model component
+### 3.4 Model component
 **API** : [`Model.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/model/Model.java)
 
 <img src="images/ModelClassDiagram.png" width="450" />
@@ -133,7 +134,7 @@ The `Model` component,
 </div>
 
 
-### Storage component
+### 3.5 Storage component
 
 **API** : [`Storage.java`](https://github.com/se-edu/addressbook-level3/tree/master/src/main/java/seedu/address/storage/Storage.java)
 
@@ -144,24 +145,24 @@ The `Storage` component,
 * inherits from both `AddressBookStorage` and `UserPrefStorage`, which means it can be treated as either one (if only the functionality of only one is needed).
 * depends on some classes in the `Model` component (because the `Storage` component's job is to save/retrieve objects that belong to the `Model`)
 
-### Common classes
+### 3.6 Common classes
 
 Classes used by multiple components are in the `seedu.addressbook.commons` package.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Implementation**
+## 4. **Implementation**
 
 This section describes some noteworthy details on how certain features are implemented.
 
-### Editing of buyers and properties
+### 4.1 Editing of buyers and properties
 [Back to top](#table-of-contents)
 
-#### Motivation
+#### 4.1.1 Motivation
 The property agent may want to edit the details of a customer or property after adding it to the application. For example, the property agent may want to change the budget range of a customer after adding it to PropertyMatch.
 Or, the property agent may want to change the budget of a property after adding it to PropertyMatch.
 
-#### Implementation
+#### 4.1.2 Implementation
 The `EditCustomerCommand` and `EditPropertyCommand` classes extends the `Command` class. They are used to edit the details of a customer or property, respectively.
 Both commands allow the user to change any of the fields of a customer or property. The commands expect at least one flag to be edited, otherwise an error message will be displayed.
 When the edit command is inputted, the `EditCustomerCommandParser` and `EditPropertyCommandParser` classes are used to parse the user input and create the respective `EditCustomerCommand` and `EditPropertyCommand` objects.
@@ -175,7 +176,7 @@ During this execution process, the existing entity is first retrieved from the m
 A new customer or property is then created with the edited fields, and any fields that have not been edited will be copied over from the original entity. The new entity is then added to the model, and the original entity is removed from the model.
 The new customer or property is then added into the model, replacing the old one. The new entity will then be displayed to the user, and a success message is displayed.
 
-#### Design Considerations
+#### 4.1.3 Design Considerations
 **Aspect: How the edit commands should relate to each other:**
 
 * **Alternative 1 (current choice):** `EditCustomerCommand` and `EditPropertyCommand` are separate, and both inherit from the `Command` class.
@@ -200,20 +201,20 @@ The following sequence diagram shows how the `EditCustomerCommand` is executed.
 The following sequence diagram shows how the `EditPropertyCommand` is executed.
 
 ![EditPropertySequenceDiagram](images/EditPropertySequenceDiagram.png)
-### Deleting of customers and properties
+### 4.2 Deleting of customers and properties
 [Back to top](#table-of-contents)
 
-#### Motivation
+#### 4.2.1 Motivation
 The property agent may want to delete the profile of any customer or property that has been previously added into the app. For example, the property agent might want to remove a particular property after it has been sold.
 Or, a particular client is no longer interested in buying a house anymore.
 
-#### Implementation
+#### 4.2.2 Implementation
 The `DeleteCustomerCommand` and `DeletePropertyComannd` classes extends from the `Command` class. They are used to delete the details of a Customer or Property respectively. The command expects exactly one `INDEX` of the Customer or Property to be deleted, otherwise an error message will be displayed.
 When the delete command is inputted, the `DeleteCustomerCommandParser` and `DeletePropertyCommandParser` classes are used to parse the user input and create the `DeleteCustomerCommand` or `DeletePropertyCommand` objects respectively.
 
 When these created command objects are executed by the `LogicManager`, the `DeleteCustomerCommand#execute(Model model)` or `DeletePropertyCommand#execute(Model model)` methods are called. These methods will delete the customer or property in the model, and return a `CommandResult` object.
 
-#### Design Considerations
+#### 4.2.3Design Considerations
 **Aspect: How the delete commands should relate to each other:**
 
 * **Alternative 1 (current choice):** `DeleteCustomerCommand` and `DeletePropertyCommand` are separate, and both inherit from the `Command` class.
@@ -230,13 +231,13 @@ The following sequence diagram shows how the `DeleteCustomerCommand` is executed
 The following sequence diagram shows how the `DeletePropertyCommand` is executed.
 
 ![DeletePropertySequenceDiagram](images/DeletePropertySequenceDiagram.png)
-### Finding of Customers and Properties
+### 4.3 Finding of Customers and Properties
 [Back to top](#table-of-contents)
 
-#### Motivation
+#### 4.3.1 Motivation
 The property agent may want to find and access the details of a particular Customer or Property that has been previously added into the app. For example, the property agent may want to refresh their memory on a particular customer's budget. Or the property agent may want to check the details of a particular property.
 
-#### Implementation
+#### 4.3.2 Implementation
 The `FindCustomerCommand` and `FindPropertyCommand` classes extends the `Command` class. They are used to find the profiles of a customer or property, respectively.
 Both commands allow the user to find any customer or property. The commands expect at least one substring to base the search on, otherwise an error message will be displayed.
 
@@ -246,7 +247,7 @@ When these created command objects are executed by the `LogicManager`, the `Find
 The following sequence diagram shows how the `FindCustomerCommand` is executed.
 ![FindCustomerSequenceDiagram](images/FindCustomerSequenceDiagram.png)
 
-#### Design Considerations
+#### 4.3.3 Design Considerations
 **Aspect: How the find commands should relate to each other:**
 
 * **Alternative 1 (current choice):** `FindCustomerCommand` and `FindPropertyCommand` are separate, and both inherit from the `Command` class.
@@ -260,10 +261,10 @@ The following sequence diagram shows how the `FindCustomerCommand` is executed.
     * Cons:
         * Unnecessary complexity is introduced into the system.
 
-### Filtering of Customers and Properties
+### 4.4 Filtering of Customers and Properties
 [Back to top](#table-of-contents)
 
-#### Motivation
+#### 4.4.1 Motivation
 The property agent may want to see a list of customers based on their budget. For example, the property agent may want to filter customers with budget more than $100000.
 Or, the property agent may want to see a list of customers based on the characteristics of the property they desired. For example, the property agent may want to filter customers who love pink properties.
 Or, the property agent may want to see a list of customers based on both budget and characteristics to enhance productivity.
@@ -272,7 +273,7 @@ The property agent may also want to see a list of properties based on their budg
 Or, the property agent may want to see a list of properties based on the characteristics. For example, the property agent may want to filter pink properties.
 Or, the property agent may want to see a list of properties based on both budget and characteristics to enhance productivity.
 
-#### Implementation
+#### 4.4.2 Implementation
 The `FilterCustomerCommand` and `FilterPropertyCommand` class extends the `Command` class. They are used to filter customers and properties, respectively.
 The `filtercust` command allows the user to filter customers based on their budget and/or properties' characteristics they love. While the `filterprop` command allows the user to filter properties based on their budget and/or characteristics.
 The commands expect at least one flag, either budget/price or characteristics, to be used as a filter.
@@ -285,7 +286,7 @@ All customers or properties will be tested using this `BudgetAndTagsInRangePredi
 The following sequence diagram shows how the `FilterCustomerCommand` is executed.
 ![FilterCustomerSequenceDiagram](images/FilterCustomerSequenceDiagram.png)
 
-#### Design Considerations
+#### 4.4.3 Design Considerations
 **Aspect: How the filter customer commands should relate to filter property commands:**
 
 * **Alternative 1 (current choice):** `FilterCustomerCommand`  and `FilterPropertyCommand` inherit from the `Command` class and separated with each other.
@@ -302,14 +303,14 @@ The following sequence diagram shows how the `FilterCustomerCommand` is executed
 **Aspect: How the filtered customers or properties should interact with the model:**
 * We also decided for the filter commands to put the filtered customers or filtered properties in a different list (`FilteredCustomerList` and `FilteredPropertyList`), instead of removing the 'unused' customers and propertiesfrom the model.
 
-### Matching for Customers and Properties
+### 4.5 Matching for Customers and Properties
 [Back to top](#table-of-contents)
 
-#### Motivation
+#### 4.5.1 Motivation
 The property agent may want to get all properties that satisfy the customers criteria or get all customers that want the properties characteristics. For example, the property agent want to get all properties that certain specified customer want and can afford.
 Or, the property agent want to get all customers that might want to buy certain specified property.
 
-#### Implementation
+#### 4.5.2 Implementation
 The `MatchCustomerCommand` and `MatchPropertyCommand` classes extends the `Command` class.
 They are used to match the details of a customer or property, respectively.
 The command expects exactly one "Index" of the customer or property to be match, otherwise an error message will be displayed.
@@ -320,7 +321,7 @@ These methods will match the customer or property in the model, and return a `Co
 The following sequence diagram shows how the `MatchCustomerCommand` is executed.
 ![MatchCustomerSequenceDiagram](images/MatchCustomerSequenceDiagram.png)
 
-#### Design Consideration
+#### 4.5.3 Design Consideration
 
 * *Alternative 1 (current choice):* `MatchPropertyCommand` and `MatchCustomerCommand` are separate, and both inherit from the `Command` class.
     * Pros:
@@ -335,16 +336,16 @@ The following sequence diagram shows how the `MatchCustomerCommand` is executed.
     * Cons:
         * Unable to match only customers or properties without specify it which increase the complexity of the commands
 
-### Reset the application with `Clear`
+### 4.6 Reset the application with `Clear`
 [Back to top](#table-of-contents)
 
-#### Motivation
+#### 4.6.1 Motivation
 The property agent may want to clear the list of customers or properties to start from a clean slate.
 
-#### Implementation
+#### 4.6.2 Implementation
 The `ClearCommand` extends the `Command` class. It is used to clear the list of customers or properties.
 
-#### Design Considerations
+#### 4.6.3 Design Considerations
 
 * **Alternative 1:** `ClearPropertyCommand` and `ClearCustomerCommand` are separate, and both inherit from the `Command` class.
     * Pros:
@@ -360,13 +361,13 @@ The `ClearCommand` extends the `Command` class. It is used to clear the list of 
     * Cons:
         * Unable to clear only customers or properties
 
-### Exit with a delay
+### 4.7 Exit with a delay
 [Back to top](#table-of-contents)
 
-#### Motivation
+#### 4.7.1 Motivation
 The property agent should exit the application with a peace of mind. A delay is required for the property agent to read the exit message before the application closes.
 
-#### Implementation
+#### 4.7.2 Implementation
 The `ExitCommand` extends the `Command` class. It is used to close the application and display the goodbye message.
 The following code is used to implement the delay. There are many ways to implement a timeout, but since we are using JavaFX. This is probably the simplest way to accomplish it.
 ```
@@ -374,91 +375,6 @@ PauseTransition delay = new PauseTransition(Duration.seconds(3));
 delay.setOnFinished(e -> primaryStage.hide());
 delay.play();
 ```
-
-### \[Proposed\] Undo/redo feature
-
-#### Proposed Implementation
-
-The proposed undo/redo mechanism is facilitated by `VersionedAddressBook`. It extends `AddressBook` with an undo/redo history, stored internally as an `addressBookStateList` and `currentStatePointer`. Additionally, it implements the following operations:
-
-* `VersionedAddressBook#commit()` — Saves the current address book state in its history.
-* `VersionedAddressBook#undo()` — Restores the previous address book state from its history.
-* `VersionedAddressBook#redo()` — Restores a previously undone address book state from its history.
-
-These operations are exposed in the `Model` interface as `Model#commitAddressBook()`, `Model#undoAddressBook()` and `Model#redoAddressBook()` respectively.
-
-Given below is an example usage scenario and how the undo/redo mechanism behaves at each step.
-
-Step 1. The user launches the application for the first time. The `VersionedAddressBook` will be initialized with the initial address book state, and the `currentStatePointer` pointing to that single address book state.
-
-![UndoRedoState0](images/UndoRedoState0.png)
-
-Step 2. The user executes `delete 5` command to delete the 5th customer in the address book. The `delete` command calls `Model#commitAddressBook()`, causing the modified state of the address book after the `delete 5` command executes to be saved in the `addressBookStateList`, and the `currentStatePointer` is shifted to the newly inserted address book state.
-
-![UndoRedoState1](images/UndoRedoState1.png)
-
-Step 3. The user executes `add n/David …​` to add a new customer. The `add` command also calls `Model#commitAddressBook()`, causing another modified address book state to be saved into the `addressBookStateList`.
-
-![UndoRedoState2](images/UndoRedoState2.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If a command fails its execution, it will not call `Model#commitAddressBook()`, so the address book state will not be saved into the `addressBookStateList`.
-
-</div>
-
-Step 4. The user now decides that adding the customer was a mistake, and decides to undo that action by executing the `undo` command. The `undo` command will call `Model#undoAddressBook()`, which will shift the `currentStatePointer` once to the left, pointing it to the previous address book state, and restores the address book to that state.
-
-![UndoRedoState3](images/UndoRedoState3.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index 0, pointing to the initial AddressBook state, then there are no previous AddressBook states to restore. The `undo` command uses `Model#canUndoAddressBook()` to check if this is the case. If so, it will return an error to the user rather
-than attempting to perform the undo.
-
-</div>
-
-The following sequence diagram shows how the undo operation works:
-
-![UndoSequenceDiagram](images/UndoSequenceDiagram.png)
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** The lifeline for `UndoCommand` should end at the destroy marker (X) but due to a limitation of PlantUML, the lifeline reaches the end of diagram.
-
-</div>
-
-The `redo` command does the opposite — it calls `Model#redoAddressBook()`, which shifts the `currentStatePointer` once to the right, pointing to the previously undone state, and restores the address book to that state.
-
-<div markdown="span" class="alert alert-info">:information_source: **Note:** If the `currentStatePointer` is at index `addressBookStateList.size() - 1`, pointing to the latest address book state, then there are no undone AddressBook states to restore. The `redo` command uses `Model#canRedoAddressBook()` to check if this is the case. If so, it will return an error to the user rather than attempting to perform the redo.
-
-</div>
-
-Step 5. The user then decides to execute the command `list`. Commands that do not modify the address book, such as `list`, will usually not call `Model#commitAddressBook()`, `Model#undoAddressBook()` or `Model#redoAddressBook()`. Thus, the `addressBookStateList` remains unchanged.
-
-![UndoRedoState4](images/UndoRedoState4.png)
-
-Step 6. The user executes `clear`, which calls `Model#commitAddressBook()`. Since the `currentStatePointer` is not pointing at the end of the `addressBookStateList`, all address book states after the `currentStatePointer` will be purged. Reason: It no longer makes sense to redo the `add n/David …​` command. This is the behavior that most modern desktop applications follow.
-
-![UndoRedoState5](images/UndoRedoState5.png)
-
-The following activity diagram summarizes what happens when a user executes a new command:
-
-<img src="images/CommitActivityDiagram.png" width="250" />
-
-#### Design considerations:
-
-**Aspect: How undo & redo executes:**
-
-* **Alternative 1 (current choice):** Saves the entire address book.
-  * Pros: Easy to implement.
-  * Cons: May have performance issues in terms of memory usage.
-
-* **Alternative 2:** Individual command knows how to undo/redo by
-  itself.
-  * Pros: Will use less memory (e.g. for `delete`, just save the customer being deleted).
-  * Cons: We must ensure that the implementation of each individual command are correct.
-
-_{more aspects and alternatives to be added}_
-
-### \[Proposed\] Data archiving
-
-_{Explain here how the data archiving feature will be implemented}_
-
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -472,9 +388,9 @@ _{Explain here how the data archiving feature will be implemented}_
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Requirements**
+## **Appendix 1: Requirements**
 
-### Product scope
+### A.1 Product scope
 
 **Target user profile**:
 
@@ -510,7 +426,7 @@ Customer-property management tool for property agents new to the real estate ind
 
 
 
-### User stories
+### A.2 User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
@@ -536,9 +452,6 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | experienced user using the application with new device | import and export properties' data                  | transfer properties' data across devices                                      |
 | `*`      | user                                                   | view both customers and properties at the same time | conveniently compare customers and properties at the same time                |
 
-
-*{More to be added}*
-
 ### Use cases
 
 **Use Case: UC01 - Add property**
@@ -547,7 +460,7 @@ System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent fills in name, address, characteristics, number, budget of property
+1. Property agent fills in name, address, characteristics (tags), number, budget of property
 2. Property agent adds property to address book
 
 **Use Case: UC02 - Add customer**
@@ -556,7 +469,7 @@ System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent fills in name, phone number, email, budget and desired characteristic
+1. Property agent fills in name, phone number, email, budget and desired characteristic (tags)
 2. Property agent adds customer to address book
 
 **Use Case: UC03 - Delete property**
@@ -658,11 +571,15 @@ Actor: Property Agent
 
 ### Glossary
 
-* **Mainstream OS**: Windows, Linux, Unix, OS-X
+* **Mainstream OS** : Windows, Linux, Unix, OS-X
+* **API** : API stands for Application Programming Interface, which is a set of definitions and protocols for building and integrating application software.
+* **Tag** : A label or keyword assigned to a customer or property in the address book, to categorize, annotate, or identify specific characteristics of that customer or property.
+* **CLI** : Command-line interface (CLI) is a text-based user interface (UI) used to run programs, manage computer files and interact with the computer.
+* **GUI** : A graphical user interface (GUI) is a digital interface in which a user interacts with graphical components such as icons, buttons, and menus.
 
 --------------------------------------------------------------------------------------------------------------------
 
-## **Appendix: Instructions for manual testing**
+## **Appendix B: Instructions for manual testing**
 
 Given below are instructions to test the app manually.
 
@@ -671,7 +588,7 @@ testers are expected to do more *exploratory* testing.
 
 </div>
 
-### Launch and shutdown
+### B.1 Launch and shutdown
 
 1. Initial launch
 
@@ -688,7 +605,7 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Deleting a customer
+### B.2 Deleting a customer
 
 1. Deleting a customer while all customers are being shown
 
@@ -705,10 +622,55 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
-### Saving data
+### B.3 Saving data
 
 1. Dealing with missing/corrupted data files
 
    1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
 
 1. _{ more test cases …​ }_
+
+## **Appendix c: Proposed enhancements**
+
+### C.1 Importing client data
+
+#### C.1.1 Motivation:
+To streamline the process of managing client information. By allowing property agents to quickly and easily import data into the address book, they can eliminate the need to manually enter data, saving time and resources. Additionally, the feature would help ensure data accuracy by reducing chances of manual errors. Ultimately, the implementation of this feature would help property agents better manage their client data and provide a more efficient way to store and access important information.
+
+#### C.1.2 Implementation:
+1. Design a user-friendly interface with an `Import` button or menu item.
+2. Decide on supported file formats for import, e.g., CSV, Excel, JSON.
+3. Create a file selection mechanism for property agents to choose the import file.
+4. Develop data parsing code to convert the selected file into a processable format.
+5. Validate the imported data to ensure it meets expected standards.
+6. Map the data fields to address book.
+7. Insert the validated data into address book.
+8. Provide clear feedback to the user about the import process (success message or error message).
+9. Implement error handling, logging, and security measures.
+10. Ensure data integrity and consider scalability, data transformation, user confirmation, historical data, and data backup.
+
+### C.2 Exporting client data
+
+#### C.2.1 Motivation:
+Property agents can easily transfer their data to other systems or applications, ensuring data portability. Users may need to migrate their client data to a new version of the application, a different platform, or a third-party service. Exporting data simplifies this migration process. Property agents might want to share specific client information with colleagues, partners, or clients themselves. Exporting data allows for secure sharing of selected data.
+
+#### C.2.2 Implementation:
+1. Design a user-friendly interface with an `Export` button or menu item.
+2. Decide on supported file formats for exporting, e.g., CSV, Excel, JSON.
+3. Create a file selection mechanism for property agents to choose the format of the file to be exported.
+4. Develop data parsing code to convert the selected data into a processable file in the desrired format.
+5. Save the converted data to a file with a user-defined or automatically generated filename, such as "client_data.csv."
+6. Display a success message to the user if the export process is successful.
+   Display an error message if any issues occur during the export.
+7. Implement error handling to capture and manage any issues that may occur during the export process. Log errors for debugging and auditing purposes.
+
+### C.3 Improved GUI
+
+#### C.3.1 Motivation:
+Our current GUI is not as user-friendly as we would like it to be. A well-designed and aesthetic GUI provides a more intuitive and user-friendly interface, making it easier for users to navigate, access features, and perform tasks within the app. It can also lead to higher user satisfaction.
+
+#### C.3.2 Implementation:
+1. Update the color scheme to make the GUI more visually appealing. Use colors that resonate with our brand or that create a pleasant atmosphere.
+2. Integrate relevant icons and imagery to represent different features and functions within the app, providing visual cues for users.
+3. Add whitespace effectively to create a clean and organized layout and reduce visual clutter.
+4. Add user guidance. Provide tooltips, hints, or tutorials for new users to help them get started and understand the app's features.
