@@ -24,23 +24,26 @@ PropertyMatch is a **contact and property management system** that aims to help 
 With PropertyMatch, you can easily
 - **Match** your existing customers and properties
 - **Filter** your existing customers and properties to your needs
-- **Find** that customer or property you need instead of relying on your memory
+- **Find** that customer or property you are looking for, instead of relying on your memory
 - and so much more...!
 
 With these powerful features, you can easily capitalise on your network, allowing you to convert them into your valuable leads. This can give you the revenue boost you needed to become an all-star property agent.
 
 The only tools you need to make use of the full suite of capabilities PropertyMatch has to offer are your hands and a keyboard.
 
-This **user guide** aims to provide you with an in-depth overview of how to set up, use, and debug PropertyMatch. Take a look at the Command Summary section for a quick overview of the different commands along with how to use them, or dive into the Quick Start section to get started.
+This **user guide** aims to provide you with an in-depth overview of how to set up, use, and troubleshoot PropertyMatch. Take a look at the [Command Summary](#command-summary) - your cheatsheet for the different commands along with how to use them, or dive into the [Quick Start](#quick-start) section to get started. Happy exploring!
 
 --------------------------------------------------------------------------------------------------------------------
 
 ## Using this Guide
 [Back to Table of Contents](#table-of-contents)
 
-Being property agents, we expect zero prior knowledge on how to use a [Command Line Interface (CLI)](https://en.wikipedia.org/wiki/Command-line_interface). Therefore, our application has been designed with that in mind, with easy to use command and simple prefixes that you will naturally reach to without having to remember how to use them.
+As property agents, we understand that using a [Command Line Interface (CLI)](https://en.wikipedia.org/wiki/Command-line_interface) might not be your forte. Fear not! Our application is tailored just for you with simplicity in mind, with easy to use commands that you will naturally reach to without having to remember how to use them.
 
-To get started, use our Quick Start Guide and you will get PropertyMatch up and running in no time!
+* Embark on your PropertyMatch journey using our [Quick Start](#quick-start) Guide - the express lane to get PropertyMatch up and running in no time! 
+* Afterwhich, you can head over to our [Interface Layout](#interface-layout) section to familiarise yourself with our snazzy interface and discover the ins and outs of the [CLI](#2-command-input-and-output-boxes).
+
+Let the fun begin – because who said setting up can't be a joyride?
 
 If you have any doubts while using PropertyMatch, do head over to our FAQ section to view comprehensive answers to some frequently asked questions. You may also contact us at [hello@propertymatch.com](mailto:hello@propertymatch.com) if you have any other questions.
 
@@ -52,8 +55,9 @@ In addition, here are some symbols that will give you a more enjoyable time usin
 | :bulb:               | Helpful tip that will improve your experience.                                                 |
 | :exclamation:        | Warning. Attempting to perform an action with a warning will lead to undesirable consequences. |
 
-<div markdown="block" class="alert alert-info">
-**:information_source: Notes about the command format:**<br>
+<div markdown="block" class="alert alert-primary">
+
+**:information_source: Note:**
 * These symbols will be encapsulated in a box as such.
 </div>
 
@@ -82,8 +86,10 @@ display some information regarding the command, regardless of whether the comman
 In the image above, it is displaying the message "Listed all customers", the message shown after successfully executing
 the [List Customers Command](#listing-all-customers-listcust).
 
-<div markdown="span" class="alert alert-primary">:exclamation: **Note:**
-If a command is not successfully executed, the text within the command input box will turn <span style="color:red">red</span>.
+<div markdown="span" class="alert alert-primary">
+
+**:information_source: Note:**
+* If a command is not successfully executed, the text within the command input box will turn <span style="color:red">red</span>.
 </div>
 
 Here are some commands you can test to start with.
@@ -153,16 +159,20 @@ It appears when you execute the [Help Command](#viewing-help-help).
 4. Copy the `propertymatch.jar` file to the folder you want to use as the _home folder_ for PropertyMatch. All data will be created and stored in that folder. If you are unsure where to place the folder, go to your desktop and create a folder. You can then copy the `propertymatch.jar` file into the folder you just created.
 
 5. Open the folder and double-click on `propertymatch.jar` to open PropertyMatch. If this does not work, please open up the terminal on your computer and type in `java -jar propertymatch.jar` to start the application.
-   A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
-   ![Ui](images/Ui.png)
+   
+6. A GUI similar to the one below should appear in a few seconds. Note that the app already contains some sample data.<br>
+   ![startUi](images/startUi.png)
 
 Congratulations! PropertyMatch is now set up and ready to work on your system.
 
-If you encounter any bugs during the setup process, please check out the FAQ section of this guide, which hopefully contains some information that can help you diagnose your issue.
+If you encounter any problems during the setup process, please check out the FAQ section of this guide, which hopefully contains some information that can help you diagnose your issue.
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution (for advanced users):**
-On first launch, PropertyMatch will create a few files that have the extension `.json` in its *home directory*. These files are used
-by PropertyMatch to store its data. **Edit these at your own risk**, as PropertyMatch will start with an empty database if it detects any
+<div markdown="span" class="alert alert-danger">
+
+**:exclamation: Caution (for advanced users):**
+* On first launch, PropertyMatch will create a few files that have the extension `.json` in its *home directory*. These files are used
+by PropertyMatch to store its data. 
+* **Edit these at your own risk**, as PropertyMatch will start with an empty database if it detects any
 error in the formatting of the data in these files.
 </div>
 <br>
@@ -175,7 +185,7 @@ error in the formatting of the data in these files.
 PropertyMatch's features are mostly in the form of commands you can input into the [command input box](#1-command-input-and-output-boxes). We will now go into the details about each feature of PropertyMatch.
 If you just want a quick summary of all the feature PropertyMatch has, do take a look at the [command summary](#command-summary) section.
 
-<div markdown="block" class="alert alert-info">
+<div markdown="block" class="alert alert-primary">
 
 **:information_source: Notes about the command format:**<br>
 
@@ -201,7 +211,7 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
 #### Adding a customer: `addcust`
 [Back to Table of Contents](#table-of-contents)
 
-Adds a customer to the application.
+Adds a customer to your application.
 
 Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
@@ -213,142 +223,188 @@ Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
 Examples:
 * `addcust n/Fredy p/12345678 e/fredylawrence@gmail.com b/1000000`
-* `addcust n/Boedi p/88888888 e/boedi@gmail.com b/250000 c/white`
 * `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-The characteristics field is optional.<br>
-If it is not set, the characteristics field will be empty.
+You should see the message in the [output box](#2-command-input-and-output-boxes) as below when a customer is successfully added. The new customer will be added to the bottom of your list for easy reference!
+![addcustUi](images/user-guide/addcustUi.png)
+
+<div markdown="span" class="alert alert-warning">
+
+**:bulb: Tip:**
+* If you encounter an error, ensure that you have typed the command accurately with all the parameters present. (refer to the example commands above)
+* The characteristics field is optional. If it is not set, the characteristics field will be empty.
 </div>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Note:**
-To ensure that your database remains neat, PropertyMatch will warn you when you try to add duplicate customers that have the name.
+<div markdown="span" class="alert alert-primary">
+
+**:information_source: Note:**
+* To ensure that your database remains neat, PropertyMatch will warn you when you try to add duplicate customers that have the same name.
 </div>
 
 
 #### Adding a property: `addprop`
 [Back to Table of Contents](#table-of-contents)
 
-Adds a property to the application.
+Adds a property to your application.
 
-Format: `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC] p/NUMBER pr/PRICE`
+Format: `addprop n/NAME p/PHONE a/ADDRESS pr/PRICE [c/CHARACTERISTIC]…​`
 
 * `n/NAME`				         : Name of the property
+* `p/PHONE`                      : Contact number
 * `a/ADDRESS`		             : Address of the property
-* `c/CHARACTERISTIC` (Optional)  : Characteristics of the property
-* `p/NUMBER`                    : Contact number
 * `pr/PRICE`                     : Price of the property
+* `c/CHARACTERISTIC` (Optional): Characteristics of the property
 
 Examples:
-* `addprop n/Fredy a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000`
-* `addprop n/Fredy a/randomAddress p/91135235 pr/700000`
+* `addprop n/Aqua Heights a/195 Paya Lebar 3 #18-32 p/91135235 pr/700000`
+* `addprop n/Skyview a/214 Clementi Ave 2 #09-78 p/91135235 pr/500000 c/bright c/sunny c/big c/square`
 
-<div markdown="span" class="alert alert-primary">:bulb: **Tip:**
-Similar to adding a duplicate customer, the characteristics field is optional.<br>
-If it is not set, the characteristics field will be empty.
+You should get a result similar to adding customers when the property is successfully added!
+
+<div markdown="span" class="alert alert-warning">
+
+**:bulb: Tip:**
+* Similar to adding a customer, ensure that you have typed the command accurately with all the parameters present. (refer to the example commands above)
+* The characteristics field is also optional. If it is not set, the characteristics field will be empty.
 </div>
 
-<div markdown="span" class="alert alert-primary">:bulb: **Note:**
-Similar to adding a duplicate customer, PropertyMatch will warn you when you try to add duplicate customers that have the name.
+<div markdown="span" class="alert alert-primary">
+
+**:information_source: Note:**
+* Similar to adding a customer, PropertyMatch will warn you when you try to add duplicate customers that have the name.
 </div>
 
 
 ### List Commands
 
-<div markdown="span" class="alert alert-primary">:bulb: **Note:**
-The List Commands should be used to view all buyers and properties again, after a [Filter Command](#filter-commands), [Find Command](#find-commands), or [Match Command](#match-commands) is executed.
+<div markdown="span" class="alert alert-primary">
+
+**:information_source: Note:**
+* The List Commands should be used to view all buyers and properties again, after a [Filter Command](#filter-commands), [Find Command](#find-commands), or [Match Command](#match-commands) is executed.
 </div>
 
 #### Listing all customers: `listcust`
 [Back to Table of Contents](#table-of-contents)
 
-Updates the Customer List to show all customers in your database.
+Updates the [Customer List](#3-customer-list) to show all customers in your database.
 
 Format: `listcust`
 
-No additional parameters are needed for this command and they will be ignored if used.
+No additional parameters are needed for this command, they will be ignored if used.
 
 
 #### Listing all properties: `listprop`
 
-Updates the Property List to show all properties in your database.
+Updates the [Property List](#4-property-list) to show all properties in your database.
 
 Format: `listprop`
 
-No additional parameters are needed for this command and they will be ignored.
+No additional parameters are needed for this command, they will be ignored if used.
 
 
 ### Delete Commands
 #### Deleting a customer: `delcust`
 [Back to Table of Contents](#table-of-contents)
 
-Deletes the specified customer and their corresponding details from the database.
+Deletes the specified customer and their corresponding details from your database.
 
 Format: `delcust INDEX`
 
 * Deletes the customer at the specified `INDEX`.
 * The index refers to the index number shown in the displayed customer list.
+* Acceptable indexes are integers within the customer list size.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
 * `listcust` followed by `delcust 2` deletes the 2nd customer in the customer list.
 
+Upon successfully deleting a customer, the confirmation message will appear in the [output box](#2-command-input-and-output-boxes) as below!
+![delcustcustUi](images/user-guide/delcustUi.png)
 
 #### Deleting a property: `delprop`
 [Back to Table of Contents](#table-of-contents)
+
+Deletes the specified property and its corresponding details from your database.
 
 Format: `delprop INDEX`
 
 * Deletes the property at the specified `INDEX`.
 * The index refers to the index number shown in the displayed property list.
-* Acceptable parameters are integers within the property list size.
+* Acceptable indexes are integers within the property list size.
 * The index **must be a positive integer** 1, 2, 3, …​
 
 Examples:
 * `listprop` followed by `delprop 2` deletes the 2nd property in the address book.
 
+The result will be similar to deleting customers when the property is successfully deleted!
 
 ### Edit Commands
 #### Editing a customer: `editcust`
 [Back to Table of Contents](#table-of-contents)
 
-Edits an existing customer.
+Edits the details of your customer.
 
 Format: `editcust INDEX [n/NAME] [p/PHONE] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​`
 * Edits the customer at the specified `INDEX`. The index refers to the index number shown in the displayed customer list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
-* When editing tags, the existing tags of the property will be removed i.e adding of tags is not cumulative.
-* You can remove all the person’s tags by typing `c/` without
-  specifying any tags after it.
+<div markdown="span" class="alert alert-primary">
+
+**:infomation_source: Note:**
+* When editing tags, the existing tags of your customer will be removed i.e adding of tags is not cumulative.
+</div>
+
+<div markdown="span" class="alert alert-warning">
+
+**:bulb: Tip:**
+* You can remove all your customer’s tags by typing `c/` without specifying any tags after it.
+</div>
 
 Examples:
-*  `editcust 1 p/91234567 e/andrew@gmail.com` Edits the phone number and email of the 1st customer to be `91234567` and `andrew@gmail.com` respectively.
-*  `editcust 2 n/Andrew c/` Edits the name of the 2nd customer to be `Andrew` and clears all existing tags.
+*  `editcust 2 p/91234567 e/andrew@gmail.com` Edits the phone number and email of the 1st customer to be `91234567` and `andrew@gmail.com` respectively.
+*  `editcust 1 n/Andrew c/` Edits the name of the 2nd customer to be `Andrew` and clears all existing tags.
+
+You should see a similar message in the [output box](#2-command-input-and-output-boxes) as below when your customer's details is successfully edited.
+
+When `editcust 1 n/Andrew c/` is entered
+
+![editcustUi](images/user-guide/editcustUi.png)
+
 
 
 #### Editing a property: `editprop`
 [Back to Table of Contents](#table-of-contents)
 
-Edits an existing property.
+Edits the details of your property.
+
 Format: `editprop INDEX [n/NAME] [p/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERISTIC]…​`
 * Edits the property at the specified `INDEX`. The index refers to the index number shown in the displayed property list. The index **must be a positive integer** 1, 2, 3, …​
 * At least one of the optional fields must be provided.
 * Existing values will be updated to the input values.
+
+<div markdown="span" class="alert alert-primary">
+
+**:infomation_source: Note:**
 * When editing tags, the existing tags of the property will be removed i.e adding of tags is not cumulative.
-* You can remove all the property’s tags by typing `c/` without
-  specifying any tags after it.
+</div>
+
+<div markdown="span" class="alert alert-warning">
+
+**:bulb: Tip:**
+* You can remove all the property’s tags by typing `c/` without specifying any tags after it.
+</div>
 
 Examples:
 *  `editprop 1 p/91234567 a/43 Clementi Avenue 3 #03-543` Edits the phone number and address of the 1st property to be `91234567` and `43 Clementi Avenue 3 #03-543` respectively.
 *  `editprop 2 n/Skyview c/` Edits the name of the 2nd property to be `Skyview` and clears all existing characteristics.
 
+Successfully editing your property would produce a similar result as editing a customer!
 
 ### Find Commands
 #### Finding a customer: `findcust`
 [Back to Table of Contents](#table-of-contents)
 
-Finds and returns a customer or a list of customers, from all the customers whose name contains the substring inputted.
+Finds and returns a customer or a list of customers, from all your customers whose name contains the substring inputted.
 
 Format: `findcust NAME`
 
@@ -358,13 +414,18 @@ Format: `findcust NAME`
 
 Examples:
 * `list` followed by `findcust F` finds and returns the customer(s) whose names begin with "F" at any position within their name in the customer list.
-* `list` followed by `findcust F J` finds and returns the customer(s) whose names begin with "F" or "J" at any position within their name in the customer list.
+* `list` followed by `findcust B D` finds and returns the customer(s) whose names begin with "B" or "D" at any position within their name in the customer list.
 
+You should see the message in the [output box](#2-command-input-and-output-boxes) as below when you have successfully found your customers.
+
+When `findcust B D` is entered.
+
+![findcustUi](images/user-guide/findcustUi.png)
 
 #### Finding a property: `findprop`
 [Back to Table of Contents](#table-of-contents)
 
-Finds and returns a property or a list of properties, from all the properties whose name contains the substring inputted.
+Finds and returns a property or a list of properties, from all your properties whose name contains the substring inputted.
 
 Format: `findprop NAME`
 
@@ -374,57 +435,83 @@ Format: `findprop NAME`
 
 Examples:
 * `list` followed by `findprop F` finds and returns the property or properties with names that begin with "F" in the property list.
-* `list` followed by `findprop F J` finds and returns the property or properties with names that begin with "F" and/or "J" in the property list.
+* `list` followed by `findprop F J` finds and returns the property or properties with names that begin with "F" or "J" in the property list.
 
+Successfully finding the property you want would produce a similar result as finding a customer!
 
 ### Filter Commands
 
 #### Filtering customers: `filtercust`
 [Back to Table of Contents](#table-of-contents)
 
-Filters all the customers to only show customers that fit the criteria.
+Filters all your customers to only show customers that fit the criteria.
 
 Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
 
 * Filter and return the customers whose budget is bigger than or equals to the `BUDGET` and who is/are seeking for properties which have all the `CHARACTERISTIC`.
 * `b/BUDGET` (optional)          : Budget of the customer
 * `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for
-* Even though both `BUDGET` and `CHARACTERISTIC` are optional, at least one of them should exist.
-* Not giving the `BUDGET` will return the customers who is/are seeking for properties which have all the `CHARACTERISTIC`.
-* Not giving the `CHARACTERISTIC` will return the customers whose budget is bigger than or equal with `BUDGET`.
+
+<div markdown="span" class="alert alert-primary">
+
+**:infomation_source: Note:**
+* While both `BUDGET` and `CHARACTERISTIC` are optional, note that at least one of them should be present.
+</div>
+
+<div markdown="span" class="alert alert-warning">
+
+**:bulb: Tip:**
+* Omitting`BUDGET` will return customers is search of properties with the specified `CHARACTERISTIC`.
+* Omitting `CHARACTERISTIC` will return customers with a budget is greater than or equal to `BUDGET`.
+</div>
 
 Examples:
-* `filtercust b/100000`
 * `filtercust b/250000 c/white c/big`
 * `filtercust c/white`
 
+You should see the message in the [output box](#2-command-input-and-output-boxes) as below when you have successfully filtered your customers.
+
+When `filtercust c/white` is entered.
+
+![filtercustUi](images/user-guide/filtercustUi.png)
 
 #### Filter properties: `filterprop`
 [Back to Table of Contents](#table-of-contents)
 
-Filters all the properties to only show properties that fit the criteria.
+Filters all your properties to only show properties that fit the criteria.
 
 Format: `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​`
 
 * Filter and return properties whose price is lower than or equals to the `pr/PRICE` and which has or have all the `c/CHARACTERISTIC`.
 * `pr/PRICE` (optional)          : The price of the property
 * `c/CHARACTERISTIC` (optional)  : The characteristics of the property
-* Even though both `PROPERTY` and `CHARACTERISTIC` are optional, at least one of them should exist.
-* Not giving the `PRICE` will return the properties who is/are seeking for properties which have all the `CHARACTERISTIC`.
-* Not giving the `CHARACTERISTIC` will return the properties whose price is lower than or equal with `PRICE`.
+
+<div markdown="span" class="alert alert-primary">
+
+**:infomation_source: Note:**
+* While both `PROPERTY` and `CHARACTERISTIC` are optional, note that at least one of them should be present.
+</div>
+
+<div markdown="span" class="alert alert-warning">
+
+**:bulb: Tip:**
+* Omitting `PRICE` will return the properties which have all the `CHARACTERISTIC`.
+* Omitting `CHARACTERISTIC` will return properties priced lower than or equal to `PRICE`.
+</div>
+
 
 Examples:
-* `filterprop pr/100000`
 * `filterprop pr/250000 c/white c/big`
 * `filterprop c/white`
 
+Successfully filtering your properties would produce a similar result as filtering your customers!
 
 ### Match Commands
 
 #### Matching properties to a customer: `matchcust`
 [Back to Table of Contents](#table-of-contents)
 
-Shows the list of properties that matches the criteria of the customer.
+Shows the list of properties that matches the criteria of your customer.
 
 Format: `matchcust INDEX`
 
@@ -437,11 +524,14 @@ Examples:
 * `matchcust 1`
 * `matchcust 10`
 
+A message in the [output box](#2-command-input-and-output-boxes) identical to the one below should appear when you have successfully matched your customers!
+
+![Ui](images/user-guide/Ui.png)
 
 #### Matching customers to a property: `matchprop`
 [Back to Table of Contents](#table-of-contents)
 
-Shows the list of customers that matches the criteria of the property.
+Shows the list of customers that matches the criteria of your property.
 
 Format: `matchprop INDEX`
 
@@ -454,6 +544,7 @@ Examples:
 * `matchprop 1`
 * `matchprop 10`
 
+Matching your properties successfully will output a similar message as matching your customers.
 
 ### General Features
 #### Clear the data in the application: `clear`
@@ -463,9 +554,12 @@ Resets all data in the application. (i.e. Deletes all entries in your Customer L
 
 Format: `clear`
 
- **Warning:**
-Clearing the data in your application will result in all data being lost! Be careful when you perform this operation and be sure that you want to reset all data in the app.
+ <div markdown="span" class="alert alert-danger">
 
+**:exclamation: Caution:**
+* Clearing the data in your application will result in all data being lost! Be careful when you perform this operation and be sure that you want to reset all data in the app.
+</div>
+<br>
 
 #### Exiting the program: `exit`
 [Back to Table of Contents](#table-of-contents)
@@ -478,7 +572,7 @@ Format: `exit`
 #### Viewing help: `help`
 [Back to Table of Contents](#table-of-contents)
 
-Displays a window containing the link to PropertyMatch's user guide for further help.
+Displays a window containing the link to PropertyMatch's user guide if you need further help.
 
 Format: `help`
 
@@ -495,8 +589,10 @@ PropertyMatch data is saved in the hard disk automatically after any command tha
 PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data/addressbook.json` and `[JAR file location]/data/propertybook.json`. Advanced users are welcome to update data directly by editing those JSON files.
 
 
-<div markdown="span" class="alert alert-warning">:exclamation: **Caution (for advanced users):**
-If your changes to the data file makes its format invalid, PropertyMatch will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
+<div markdown="span" class="alert alert-danger">
+
+**:exclamation: Caution (for advanced users):**
+* If your changes to the data file makes its format invalid, PropertyMatch will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
 </div>
 <br>
 
@@ -515,6 +611,9 @@ If your changes to the data file makes its format invalid, PropertyMatch will di
 **Q**: Help! I can’t seem to get a command to work…<br>
 **A**: Refer to the features section of our guide for command information and syntax. Make sure that you have supplied all necessary inputs for the command and specified the flags in a correct manner.
 
+**Q**: Why is PropertyMatch not displaying all customers/properties in the database?<br>
+**A**:  It's possible that the application may not show all customers/properties all the time due to specific commands like [filtering](#filter-commands), [finding](#finding-commands), or [matching](#match-commands) that have been executed. If you're encountering this issue, consider using the [list commands](#list-commands) to ensure you're viewing the complete list.
+
 **Q**: I don’t understand some terms used in the guide…<br>
 **A**: Please check out the key definitions portion of the guide and see if the term that you are confused about is documented there!
 
@@ -524,7 +623,7 @@ If your changes to the data file makes its format invalid, PropertyMatch will di
 **Q**: How do I uninstall PropertyMatch?<br>
 **A**: We are sad to see you go 🙁 PropertyMatch is not installed onto your hard drive, so you only need to delete the folder that contains propertymatch.jar (that is, the home folder of PropertyMatch).
 
-**Q**: Do I need an active internet connection to use PropertyMatch?
+**Q**: Do I need an active internet connection to use PropertyMatch?<br>
 **A**: No, PropertyMatch is a standalone application that does not require an internet connection to function. However, you'll need an internet connection to download it to your machine.
 
 --------------------------------------------------------------------------------------------------------------------
