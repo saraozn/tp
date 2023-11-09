@@ -15,6 +15,8 @@ This guide was made for developers looking to comprehend or build upon the funct
 
 This developer guide provides a high-level architecture overview of the workings of PropertyMatch, followed by main features and functions of PropertyMatch along with their explanations, design considerations and implementations
 
+## Table of Contents
+
 * Table of Contents
  {:toc}
 
