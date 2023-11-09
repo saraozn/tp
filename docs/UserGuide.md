@@ -281,9 +281,9 @@ You should get a result similar to adding customers when the property is success
 ### List Commands
 [Back to Table of Contents](#table-of-contents)
 
-<div markdown="block" class="alert alert-primary">
+<div markdown="block" class="alert alert-warning">
 
-**:information_source: Note:**<br>
+**:bulb: Tip:**<br>
 
 * The List Commands should be used to view all buyers and properties again, after a [Filter Command](#filter-commands), [Find Command](#find-commands), or [Match Command](#match-commands) is executed.
 </div>
@@ -446,13 +446,13 @@ Successfully finding the property you want would produce a similar result as fin
 
 ### Filter Commands
 [Back to Table of Contents](#table-of-contents)
-#### Filtering customers: `filtercust`
+#### Filter customers: `filtercust`
 
 Filters all your customers to only show customers that fit the criteria.
 
 Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
 
-* Filter and return the customers whose budget is bigger than or equals to the `BUDGET` and who is/are seeking for properties which have all the `CHARACTERISTIC`.
+* Filter and return the customers whose budget is bigger than or equals to the `BUDGET` and which has/have **all** the `CHARACTERISTIC`.
 * `b/BUDGET` (optional)          : Budget of the customer
 * `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for
 
@@ -486,7 +486,7 @@ Filters all your properties to only show properties that fit the criteria.
 
 Format: `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​`
 
-* Filter and return properties whose price is lower than or equals to the `pr/PRICE` and which has or have all the `c/CHARACTERISTIC`.
+* Filter and return properties whose price is lower than or equals to the `pr/PRICE` and which has/have **all** the `c/CHARACTERISTIC`.
 * `pr/PRICE` (optional)          : The price of the property
 * `c/CHARACTERISTIC` (optional)  : The characteristics of the property
 
@@ -512,6 +512,14 @@ Successfully filtering your properties would produce a similar result as filteri
 
 ### Match Commands
 [Back to Table of Contents](#table-of-contents)
+
+<div markdown="block" class="alert alert-warning">
+
+**:bulb: Tip:**<br>
+
+* The List Commands should be used to view all buyers and properties again, after a [Filter Command](#filter-commands), [Find Command](#find-commands), or [Match Command](#match-commands) is executed.
+</div>
+
 #### Matching properties to a customer: `matchcust`
 
 Shows the list of properties that matches the criteria of your customer.
@@ -590,7 +598,7 @@ PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data
 <div markdown="block" class="alert alert-danger">
 
 **:exclamation: Caution (for advanced users):**<br>
-* If your changes to the data file makes its format invalid, PropertyMatch will discard all data and start with an empty data file at the next run. Hence, it is recommended to take a backup of the file before editing it.
+* If your changes to the data file makes its format invalid, PropertyMatch will discard all data and start with an empty data file at the next run. Hence, it is recommended to make a backup of the file before editing it.
 </div>
 <br>
 
@@ -636,22 +644,24 @@ PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data
 ## Command summary
 [Back to Table of Contents](#table-of-contents)
 
-| Action                           | Format, Examples                                                                                                                                                          |
-|----------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **Add customer**                 | `addcust n/NAME p/PHONE_NUMBER e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​` <br> e.g., `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white`           |
-| **Add property**                 | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC]…​ p/PHONE_NUMBER pr/PRICE` <br> e.g., `addprop n/Fredy a/randomAddress c/bright c/sunny c/big c/square p/91135235 pr/500000` |
-| **Delete customer**              | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                                     |
-| **Delete property**              | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                                     |
-| **Edit customer**                | `editcust INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `editcust 1 p/91234567 e/andrew@gmail.com`                                |
-| **Edit property**                | `editprop INDEX [n/NAME] [a/ADDRESS] [c/CHARACTERISTIC]…​ [p/PHONE_NUMBER] [pr/PRICE]` <br> e.g., `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543`                 |
-| **List properties**              | `listprop`                                                                                                                                                                |
-| **List customers**               | `listcust`                                                                                                                                                                |
-| **Find customers**               | `findcust NAME` <br> e.g., `findcust Amy`                                                                                                                                 |
-| **Find properties**              | `findprop NAME` <br> e.g., `findprop Skyview`                                                                                                                             |
-| **Filter properties**            | `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​` <br> e.g., `filterprop pr/250000 c/white`                                                                                    |
-| **Filter customers**             | `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `filtercust b/250000 c/white`                                                                                     |
-| **Match properties to customer** | `matchcust INDEX` <br> e.g., `matchcust 1`                                                                                                                                |
-| **Match customers to property**  | `matchprop INDEX` <br> e.g., `matchprop 1`                                                                                                                                |
-| **Clear**                        | `clear`                                                                                                                                                                   |
-| **Exit**                         | `exit`                                                                                                                                                                    |
-| **Help**                         | `help`                                                                                                                                                                    |
+| Action                                                                           | Format, Examples                                                                                                                                                |
+|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **[Add customer](#adding-a-customer-addcust)**                                   | `addcust n/NAME p/PHONE_NUMBER e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​` <br> e.g., `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white` |
+| **[Add property](#adding-a-property-addprop)**                                   | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC]…​ p/PHONE_NUMBER pr/PRICE` <br> e.g., `addprop n/Aqua Heights a/195 Paya Lebar 3 #18-32 p/91135235 pr/700000`      |
+| **[List customers](#listing-all-properties-listprop)**                           | `listcust`                                                                                                                                                      |
+| **[List properties](#listing-all-customers-listcust)**                           | `listprop`                                                                                                                                                      |
+                                                                                                                                                                |
+| **[Delete customer](#deleting-a-customer-delcust)**                              | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                           |
+| **[Delete property](#deleting-a-property-delprop)**                              | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                           |
+| **[Edit customer](#editing-a-customer-editcust)**                                | `editcust INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `editcust 1 p/91234567 e/andrew@gmail.com`                      |
+| **[Edit property](#editing-a-property-editprop)**                                | `editprop INDEX [n/NAME] [a/ADDRESS] [c/CHARACTERISTIC]…​ [p/PHONE_NUMBER] [pr/PRICE]` <br> e.g., `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543`       |                                                                                                                                                                |
+| **[Find customers](#finding-a-customer-findcust)**                               | `findcust NAME` <br> e.g., `findcust Amy`                                                                                                                       |
+| **[Find properties](#finding-a-property-findprop)**                              | `findprop NAME` <br> e.g., `findprop Skyview`                                                                                                                   |
+| **[Filter customers](#filter-customers-filtercust)**                             | `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `filtercust b/250000 c/white`                                                                           |
+| **[Filter properties](#filter-properties-filterprop)**                           | `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​` <br> e.g., `filterprop pr/250000 c/white`                                                                          |
+                                                                               |
+| **[Match properties to customer](#matching-properties-to-a-customer-matchcust)** | `matchcust INDEX` <br> e.g., `matchcust 1`                                                                                                                      |
+| **[Match customers to property](#matching-customers-to-a-property-matchprop)**   | `matchprop INDEX` <br> e.g., `matchprop 1`                                                                                                                      |
+| **[Clear](#clear-the-data-in-the-application-clear)**                            | `clear`                                                                                                                                                         |
+| **[Exit](#exiting-the-program-exit)**                                            | `exit`                                                                                                                                                          |
+| **[Help](#viewing-help-help)**                                                   | `help`                                                                                                                                                          |
