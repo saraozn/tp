@@ -50,8 +50,7 @@ public class EditPropertyCommand extends Command {
 
     public static final String MESSAGE_EDIT_PROPERTY_SUCCESS = "Edited Property: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
-    public static final String MESSAGE_DUPLICATE_PROPERTY = "This property has a duplicate phone, "
-            + "or duplicate address.";
+    public static final String MESSAGE_DUPLICATE_PROPERTY = "This property has a duplicate address.";
 
     private final Index index;
     private final EditPropertyDescriptor editPropertyDescriptor;
