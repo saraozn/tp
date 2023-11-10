@@ -226,9 +226,6 @@ Examples:
 * `addcust n/Tim Cook p/91234567 e/cook@apple.com b/2500000 c/bright c/sunny` adds a customer named Tim cook with all the relevant details
 * `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white`adds a customer named Phoebe with all the relevant details
 
-You should see the message in the [output box](#2-command-input-and-output-boxes) as below when a customer is successfully added. The new customer will be added to the bottom of your list for easy reference!
-![addcustUi](images/user-guide/addcustUi.png)
-
 <div markdown="block" class="alert alert-warning">
 
 **:bulb: Tip:**<br>
@@ -246,6 +243,10 @@ You should see the message in the [output box](#2-command-input-and-output-boxes
 * Only the phone number is used to differentiate between customers. i.e. Other fields can be duplicated for different customers.
 </div>
 
+You should see the message in the [output box](#2-command-input-and-output-boxes) as below when a customer is successfully added. The new customer will be added to the bottom of your list for easy reference!
+![addcustUi](images/user-guide/addcustUi.png)
+
+
 
 #### Adding a property: `addprop`
 
@@ -262,9 +263,6 @@ Format: `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…�
 Examples:
 * `addprop n/Aqua Heights a/195 Paya Lebar 3 #18-32 p/91135235 pr/700000` adds a property with all the relevant details and no characteristics
 * `addprop n/Skyview a/214 Clementi Ave 2 #09-78 p/98835235 pr/500000 c/bright c/sunny c/big c/square` adds a property with all the relevant details and 3 characteristics
-
-You should get a result similar to adding customers when the property is successfully added!
-
 <div markdown="block" class="alert alert-warning">
 
 **:bulb: Tip:**<br>
@@ -280,6 +278,7 @@ You should get a result similar to adding customers when the property is success
 * Only the address is used to differentiate between properties. i.e. Other parameters can be duplicated for different properties.
 </div>
 
+You should get a result similar to adding customers when the property is successfully added!
 
 ### List Commands
 [Back to Table of Contents](#table-of-contents)
@@ -408,8 +407,6 @@ Examples:
 * When editing characteristics, existing `CHARACTERISTIC` of your property will be removed i.e adding of characteristics is not cumulative.
 * You can remove all your property’s `CHARACTERISTIC` by typing `c/` without specifying any `CHARACTERISTIC` after it.
 </div>
-
-
 
 Successfully editing your property would produce a similar result as editing a customer!
 
