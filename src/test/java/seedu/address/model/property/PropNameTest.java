@@ -27,6 +27,7 @@ public class PropNameTest {
         // invalid name
         assertFalse(PropName.isValidName("")); // empty string
         assertFalse(PropName.isValidName(" ")); // spaces only
+        assertFalse(PropName.isValidName(" Hello")); // start with space
 
         // valid name
         assertTrue(PropName.isValidName("^")); // only non-alphanumeric characters
@@ -36,6 +37,10 @@ public class PropNameTest {
         assertTrue(PropName.isValidName("skyview 2")); // alphanumeric characters
         assertTrue(PropName.isValidName("Skyview")); // with capital letters
         assertTrue(PropName.isValidName("Skyview Horizonview")); // long names
+        assertTrue(PropName.isValidName("J'den")); // apostrophes
+        assertTrue(PropName.isValidName("With space")); // with space
+        assertTrue(PropName.isValidName("!@#$%^&*()-_+=[{}]|:;'',<>.?/")); // symbols
+        assertTrue(PropName.isValidName("-Hello")); // start with dash
     }
 
     @Test
