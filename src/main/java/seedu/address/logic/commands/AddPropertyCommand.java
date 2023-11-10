@@ -24,7 +24,7 @@ public class AddPropertyCommand extends Command {
             + "Parameters: "
             + PREFIX_NAME + "NAME "
             + PREFIX_ADDRESS + "ADDRESS "
-            + PREFIX_PHONE + "PHONE "
+            + PREFIX_PHONE + "PHONE_NUMBER "
             + PREFIX_PRICE + "PRICE "
             + "[" + PREFIX_TAG + "TAG]...\n"
             + "Example: " + COMMAND_WORD + " "
