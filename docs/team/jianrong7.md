@@ -30,6 +30,10 @@ Given below are my contributions to the project.
     * [#61](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/61)
   * Fix CI/CD pipeline errors
     * [#94](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/94)
+  * Added guardrails for phone numbers, budgets and prices
+    * [#187](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/187)
+    * [#188](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/188)
+    * What it does: Ensures that phone numbers, budgets and prices are valid. Phone numbers must start with 6, 8, or 9 and must be 8 digits. Budget and prices must be integers of at least 5 digits and at most 12 digits. It cannot start with a 0.
 
 
 * **Contributions to the UG**:
@@ -74,17 +78,3 @@ Given below are my contributions to the project.
   * Answered queries in the CS2103T forum (Links to answers)
     * [#1](https://github.com/nus-cs2103-AY2324S1/forum/issues/107#issuecomment-1706281857)
     * [#2](https://github.com/nus-cs2103-AY2324S1/forum/issues/92#issuecomment-1704647357)
-
-
-* **Contributions to the Developer Guide (Extracts)**:
-  * `EditCustomerCommand`
-    * Added sequence diagram in [#98](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/98)
-    * Added design considerations
-      > `EditCustomerCommand` and `EditPropertyCommand` are separate, and both  inherit from the `Command` class.
-      >
-      > Pros:
-      > - Both the `Customer` and `Property` classes have different fields that are exclusive to each other.
-      > - This reduces complexity of the system, and unexpected behaviours.
-      > - The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
-      > Cons:
-      > - More boilerplate code for each of the classes, which increases the size of the codebase.
