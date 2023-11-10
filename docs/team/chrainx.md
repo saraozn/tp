@@ -31,7 +31,7 @@ Given below are my contributions to the project.
   * [#122](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/122)
   * Added and updated `addprop`, `matchcust`, and `matchprop` description.
   * Adjusted the command summary
-  * Reordering the UG 
+  * Reordering the UG
 
 * **Contribution to the DG**:
   * [#37](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/37)
