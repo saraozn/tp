@@ -31,7 +31,17 @@ public class AddressTest {
         // valid addresses
         assertTrue(Address.isValidAddress("Blk 456, Den Road, #01-355"));
         assertTrue(Address.isValidAddress("-")); // one character
-        assertTrue(Address.isValidAddress("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long budget
+        assertTrue(Address.isValidAddress("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long address
+        assertTrue(Address.isValidAddress("^")); // only non-alphanumeric characters
+        assertTrue(Address.isValidAddress("skyview*")); // contains non-alphanumeric characters
+        assertTrue(Address.isValidAddress("skyview")); // alphabets only
+        assertTrue(Address.isValidAddress("12345")); // numbers only
+        assertTrue(Address.isValidAddress("skyview 2")); // alphanumeric characters
+        assertTrue(Address.isValidAddress("Skyview")); // with capital letters
+        assertTrue(Address.isValidAddress("J'den")); // apostrophes
+        assertTrue(Address.isValidAddress("With space")); // with space
+        assertTrue(Address.isValidAddress("!@#$%^&*()-_+=[{}]|:;'',<>.?/")); // symbols
+        assertTrue(Address.isValidAddress("-Hello")); // start with dash
     }
 
     @Test

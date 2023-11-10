@@ -42,9 +42,9 @@ public class UniquePropertyListTest {
     @Test
     public void contains_propertyWithSameIdentityFieldsInList_returnsTrue() {
         uniquePropertyList.add(AQUAVISTA);
-        Property editedAlice = new PropertyBuilder(AQUAVISTA).withPrice(VALID_PRICE_SKYVIEW).withTags(VALID_TAG_BIG)
+        Property editedAuqavista = new PropertyBuilder(AQUAVISTA).withPrice(VALID_PRICE_SKYVIEW).withTags(VALID_TAG_BIG)
                 .build();
-        assertTrue(uniquePropertyList.contains(editedAlice));
+        assertTrue(uniquePropertyList.contains(editedAuqavista));
     }
 
     @Test
@@ -85,11 +85,11 @@ public class UniquePropertyListTest {
     @Test
     public void setProperty_editedPropertyHasSameIdentity_success() {
         uniquePropertyList.add(AQUAVISTA);
-        Property editedAlice = new PropertyBuilder(AQUAVISTA).withPrice(VALID_PRICE_SKYVIEW).withTags(VALID_TAG_BIG)
+        Property editedAquavista = new PropertyBuilder(AQUAVISTA).withPrice(VALID_PRICE_SKYVIEW).withTags(VALID_TAG_BIG)
                 .build();
-        uniquePropertyList.setProperty(AQUAVISTA, editedAlice);
+        uniquePropertyList.setProperty(AQUAVISTA, editedAquavista);
         UniquePropertyList expectedUniquePropertyList = new UniquePropertyList();
-        expectedUniquePropertyList.add(editedAlice);
+        expectedUniquePropertyList.add(editedAquavista);
         assertEquals(expectedUniquePropertyList, uniquePropertyList);
     }
 
