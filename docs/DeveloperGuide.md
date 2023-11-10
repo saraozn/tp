@@ -3,7 +3,7 @@ layout: page
 title: Developer Guide
 ---
 ![Logo](images/Logo.png)
-## Introduction 
+## Introduction
 
 PropertyMatch is a JavaFX application that helps property agents manage their database of customers and properties using a command-line interface.
 

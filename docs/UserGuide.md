@@ -50,6 +50,7 @@ Let the fun begin – because who said setting up can't be a joyride?
 
 If you have any doubts while using PropertyMatch, do head over to our FAQ section to view comprehensive answers to some frequently asked questions. You may also contact us at [hello@propertymatch.com](mailto:hello@propertymatch.com) if you have any other questions.
 
+[//]: # (Table inspired by NUSCoursemates https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html)
 In addition, here are some symbols that will give you a more enjoyable time using our guide:
 
 | Symbol               | Meaning                                                                                        |
