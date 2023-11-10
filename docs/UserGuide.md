@@ -118,9 +118,11 @@ that make up this window.
 ![UserInterface](images/user-guide/UserInterface.png)
 
 ### 1. Menu Bar
+
 The Menu Bar is your command center, allowing you to exit the application and look for the link to our user guide.
 
 ### 2. Command Input and Output Boxes
+
 These boxes are located at the top section of the window.<br><br>
 ![CommandBox](images/user-guide/CommandBox.png)<br><br>
 The **command input box** is located where the placeholder text `Enter command here...` is.<br>
@@ -154,6 +156,7 @@ Here are some commands you can test to start with.
 You can refer to the [Features](#features) below for the details of each command.
 
 ### 3. Customer List
+
 You can find the customer list located at the left section of the window.<br><br>
 <img src="images/user-guide/CustomerList.png" width="300" /><br><br>
 The customer list displays information regarding customers who are currently stored in PropertyMatch's database.
@@ -163,6 +166,7 @@ Note that it might not be showing *all* the customers in the database all the ti
 You can also filter and modify the customer list using the commands given in the [Features](#features) section below.
 
 ### 4. Property List
+
 You can find the property list located at the right section of the window.<br><br>
 <img src="images/user-guide/PropertyList.png" width="300" /><br><br>
 The property list displays information regarding properties that are currently stored in PropertyMatch's database.
@@ -172,6 +176,7 @@ Note that it might not be showing *all* the properties in the database all the t
 You can also filter and modify the property list using the commands given in the [Features](#features) section below.
 
 ### 5. Help Window
+
 This will appear as a separate window.
 ![Help Window](images/user-guide/HelpWindow.png)
 The __help window__ displays a link to PropertyMatch's User Guide, which is the online version of this document. :)
@@ -209,7 +214,6 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
 </div>
 
 ### Add Commands
-
 [Back to Table of Contents](#table-of-contents)
 
 Ready to start adding customer and properties into PropertyMatch? Read the follow section to find out more about our `add` feature.
@@ -298,7 +302,6 @@ You should get a result similar to adding customers when the property is success
 
 
 ### List Commands
-
 [Back to Table of Contents](#table-of-contents)
 
 Want to see all your customers and property details all at one go? Read the follow section to find out more about our `list` feature.
@@ -406,7 +409,6 @@ When `editcust 1 n/Andrew c/` is entered
 
 
 #### Editing a property: `editprop`
-
 Edits the details of your property.
 
 Format: `editprop INDEX [n/NAME] [p/PHONE] [pr/PRICE] [a/ADDRESS] [c/CHARACTERISTIC]…​`
@@ -679,7 +681,9 @@ PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data
 
 **Q**: How do I open Terminal?<br>
 **A**: If you are a Windows user, press the Windows key + R to open the Run window, then type wt and click OK.<br>
-If you are using a Mac, click the Launchpad icon in the Dock, type Terminal in the search field, then click Terminal.
+If you are using a Mac, click the Launchpad icon in the Dock, type Terminal in the search field, then click Terminal. <br>
+If you are using a Linux system, press Ctrl + Alt + T key to open up Terminal.
+
 
 --------------------------------------------------------------------------------------------------------------------
 
