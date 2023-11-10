@@ -78,4 +78,3 @@ Given below are my contributions to the project.
   * Answered queries in the CS2103T forum (Links to answers)
     * [#1](https://github.com/nus-cs2103-AY2324S1/forum/issues/107#issuecomment-1706281857)
     * [#2](https://github.com/nus-cs2103-AY2324S1/forum/issues/92#issuecomment-1704647357)
-  
