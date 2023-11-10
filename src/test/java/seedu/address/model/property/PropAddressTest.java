@@ -31,8 +31,17 @@ public class PropAddressTest {
         // valid property addresses
         assertTrue(PropAddress.isValidAddress("Blk 456, Den Road, #01-355"));
         assertTrue(PropAddress.isValidAddress("-")); // one character
-        assertTrue(PropAddress.isValidAddress("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA"));
-        // long budget
+        assertTrue(PropAddress.isValidAddress("Leng Inc; 1234 Market St; San Francisco CA 2349879; USA")); // long
+        assertTrue(PropAddress.isValidAddress("^")); // only non-alphanumeric characters
+        assertTrue(PropAddress.isValidAddress("skyview*")); // contains non-alphanumeric characters
+        assertTrue(PropAddress.isValidAddress("skyview")); // alphabets only
+        assertTrue(PropAddress.isValidAddress("12345")); // numbers only
+        assertTrue(PropAddress.isValidAddress("skyview 2")); // alphanumeric characters
+        assertTrue(PropAddress.isValidAddress("Skyview")); // with capital letters
+        assertTrue(PropAddress.isValidAddress("J'den")); // apostrophes
+        assertTrue(PropAddress.isValidAddress("With space")); // with space
+        assertTrue(PropAddress.isValidAddress("!@#$%^&*()-_+=[{}]|:;'',<>.?/")); // symbols
+        assertTrue(PropAddress.isValidAddress("-Hello")); // start with dash
     }
 
     @Test
