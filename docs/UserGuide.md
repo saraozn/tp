@@ -223,7 +223,7 @@ Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 * `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for
 
 Examples:
-* `addcust n/Tim Cook p/91234567 e/cook@apple.com b/2500000 c/bright c/sunny` adds a customer named Tim cook with all the relevant details
+* `addcust n/Tim Cook p/91234567 e/cook@apple.com b/2500000 c/bright c/sunny` adds a customer named Tim Cook with all the relevant details
 * `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white`adds a customer named Phoebe with all the relevant details
 
 <div markdown="block" class="alert alert-warning">
