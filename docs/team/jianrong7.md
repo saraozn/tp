@@ -16,16 +16,20 @@ Given below are my contributions to the project.
   * Added `listprop` command and tests
     * [#66](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/66)
     * [#84](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/84)
+    * What it does: Takes in command `listprop` and updates the Property List to show all properties in the database.
   * Added goodbye message to `exit` command
     * [#58](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/58)
+    * What it does: Takes in command `exit` and displays a goodbye message. Delays the exit by 3 seconds to give the user sufficient time to read the message.
+  * Added `editcust` command and tests
+    * [#110](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/110)
+    * What it does: Takes in command `editcust`. Allows the user to edit an existing customer. However, the user cannot edit the customer such that it has a duplicate phone number.
+  * Added `clear` command and tests
+    * [#120](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/120)
+    * What it does: Takes in command `clear` and removes all existing data, both customer list and property list, in the application.
   * Removed traces of AB3
     * [#61](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/61)
   * Fix CI/CD pipeline errors
     * [#94](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/94)
-  * Added `editcust` command and tests
-    * [#110](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/110)
-  * Added `clear` command and tests
-    * [#120](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/120)
 
 
 * **Contributions to the UG**:
@@ -84,7 +88,3 @@ Given below are my contributions to the project.
       > - The inheritance of the `Command` class allows us to keep to the Command design pattern, to easily add more types of edit commands in the future, without having to change the existing code.
       > Cons:
       > - More boilerplate code for each of the classes, which increases the size of the codebase.
-
-* **Contributions to the User Guide (Extracts)**:
-  * Added Interface Layout in [#121](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/121)
-  ![UserInterface.png](../images/user-guide/UserInterface.png)
