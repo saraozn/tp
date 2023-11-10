@@ -19,7 +19,7 @@ Greetings property agents! A warm welcome to our user guide, your companion for 
 ## Introduction
 [Back to Table of Contents](#table-of-contents)
 
-PropertyMatch is a **contact and property management system** that aims to help you, property agents, to organise their client profiles with their corresponding properties.
+PropertyMatch is a **contact and property management system** that aims to help you, property agents, to organise their client profiles with their corresponding properties. This guide is designed for property agents ranging from novice tech enthusiasts to seasoned tech professionals who want to organise and streamline their client and property data.
 
 With PropertyMatch, you can easily
 - **Match** your existing customers and properties
@@ -39,6 +39,8 @@ This **user guide** aims to provide you with an in-depth overview of how to set 
 [Back to Table of Contents](#table-of-contents)
 
 As property agents, we understand that using a [Command Line Interface (CLI)](https://en.wikipedia.org/wiki/Command-line_interface) might not be your forte. Fear not! Our application is tailored just for you with simplicity in mind, with easy to use commands that you will naturally reach to without having to remember how to use them.
+
+Already familiar with using a CLI? Great! Feel free to move on to the section below to begin your PropertyMatch journey!
 
 * Embark on your PropertyMatch journey using our [Quick Start](#quick-start) Guide - the express lane to get PropertyMatch up and running in no time!
 * Afterwhich, you can head over to our [Interface Layout](#interface-layout) section to familiarise yourself with our snazzy interface and discover the ins and outs of the [CLI](#2-command-input-and-output-boxes). 
@@ -63,6 +65,39 @@ In addition, here are some symbols that will give you a more enjoyable time usin
 </div>
 
 --------------------------------------------------------------------------------------------------------------------
+## Quick start
+[Back to Table of Contents](#table-of-contents)
+
+1. Ensure you have Java `11` or above installed in your Computer.
+    * The method to check the Java version you use will be different for every operating system.
+        * **Windows** users: <br>
+          Click on the '**Windows**' key and search for '**Command Prompt**' <br>
+        * **Mac** users: <br>
+          Click on '**F4**' and search for '**Terminal**'
+        * **Linux** users: <br>
+          Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
+    * Once the application is open, type `java -version` and hit '**Enter/ Return**'.
+    * The application should state your Java version as `11`.
+
+    * If you do not see `11`, this [link](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A) (external link to Oracle) provides a step-by-step installation guide for Java `11`.
+
+2. Download the latest `propertymatch.jar` from our [releases page](https://github.com/AY2324S1-CS2103T-W11-2/tp/releases). After clicking into the release page, scroll down slightly until you reach the Assets section of the page. This section should look like this:<br>
+
+
+   ![Release page](images/user-guide/ReleasePage.png)
+
+3. Simply click on `propertymatch.jar`, and PropertyMatch should begin automatically downloading on your computer!
+
+4. Copy the `propertymatch.jar` file to the folder you want to use as the _home folder_ for PropertyMatch. All data will be created and stored in that folder. If you are unsure where to place the folder, go to your desktop and create a folder. You can then copy the `propertymatch.jar` file into the folder you just created.
+
+5. Open the folder and double-click on `propertymatch.jar` to open PropertyMatch. If this does not work, please open up the terminal on your computer and type in `java -jar propertymatch.jar` to start the application.
+
+6. A GUI similar to the one below should appear in a few seconds. Note that the app already contains some sample data.<br>
+    ![startUi](images/startUi.png)
+
+Congratulations! PropertyMatch is now set up and ready to work on your system.
+
+If you encounter any problems during the setup process, please check out the FAQ section of this guide, which is located near the bottom of the guide, which hopefully contains some information that can help you diagnose your issue.
 
 ## Quick start
 [Back to Table of Contents](#table-of-contents)
@@ -104,7 +139,6 @@ If you encounter any problems during the setup process, please check out the FAQ
 * **Edit these at your own risk**, as PropertyMatch will start with an empty database if it detects any
   error in the formatting of the data in these files.
 </div>
-<br>
 
 --------------------------------------------------------------------------------------------------------------------
 
@@ -118,9 +152,11 @@ that make up this window.
 ![UserInterface](images/user-guide/UserInterface.png)
 
 ### 1. Menu Bar
+
 The Menu Bar is your command center, allowing you to exit the application and look for the link to our user guide.
 
 ### 2. Command Input and Output Boxes
+
 These boxes are located at the top section of the window.<br><br>
 ![CommandBox](images/user-guide/CommandBox.png)<br><br>
 The **command input box** is located where the placeholder text `Enter command here...` is.<br>
@@ -154,6 +190,7 @@ Here are some commands you can test to start with.
 You can refer to the [Features](#features) below for the details of each command.
 
 ### 3. Customer List
+
 You can find the customer list located at the left section of the window.<br><br>
 <img src="images/user-guide/CustomerList.png" width="300" /><br><br>
 The customer list displays information regarding customers who are currently stored in PropertyMatch's database.
@@ -163,6 +200,7 @@ Note that it might not be showing *all* the customers in the database all the ti
 You can also filter and modify the customer list using the commands given in the [Features](#features) section below.
 
 ### 4. Property List
+
 You can find the property list located at the right section of the window.<br><br>
 <img src="images/user-guide/PropertyList.png" width="300" /><br><br>
 The property list displays information regarding properties that are currently stored in PropertyMatch's database.
@@ -172,6 +210,7 @@ Note that it might not be showing *all* the properties in the database all the t
 You can also filter and modify the property list using the commands given in the [Features](#features) section below.
 
 ### 5. Help Window
+
 This will appear as a separate window.
 ![Help Window](images/user-guide/HelpWindow.png)
 The __help window__ displays a link to PropertyMatch's User Guide, which is the online version of this document. :)
@@ -210,9 +249,12 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
 
 ### Add Commands
 [Back to Table of Contents](#table-of-contents)
+
+Ready to start adding customer and properties into PropertyMatch? Read the follow section to find out more about our `add` feature.
+
 #### Adding a customer: `addcust`
 
-Adds a customer to your application.
+Adds a customer and their respective contact details and information to PropertyMatch's customer address book.
 
 Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
@@ -221,6 +263,13 @@ Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 * `e/EMAIL`				         : Email of the customer
 * `b/BUDGET`		             : Budget of the customer (5 to 12 digits and starting with a non-zero digit)
 * `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for
+
+<div markdown="block" class="alert alert-warning">
+
+**:information_source: Note:**<br>
+
+* `NAME` can be alphanumeric with spaces but cannot start with a space.
+</div>
 
 Examples:
 * `addcust n/Tim Cook p/91234567 e/cook@apple.com b/2500000 c/bright c/sunny` adds a customer named Tim Cook with all the relevant details
@@ -239,8 +288,10 @@ Examples:
 
 **:information_source: Note:**<br>
 
+* To ensure that your database remains neat, PropertyMatch will warn you when you try to add duplicate customers that have the same phone number.
 * To ensure that your database remains neat, PropertyMatch will warn you when you try to add duplicate customers with the same **phone number**.
 * Only the phone number is used to differentiate between customers. i.e. Other fields can be duplicated for different customers.
+
 </div>
 
 You should see the message in the [output box](#2-command-input-and-output-boxes) as below when a customer is successfully added. The new customer will be added to the bottom of your list for easy reference!
@@ -250,7 +301,7 @@ You should see the message in the [output box](#2-command-input-and-output-boxes
 
 #### Adding a property: `addprop`
 
-Adds a property to your application.
+Adds a property and the respective contact details of the homeowner and information about the property to PropertyMatch's property address book.
 
 Format: `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…​`
 
@@ -259,6 +310,13 @@ Format: `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…�
 * `p/PHONE_NUMBER`               : Phone number of the owner of the property  (8 digits and starting with 6, 8 or 9)
 * `pr/PRICE`                     : Price of the property (5 to 12 digits and starting with a non-zero digit)
 * `c/CHARACTERISTIC` (Optional)  : Characteristics of the property
+
+<div markdown="block" class="alert alert-warning">
+
+**:information_source: Note:**<br>
+
+* `NAME` can be alphanumeric with symbols but cannot start with a space.
+</div>
 
 Examples:
 * `addprop n/Aqua Heights a/195 Paya Lebar 3 #18-32 p/91135235 pr/700000` adds a property with all the relevant details and no characteristics
@@ -274,14 +332,19 @@ Examples:
 
 **:information_source: Note:**<br>
 
+* PropertyMatch will warn you when you try to add a duplicate property that has the same address as an existing property in the address book.
+
 * To ensure that your database remains neat, PropertyMatch will warn you when you try to add duplicate properties with the same **address**.
 * Only the address is used to differentiate between properties. i.e. Other parameters can be duplicated for different properties.
+
 </div>
 
 You should get a result similar to adding customers when the property is successfully added!
 
 ### List Commands
 [Back to Table of Contents](#table-of-contents)
+
+Want to see all your customers and property details all at one go? Read the follow section to find out more about our `list` feature.
 
 <div markdown="block" class="alert alert-warning">
 
@@ -292,7 +355,7 @@ You should get a result similar to adding customers when the property is success
 
 #### Listing all customers: `listcust`
 
-Updates the [Customer List](#3-customer-list) to show all customers in your database.
+Updates the [Customer List](#3-customer-list) to show all customers in your database for ease of viewing.
 
 Format: `listcust`
 
@@ -301,7 +364,7 @@ No additional parameters are needed for this command, and they will be ignored i
 
 #### Listing all properties: `listprop`
 
-Updates the [Property List](#4-property-list) to show all properties in your database.
+Updates the [Property List](#4-property-list) to show all properties in your database for ease of viewing.
 
 Format: `listprop`
 
@@ -310,6 +373,9 @@ No additional parameters are needed for this command, and they will be ignored i
 
 ### Delete Commands
 [Back to Table of Contents](#table-of-contents)
+
+Already made a sale and want to remove a customer or property's details? Read the follow section to find out more about our `delete feature.
+
 #### Deleting a customer: `delcust`
 
 Deletes the specified customer and their corresponding details from your database.
@@ -346,6 +412,9 @@ The result will be similar to deleting customers when the property is successful
 
 ### Edit Commands
 [Back to Table of Contents](#table-of-contents)
+
+Customer or property details might change after some time and this is where our `edit` can come in handy! Read the follow section to find out more about our `edit` feature.
+
 #### Editing a customer: `editcust`
 
 Edits the details of your customer.
@@ -382,7 +451,6 @@ When `editcust 1 n/Andrew c/` is entered
 
 
 #### Editing a property: `editprop`
-
 Edits the details of your property.
 
 Format: `editprop INDEX [n/NAME] [p/PHONE_NUMBER] [pr/PRICE] [a/ADDRESS] [c/CHARACTERISTIC]…​`
@@ -412,18 +480,28 @@ Successfully editing your property would produce a similar result as editing a c
 
 ### Find Commands
 [Back to Table of Contents](#table-of-contents)
+
+Can't seem to find the customer or property you are looking for? Read the follow section to find out more about our `find` feature.
+
 #### Finding a customer: `findcust`
+
+Finds and returns a customer or a list of customers, from all your customers whose name contains words that begin with the substring inputted.
+
+Format: `findcust NAME`
+
+* Finds and returns the customer or customers whose name contains any word that begins with the `NAME` substring.
 
 Finds and returns a customer or a list of customers, from all your customers whose name **begins** with `NAME` at **any position** within their name.
 
 Format: `findcust NAME`
 
 * The `NAME` must be in the same language as the name, i.e English.
-* The `NAME` should only contain the relevant alphabets
+* The `NAME` should only contain the relevant alphabets.
+* The `NAME` should not contain any numbers or symbols.
 
 Examples:
-* `list` followed by `findcust F` finds and returns the customer(s) whose names begin with "F" at any position within their name in the customer list.
-* `list` followed by `findcust B D` finds and returns the customer(s) whose names begin with "B" or "D" at any position within their name in the customer list.
+* `list` followed by `findcust F` finds and returns the customer or customers whose names contains any word that starts with `F` in the customer list, such as `Fredy Lawrence` or `Sara Foo`.
+* `list` followed by `findcust B D` finds and returns the customer or customers whose names contains any word that starts with `B` and/or `D` in the customer list, such as `Doraemon`, `Boraemon`,`Sara Doo`, `Sara Boo`, or `Bara Doo`.
 
 You should see the message in the [output box](#2-command-input-and-output-boxes) as below when you have successfully found your customers.
 
@@ -434,22 +512,32 @@ When `findcust B D` is entered.
 
 #### Finding a property: `findprop`
 
+Finds and returns a property or a list of properties, from all your properties whose name contains words that begin with the substring inputted.
+
+Format: `findprop NAME`
+
+* Finds and returns the property or properties whose name contains any word that begins with the `NAME` substring.
+
 Finds and returns a property or a list of properties, from all your properties whose name **begins** with `NAME` at **any position** within its name.
 
 Format: `findprop NAME`
 
 * The `NAME` must be in the same language as the name, i.e English.
-* The `NAME` should only contain the relevant alphabets
+* The `NAME` should only contain the relevant alphabets.
+* The `NAME` should not contain any numbers or symbols.
 
 Examples:
-* `list` followed by `findprop F` finds and returns the property or properties with names that begin with "F" in the property list.
-* `list` followed by `findprop F J` finds and returns the property or properties with names that begin with "F" or "J" in the property list.
+* `list` followed by `findprop F` finds and returns the property or properties with names that begin with "F" in the property list, such as `Fernvale Square` or `Dairy Farm`.
+* `list` followed by `findprop F J` finds and returns the property or properties with names that begin with "F" or "J" in the property list, such as `Fernvale Square`, `Dairy Farm`, `Jden` or `Changi Jail`.
 
 Successfully finding the property you want would produce a similar result as finding a customer!
 
 
 ### Filter Commands
 [Back to Table of Contents](#table-of-contents)
+
+Want to only see selected customers or properties? Read the follow section to find out more about our `filter` feature.
+
 #### Filter customers: `filtercust`
 
 Filters all your customers to only show customers that fit the criteria.
@@ -517,6 +605,8 @@ Successfully filtering your properties would produce a similar result as filteri
 ### Match Commands
 [Back to Table of Contents](#table-of-contents)
 
+Ready to match customers and properties? Our unique matching feature has the power to match customers and properties easily! Read the follow section to find out more about our `match` feature.
+
 <div markdown="block" class="alert alert-warning">
 
 **:bulb: Tip:**<br>
@@ -561,7 +651,11 @@ Examples:
 Matching your properties successfully will output a similar message as matching your customers.
 
 ### General Features
+
 [Back to Table of Contents](#table-of-contents)
+
+Want to start fresh and clear all your existing data? Exit the application? Or in need of assistance? Read the follow section to find out more about our `clear`, `exit` and `help` feature.
+
 #### Clear the data in the application: `clear`
 
 Resets all data in the application. (i.e. Deletes all entries in your Customer List and Property List)
@@ -636,6 +730,15 @@ PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data
 **Q**: Do I need an active internet connection to use PropertyMatch?<br>
 **A**: No, PropertyMatch is a standalone application that does not require an internet connection to function. However, you'll need an internet connection to download it to your machine.
 
+**Q**: I can't find what i need...<br>
+**A**: The guide is divided into sections for easy navigation. Use the table of contents to locate what you are looking for.
+
+**Q**: How do I open Terminal?<br>
+**A**: If you are a Windows user, press the Windows key + R to open the Run window, then type wt and click OK.<br>
+If you are using a Mac, click the Launchpad icon in the Dock, type Terminal in the search field, then click Terminal. <br>
+If you are using a Linux system, press Ctrl + Alt + T key to open up Terminal.
+
+
 --------------------------------------------------------------------------------------------------------------------
 
 ## Known issues
@@ -651,6 +754,18 @@ PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data
 | Action                                                                           | Format, Examples                                                                                                                                               |
 |----------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | **[Add customer](#adding-a-customer-addcust)**                                   | `addcust n/NAME p/PHONE_NUMBER e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​` <br> e.g., `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white` |
+| **[Add property](#adding-a-property-addprop)**                                   | `addprop n/NAME a/ADDRESS [c/CHARACTERISTIC]…​ p/PHONE_NUMBER pr/PRICE` <br> e.g., `addprop n/Aqua Heights a/195 Paya Lebar 3 #18-32 p/91135235 pr/700000`      |
+| **[List customers](#listing-all-properties-listprop)**                           | `listcust`                                                                                                                                                      |
+| **[List properties](#listing-all-customers-listcust)**                           | `listprop`                                                                                                                                                      |
+                                                                                    |
+| **[Delete customer](#deleting-a-customer-delcust)**                              | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                           |
+| **[Delete property](#deleting-a-property-delprop)**                              | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                           |
+| **[Edit customer](#editing-a-customer-editcust)**                                | `editcust INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `editcust 1 p/91234567 e/andrew@gmail.com`                      |
+| **[Edit property](#editing-a-property-editprop)**                                | `editprop INDEX [n/NAME] [a/ADDRESS] [c/CHARACTERISTIC]…​ [p/PHONE_NUMBER] [pr/PRICE]` <br> e.g., `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543`       |                                                                                                                                                                |
+| **[Find customers](#finding-a-customer-findcust)**                               | `findcust NAME` <br> e.g., `findcust Amy`                                                                                                                       |
+| **[Find properties](#finding-a-property-findprop)**                              | `findprop NAME` <br> e.g., `findprop Skyview`                                                                                                                   |
+| **[Filter customers](#filter-customers-filtercust)**                             | `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `filtercust b/250000 c/white`                                                                           |
+| **[Filter properties](#filter-properties-filterprop)**                           | `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​` <br> e.g., `filterprop pr/250000 c/white`                                                                          |
 | **[Add property](#adding-a-property-addprop)**                                   | `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…​` <br> e.g., `addprop n/Aqua Heights a/195 Paya Lebar 3 #18-32 p/91135235 pr/700000`     |
 | **[List customers](#listing-all-properties-listprop)**                           | `listcust`                                                                                                                                                     |
 | **[List properties](#listing-all-customers-listcust)**                           | `listprop`                                                                                                                                                     |
