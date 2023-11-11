@@ -234,7 +234,7 @@ Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
 **:information_source: Note:**<br>
 
-* `NAME` can be alphanumeric with spaces but cannot start with a space.
+* `NAME` can be written with alphabets, numbers and spaces but cannot start with a space.
 </div>
 
 Examples:
@@ -281,7 +281,7 @@ Format: `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…�
 
 **:information_source: Note:**<br>
 
-* `NAME` can be alphanumeric with symbols but cannot start with a space.
+* `NAME` can be written with alphabets, numbers, symbols and spaces but cannot start with a space.
 </div>
 
 Examples:
