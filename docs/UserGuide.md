@@ -70,16 +70,9 @@ In addition, here are some symbols you might encounter in our guide, and their r
 [Back to Table of Contents](#table-of-contents)
 
 1. Ensure you have Java `11` or above installed in your Computer.
-    * The method to check the Java version you use will be different for every operating system.
-        * **Windows** users: <br>
-          Click on the '**Windows**' key and search for '**Command Prompt**' <br>
-        * **Mac** users: <br>
-          Click on '**F4**' and search for '**Terminal**'
-        * **Linux** users: <br>
-          Click on '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously
-    * Once the application is open, type `java -version` and hit '**Enter/ Return**'.
+    * [Open up Terminal](#faq) on your computer.
+    * Once the Terminal is open, type `java -version` and hit '**Enter/ Return**'.
     * The application should state your Java version as `11`.
-
     * If you do not see `11`, this [link](https://docs.oracle.com/en/java/javase/11/install/overview-jdk-installation.html#GUID-8677A77F-231A-40F7-98B9-1FD0B48C346A) (external link to Oracle) provides a step-by-step installation guide for Java `11`.
 
 2. Download the latest `propertymatch.jar` from our [releases page](https://github.com/AY2324S1-CS2103T-W11-2/tp/releases). After clicking into the release page, scroll down slightly until you reach the Assets section of the page. This section should look like this:<br>
@@ -177,9 +170,10 @@ You can also filter and modify the property list using the commands given in the
 
 ### 5. Help Window
 
-This will appear as a separate window.<br>
-<br>![Help Window](images/user-guide/HelpWindow.png)
-<br>The __help window__ displays a link to PropertyMatch's User Guide, which is the online version of this document.
+This will appear as a separate window.
+![Help Window](images/user-guide/HelpWindow.png)
+
+The __help window__ displays a link to PropertyMatch's User Guide, which is the online version of this document.
 
 It appears when you execute the [Help Command](#viewing-help-help).
 
@@ -222,7 +216,7 @@ Ready to start adding customer and properties into PropertyMatch? Read the follo
 
 Adds a customer and their respective contact details and information to your customer list.
 
-Format: `addcust n/NAME p/PHONE_NUMBER e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
+Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
 * `n/NAME`				         : Name of the customer
 * `p/PHONE_NUMBER`		         : Phone number of the customer (only 8 digits and starting with 6, 8 or 9)
@@ -686,8 +680,8 @@ PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data
 **A**: The guide is divided into sections for easy navigation. Use the [table of contents](#table-of-contents) to locate what you are looking for.
 
 **Q**: How do I open Terminal?<br>
-**A**:The method for opening up the terminal will be different for every operating system:<br>
-* If you are using Windows, press the '**Windows**' key and search for'**Terminal**.<br>
+**A**:The method for opening up the Terminal will be different for every operating system:<br>
+* If you are using Windows, press the '**Windows**' key and search for'**Terminal**'.<br>
 * If you are using a Mac, click on '**F4**' and search for '**Terminal**'. <br>
 * If you are using a Linux system, press '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously.
 
@@ -704,25 +698,25 @@ PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data
 ## Command summary
 [Back to Table of Contents](#table-of-contents)
 
-| Action                                                                          | Format, Examples                                                                                                                                               |
-|---------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| **[Add customer](#adding-a-customer-addcust)**                                  | `addcust n/NAME p/PHONE_NUMBER e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​` <br> e.g., `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white` |
-| **[Add property](#adding-a-property-addprop)**                                  | `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…​` <br> e.g., `addprop n/Aqua Heights a/195 Paya Lebar 3 #18-32 p/91135235 pr/700000`     |
-| **[List properties](#listing-all-customers-listcust)**                          | `listcust`                                                                                                                                                     |
-| **[List customers](#listing-all-properties-listprop)**                          | `listprop`                                                                                                                                                     |
-| **[Delete customer](#deleting-a-customer-delcust)**                             | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                          |
-| **[Delete property](#deleting-a-property-delprop)**                             | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                          |
-| **[Edit customer](#editing-a-customer-editcust)**                               | `editcust INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `editcust 1 p/91234567 e/andrew@gmail.com`                     |
-| **[Edit property](#editing-a-property-editprop)**                               | `editprop INDEX [n/NAME] [a/ADDRESS] [p/PHONE_NUMBER] [pr/PRICE] [c/CHARACTERISTIC]…​` <br> e.g., `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543`                           |                                                                                                                                                                |
-| **[Find customers](#finding-a-customer-findcust)**                              | `findcust NAME` <br> e.g., `findcust Amy`                                                                                                                      |
-| **[Find properties](#finding-a-property-findprop)**                             | `findprop NAME` <br> e.g., `findprop Skyview`                                                                                                                  |
-| **[Filter customers](#filter-customers-filtercust)**                            | `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `filtercust b/250000 c/white`                                                                          |
-| **[Filter properties](#filter-properties-filterprop)**                          | `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​` <br> e.g., `filterprop pr/250000 c/white`                                                                         |
-| **[Match properties to customer](#matching-properties-to-a-customer-matchcust)** | `matchcust INDEX` <br> e.g., `matchcust 1`                                                                                                                     |
-| **[Match customers to property](#matching-customers-to-a-property-matchprop)**  | `matchprop INDEX` <br> e.g., `matchprop 1`                                                                                                                     |
-| **[Clear](#clear-the-data-in-the-application-clear)**                           | `clear`                                                                                                                                                        |
-| **[Exit](#exiting-the-program-exit)**                                           | `exit`                                                                                                                                                         |
-| **[Help](#viewing-help-help)**                                                  | `help`                                                                                                                                                         |
+| Action                                                                           | Format, Examples                                                                                                                                                |
+|----------------------------------------------------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| **[Add customer](#adding-a-customer-addcust)**                                   | `addcust n/NAME p/PHONE_NUMBER e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​` <br> e.g., `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white` |
+| **[Add property](#adding-a-property-addprop)**                                   | `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…​` <br> e.g., `addprop n/Aqua Heights a/195 Paya Lebar 3 #18-32 p/91135235 pr/700000`      |
+| **[List properties](#listing-all-customers-listcust)**                           | `listcust`                                                                                                                                                      |
+| **[List customers](#listing-all-properties-listprop)**                           | `listprop`                                                                                                                                                      |
+| **[Delete customer](#deleting-a-customer-delcust)**                              | `delcust INDEX`<br> e.g., `delcust 3`                                                                                                                           |
+| **[Delete property](#deleting-a-property-delprop)**                              | `delprop INDEX`<br> e.g., `delprop 3`                                                                                                                           |
+| **[Edit customer](#editing-a-customer-editcust)**                                | `editcust INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `editcust 1 p/91234567 e/andrew@gmail.com`                      |
+| **[Edit property](#editing-a-property-editprop)**                                | `editprop INDEX [n/NAME] [a/ADDRESS] [p/PHONE_NUMBER] [pr/PRICE] [c/CHARACTERISTIC]…​` <br> e.g., `editprop 1 ph/91234567 a/43 Clementi Avenue 3 #03-543`       |
+| **[Find customers](#finding-a-customer-findcust)**                               | `findcust NAME` <br> e.g., `findcust Amy`                                                                                                                       |
+| **[Find properties](#finding-a-property-findprop)**                              | `findprop NAME` <br> e.g., `findprop Skyview`                                                                                                                   |
+| **[Filter customers](#filter-customers-filtercust)**                             | `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​` <br> e.g., `filtercust b/250000 c/white`                                                                           |
+| **[Filter properties](#filter-properties-filterprop)**                           | `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​` <br> e.g., `filterprop pr/250000 c/white`                                                                          |
+| **[Match properties to customer](#matching-properties-to-a-customer-matchcust)** | `matchcust INDEX` <br> e.g., `matchcust 1`                                                                                                                      |
+| **[Match customers to property](#matching-customers-to-a-property-matchprop)**   | `matchprop INDEX` <br> e.g., `matchprop 1`                                                                                                                      |
+| **[Clear](#clear-the-data-in-the-application-clear)**                            | `clear`                                                                                                                                                         |
+| **[Exit](#exiting-the-program-exit)**                                            | `exit`                                                                                                                                                          |
+| **[Help](#viewing-help-help)**                                                   | `help`                                                                                                                                                          |
 
 --------------------------------------------------------------------------------------------------------------------
 
