@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class PropName {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Names should should not be blank";
+            "Names can take any values except slashes, and it should not be blank";
 
     /*
      * The first character of the property name must not be a whitespace,
