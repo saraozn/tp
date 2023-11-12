@@ -329,7 +329,7 @@ Or, the property agent want to get all customers that might want to buy certain 
 The `MatchCustomerCommand` and `MatchPropertyCommand` classes extends the `Command` class.
 They are used to match the details of a customer or property, respectively.
 The command expects exactly one "Index" of the customer or property to be match, otherwise an error message will be displayed.
-When the match command is inputted, the `MatchCustomerCommandParser` or `MatchPropertyCommandParser` classes are used to parse the user input and create the `MatchCustomerCommand` or `MacthPropertyCommand` objects respectively.
+When the match command is inputted, the `MatchCustomerCommandParser` or `MatchPropertyCommandParser` classes are used to parse the user input and create the `MatchCustomerCommand` or `MatchPropertyCommand` objects respectively.
 When these created command objects are executed by the `Logic Manager`, the `MatchCustomerCommand#execute(Model model)` or `MatchProeprtyCommand#execute(Model model)` method is called.
 These methods will match the customer or property in the model, and return a `ComandResult` object.
 
@@ -345,7 +345,7 @@ The following sequence diagram shows how the `MatchCustomerCommand` is executed.
     * Cons:
         * More code for each of the classes, which increases the size of the codebase
         * More commands for the property agent to remember
-* *Alternative 2:* A single `MacthCommand` class is used to match both customers and properties.
+* *Alternative 2:* A single `MatchCommand` class is used to match both customers and properties.
     * Pros:
         * Lesser commands for the property agent to remember
     * Cons:
@@ -689,3 +689,27 @@ Our current GUI is not as user-friendly as we would like it to be. A well-design
 2. Integrate relevant icons and imagery to represent different features and functions within the app, providing visual cues for users.
 3. Add whitespace effectively to create a clean and organized layout and reduce visual clutter.
 4. Add user guidance. Provide tooltips, hints, or tutorials for new users to help them get started and understand the app's features.
+
+## **Appendix D: Effort**
+
+### D.1 Difficulty Level
+Overall, the difficulty level of the tP was reasonable. PropertyMatch is evolved from AB3. Once we understood the inner workings of AB3 and how to add commands to the application, the process was relatively simple. However, there were still many things we had to pick up along the way when accomplishing the project.
+
+### D.2 Challenges Faced
+The main challenge came from having to manage two different kinds of entities -- customers and properties. Since AB3 only handled one entity, this meant that there was no model answer for handling two entities. We had to come up with our own design for how to handle two entities, and this took some time to figure out.
+
+We also had to learn new technologies like Git and GitHub. Learning about good code practices as well as the forking workflow, all while working on a moderately large project was a challenge for us. It took us time to resolve some messy merge conflicts.
+
+We were also faced with tight deadlines for the various milestones and submissions. This meant that we had to work efficiently and effectively to meet the deadlines.
+
+### D.3 Effort Required
+While some commands like `edit` and `list` were adapted from AB3, there were completely new commands like `find`, `match`, and `filter`.  The adapted commands were also heavily modified and separated into separate commands for separate entities, like `editcust` and `editprop`.
+
+We also had to create multiple new classes for the `Property` entity. This also meant that we had to come up with suitable test cases for them as well.
+
+Although seemingly small, we had to tinker with the regex of each command such that it accepts the proper user input that we need. This was a tedious process as we had to test each regex to ensure that it works as intended.
+
+### D.4 Achievements of the project
+We managed to implement all the features that we set out to do. We also managed to implement the `filter` command, which was not in the original plan. We also managed to implement the `match` command, which was a challenge for us.
+
+We expanded our technical and non-technical proficiency, and we are proud of our wonderful journey!
