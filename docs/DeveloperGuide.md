@@ -825,31 +825,6 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `exit 123`, `exit hello`
     2. **Expected**: Application should exit after 3 seconds.
 
-    
-[//]: # (### B.3 Deleting a customer)
-
-[//]: # ()
-[//]: # (1. Deleting a customer while all customers are being shown)
-
-[//]: # ()
-[//]: # (   1. Prerequisites: List all customers using the `list` command. Multiple customers in the list.)
-
-[//]: # ()
-[//]: # (   1. Test case: `delete 1`<br>)
-
-[//]: # (      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.)
-
-[//]: # ()
-[//]: # (   1. Test case: `delete 0`<br>)
-
-[//]: # (      Expected: No customer is deleted. Error details shown in the status message. Status bar remains the same.)
-
-[//]: # ()
-[//]: # (   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` &#40;where x is larger than the list size&#41;<br>)
-
-[//]: # (      Expected: Similar to previous.)
-
-
 --------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix C: Proposed enhancements**
