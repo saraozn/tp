@@ -277,6 +277,7 @@ Format: `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…�
 **:information_source: Note:**<br>
 
 * `NAME` can be alphanumeric with symbols but cannot start with a space.
+* Additional spaces in `ADDRESS` will be considered as unique properties, i.e. `Jden` and `J den` will be considered to be 2 distinct properties.
 * Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
 </div>
 
@@ -419,7 +420,7 @@ Examples:
 <div markdown="block" class="alert alert-warning">
 
 **:bulb: Tip:** <br>
-* When editing characteristics, existing `CHARACTERISTIC` of your customer will be removed i.e adding of characteristics is not cumulative.
+* When editing characteristics, existing `CHARACTERISTIC` of your customer will be removed i.e. adding of characteristics is not cumulative.
 * You can remove all your customer’s `CHARACTERISTIC` by typing `c/` without specifying any `CHARACTERISTIC` after it.
 
 </div>
@@ -449,8 +450,9 @@ Examples:
 **:information_source: Note:**<br>
 * To ensure that your property list remains neat, PropertyMatch will warn you when you try to edit your property to have the same **address** as an existing property.
 * Only the address is used to differentiate between properties. i.e. Other [parameters](#glossary) can be edited to be the same as other properties.
-* Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
 * `INDEX` can start with 0, i.e. inputting `editprop 02` or `editprop 0002` edits the second property in the property list.
+* Additional spaces in `ADDRESS` will be considered as unique properties, i.e. `Jden` and `J den` will be considered to be 2 distinct properties.
+* Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
 
 </div>
 
