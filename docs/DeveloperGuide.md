@@ -170,6 +170,69 @@ Classes used by multiple components are in the `seedu.addressbook.commons` packa
 
 This section describes some noteworthy details on how certain features are implemented.
 
+### 4.1 Internal implementations of Customer and Property
+[Back to top](#table-of-contents)
+
+#### 4.1.1 Customer
+The structure of a `Customer` object can be viewed in the object diagram below.
+
+![CustomerObjectDiagram](images/CustomerObjectDiagram.png)
+
+From the diagram, the `Customer` object consists of the following attributes.
+- `Name`: The name of the customer.
+- `Phone`: The phone number of the customer.
+- `Email`: The email address of the customer.
+- `Budget`: The budget that the customer is willing to pay for the property.
+- `Tags`: The characteristics of the property that the customer is looking for.
+
+#### 4.1.2 Property
+The structure of a `Property` object can be viewed in the object diagram below.
+
+![PropertyObjectDiagram](images/PropertyObjectDiagram.png)
+
+From the diagram, the `Property` object consists of the following attributes.
+- `PropName`: The name of the property.
+- `PropAddress`: The address of the property.
+- `PropPhone`: The phone number of the property.
+- `Price`: The price of the property.
+- `Tags`: The characteristics of the property that the customer is looking for.
+
+#### 4.1.3 User input validation
+Phone numbers both follow this validation regex.
+```
+public static final String VALIDATION_REGEX = "(6|8|9)\\d{7}";
+```
+This means that phone numbers must start with 6, 8, or 9 and must have at least 8 digits. This means it only supports Singapore phone numbers.
+
+<br>
+
+`Price` and `Budget` follow this validation regex.
+```
+public static final String VALIDATION_REGEX = "[1-9]\\d{4,11}";
+```
+This means that the price or budget must be a positive integer with at least 5 digits and at most 12 digits. It also cannot start with 0.
+
+We decided on this arbitrary limit because we thought that it is not possible for a property to cost less than 10,000 dollars. We also thought that it is not possible for a property to cost more than 1 trillion dollars.
+
+### 4.2 Adding of customers and properties
+[Back to top](#table-of-contents)
+
+#### 4.2.1 Customers
+The customer list should not allow duplicate customers to be added. This is because it is not possible for a customer to have two profiles. This means we need to define a condition to check if the customer is already in the list.
+
+At the start, we used a customer's `Name` to check if he was a duplicate entry. However, we realised that two unique customers may have the same names. Therefore, we decided to use the customer's `Phone` number to check if he was a duplicate entry. This is because it is unlikely for two unique customers to have the same phone number.
+
+The activity diagram for the creation of a customer can be seen below.
+![AddCustomerActivityDiagram](images/AddCustomerActivityDiagram.png)
+
+#### 4.2.2 Properties
+Similar to the customer list, the property list should not allow duplicate properties to be added as well. This is because it will cause bugs in our other features. This means we need to define a condition to check if the property is already in the list.
+
+At the start, we used a property's `Name` to check if he was a duplicate entry. However, we realised that two unique properties may have the same names. Therefore, we decided to use the property's `Address` to check if he was a duplicate entry. This is because it is unlikely for two unique properties to have the same address.
+
+The activity diagram for the creation of a property can be seen below.
+![AddPropertyActivityDiagram](images/AddPropertyActivityDiagram.png)
+
 ### 4.1 Editing of buyers and properties
 [Back to top](#table-of-contents)
 
