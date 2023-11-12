@@ -704,6 +704,34 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `delprop`
     2. **Expected**: No property is deleted. Error details shown in the status message.
 
+### B.8 Editing a customer
+
+**Prerequisite**: Customer List should have at least 1 customer record.
+
+1. Editing the first customer with valid index and valid fields
+    1. **Test case**: `editcust 1 n/Andrew e/andrew@gmail.com`
+    2. **Expected**: The name and email fields of the first customer should be updated.
+2. Attempting to edit with an invalid index
+    1. **Test case**: `editcust 0 n/Andrew`
+    2. **Expected**: Command is highlighted red and error message will be displayed.
+3. Attempting to edit a customer with valid index but without valid fields
+    1. **Test case**: `editcust 1`
+    2. **Expected**: Command is highlighted red and error message will be displayed.
+
+### B.8 Editing a property
+
+**Prerequisite**: Property List should have at least 1 property record.
+
+1. Editing the first property with valid index and valid fields
+    1. **Test case**: `editprop 1 n/Asiatique p/98765432`
+    2. **Expected**: The name and phone number fields of the first property should be updated.
+2. Attempting to edit with an invalid index
+    1. **Test case**: `editprop 0 n/Asiatique`
+    2. **Expected**: Command is highlighted red and error message will be displayed.
+3. Attempting to edit a property with valid index but without valid fields
+    1. **Test case**: `editprop 1`
+    2. **Expected**: Command is highlighted red and error message will be displayed.
+
 
 [//]: # (### B.3 Deleting a customer)
 
