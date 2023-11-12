@@ -19,7 +19,7 @@ Greetings property agents! A warm welcome to our user guide, your companion for 
 ## Introduction
 [Back to Table of Contents](#table-of-contents)
 
-PropertyMatch is a **contact and property management system** that aims to help you, property agents, to organise their client profiles with their corresponding properties. This guide is designed for property agents ranging from novice tech enthusiasts to seasoned tech professionals who want to organise and streamline their client and property data.
+PropertyMatch is a **contact and property management system** that aims to help you, property agents, to organise your client profiles with your corresponding properties. This guide is designed for property agents ranging from novice tech enthusiasts to seasoned tech professionals who want to organise and streamline their client and property data.
 
 With PropertyMatch, you can easily
 - **Match** your existing customers and properties
@@ -27,7 +27,7 @@ With PropertyMatch, you can easily
 - **Find** that customer or property you are looking for, instead of relying on your memory
 - and so much more...!
 
-With these powerful features, you can easily capitalise on your network, allowing you to convert them into valuable leads. This can give you the revenue boost you needed to become an all-star property agent.
+With these powerful features, you can easily capitalise on your network, allowing you to convert them into **valuable leads**. This can give you the revenue boost you needed to become an all-star property agent.
 
 The only tools you need to make use of the full suite of capabilities PropertyMatch has to offer are your hands and a keyboard.
 
@@ -42,13 +42,13 @@ As property agents, we understand that using a [Command Line Interface (CLI)](ht
 
 Already familiar with using a CLI? Great! Feel free to move on to the section below to begin your PropertyMatch journey!
 
-* Embark on your PropertyMatch journey using our [Quick Start](#quick-start) Guide - the express lane to get PropertyMatch up and running in no time!
+* Embark on your PropertyMatch journey using our [Quick Start Guide](#quick-start) - the express lane to get PropertyMatch up and running in no time!
 * Afterwhich, you can head over to our [Interface Layout](#interface-layout) section to familiarise yourself with our snazzy interface and discover the ins and outs of the [CLI](#2-command-input-and-output-boxes).
 * Take a look at the [Command Summary](#command-summary) - your cheatsheet for the different commands along with links to how to use them
 
 Let the fun begin – because who said setting up can't be a joyride?
 
-If you have any doubts while using PropertyMatch, do head over to our FAQ section to view comprehensive answers to some frequently asked questions. You may also contact us at [hello@propertymatch.com](mailto:hello@propertymatch.com) if you have any other questions.
+If you have any doubts while using PropertyMatch, do head over to our [FAQ](#faq) section to view comprehensive answers to some frequently asked questions. You may also contact us at [hello@propertymatch.com](mailto:hello@propertymatch.com) if you have any other questions.
 
 [//]: # (Table inspired by NUSCoursemates https://ay2324s1-cs2103t-t17-4.github.io/tp/UserGuide.html)
 In addition, here are some symbols you might encounter in our guide, and their respective meanings.
@@ -69,7 +69,7 @@ In addition, here are some symbols you might encounter in our guide, and their r
 ## Quick start
 [Back to Table of Contents](#table-of-contents)
 
-1. Ensure you have Java `11` or above installed in your Computer.
+1. Ensure you have Java `11` or above installed in your computer.
     * [Open up Terminal](#faq) on your computer.
     * Once the Terminal is open, type `java -version` and hit '**Enter/ Return**'.
     * The application should state your Java version as `11`.
@@ -89,7 +89,7 @@ In addition, here are some symbols you might encounter in our guide, and their r
 
 Congratulations! PropertyMatch is now set up and ready to work on your system.
 
-If you encounter any problems during the setup process, please check out the FAQ section of this guide, which hopefully contains some information that can help you diagnose your issue.
+If you encounter any problems during the setup process, please check out the [FAQ](#faq) section of this guide, which hopefully contains some information that can help you diagnose your issue.
 
 <div markdown="block" class="alert alert-danger">
 
@@ -112,7 +112,7 @@ that make up this window.
 
 ### 1. Menu Bar
 
-The Menu Bar is your command center, allowing you to exit the application and look for the link to our user guide.
+The Menu Bar allows you to exit the application and look for the link to our user guide.
 
 ### 2. Command Input and Output Boxes
 
@@ -140,7 +140,7 @@ Here are some commands you can test to start with. Try it out by copy and pastin
   Adds a customer named "Tim Cook" with a specified phone number and email to the customer list.
   This customer has a specified budget, and desired characteristics for the property he wants to buy.
 
-* **`delcust 1`** : Deletes a customer at index 1 of the [customer list](#2-customer-list)
+* **`delcust 1`** : Deletes a customer at index 1 of the [customer list](#3-customer-list)
 
 * **`help`** : Displays a help window.
 
@@ -152,9 +152,13 @@ You can refer to the [Features](#features) below for the details of each command
 
 You can find the customer list located at the left section of the window.<br><br>
 <img src="images/user-guide/CustomerList.png" width="300" /><br><br>
-The customer list displays information regarding customers who are currently stored in PropertyMatch's database.
+The customer list displays information regarding customers who are currently stored in PropertyMatch's [database](#glossary).
 
-Note that it might not be showing *all* the customers in the database all the time (check out the [FAQ](#faq) for more information).
+<div markdown="block" class="alert alert-primary">
+
+**:information_source: Note:**<br>
+* The customer list might not be showing *all* customers at all times (check out the [FAQ](#faq) for more information).
+</div>
 
 You can also filter and modify the customer list using the commands given in the [Features](#features) section below.
 
@@ -162,9 +166,13 @@ You can also filter and modify the customer list using the commands given in the
 
 You can find the property list located at the right section of the window.<br><br>
 <img src="images/user-guide/PropertyList.png" width="300" /><br><br>
-The property list displays information regarding properties that are currently stored in PropertyMatch's database.
+The property list displays information regarding properties that are currently stored in PropertyMatch's [database](#glossary).
 
-Note that it might not be showing *all* the properties in the database all the time (check out the [FAQ](#faq) for more information).
+<div markdown="block" class="alert alert-primary">
+
+**:information_source: Note:**<br>
+* The property list might not be showing *all* properties at all times (check out the [FAQ](#faq) for more information).
+</div>
 
 You can also filter and modify the property list using the commands given in the [Features](#features) section below.
 
@@ -182,7 +190,7 @@ It appears when you execute the [Help Command](#viewing-help-help).
 ## Features
 [Back to Table of Contents](#table-of-contents)
 
-PropertyMatch's features are mostly in the form of commands you can input into the [command input box](#1-command-input-and-output-boxes). We will now go into the details about each feature of PropertyMatch.
+PropertyMatch's features are mostly in the form of commands you can input into the [command input box](#2-command-input-and-output-boxes). We will now go into the details about each feature of PropertyMatch.
 If you just want a quick summary of all the feature PropertyMatch has, do take a look at the [command summary](#command-summary) section.
 
 <div markdown="block" class="alert alert-primary">
@@ -190,10 +198,14 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
 **:information_source: Notes about the command format:**<br>
 
 * Words in `UPPER_CASE` are the [parameters](#glossary) to be supplied by the user.<br>
-  e.g. in `add n/NAME`, `NAME` is a parameter which can be used as `add n/John Doe`.
+  e.g. in `addcust n/NAME`<br>
+  * `addcust` is the command name. In this case, this command adds a customer.
+  * `n/` is a prefix indicating that there is a `NAME` to be supplied.
+  * `NAME` is a parameter which can be used as `add n/John Doe`.
+  This command adds John Doe as a customer to the app.
 
 * Items in square brackets are optional.<br>
-  e.g `n/NAME [c/CHARACTERISTIC]` can be used as `n/Tim Cook c/smart` or as `n/John Doe`.
+  e.g `n/NAME [c/CHARACTERISTIC]` can be used as `n/Tim Cook c/smart`(with `CHARACTERISTIC`) or as `n/John Doe` (without `CHARACTERISTIC`).
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
   e.g. `[c/CHARACTERISTIC]…​` can be used as ` ` (i.e. 0 times), `c/smart`, `c/smart c/rich` etc.
@@ -201,8 +213,8 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
 * Parameters can be in any order.<br>
   e.g. if the command specifies `n/NAME p/PHONE_NUMBER`, `p/PHONE_NUMBER n/NAME` is also acceptable.
 
-* Extraneous parameters for commands that do not take in parameters (such as `help`, `list`, `exit` and `clear`) will be ignored.<br>
-  e.g. if the command specifies `help 123`, it will be interpreted as `help`.
+* Extraneous parameters for commands that do not take in parameters (e.g. `help`, `exit` and `clear`) will be ignored.<br>
+  e.g. if you entered `help 123`, it will be interpreted as `help`.
 
 * If you are using a PDF version of this document, be careful when copying and pasting commands that span multiple lines as space characters surrounding line-breaks may be omitted when copied over to the application.
 </div>
@@ -216,40 +228,41 @@ Ready to start adding customer and properties into PropertyMatch? Read the follo
 
 Adds a customer and their respective contact details and information to your customer list.
 
-Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
+Format: `addcust n/NAME p/PHONE_NUMBER e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
-* `n/NAME`				         : Name of the customer
-* `p/PHONE_NUMBER`		         : Phone number of the customer (only 8 digits and starting with 6, 8 or 9)
-* `e/EMAIL`				         : Email of the customer
-* `b/BUDGET`		             : Budget of the customer (5 to 12 digits and starting with a non-zero digit)
-* `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for
+* `n/NAME`				         : Name of your customer
+* `p/PHONE_NUMBER`		         : Phone number of your customer (only 8 digits and starting with 6, 8 or 9)
+* `e/EMAIL`				         : Email of your customer
+* `b/BUDGET`		             : Budget of your customer (5 to 12 digits and starting with a non-zero digit)
+* `c/CHARACTERISTIC` (optional)  : Characteristics of the property your customer is looking for
 
 <div markdown="block" class="alert alert-primary">
 
 **:information_source: Note:**<br>
 
-* `NAME` can be written with alphabets, numbers and spaces but cannot start with a space.
-* Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
+* `NAME` can be written with alphabets, numbers and spaces.
+* If `NAME` starts with spaces, the starting spaces will not be registered. 
+* Duplicate `CHARACTERISTICS` will be omitted, e.g. entering `c/bright c/BRIGHT` will only record 1 `bright` characteristic.
 
 </div>
 
 Examples:
 * `addcust n/Tim Cook p/91234567 e/cook@apple.com b/2500000 c/bright c/sunny` adds a customer named Tim Cook with all the relevant details
-* `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white`adds a customer named Phoebe with all the relevant details
+* `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white` adds a customer named Phoebe with all the relevant details
 
 <div markdown="block" class="alert alert-warning">
 
 **:bulb: Tip:**<br>
 
 * If you encounter an error, ensure that you have typed the command accurately with **all** the compulsory [parameters](#glossary) present. (refer to the example commands above)
-* The characteristics are optional. If it is not set, the characteristics field will be empty.
+* The characteristics are optional. If it is not set, no characteristic will be recorded for that particular customer.
 </div>
 
 <div markdown="block" class="alert alert-primary">
 
 **:information_source: Note:**<br>
 
-* To ensure that your customer list remains neat, PropertyMatch will warn you when you try to add duplicate customers with the same **phone number**.
+* To ensure that your customer list remains neat, PropertyMatch will not allow you to add duplicate customers with the same **phone number**.
 * Only the phone number is used to differentiate between customers. i.e. Other parameters can be duplicated for different customers.
 
 </div>
@@ -275,9 +288,10 @@ Format: `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…�
 
 **:information_source: Note:**<br>
 
-* `NAME` and `ADDRESS` can be any character, except a slash, but cannot start with a space.
-* Additional spaces in `ADDRESS` will be considered as unique properties, i.e. `Jden` and `J den` will be considered to be 2 distinct properties.
-* Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
+* `NAME` and `ADDRESS` can be any character, except a slash
+* If `NAME` or `ADDRESS`starts with spaces, the starting spaces will not be registered.
+* Additional spaces in `ADDRESS` will be considered as unique properties, e.g. `J'den` and `J' den` will be considered as 2 distinct properties.
+* Duplicate `CHARACTERISTICS` will be omitted, e.g. entering `c/bright c/BRIGHT` will only record 1 `bright` characteristic.
 </div>
 
 Examples:
@@ -287,14 +301,14 @@ Examples:
 
 **:bulb: Tip:**<br>
 * Similar to adding a customer, ensure that you have typed the command accurately with **all** the compulsory [parameters](#glossary) present. (refer to the example commands above)<br>
-* The characteristics are also optional. If it is not set, the characteristics field will be empty.
+* The characteristics are also optional. If it is not set, no characteristic will be recorded for that particular property.
 </div>
 
 <div markdown="block" class="alert alert-primary">
 
 **:information_source: Note:**<br>
 
-* To ensure that your property list remains neat, PropertyMatch will warn you when you try to add duplicate properties with the same **address**.
+* To ensure that your property list remains neat, PropertyMatch will not allow you to add duplicate properties with the same **address**.
 * Only the address is used to differentiate between properties. i.e. Other parameters can be duplicated for different properties.
 
 </div>
@@ -342,22 +356,27 @@ Deletes the specified customer and their corresponding details from your custome
 
 Format: `delcust INDEX`
 
-* Deletes the customer at the specified `INDEX`.
-* The index refers to the index number shown in the **displayed** customer list.
-* Acceptable indexes are integers within the customer list size.
-* The index **must be a positive integer** 1, 2, 3, …​
+* Deletes your customer at the specified `INDEX`.
+* The index refers to the index number beside your customers' names shown in the **displayed** customer list.
+* Acceptable indexes are **positive integers** (e.g. 1, 2, 3…​) within the customer list size.
+
+<div markdown="block" class="alert alert-warning">
+
+**:bulb: Tip:**<br>
+* `INDEX` can start with 0, e.g. `delcust 02` or `delcust 0002` deletes the 2nd customer in the customer list.
+</div>
 
 <div markdown="block" class="alert alert-primary">
 
 **:information_source: Note:**<br>
-* `INDEX` can start with 0, i.e. inputting `delcust 02` or `delcust 0002` deletes the second customer in the customer list.
+
 * `INDEX` should not be more than 2 billion as our app does not support more than 2 billion customers!
 </div>
 
 Examples:
 * `listcust` followed by `delcust 2` deletes the 2nd customer in the displayed customer list.
 
-Upon successfully deleting a customer, the confirmation message will appear in the [output box](#2-command-input-and-output-boxes) as below!
+Upon successfully deleting a customer, the confirmation message will appear in the [output box](#2-command-input-and-output-boxes) as shown below!
 
 ![delcustcustUi](images/user-guide/delcustUi.png)
 
@@ -368,15 +387,19 @@ Deletes the specified property and its corresponding details from your property 
 Format: `delprop INDEX`
 
 * Deletes the property at the specified `INDEX`.
-* The index refers to the index number shown in the **displayed** property list.
-* Acceptable indexes are integers within the property list size.
-* The index **must be a positive integer** 1, 2, 3, …​
+* The index refers to the index number beside your properties' names shown in the **displayed** property list.
+* Acceptable indexes are **positive integers** (e.g. 1, 2, 3…​) within the property list size.
+
+<div markdown="block" class="alert alert-warning">
+
+**:bulb: Tip:**<br>
+* `INDEX` can start with 0, e.g. `delprop 02` or `delprop 0002` deletes the 2nd property in the property list.
+</div>
 
 <div markdown="block" class="alert alert-primary">
 
 **:information_source: Note:**<br>
 
-* `INDEX` can start with 0, i.e. inputting `delprop 02` or `delprop 0002` deletes the second property in the property list.
 * `INDEX` should not be more than 2 billion as our app does not support more than 2 billion properties!
 </div>
 
@@ -389,8 +412,8 @@ The result will be similar to [deleting customers](#deleting-a-customer--delcust
 
 **:exclamation: Caution:**<br>
 
-Remember to use the `listcust` or `listprop` command after using any commands that require a `INDEX` parameter! If not, the `INDEX` will be with respect to whatever is on the screen at the time of command input.
-This applies to [Edit Commands](#edit-commands) and [Match Commands](#match-commands) as well.
+* Remember to use the `listcust` or `listprop` command before using any commands that require a `INDEX` parameter! If not, the `INDEX` will be with respect to whatever is on the screen at the time of command input. 
+* This applies to [Edit Commands](#edit-commands) and [Match Commands](#match-commands) as well.
 
 </div>
 
@@ -404,10 +427,10 @@ Customer or property details might change after some time and this is where our 
 Edits the details of your customer.
 
 Format: `editcust INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [b/BUDGET] [c/CHARACTERISTIC]…​`
-* Edits the customer at the specified `INDEX`. 
-* The index refers to the index number shown in the **displayed** customer list, it **must be a positive integer** 1, 2, 3, …​
-* **At least one** of the optional fields must be provided.
-* Existing values will be updated to the input values.
+* Edits your customer at the specified `INDEX`. Existing details will be updated to the details you entered.
+* The index refers to the index number beside your customers' names shown in the **displayed** customer list.
+* Acceptable indexes are **positive integers** (e.g. 1, 2, 3…​) within the customer list size.
+* **At least one** of the optional [parameters](#glossary) must be provided.
 
 Examples:
 *  `editcust 2 p/91234567 e/andrew@gmail.com` Edits the phone number and email of the 2nd customer to be `91234567` and `andrew@gmail.com` respectively.
@@ -417,16 +440,16 @@ Examples:
 
 **:information_source: Note:**<br>
 
-* To ensure that your customer list remains neat, PropertyMatch will warn you when you try to edit your customer to have the same **phone number** as an existing customer.
+* To ensure that your customer list remains neat, PropertyMatch will not allow you to edit your customer to have the same **phone number** as an existing customer.
 * Only the phone number is used to differentiate between customers. i.e. Other [parameters](#glossary) can be edited to be the same as other customers.
-* Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
-* `INDEX` can start with 0, i.e. inputting `editcust 02` or `editcust 0002` edits the second customer in the customer list.
+* Duplicate `CHARACTERISTICS` will be omitted, e.g. entering`c/bright c/BRIGHT` will only record 1 `bright` characteristic.
 
 </div>
 
 <div markdown="block" class="alert alert-warning">
 
 **:bulb: Tip:** <br>
+* `INDEX` can start with 0, e.g. `editcust 02` or `editcust 0002` edits the 2nd customer in the customer list.
 * When editing characteristics, existing `CHARACTERISTIC` of your customer will be removed i.e. adding of characteristics is not cumulative.
 * You can remove all your customer’s `CHARACTERISTIC` by typing `c/` without specifying any `CHARACTERISTIC` after it.
 
@@ -443,10 +466,10 @@ When `editcust 1 n/Andrew c/` is entered
 Edits the details of your property.
 
 Format: `editprop INDEX [n/NAME] [p/PHONE_NUMBER] [pr/PRICE] [a/ADDRESS] [c/CHARACTERISTIC]…​`
-* Edits the property at the specified `INDEX`. 
-* The index refers to the index number shown in the **displayed** property list. The index **must be a positive integer** 1, 2, 3, …​
-* **At least one** of the optional fields must be provided.
-* Existing values will be updated to the input values.
+* Edits the property at the specified `INDEX`. Existing details will be updated to the details you entered.
+* The index refers to the index number beside your properties' names shown in the **displayed** property list.
+* Acceptable indexes are **positive integers** (e.g. 1, 2, 3…​) within the property list size.
+* **At least one** of the optional [parameters](#glossary) must be provided.
 
 Examples:
 *  `editprop 1 p/91234567 a/43 Clementi Avenue 3 #03-543` Edits the phone number and address of the 1st property to be `91234567` and `43 Clementi Avenue 3 #03-543` respectively.
@@ -455,28 +478,28 @@ Examples:
 <div markdown="block" class="alert alert-primary">
 
 **:information_source: Note:**<br>
-* To ensure that your property list remains neat, PropertyMatch will warn you when you try to edit your property to have the same **address** as an existing property.
+* To ensure that your property list remains neat, PropertyMatch will not allow you to edit your property to have the same **address** as an existing property.
 * Only the address is used to differentiate between properties. i.e. Other [parameters](#glossary) can be edited to be the same as other properties.
-* `INDEX` can start with 0, i.e. inputting `editprop 02` or `editprop 0002` edits the second property in the property list.
-* Additional spaces in `ADDRESS` will be considered as unique properties, i.e. `Jden` and `J den` will be considered to be 2 distinct properties.
-* Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
+* Additional spaces in `ADDRESS` will be considered as unique properties, e.g. `J'den` and `J' den` will be considered as 2 distinct properties.
+* Duplicate `CHARACTERISTICS` will be omitted, e.g. entering`c/bright c/BRIGHT` wil only record 1 `bright`characteristic.
 
 </div>
 
 <div markdown="block" class="alert alert-warning">
 
 **:bulb: Tip:** <br>
+* `INDEX` can start with 0, i.e. `editprop 02` or `editprop 0002` edits the 2nd property in the property list.
 * When editing characteristics, existing `CHARACTERISTIC` of your property will be removed i.e adding of characteristics is not cumulative.
 * You can remove all your property’s `CHARACTERISTIC` by typing `c/` without specifying any `CHARACTERISTIC` after it.
 
 </div>
 
-Successfully editing your property would produce a similar result as editing a customer!
+Successfully editing your property would produce a similar result as [editing a customer](#editing-a-customer--editcust)!
 
 ### Find Commands
 [Back to Table of Contents](#table-of-contents)
 
-Can't seem to find the customer or property you are looking for? Read the follow section to find out more about our `find` feature.
+Can't seem to find the customer or property you are looking for? Read the following section to find out more about our find feature.
 
 #### Finding a customer: `findcust`
 
@@ -485,14 +508,13 @@ Finds and returns a customer or a list of customers, from all your customers who
 Format: `findcust NAME`
 
 * The `NAME` must be in the same language as the name, i.e English.
-* The `NAME` should only contain the relevant alphabets.
-* The `NAME` should not contain any numbers or symbols.
+* The `NAME` should only contain the relevant alphabets or numbers but no symbols.
 
 Examples:
-* `list` followed by `findcust F` finds and returns the customers whose names contains any word that starts with `F` in the customer list, such as `Fredy Lawrence` or `Sara Foo`.
-* `list` followed by `findcust B D` finds and returns the customers whose names contains any word that starts with `B` and/or `D` in the customer list, such as `Doraemon`, `Boraemon`,`Sara Doo`, `Sara Boo`, or `Bara Doo`.
+* `listcust` followed by `findcust F` finds and returns the customers whose names contains any word that starts with `F` in the customer list, such as `Fredy Lawrence` or `Sara Foo`.
+* `listcust` followed by `findcust B D` finds and returns the customers whose names contains any word that starts with `B` or `D` in the customer list, such as `Doraemon`, `Boraemon`,`Sara Doo`, `Sara Boo`, or `Bara Doo`.
 
-You should see the message in the [output box](#2-command-input-and-output-boxes) as below when you have successfully found your customers.
+You should see the message in the [output box](#2-command-input-and-output-boxes) as shown below when you have successfully found your customers.
 
 When `findcust B D` is entered.
 
@@ -506,12 +528,11 @@ Finds and returns a property or a list of properties, from all your properties w
 Format: `findprop NAME`
 
 * The `NAME` must be in the same language as the name, i.e English.
-* The `NAME` should only contain the relevant alphabets.
-* The `NAME` should not contain any numbers or symbols.
+* The `NAME` should only contain the relevant alphabets, numbers or symbols.
 
 Examples:
-* `list` followed by `findprop F` finds and returns the properties with names that begin with "F" in the property list, such as `Fernvale Square` or `Dairy Farm`.
-* `list` followed by `findprop F J` finds and returns the properties with names that begin with "F" or "J" in the property list, such as `Fernvale Square`, `Dairy Farm`, `Jden` or `Changi Jail`.
+* `listprop` followed by `findprop F` finds and returns the properties with names that begin with "F" in the property list, such as `Fernvale Square` or `Dairy Farm`.
+* `listprop` followed by `findprop F J` finds and returns the properties with names that begin with "F" or "J" in the property list, such as `Fernvale Square`, `Dairy Farm`, `J'den` or `Changi Jail`.
 
 Successfully finding the property you want would produce a similar result as [finding a customer](#finding-a-customer--findcust)!
 
@@ -523,13 +544,13 @@ Want to only see selected customers or properties? Read the following section to
 
 #### Filter customers: `filtercust`
 
-Filters all your customers to only show customers that fit the criteria.
+Filters all your customers to only show customers that fit your criteria.
 
 Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
 
 * Filter and return the customers whose budget is greater than or equals to `BUDGET` and have **all** the `CHARACTERISTIC`.
-* `b/BUDGET` (optional)          : Budget of the customer
-* `c/CHARACTERISTIC` (optional)  : Characteristics of the property the customer is looking for
+* `b/BUDGET` (optional)          : Budget of your customer
+* `c/CHARACTERISTIC` (optional)  : Characteristics of the property your customer is looking for
 
 <div markdown="block" class="alert alert-primary">
 
@@ -547,8 +568,8 @@ Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
 </div>
 
 Examples:
-* `filtercust b/250000 c/white c/big`
-* `filtercust c/white`
+* `filtercust b/250000 c/white c/big` lists all customers with a budget greater than or equals to 250000 and has the characteristics white and big.
+* `filtercust c/white` lists all customers with white as their characteristic.
 
 You should see the message in the [output box](#2-command-input-and-output-boxes) as below when you have successfully filtered your customers.
 
@@ -559,7 +580,7 @@ When `filtercust c/white` is entered.
 
 #### Filter properties: `filterprop`
 
-Filters all your properties to only show properties that fit the criteria.
+Filters all your properties to only show properties that fit your criteria.
 
 Format: `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​`
 
@@ -584,8 +605,8 @@ Format: `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​`
 
 
 Examples:
-* `filterprop pr/250000 c/white c/big`
-* `filterprop c/white`
+* `filterprop pr/250000 c/white c/big` lists all the properties priced lower than or equals to 2500000 with white and big as 2 of its characteristics.
+* `filterprop c/white` lists all properties with white as one of its characteristic
 
 Successfully filtering your properties would produce a similar result as [filtering your customers](#filter-customers--filtercust)!
 
@@ -601,22 +622,19 @@ Shows the list of properties that matches the criteria of your customer.
 Format: `matchcust INDEX`
 
 * Matches the customer at the specified `INDEX`.
-* The index refers to the index number shown in the **displayed** customer list.
-* Acceptable indexes are integers within the customer list size.
-* The index **must be a positive integer** 1, 2, 3, …​
+* The index refers to the index number beside your customers' names shown in the **displayed** customer list.
+* Acceptable indexes are **positive integers** (e.g. 1, 2, 3…​) within the customer list size.
 
-#### How does `matchcust` work?
+For `matchcust`, a property will be matched to your specified customer, if and only if: <br>
+* The price of the property is less than or equal to budget of the customer,
+* At least 1 matching characteristic (If the customer has any characteristic recorded),
+* If the customer has no characteristic recorded, only the budget requirement needs to be met.
 
-For `matchcust`, a property will be matched to the specified customer, if and only if: <br>
-* The price of property is less than or equal to budget of the customer,
-* At least 1 matching tag (If the customer has existing tags),
-* If the customer has no tag, only the budget requirement needs to be met.
+<div markdown="block" class="alert alert-warning">
 
-<div markdown="block" class="alert alert-primary">
+**:bulb: Tip:**<br>
 
-**:information_source: Note:**<br>
-
-* `INDEX` can start with 0, i.e. inputting `matchcust 02` or `matchcust 0002` matches the second customer in the customer list to potential properties.
+* `INDEX` can start with 0, i.e. `matchcust 02` or `matchcust 0002` matches the 2nd customer in the customer list to potential properties.
 
 </div>
 
@@ -635,22 +653,19 @@ Shows the list of customers that matches the criteria of your property.
 Format: `matchprop INDEX`
 
 * Matches the property at the specified `INDEX`.
-* The index refers to the index number shown in the **displayed** property list.
-* Acceptable indexes are integers within the property list size.
-* The index **must be a positive integer** 1, 2, 3, …​
+* The index refers to the index number beside your properties' names shown in the **displayed** property list.
+* Acceptable indexes are **positive integers** (e.g. 1, 2, 3…​) within the property list size.
 
-#### How does `matchprop` work?
-
-For `matchprop`, a customer will be matched to the specified property, if and only if: <br>
+For `matchprop`, a customer will be matched to your specified property, if and only if: <br>
 * The budget of customer is greater than or equal to the price of the property,
-* At least 1 matching tag (If the property has existing tags),
-* If the property has no tag, only the price requirement needs to be met.
+* At least 1 matching characteristic (If the property has any characteristics),
+* If the property has no characteristic, only the price requirement needs to be met.
 
-<div markdown="block" class="alert alert-primary">
+<div markdown="block" class="alert alert-warning">
 
-**:information_source: Note:**<br>
+**:bulb: Tip:**<br>
 
-* `INDEX` can start with 0, i.e. inputting `matchprop 02` or `matchprop 0002` matches the second property in the property list to potential customers.
+* `INDEX` can start with 0, i.e. `matchprop 02` or `matchprop 0002` matches the 2nd property in the property list to potential customers.
 
 </div>
 
@@ -668,7 +683,7 @@ Want to start fresh and clear all your existing data? Exit the application? Or i
 
 #### Clear the data in the application: `clear`
 
-Resets all data in the application. (i.e. Deletes all entries in your Customer List and Property List)
+Resets all data in the application. (i.e. Deletes all entries in your [Customer List](#3-customer-list) and [Property List](#4-property-list))
 
 Format: `clear`
 
@@ -695,7 +710,7 @@ Format: `help`
 
 #### Saving data
 
-PropertyMatch data is saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+PropertyMatch data is saved in the [hard disk](#glossary) automatically after any command that changes the data. There is no need to save manually.
 
 
 #### Editing the data file
