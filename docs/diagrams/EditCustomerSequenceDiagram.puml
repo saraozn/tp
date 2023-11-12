@@ -20,7 +20,7 @@ LogicManager -> AddressBookParser : parseCommand("edistcust 1 n/Janet")
 activate AddressBookParser
 
 create EditCustomerCommandParser
-AddressBookParser -> EditCustomerCommandParser : new EditCustomerCommandParser("1 n/Janet")
+AddressBookParser -> EditCustomerCommandParser :
 activate EditCustomerCommandParser
 
 EditCustomerCommandParser --> AddressBookParser
@@ -30,7 +30,7 @@ AddressBookParser -> EditCustomerCommandParser : parse("1 n/Janet")
 activate EditCustomerCommandParser
 
 create EditCustomerCommand
-EditCustomerCommandParser -> EditCustomerCommand : new EditCustomerCommand(1, editCustomerDescriptor)
+EditCustomerCommandParser -> EditCustomerCommand :
 activate EditCustomerCommand
 
 EditCustomerCommand --> EditCustomerCommandParser : command
@@ -58,7 +58,7 @@ EditCustomerCommand -> Model : setCustomer(CustomerToEdit, editedCustomer)
 EditCustomerCommand -> Model : updateFilteredCustomerList(PREDICATE_SHOW_ALL_CUSTOMERS)
 
 create CommandResult
-EditCustomerCommand -> CommandResult : new CommandResult("Edited customer: " + editedCustomer)
+EditCustomerCommand -> CommandResult :
 activate CommandResult
 
 CommandResult --> EditCustomerCommand
