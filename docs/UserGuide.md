@@ -281,7 +281,7 @@ Format: `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]â€¦â
 
 **:information_source: Note:**<br>
 
-* `NAME` can be written with alphabets, numbers, symbols and spaces but cannot start with a space.
+* `NAME` can be alphanumeric with symbols but cannot start with a space.
 </div>
 
 Examples:
