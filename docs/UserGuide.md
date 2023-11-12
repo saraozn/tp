@@ -387,6 +387,15 @@ Examples:
 
 The result will be similar to [deleting customers](#deleting-a-customer--delcust) when the property is successfully deleted!
 
+<div markdown="block" class="alert alert-danger">
+
+**:exclamation: Caution:**<br>
+
+Remember to use the `listcust` or `listprop` command after using any commands that require a `INDEX` parameter! If not, the `INDEX` will be with respect to whatever is on the screen at the time of command input.
+This applies to [Edit Commands](#edit-commands) and [Match Commands](#match-commands) as well.
+
+</div>
+
 ### Edit Commands
 [Back to Table of Contents](#table-of-contents)
 
@@ -572,6 +581,7 @@ Format: `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​`
 **:bulb: Tip:**<br>
 * Omitting `PRICE` will return the properties which have all the `CHARACTERISTIC`.<br>
 * Omitting `CHARACTERISTIC` will return properties priced lower than or equal to `PRICE`.
+
 </div>
 
 
@@ -668,6 +678,7 @@ Format: `clear`
 
 **:exclamation: Caution:**<br>
 * Clearing the data in your application will result in all data being lost! Be careful when you perform this operation and be sure that you want to reset all data in the app.
+
 </div>
 
 #### Exiting the program: `exit`
