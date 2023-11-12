@@ -635,20 +635,98 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `addcust n/Jack p/51234567 e/cook@apple.com b/2500000`
     2. **Expected**: Command entered is highlighted in red. Error message is shown to highlight the invalid field to tell the user what is wrong.
 
-### B.3 Deleting a customer
+### B.3 Adding a property
 
-1. Deleting a customer while all customers are being shown
+1. Adding a property with only compulsory fields
+    1. **Test case**: `addprop n/Aqua Heights a/195 Paya Lebar 3 #18-32 p/91135235 pr/700000`
+    2. **Expected**: New property should be added to Property List with relevant details.
+2. Adding a property with all fields
+    1. **Test case**: `addprop n/Skyview a/214 Clementi Ave 2 #09-78 p/98835235 pr/500000 c/bright c/sunny c/big c/square`
+    2. **Expected**: New customer should be added to Property List with relevant details.
+3. Adding a property with missing fields
+    1. **Test case**: `addprop n/Beta p/91135555`
+    2. **Expected**: Command entered is highlighted in red. "Invalid command format" error message should be displayed and information regarding the syntax of the `addprop` command should be shown.
+4. Adding a property with an invalid field
+    1. **Test case**: `addprop n/Beta p/51234567 a/195 Paya Lebar 4 pr/700000`
+    2. **Expected**: Command entered is highlighted in red. Error message is shown to highlight the invalid field to tell the user what is wrong.
 
-   1. Prerequisites: List all customers using the `list` command. Multiple customers in the list.
+### B.4 Listing all customers
 
-   1. Test case: `delete 1`<br>
-      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.
+**Prerequisite**: Customer List should be a subset of the original list
 
-   1. Test case: `delete 0`<br>
-      Expected: No customer is deleted. Error details shown in the status message. Status bar remains the same.
+1. View all customers in database
+    1. **Test case**: `listcust`
+    2. **Expected**: Customer List should be shown with all customers in the database. "Listed all customers" should be displayed.
+2. Adding parameters to the command
+    1. **Test case**: `listcust 1`, `listcust p`
+    2. **Expected**: Same behaviour as above.
 
-   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
-      Expected: Similar to previous.
+### B.5 Listing all properties
+
+**Prerequisite**: Property List should be a subset of the original list
+
+1. View all properties in database
+    1. **Test case**: `listprop`
+    2. **Expected**: Property List should be shown with all properties in the database. "Listed all properties" should be displayed.
+2. Adding parameters to the command
+    1. **Test case**: `listprop 1`, `listprop p`
+    2. **Expected**: Same behaviour as above.
+
+### B.6 Deleting a customer
+
+**Prerequisite**: Customer List should have at least 1 customer record.
+
+1. Deleting a customer with a valid index
+    1. **Test case**: `delcust 1`
+    2. **Expected**: First customer is deleted from the list. Details of the deleted customer is displayed.
+2. Deleting a customer with an invalid index
+    1. **Test case**: `delcust 0`
+    2. **Expected**: No customer is deleted. Error details shown in the status message.
+    3. **Test case**: `delcust x`, where `x` is larger than the total customer count
+    4. **Expected**: No customer is deleted. Error details shown in the status message.
+3. Deleting a customer with no index provided
+    1. **Test case**: `delcust`
+    2. **Expected**: No customer is deleted. Error details shown in the status message.
+
+### B.7 Deleting a property
+
+**Prerequisite**: Property List should have at least 1 property record.
+
+1. Deleting a property with a valid index
+    1. **Test case**: `delprop 1`
+    2. **Expected**: First property is deleted from the list. Details of the deleted property is displayed.
+2. Deleting a property with an invalid index
+    1. **Test case**: `delprop 0`
+    2. **Expected**: No property is deleted. Error details shown in the status message.
+    3. **Test case**: `delprop x`, where `x` is larger than the total property count
+    4. **Expected**: No property is deleted. Error details shown in the status message.
+3. Deleting a property with no index provided
+    1. **Test case**: `delprop`
+    2. **Expected**: No property is deleted. Error details shown in the status message.
+
+
+[//]: # (### B.3 Deleting a customer)
+
+[//]: # ()
+[//]: # (1. Deleting a customer while all customers are being shown)
+
+[//]: # ()
+[//]: # (   1. Prerequisites: List all customers using the `list` command. Multiple customers in the list.)
+
+[//]: # ()
+[//]: # (   1. Test case: `delete 1`<br>)
+
+[//]: # (      Expected: First contact is deleted from the list. Details of the deleted contact shown in the status message. Timestamp in the status bar is updated.)
+
+[//]: # ()
+[//]: # (   1. Test case: `delete 0`<br>)
+
+[//]: # (      Expected: No customer is deleted. Error details shown in the status message. Status bar remains the same.)
+
+[//]: # ()
+[//]: # (   1. Other incorrect delete commands to try: `delete`, `delete x`, `...` &#40;where x is larger than the list size&#41;<br>)
+
+[//]: # (      Expected: Similar to previous.)
 
 
 --------------------------------------------------------------------------------------------------------------------
