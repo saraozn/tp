@@ -786,7 +786,7 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `editcust 1`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.8 Editing a property
+### B.9 Editing a property
 
 **Prerequisite**: Property List should have at least 1 property record.
 
@@ -800,7 +800,7 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `editprop 1`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.9 Finding customers
+### B.10 Finding customers
 
 **Prerequisite**: A customer that has 'Tim' in his name must exist in the customer list.
 
@@ -811,7 +811,7 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `findcust`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.10 Finding properties
+### B.11 Finding properties
 
 **Prerequisite**: A property that has 'Sky' in his name must exist in the property list.
 
@@ -822,29 +822,29 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `findprop`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.11 Filtering customers
+### B.12 Filtering customers
 
-**Prerequisite**: A customer that has a budget of 100,000 and has 'big' in his characteristics must exist in the customer list.
+**Prerequisite**: A customer that has a budget of 100,000 and has 'bright' in his characteristics must exist in the customer list.
 
 1. Filter customers with valid budget and characteristics
-    1. **Test case**: `filtercust b/100000 c/big`
-    2. **Expected**: Customer List should be filtered to contain only customers that have budgets of at least 100000 or more and has at least one tag named "big".
+    1. **Test case**: `filtercust b/100000 c/bright`
+    2. **Expected**: Customer List should be filtered to contain only customers that have budgets of at least 100000 or more and has at least one tag named "bright".
 2. Invalid filter formats
     1. **Test case**: `filtercust`, `filtercust 1`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.12 Filtering properties
+### B.13 Filtering properties
 
-**Prerequisite**: A property that has a price of 100,000 and has 'big' in his characteristics must exist in the price list.
+**Prerequisite**: A property that has a price of 500,000 and has 'big' in his characteristics must exist in the price list.
 
 1. Filter properties with valid price and characteristics
-    1. **Test case**: `filterprop pr/100000 c/big`
-    2. **Expected**: Property List should be filtered to contain only properties that have prices of 100000 or less and has at least one tag named "big".
+    1. **Test case**: `filterprop pr/500000 c/big`
+    2. **Expected**: Property List should be filtered to contain only properties that have prices of 500000 or less and has at least one tag named "big".
 2. Invalid filter formats
     1. **Test case**: `filterprop`, `filterprop 1`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.13 Matching properties to a customer
+### B.14 Matching properties to a customer
 
 **Prerequisite**: At least 1 customer record.
 
@@ -852,10 +852,10 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `matchcust 1`
     2. **Expected**: Properties with prices less than or equal to the budget of customer 1 will be shown. If the customer has existing tags, only properties with at least 1 matching tag will be shown. If the customer has no tag, only the budget requirement needs to be met.
 2. Invalid match formats
-    1. **Test case**: `matchcust`, `matchcust 1`
+    1. **Test case**: `matchcust`, `matchcust 0`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.14 Matching customers to a property
+### B.15 Matching customers to a property
 
 **Prerequisite**: At least 1 property record.
 
@@ -863,10 +863,10 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `matchprop 1`
     2. **Expected**: Customers with budgets more than or equal to the price of property 1 will be shown. If the property has existing tags, only customers with at least 1 matching tag will be shown. If the property has no tag, only the price requirement needs to be met.
 2. Invalid match formats
-    1. **Test case**: `matchprop`, `matchprop 1`
+    1. **Test case**: `matchprop`, `matchprop 0`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.15 Clearing the application
+### B.16 Clearing the application
 
 1. All data should be cleared
     1. **Test case**: `clear`
@@ -875,7 +875,7 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `clear 123`, `clear hello`
     2. **Expected**: All data from customer list and property list should be cleared.
 
-### B.16 Viewing help
+### B.17 Viewing help
 
 1. Help window should be cleared
     1. **Test case**: `help`
@@ -884,7 +884,7 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `help 123`, `help hello`
     2. **Expected**: Window containing PropertyMatch's user guide should be shown.
 
-### B.16 Exiting the application
+### B.18 Exiting the application
 
 1. Application should exit after 3 seconds
     1. **Test case**: `exit`
