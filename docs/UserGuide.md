@@ -586,13 +586,6 @@ Successfully filtering your properties would produce a similar result as [filter
 
 Ready to match customers and properties? Our unique matching feature has the power to match customers and properties easily! Read the following section to find out more about our match feature.
 
-<div markdown="block" class="alert alert-warning">
-
-**:bulb: Tip:**<br>
-
-* The List Commands should be used to view all buyers and properties again, after a [Filter Command](#filter-commands), [Find Command](#find-commands), or [Match Command](#match-commands) is executed.
-</div>
-
 #### Matching properties to a customer: `matchcust`
 
 Shows the list of properties that matches the criteria of your customer.
