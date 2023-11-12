@@ -798,6 +798,32 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `matchprop`, `matchprop 1`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
+### B.15 Clearing the application
+
+1. All data should be cleared
+    1. **Test case**: `clear`
+    2. **Expected**: All data from customer list and property list should be cleared.
+2. Extra parameters added
+    1. **Test case**: `clear 123`, `clear hello`
+    2. **Expected**: All data from customer list and property list should be cleared.
+
+### B.16 Viewing help
+
+1. Help window should be cleared
+    1. **Test case**: `help`
+    2. **Expected**: Window containing PropertyMatch's user guide should be shown.
+2. Extra parameters added
+    1. **Test case**: `help 123`, `help hello`
+    2. **Expected**: Window containing PropertyMatch's user guide should be shown.
+
+### B.16 Exiting the application
+
+1. Application should exit after 3 seconds
+    1. **Test case**: `exit`
+    2. **Expected**: Application should exit after 3 seconds.
+2. Extra parameters added
+    1. **Test case**: `exit 123`, `exit hello`
+    2. **Expected**: Application should exit after 3 seconds.
 
     
 [//]: # (### B.3 Deleting a customer)
