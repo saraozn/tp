@@ -347,6 +347,14 @@ Format: `delcust INDEX`
 * Acceptable indexes are integers within the customer list size.
 * The index **must be a positive integer** 1, 2, 3, …​
 
+<div markdown="block" class="alert alert-primary">
+
+**:information_source: Note:**<br>
+
+* `INDEX` can start with 0, i.e. inputting `delcust 02` or `delcust 0002` deletes the second customer in the customer list.
+
+</div>
+
 Examples:
 * `listcust` followed by `delcust 2` deletes the 2nd customer in the displayed customer list.
 
@@ -364,6 +372,14 @@ Format: `delprop INDEX`
 * The index refers to the index number shown in the **displayed** property list.
 * Acceptable indexes are integers within the property list size.
 * The index **must be a positive integer** 1, 2, 3, …​
+
+<div markdown="block" class="alert alert-primary">
+
+**:information_source: Note:**<br>
+
+* `INDEX` can start with 0, i.e. inputting `delprop 02` or `delprop 0002` deletes the second property in the property list.
+
+</div>
 
 Examples:
 * `listprop` followed by `delprop 2` deletes the 2nd property in the displayed property list.
@@ -396,6 +412,7 @@ Examples:
 * To ensure that your customer list remains neat, PropertyMatch will warn you when you try to edit your customer to have the same **phone number** as an existing customer.
 * Only the phone number is used to differentiate between customers. i.e. Other [parameters](#glossary) can be edited to be the same as other customers.
 * Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
+* `INDEX` can start with 0, i.e. inputting `editcust 02` or `editcust 0002` edits the second customer in the customer list.
 
 </div>
 
@@ -404,6 +421,7 @@ Examples:
 **:bulb: Tip:** <br>
 * When editing characteristics, existing `CHARACTERISTIC` of your customer will be removed i.e adding of characteristics is not cumulative.
 * You can remove all your customer’s `CHARACTERISTIC` by typing `c/` without specifying any `CHARACTERISTIC` after it.
+
 </div>
 
 You should see a similar message in the [output box](#2-command-input-and-output-boxes) as below when your customer's details is successfully edited.
@@ -432,6 +450,7 @@ Examples:
 * To ensure that your property list remains neat, PropertyMatch will warn you when you try to edit your property to have the same **address** as an existing property.
 * Only the address is used to differentiate between properties. i.e. Other [parameters](#glossary) can be edited to be the same as other properties.
 * Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
+* `INDEX` can start with 0, i.e. inputting `editprop 02` or `editprop 0002` edits the second property in the property list.
 
 </div>
 
@@ -440,6 +459,7 @@ Examples:
 **:bulb: Tip:** <br>
 * When editing characteristics, existing `CHARACTERISTIC` of your property will be removed i.e adding of characteristics is not cumulative.
 * You can remove all your property’s `CHARACTERISTIC` by typing `c/` without specifying any `CHARACTERISTIC` after it.
+
 </div>
 
 Successfully editing your property would produce a similar result as editing a customer!
@@ -506,6 +526,7 @@ Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
 
 **:information_source: Note:**<br>
 * While both `BUDGET` and `CHARACTERISTIC` are optional, at least one of them should be present.
+
 </div>
 
 <div markdown="block" class="alert alert-warning">
@@ -513,6 +534,7 @@ Format: `filtercust [b/BUDGET] [c/CHARACTERISTIC]…​`
 **:bulb: Tip:** <br>
 * Omitting`BUDGET` will return customers in search of properties with the specified `CHARACTERISTIC`.<br>
 * Omitting `CHARACTERISTIC` will return customers with a budget greater than or equal to `BUDGET`.
+
 </div>
 
 Examples:
@@ -540,6 +562,7 @@ Format: `filterprop [pr/PRICE] [c/CHARACTERISTIC]…​`
 
 **:information_source: Note:**<br>
 * While both `PRICE` and `CHARACTERISTIC` are optional, at least one of them should be present.
+
 </div>
 
 <div markdown="block" class="alert alert-warning">
@@ -579,6 +602,14 @@ Format: `matchcust INDEX`
 * Acceptable indexes are integers within the customer list size.
 * The index **must be a positive integer** 1, 2, 3, …​
 
+<div markdown="block" class="alert alert-primary">
+
+**:information_source: Note:**<br>
+
+* `INDEX` can start with 0, i.e. inputting `matchcust 02` or `matchcust 0002` matches the second customer in the customer list to potential properties.
+
+</div>
+
 Examples:
 * `matchcust 1`
 * `matchcust 10`
@@ -597,6 +628,14 @@ Format: `matchprop INDEX`
 * The index refers to the index number shown in the **displayed** property list.
 * Acceptable indexes are integers within the property list size.
 * The index **must be a positive integer** 1, 2, 3, …​
+
+<div markdown="block" class="alert alert-primary">
+
+**:information_source: Note:**<br>
+
+* `INDEX` can start with 0, i.e. inputting `matchprop 02` or `matchprop 0002` matches the second property in the property list to potential customers.
+
+</div>
 
 Examples:
 * `matchprop 1`
