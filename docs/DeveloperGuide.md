@@ -920,7 +920,7 @@ Some of our current error messages can be quite vague. As a user, this can be ha
 ### C.3 Importing client data
 
 #### C.3.1 Motivation:
-We realise that many property agents already have existing customers and properties. They may not want to manually enter all the data into the application. This feature will allow them to import their existing data into the application, saving them time and resource.
+We realise that many property agents already have existing customers and properties. They may not want to manually enter all the data into the application. This feature will allow them to import their existing data into the application, saving them time and resources.
 
 #### C.3.2 Implementation:
 1. Add an `Import` button to the menu bar.
@@ -931,22 +931,35 @@ We realise that many property agents already have existing customers and propert
 6. Provide clear feedback to the user about success/failure (success message or error message).
 7. Implement error handling, logging, and security measures.
 
-### C.4 Ability to filter data less strictly
+### C.4 Exporting client data
 
 #### C.4.1 Motivation:
-Right now, the `filter` commands require all characteristics to match the customer's or property's characteristics. This is too strict, and may not be useful for the property agent. This feature will allow the property agent to filter customers or properties based on a subset of characteristics.
+We realise that many property agents may want to export their existing data in PropertyMatch to other platforms. This feature will allow them to easily export their data into other platforms to perform other functions (such as data analysis) not supported on PropertyMatch.
 
 #### C.4.2 Implementation:
+1. Add an `Export` button to the menu bar.
+2. Create a file selection mechanism in which the user can import data from CSV files.
+3. Convert the data in the json files to CSV file.
+4. Allow the user to name the CSV file.
+5. Provide clear feedback to the user about success/failure (success message or error message).
+6. Implement error handling, logging, and security measures.
+
+### C.5 Ability to filter data less strictly
+
+#### C.5.1 Motivation:
+Right now, the `filter` commands require all characteristics to match the customer's or property's characteristics. This is too strict, and may not be useful for the property agent. This feature will allow the property agent to filter customers or properties based on a subset of characteristics.
+
+#### C.5.2 Implementation:
 1. Allow `filter` commands to take in an extra parameter called `loose`.
 2. Add code to filter customers/properties that only match one of the criteria.
 3. Implement error handling and logging.
 
-### C.5 Budget for customer should be a range
+### C.6 Budget for customer should be a range
 
-#### C.5.1 Motivation:
+#### C.6.1 Motivation:
 Customers should be able to indicate their budget as a range instead of a set number. This is because customers may not have a fixed budget, and may be willing to pay more or less for a property.
 
-#### C.5.2 Implementation:
+#### C.6.2 Implementation:
 1. Add code in `Budget` to have a range of values.
 2. Add test cases to verify that `find`, `filter`, `match` still works with a budget range.
 3. Implement error handling and logging.

@@ -235,7 +235,7 @@ Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
 Examples:
 * `addcust n/Tim Cook p/91234567 e/cook@apple.com b/2500000 c/bright c/sunny` adds a customer named Tim Cook with all the relevant details
-* `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white`adds a customer named Phoebe with all the relevant details
+* `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white` adds a customer named Phoebe with all the relevant details
 
 <div markdown="block" class="alert alert-warning">
 
@@ -410,7 +410,7 @@ Format: `editcust INDEX [n/NAME] [p/PHONE_NUMBER] [e/EMAIL] [b/BUDGET] [c/CHARAC
 * Existing values will be updated to the input values.
 
 Examples:
-*  `editcust 2 p/91234567 e/andrew@gmail.com` Edits the phone number and email of the 2nd customer to be `91234567` and `andrew@gmail.com` respectively.
+*  `editcust 2 p/91111111 e/andrew@gmail.com` Edits the phone number and email of the 2nd customer to be `91234567` and `andrew@gmail.com` respectively.
 *  `editcust 1 n/Andrew c/` Edits the name of the 1st customer to be `Andrew` and clears all existing characteristics.
 
 <div markdown="block" class="alert alert-primary">
