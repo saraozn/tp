@@ -467,7 +467,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 | `*`      | experienced user using the application with new device | import and export properties' data                  | transfer properties' data across devices                                      |
 | `*`      | user                                                   | view both customers and properties at the same time | conveniently compare customers and properties at the same time                |
 
-### Use cases
+### A.3 Use cases
 
 **Use Case: UC01 - Add property**
 
@@ -568,7 +568,7 @@ Actor: Property Agent
 2. Property agent can export data from the application and save the data
 
 
-### Non-Functional Requirements
+### A.4 Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
 2.  Should be able to hold up to 1000 properties and clients without a noticeable sluggishness in performance for typical usage.
@@ -584,7 +584,7 @@ Actor: Property Agent
 12. Should have a graphical user interface which is intuitive and user-friendly.
 13. Should not require user to have any prior technical knowledge or expertise.
 
-### Glossary
+### A.5 Glossary
 
 * **Mainstream OS** : Windows, Linux, Unix, OS-X
 * **API** : API stands for Application Programming Interface, which is a set of definitions and protocols for building and integrating application software.
@@ -607,20 +607,35 @@ testers are expected to do more *exploratory* testing.
 
 1. Initial launch
 
-   1. Download the jar file and copy into an empty folder
+    1. Download the jar file and copy into an empty folder.
 
-   1. Double-click the jar file Expected: Shows the GUI with a set of sample contacts. The window size may not be optimum.
+    2. Double-click the jar file. If nothing happens after double-clicking the jar file, run `java -jar propertymatch.jar` on the command line in the folder.<br>
+       **Expected**: Shows the GUI with a set of sample contacts. The window size may not be optimum.
 
-1. Saving window preferences
+2. Saving window preferences
 
-   1. Resize the window to an optimum size. Move the window to a different location. Close the window.
+    1. Resize the window to an optimum size. Move the window to a different location. Close the window.
 
-   1. Re-launch the app by double-clicking the jar file.<br>
-       Expected: The most recent window size and location is retained.
+    2. Re-launch the app by double-clicking the jar file.<br>
+       **Expected**: The most recent window size and location is retained.
 
-1. _{ more test cases …​ }_
 
-### B.2 Deleting a customer
+### B.2 Adding a customer
+
+1. Adding a customer with only compulsory fields
+    1. **Test case**: `addcust n/Tim Cook p/91234567 e/cook@apple.com b/2500000`
+    2. **Expected**: New customer should be added to Customer List with relevant details.
+2. Adding a customer with all fields
+    1. **Test case**: `addcust n/Phoebe p/87654321 e/pb@gmail.com b/200000 c/bright c/sunny c/white`
+    2. **Expected**: New customer should be added to Customer List with relevant details.
+3. Adding a customer with missing fields
+    1. **Test case**: `addcust n/Jack p/91135555`
+    2. **Expected**: Command entered is highlighted in red. "Invalid command format" error message should be displayed and information regarding the syntax of the `addcust` command should be shown.
+4. Adding a customer with an invalid field
+    1. **Test case**: `addcust n/Jack p/51234567 e/cook@apple.com b/2500000`
+    2. **Expected**: Command entered is highlighted in red. Error message is shown to highlight the invalid field to tell the user what is wrong.
+
+### B.3 Deleting a customer
 
 1. Deleting a customer while all customers are being shown
 
@@ -635,15 +650,6 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
-
-### B.3 Saving data
-
-1. Dealing with missing/corrupted data files
-
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
-
-1. _{ more test cases …​ }_
 
 --------------------------------------------------------------------------------------------------------------------
 
