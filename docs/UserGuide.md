@@ -228,7 +228,7 @@ Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 
 **:information_source: Note:**<br>
 
-* `NAME` can be alphanumeric with spaces but cannot start with a space.
+* `NAME` can be written with alphabets, numbers and spaces but cannot start with a space.
 </div>
 
 Examples:
