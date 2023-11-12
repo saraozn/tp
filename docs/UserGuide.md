@@ -276,7 +276,7 @@ Format: `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]â€¦â
 
 **:information_source: Note:**<br>
 
-* `NAME` can be alphanumeric with symbols but cannot start with a space.
+* `NAME` and `ADDRESS` can be any character, except a slash, but cannot start with a space.
 * Additional spaces in `ADDRESS` will be considered as unique properties, i.e. `Jden` and `J den` will be considered to be 2 distinct properties.
 * Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
 </div>
