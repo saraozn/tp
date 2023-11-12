@@ -645,50 +645,65 @@ testers are expected to do more *exploratory* testing.
 
 1. _{ more test cases …​ }_
 
+--------------------------------------------------------------------------------------------------------------------
+
 ## **Appendix C: Proposed enhancements**
 
-### C.1 Importing client data
+### C.1 Improved GUI
 
 #### C.1.1 Motivation:
-To streamline the process of managing client information. By allowing property agents to quickly and easily import data into the address book, they can eliminate the need to manually enter data, saving time and resources. Additionally, the feature would help ensure data accuracy by reducing chances of manual errors. Ultimately, the implementation of this feature would help property agents better manage their client data and provide a more efficient way to store and access important information.
-
-#### C.1.2 Implementation:
-1. Design a user-friendly interface with an `Import` button or menu item.
-2. Decide on supported file formats for import, e.g., CSV, Excel, JSON.
-3. Create a file selection mechanism for property agents to choose the import file.
-4. Develop data parsing code to convert the selected file into a processable format.
-5. Validate the imported data to ensure it meets expected standards.
-6. Map the data fields to address book.
-7. Insert the validated data into address book.
-8. Provide clear feedback to the user about the import process (success message or error message).
-9. Implement error handling, logging, and security measures.
-10. Ensure data integrity and consider scalability, data transformation, user confirmation, historical data, and data backup.
-
-### C.2 Exporting client data
-
-#### C.2.1 Motivation:
-Property agents can easily transfer their data to other systems or applications, ensuring data portability. Users may need to migrate their client data to a new version of the application, a different platform, or a third-party service. Exporting data simplifies this migration process. Property agents might want to share specific client information with colleagues, partners, or clients themselves. Exporting data allows for secure sharing of selected data.
-
-#### C.2.2 Implementation:
-1. Design a user-friendly interface with an `Export` button or menu item.
-2. Decide on supported file formats for exporting, e.g., CSV, Excel, JSON.
-3. Create a file selection mechanism for property agents to choose the format of the file to be exported.
-4. Develop data parsing code to convert the selected data into a processable file in the desrired format.
-5. Save the converted data to a file with a user-defined or automatically generated filename, such as "client_data.csv."
-6. Display a success message to the user if the export process is successful.
-   Display an error message if any issues occur during the export.
-7. Implement error handling to capture and manage any issues that may occur during the export process. Log errors for debugging and auditing purposes.
-
-### C.3 Improved GUI
-
-#### C.3.1 Motivation:
 Our current GUI is not as user-friendly as we would like it to be. A well-designed and aesthetic GUI provides a more intuitive and user-friendly interface, making it easier for users to navigate, access features, and perform tasks within the app. It can also lead to higher user satisfaction.
 
-#### C.3.2 Implementation:
+#### C.1.2 Implementation:
 1. Update the color scheme to make the GUI more visually appealing. Use colors that resonate with our brand or that create a pleasant atmosphere.
 2. Integrate relevant icons and imagery to represent different features and functions within the app, providing visual cues for users.
 3. Add whitespace effectively to create a clean and organized layout and reduce visual clutter.
 4. Add user guidance. Provide tooltips, hints, or tutorials for new users to help them get started and understand the app's features.
+
+### C.2 Improved Error Messages
+
+#### C.2.1 Motivation:
+Some of our current error messages can be quite vague. As a user, this can be hard for them to decipher what is wrong. Upon receiving the error message, they may not know what is wrong. Knowing what they entered wrongly can lead to higher user satisfaction.
+
+#### C.2.2 Implementation:
+1. Update the error messages to be more specific. For example, if the user enters an invalid command, the error message should tell the user which part of the command is invalid, instead of just saying that the command is invalid.
+2. Allow the `INDEX` for commands to accept very large numbers. Currently, the computer is unable to parse the number because it is too large, and PropertyMatch will mention that the command is invalid instead of mentioning that the number is too large.
+
+### C.3 Importing client data
+
+#### C.3.1 Motivation:
+We realise that many property agents already have existing customers and properties. They may not want to manually enter all the data into the application. This feature will allow them to import their existing data into the application, saving them time and resource.
+
+#### C.3.2 Implementation:
+1. Add an `Import` button to the menu bar.
+2. Create a file selection mechanism in which the user can import data from CSV files.
+3. Parse and process the data in the file.
+4. Validate the imported data to ensure it meets expected standards.
+5. Add the data fields to PropertyMatch.
+6. Provide clear feedback to the user about success/failure (success message or error message).
+7. Implement error handling, logging, and security measures.
+
+### C.4 Ability to filter data less strictly
+
+#### C.4.1 Motivation:
+Right now, the `filter` commands require all characteristics to match the customer's or property's characteristics. This is too strict, and may not be useful for the property agent. This feature will allow the property agent to filter customers or properties based on a subset of characteristics.
+
+#### C.4.2 Implementation:
+1. Allow `filter` commands to take in an extra parameter called `loose`.
+2. Add code to filter customers/properties that only match one of the criteria.
+3. Implement error handling and logging.
+
+### C.5 Budget for customer should be a range
+
+#### C.5.1 Motivation:
+Customers should be able to indicate their budget as a range instead of a set number. This is because customers may not have a fixed budget, and may be willing to pay more or less for a property.
+
+#### C.5.2 Implementation:
+1. Add code in `Budget` to have a range of values.
+2. Add test cases to verify that `find`, `filter`, `match` still works with a budget range.
+3. Implement error handling and logging.
+
+--------------------------------------------------------------------------------------------------------------------
 
 ## **Appendix D: Effort**
 
