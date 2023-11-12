@@ -330,7 +330,7 @@ The `MatchCustomerCommand` and `MatchPropertyCommand` classes extends the `Comma
 They are used to match the details of a customer or property, respectively.
 The command expects exactly one "Index" of the customer or property to be match, otherwise an error message will be displayed.
 When the match command is inputted, the `MatchCustomerCommandParser` or `MatchPropertyCommandParser` classes are used to parse the user input and create the `MatchCustomerCommand` or `MatchPropertyCommand` objects respectively.
-When these created command objects are executed by the `Logic Manager`, the `MatchCustomerCommand#execute(Model model)` or `MatchProeprtyCommand#execute(Model model)` method is called.
+When these created command objects are executed by the `LogicManager`, the `MatchCustomerCommand#execute(Model model)` or `MatchProeprtyCommand#execute(Model model)` method is called.
 These methods will match the customer or property in the model, and return a `ComandResult` object.
 
 The following sequence diagram shows how the `MatchCustomerCommand` is executed.
@@ -744,6 +744,28 @@ testers are expected to do more *exploratory* testing.
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
 ### B.10 Finding a property
+
+**Prerequisite**: A property that has 'Sky' in his name must exist in the property list.
+
+1. Editing the first property with valid index and valid fields
+    1. **Test case**: `findprop Sky`
+    2. **Expected**: Property List should be filtered to contain only property that start with the "Sky" substring in their name. (e.g. Skyvista, The Skyrim, Sky View) It should be case-insensitive. "x properties listed" should be displayed, where x refers to the number of properties in the new filtered list.
+2. Attempting to find a property with no substring
+    1. **Test case**: `findprop`
+    2. **Expected**: Command is highlighted red and error message will be displayed.
+
+### B.11 Finding a customer
+
+**Prerequisite**: A customer that has 'Tim' in his name must exist in the customer list.
+
+1. Editing the first customer with valid index and valid fields
+    1. **Test case**: `findcust Tim`
+    2. **Expected**: Customer List should be filtered to contain only customer that start with the "Tim" substring in their name. (e.g. Timothy, Lee Timmy, Tim Cook) It should be case-insensitive. "x customers listed" should be displayed, where x refers to the number of customers in the new filtered list.
+2. Attempting to find a customer with no substring
+    1. **Test case**: `findcust`
+    2. **Expected**: Command is highlighted red and error message will be displayed.
+
+### B.12 Finding a property
 
 **Prerequisite**: A property that has 'Sky' in his name must exist in the property list.
 
