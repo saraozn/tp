@@ -239,6 +239,10 @@ When these created command objects are executed by the `LogicManager`, the `Dele
     * Cons:
         * Unnecessary complexity is introduced into the system.
 
+The following activity diagram summarises the execution of a `delcust INDEX` command.
+
+![DeleteCustomerActivityDiagram](images/DeleteCustomerActivityDiagram.png)
+
 The following sequence diagram shows how the `DeleteCustomerCommand` is executed.
 
 ![DeleteCustomerSequenceDiagram](images/DeleteCustomerSequenceDiagram.png)
@@ -246,6 +250,7 @@ The following sequence diagram shows how the `DeleteCustomerCommand` is executed
 The following sequence diagram shows how the `DeletePropertyCommand` is executed.
 
 ![DeletePropertySequenceDiagram](images/DeletePropertySequenceDiagram.png)
+
 ### 4.3 Finding of Customers and Properties
 [Back to top](#table-of-contents)
 
