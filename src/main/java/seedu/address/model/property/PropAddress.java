@@ -10,13 +10,13 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class PropAddress {
 
     public static final String MESSAGE_CONSTRAINTS = "Addresses can take any values except slashes,"
-            + "and it should not be blank";
+            + "and it should not be blank.";
 
     /*
-     * The first character of the address must not be a whitespace,
-     * otherwise " " (a blank string) becomes a valid input.
+     * The first character of the property name must not be a whitespace or slash,
+     * otherwise " " (a blank string) or "/" becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "\\S[^/]*";
+    public static final String VALIDATION_REGEX = "[^\\s/][^/]*";
 
     public final String value;
 
