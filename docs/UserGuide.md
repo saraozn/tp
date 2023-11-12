@@ -43,7 +43,7 @@ As property agents, we understand that using a [Command Line Interface (CLI)](ht
 Already familiar with using a CLI? Great! Feel free to move on to the section below to begin your PropertyMatch journey!
 
 * Embark on your PropertyMatch journey using our [Quick Start](#quick-start) Guide - the express lane to get PropertyMatch up and running in no time!
-* Afterwhich, you can head over to our [Interface Layout](#interface-layout) section to familiarise yourself with our snazzy interface and discover the ins and outs of the [CLI](#2-command-input-and-output-boxes). 
+* Afterwhich, you can head over to our [Interface Layout](#interface-layout) section to familiarise yourself with our snazzy interface and discover the ins and outs of the [CLI](#2-command-input-and-output-boxes).
 * Take a look at the [Command Summary](#command-summary) - your cheatsheet for the different commands along with links to how to use them
 
 Let the fun begin – because who said setting up can't be a joyride?

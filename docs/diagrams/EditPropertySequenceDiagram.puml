@@ -20,7 +20,7 @@ LogicManager -> AddressBookParser : parseCommand("editprop 1 n/Skyview")
 activate AddressBookParser
 
 create EditPropertyCommandParser
-AddressBookParser -> EditPropertyCommandParser : new EditPropertyCommandParser("1 n/Skyview")
+AddressBookParser -> EditPropertyCommandParser :
 activate EditPropertyCommandParser
 
 EditPropertyCommandParser --> AddressBookParser
@@ -30,7 +30,7 @@ AddressBookParser -> EditPropertyCommandParser : parse("1 n/Skyview")
 activate EditPropertyCommandParser
 
 create EditPropertyCommand
-EditPropertyCommandParser -> EditPropertyCommand : new EditPropertyCommand(1, editPropertyDescriptor)
+EditPropertyCommandParser -> EditPropertyCommand :
 activate EditPropertyCommand
 
 EditPropertyCommand --> EditPropertyCommandParser : command
@@ -55,7 +55,7 @@ deactivate EditPropertyCommand
 
 EditPropertyCommand -> Model : setProperty(PropertyToEdit, editedProperty)
 
-EditPropertyCommand -> Model : updateFilteredPropertyList(PREDICATE_SHOW_ALL_PROPERTY)
+EditPropertyCommand -> Model : updateFilteredPropertyList(PREDICATE_SHOW_ALL_PROPERTIES)
 
 create CommandResult
 EditPropertyCommand -> CommandResult : new CommandResult("Edited property: " + editedProperty)
