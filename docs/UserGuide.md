@@ -604,6 +604,13 @@ Format: `matchcust INDEX`
 * Acceptable indexes are integers within the customer list size.
 * The index **must be a positive integer** 1, 2, 3, …​
 
+#### How does `matchcust` work?
+
+For `matchcust`, a property will be matched to the specified customer, if and only if: <br>
+* The price of property is less than or equal to budget of the customer,
+* At least 1 matching tag (If the customer has existing tags),
+* If the customer has no tag, only the budget requirement needs to be met.
+
 <div markdown="block" class="alert alert-primary">
 
 **:information_source: Note:**<br>
@@ -630,6 +637,13 @@ Format: `matchprop INDEX`
 * The index refers to the index number shown in the **displayed** property list.
 * Acceptable indexes are integers within the property list size.
 * The index **must be a positive integer** 1, 2, 3, …​
+
+#### How does `matchprop` work?
+
+For `matchprop`, a customer will be matched to the specified property, if and only if: <br>
+* The budget of customer is greater than or equal to the price of the property,
+* At least 1 matching tag (If the property has existing tags),
+* If the property has no tag, only the price requirement needs to be met.
 
 <div markdown="block" class="alert alert-primary">
 
