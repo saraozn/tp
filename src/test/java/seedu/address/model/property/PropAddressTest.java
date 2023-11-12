@@ -27,6 +27,7 @@ public class PropAddressTest {
         // invalid property addresses
         assertFalse(PropAddress.isValidAddress("")); // empty string
         assertFalse(PropAddress.isValidAddress(" ")); // spaces only
+        assertFalse(PropAddress.isValidAddress("J/den")); // addresses with /
 
         // valid property addresses
         assertTrue(PropAddress.isValidAddress("Blk 456, Den Road, #01-355"));
@@ -40,7 +41,7 @@ public class PropAddressTest {
         assertTrue(PropAddress.isValidAddress("Skyview")); // with capital letters
         assertTrue(PropAddress.isValidAddress("J'den")); // apostrophes
         assertTrue(PropAddress.isValidAddress("With space")); // with space
-        assertTrue(PropAddress.isValidAddress("!@#$%^&*()-_+=[{}]|:;'',<>.?/")); // symbols
+        assertTrue(PropAddress.isValidAddress("!@#$%^&*()-_+=[{}]|:;'',<>.?")); // symbols except /
         assertTrue(PropAddress.isValidAddress("-Hello")); // start with dash
     }
 

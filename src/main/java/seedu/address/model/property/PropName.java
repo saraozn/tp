@@ -16,7 +16,7 @@ public class PropName {
      * The first character of the property name must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "\\S(.*)";
+    public static final String VALIDATION_REGEX = "\\S[^/]*";
     public final String fullName;
 
     /**
