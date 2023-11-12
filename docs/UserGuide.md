@@ -241,8 +241,7 @@ Examples:
 
 **:bulb: Tip:**<br>
 
-* If you encounter an error, ensure that you have typed the command accurately with **all** the compulsory [parameters](#glossary) present. (refer to the example commands above)<br>
-
+* If you encounter an error, ensure that you have typed the command accurately with **all** the compulsory [parameters](#glossary) present. (refer to the example commands above)
 * The characteristics are optional. If it is not set, the characteristics field will be empty.
 </div>
 
@@ -351,9 +350,8 @@ Format: `delcust INDEX`
 <div markdown="block" class="alert alert-primary">
 
 **:information_source: Note:**<br>
-
 * `INDEX` can start with 0, i.e. inputting `delcust 02` or `delcust 0002` deletes the second customer in the customer list.
-
+* `INDEX` should not be more than 2 billion as our app does not support more than 2 billion customers!
 </div>
 
 Examples:
@@ -379,7 +377,7 @@ Format: `delprop INDEX`
 **:information_source: Note:**<br>
 
 * `INDEX` can start with 0, i.e. inputting `delprop 02` or `delprop 0002` deletes the second property in the property list.
-
+* `INDEX` should not be more than 2 billion as our app does not support more than 2 billion properties!
 </div>
 
 Examples:
@@ -746,8 +744,8 @@ PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data
 **A**: The guide is divided into sections for easy navigation. Use the [table of contents](#table-of-contents) to locate what you are looking for.
 
 **Q**: How do I open Terminal?<br>
-**A**:The method for opening up the Terminal will be different for every operating system:<br>
-* If you are using Windows, press the '**Windows**' key and search for'**Terminal**'.<br>
+**A**: The method for opening up the Terminal will be different for every operating system:
+* If you are using Windows, press the '**Windows**' key and search for '**Terminal**'.<br>
 * If you are using a Mac, click on '**F4**' and search for '**Terminal**'. <br>
 * If you are using a Linux system, press '**Ctrl**' + '**Alt**' + '**T**' keys simultaneously.
 
