@@ -732,7 +732,30 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `editprop 1`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
+### B.9 Finding a customer
 
+**Prerequisite**: A customer that has 'Tim' in his name must exist in the customer list.
+
+1. Editing the first customer with valid index and valid fields
+    1. **Test case**: `findcust Tim`
+    2. **Expected**: Customer List should be filtered to contain only customer that start with the "Tim" substring in their name. (e.g. Timothy, Lee Timmy, Tim Cook) It should be case-insensitive. "x customers listed" should be displayed, where x refers to the number of customers in the new filtered list.
+2. Attempting to find a customer with no substring
+    1. **Test case**: `findcust`
+    2. **Expected**: Command is highlighted red and error message will be displayed.
+
+### B.10 Finding a property
+
+**Prerequisite**: A property that has 'Sky' in his name must exist in the property list.
+
+1. Editing the first property with valid index and valid fields
+    1. **Test case**: `findprop Sky`
+    2. **Expected**: Property List should be filtered to contain only property that start with the "Sky" substring in their name. (e.g. Skyvista, The Skyrim, Sky View) It should be case-insensitive. "x properties listed" should be displayed, where x refers to the number of properties in the new filtered list.
+2. Attempting to find a property with no substring
+    1. **Test case**: `findprop`
+    2. **Expected**: Command is highlighted red and error message will be displayed.
+
+
+    
 [//]: # (### B.3 Deleting a customer)
 
 [//]: # ()
