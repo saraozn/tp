@@ -229,6 +229,8 @@ Format: `addcust n/NAME p/PHONE e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​`
 **:information_source: Note:**<br>
 
 * `NAME` can be written with alphabets, numbers and spaces but cannot start with a space.
+* Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
+
 </div>
 
 Examples:
@@ -275,6 +277,7 @@ Format: `addprop n/NAME a/ADDRESS p/PHONE_NUMBER pr/PRICE [c/CHARACTERISTIC]…�
 **:information_source: Note:**<br>
 
 * `NAME` can be alphanumeric with symbols but cannot start with a space.
+* Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
 </div>
 
 Examples:
@@ -392,6 +395,8 @@ Examples:
 
 * To ensure that your customer list remains neat, PropertyMatch will warn you when you try to edit your customer to have the same **phone number** as an existing customer.
 * Only the phone number is used to differentiate between customers. i.e. Other [parameters](#glossary) can be edited to be the same as other customers.
+* Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
+
 </div>
 
 <div markdown="block" class="alert alert-warning">
@@ -426,6 +431,8 @@ Examples:
 **:information_source: Note:**<br>
 * To ensure that your property list remains neat, PropertyMatch will warn you when you try to edit your property to have the same **address** as an existing property.
 * Only the address is used to differentiate between properties. i.e. Other [parameters](#glossary) can be edited to be the same as other properties.
+* Duplicate `CHARACTERISTICS` will be omitted, i.e. inputting `c/bright` and `c/BRIGHT` returns 1 `bright` tag.
+
 </div>
 
 <div markdown="block" class="alert alert-warning">
