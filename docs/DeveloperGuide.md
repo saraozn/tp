@@ -786,7 +786,7 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `editcust 1`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.8 Editing a property
+### B.9 Editing a property
 
 **Prerequisite**: Property List should have at least 1 property record.
 
@@ -800,7 +800,7 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `editprop 1`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.9 Finding customers
+### B.10 Finding customers
 
 **Prerequisite**: A customer that has 'Tim' in his name must exist in the customer list.
 
@@ -811,7 +811,7 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `findcust`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.10 Finding properties
+### B.11 Finding properties
 
 **Prerequisite**: A property that has 'Sky' in his name must exist in the property list.
 
@@ -822,29 +822,29 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `findprop`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.11 Filtering customers
+### B.12 Filtering customers
 
-**Prerequisite**: A customer that has a budget of 100,000 and has 'big' in his characteristics must exist in the customer list.
+**Prerequisite**: A customer that has a budget of 100,000 and has 'bright' in his characteristics must exist in the customer list.
 
 1. Filter customers with valid budget and characteristics
-    1. **Test case**: `filtercust b/100000 c/big`
-    2. **Expected**: Customer List should be filtered to contain only customers that have budgets of at least 100000 or more and has at least one tag named "big".
+    1. **Test case**: `filtercust b/100000 c/bright`
+    2. **Expected**: Customer List should be filtered to contain only customers that have budgets of at least 100000 or more and has at least one tag named "bright".
 2. Invalid filter formats
     1. **Test case**: `filtercust`, `filtercust 1`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.12 Filtering properties
+### B.13 Filtering properties
 
-**Prerequisite**: A property that has a price of 100,000 and has 'big' in his characteristics must exist in the price list.
+**Prerequisite**: A property that has a price of 500,000 and has 'big' in his characteristics must exist in the price list.
 
 1. Filter properties with valid price and characteristics
-    1. **Test case**: `filterprop pr/100000 c/big`
-    2. **Expected**: Property List should be filtered to contain only properties that have prices of 100000 or less and has at least one tag named "big".
+    1. **Test case**: `filterprop pr/500000 c/big`
+    2. **Expected**: Property List should be filtered to contain only properties that have prices of 500000 or less and has at least one tag named "big".
 2. Invalid filter formats
     1. **Test case**: `filterprop`, `filterprop 1`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.13 Matching properties to a customer
+### B.14 Matching properties to a customer
 
 **Prerequisite**: At least 1 customer record.
 
@@ -852,10 +852,10 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `matchcust 1`
     2. **Expected**: Properties with prices less than or equal to the budget of customer 1 will be shown. If the customer has existing tags, only properties with at least 1 matching tag will be shown. If the customer has no tag, only the budget requirement needs to be met.
 2. Invalid match formats
-    1. **Test case**: `matchcust`, `matchcust 1`
+    1. **Test case**: `matchcust`, `matchcust 0`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.14 Matching customers to a property
+### B.15 Matching customers to a property
 
 **Prerequisite**: At least 1 property record.
 
@@ -863,10 +863,10 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `matchprop 1`
     2. **Expected**: Customers with budgets more than or equal to the price of property 1 will be shown. If the property has existing tags, only customers with at least 1 matching tag will be shown. If the property has no tag, only the price requirement needs to be met.
 2. Invalid match formats
-    1. **Test case**: `matchprop`, `matchprop 1`
+    1. **Test case**: `matchprop`, `matchprop 0`
     2. **Expected**: Command is highlighted red and error message will be displayed.
 
-### B.15 Clearing the application
+### B.16 Clearing the application
 
 1. All data should be cleared
     1. **Test case**: `clear`
@@ -875,7 +875,7 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `clear 123`, `clear hello`
     2. **Expected**: All data from customer list and property list should be cleared.
 
-### B.16 Viewing help
+### B.17 Viewing help
 
 1. Help window should be cleared
     1. **Test case**: `help`
@@ -884,7 +884,7 @@ testers are expected to do more *exploratory* testing.
     1. **Test case**: `help 123`, `help hello`
     2. **Expected**: Window containing PropertyMatch's user guide should be shown.
 
-### B.16 Exiting the application
+### B.18 Exiting the application
 
 1. Application should exit after 3 seconds
     1. **Test case**: `exit`
@@ -920,7 +920,7 @@ Some of our current error messages can be quite vague. As a user, this can be ha
 ### C.3 Importing client data
 
 #### C.3.1 Motivation:
-We realise that many property agents already have existing customers and properties. They may not want to manually enter all the data into the application. This feature will allow them to import their existing data into the application, saving them time and resource.
+We realise that many property agents already have existing customers and properties. They may not want to manually enter all the data into the application. This feature will allow them to import their existing data into the application, saving them time and resources.
 
 #### C.3.2 Implementation:
 1. Add an `Import` button to the menu bar.
@@ -931,22 +931,35 @@ We realise that many property agents already have existing customers and propert
 6. Provide clear feedback to the user about success/failure (success message or error message).
 7. Implement error handling, logging, and security measures.
 
-### C.4 Ability to filter data less strictly
+### C.4 Exporting client data
 
 #### C.4.1 Motivation:
-Right now, the `filter` commands require all characteristics to match the customer's or property's characteristics. This is too strict, and may not be useful for the property agent. This feature will allow the property agent to filter customers or properties based on a subset of characteristics.
+We realise that many property agents may want to export their existing data in PropertyMatch to other platforms. This feature will allow them to easily export their data into other platforms to perform other functions (such as data analysis) not supported on PropertyMatch.
 
 #### C.4.2 Implementation:
+1. Add an `Export` button to the menu bar.
+2. Create a file selection mechanism in which the user can import data from CSV files.
+3. Convert the data in the json files to CSV file.
+4. Allow the user to name the CSV file.
+5. Provide clear feedback to the user about success/failure (success message or error message).
+6. Implement error handling, logging, and security measures.
+
+### C.5 Ability to filter data less strictly
+
+#### C.5.1 Motivation:
+Right now, the `filter` commands require all characteristics to match the customer's or property's characteristics. This is too strict, and may not be useful for the property agent. This feature will allow the property agent to filter customers or properties based on a subset of characteristics.
+
+#### C.5.2 Implementation:
 1. Allow `filter` commands to take in an extra parameter called `loose`.
 2. Add code to filter customers/properties that only match one of the criteria.
 3. Implement error handling and logging.
 
-### C.5 Budget for customer should be a range
+### C.6 Budget for customer should be a range
 
-#### C.5.1 Motivation:
+#### C.6.1 Motivation:
 Customers should be able to indicate their budget as a range instead of a set number. This is because customers may not have a fixed budget, and may be willing to pay more or less for a property.
 
-#### C.5.2 Implementation:
+#### C.6.2 Implementation:
 1. Add code in `Budget` to have a range of values.
 2. Add test cases to verify that `find`, `filter`, `match` still works with a budget range.
 3. Implement error handling and logging.
