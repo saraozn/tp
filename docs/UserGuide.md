@@ -242,7 +242,7 @@ Format: `addcust n/NAME p/PHONE_NUMBER e/EMAIL b/BUDGET [c/CHARACTERISTIC]…​
 **:information_source: Note:**<br>
 
 * `NAME` can be written with alphabets, numbers and spaces.
-* If `NAME` starts with spaces, the starting spaces will not be registered. 
+* If `NAME` starts with spaces, the starting spaces will not be registered.
 * Duplicate `CHARACTERISTICS` will be omitted, e.g. entering `c/bright c/BRIGHT` will only record 1 `bright` characteristic.
 
 </div>
@@ -413,7 +413,7 @@ The result will be similar to [deleting customers](#deleting-a-customer-delcust)
 
 **:exclamation: Caution:**<br>
 
-* Remember to use the `listcust` or `listprop` command before using any commands that require a `INDEX`! If not, the `INDEX` will be with respect to whatever is on the screen at the time of command input. 
+* Remember to use the `listcust` or `listprop` command before using any commands that require a `INDEX`! If not, the `INDEX` will be with respect to whatever is on the screen at the time of command input.
 * This applies to [Edit Commands](#edit-commands) and [Match Commands](#match-commands) as well.
 
 </div>
