@@ -635,7 +635,7 @@ System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent identifies the specific criteria of properties or customer wants.
+1. Property agent identifies the specific criteria of properties or customer he wants.
 2. Property agent enters the criteria he wants.
 3. Property agent views the entity with that fulfills his criteria.
 Use case ends.
