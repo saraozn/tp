@@ -40,7 +40,7 @@ Given below are my contributions to the project.
         * Flexible Substring Matching: It allows for substring matching at any position within the property's name, offering flexibility in identifying properties with diverse name structures.
 
 
-* **Code contributed**: [RepoSense link] (https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=nicolengk&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code&since=2023-09-22)
+* **Code contributed**: [RepoSense link](https://nus-cs2103-ay2324s1.github.io/tp-dashboard/?search=nicolengk&sort=groupTitle&sortWithin=title&timeframe=commit&mergegroup=&groupSelect=groupByRepos&breakdown=true&checkedFileTypes=docs~functional-code~test-code&since=2023-09-22)
 
 * **Contributions to the UG**
   * Added `findcust` and `findprop` description [#101](https://github.com/AY2324S1-CS2103T-W11-2/tp/pull/101)
