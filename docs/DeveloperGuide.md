@@ -482,70 +482,38 @@ delay.play();
 
 **Target user profile**:
 
-Customer-property management tool for property agents new to the real estate industry in Singapore
+- Property agents new to the real estate industry in Singapore
+- Looking for a customer-property management tool
 
 **Value proposition**:
-
-2 entities:
-
-1. Customer:
-    * Create :
-      * Can add the types of property customer is looking for
-    * Read :
-      * Can check the types of property customer is looking for
-    * Update :
-      * Can update the types of property customer is looking for
-    * Delete :
-      * Delete client profile
-    * Find :
-      * Match customer to property
-    * Filter
-      * Filter customers based on budget and characteristics
-    * Match
-      * Match customers to appropriate properties
-2. Property
-   * Create :
-     * Can add features of the property available (big, high-storey)
-   * Read :
-     * Can check features of the property available (big, high-storey)
-   * Update :
-     * Can update features of the property available (big, high-storey)
-   * Delete :
-     * Can remove features of the property available (big, high-storey)
-     * Can remove properties
-   * Find :
-     * Can find properties available based on name
-   * Filter
-     * Filter properties based on price and characteristics
-   * Match
-     * Match properties to appropriate customers
-
+This tool is for property agents who want to organise their client profiles with their corresponding properties. Property agents can boost their efficiency by seamlessly matching their clients with their desired properties.
 
 
 ### A.2 User stories
 
 Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unlikely to have) - `*`
 
-| Priority | As a …​                                                | I want to …​                                        | So that I can…​                                                               |
-|----------|--------------------------------------------------------|-----------------------------------------------------|-------------------------------------------------------------------------------|
-| `* * *`  | user                                                   | add a new customer's profile                        | add new customer to the application                                           |
-| `* * *`  | user                                                   | add a new property and the details of it            | add newly available property to the application                               |
-| `* * *`  | user                                                   | see all customers                                   | access all my customers                                                       |
-| `* * *`  | user                                                   | see all properties                                  | access all available properties                                               |
-| `* * *`  | user                                                   | remove existing customers                           | remove customer who is either not interested anymore or has bought a property |
-| `* * *`  | user                                                   | remove existing properties                          | remove property which is either already sold or not sold anymore              |
-| `* *`    | user                                                   | update customers' details                           | ensure customers' information is up to date                                   |
-| `* *`    | user                                                   | update properties' details                          | ensure properties' information is up to date                                  |
-| `* *`    | user with a lot of customers                           | find customers based on customers' details          | access specific customers with the detail                                     |
-| `* *`    | user with a lot of properties                          | find properties based on properties' details        | access specific properties with the detail                                    |
-| `* *`    | user with a lot of customers                           | filter customers based on customers' details        | get a list of specific customers with the detail                              |
-| `* *`    | user with a lot of properties                          | filter properties based on properties' details      | get a list of specific properties with the detail                             |
-| `* *`    | user with a lot of customers                           | get properties based on customers' details          | get a list of specific properties with the detail satisfy the customer        |
-| `* *`    | user with a lot of properties                          | get customers based on properties' details          | get a list of specific customers with the detail satisfy the property         |
-| `*`      | user                                                   | add notes to customers' profiles                    | streamline customer management profile                                        |
-| `*`      | user                                                   | add notes to properties' profiles                   | streamline customer property profile                                          |
-| `*`      | experienced user using the application with new device | import and export customers' data                   | transfer customers' data across devices                                       |
-| `*`      | experienced user using the application with new device | import and export properties' data                  | transfer properties' data across devices                                      |
+| Priority | As a …​                                                          | I want to …​                                                             | So that I can…​                                                               |
+|----------|------------------------------------------------------------------|--------------------------------------------------------------------------|-------------------------------------------------------------------------------|
+| `* * *`  | property agent                                                   | add a new customer's details                                             | save their details in PropertyMatch                                           |
+| `* * *`  | property agent                                                   | add a new property's details                                             | save their details in PropertyMatch                                           |
+| `* * *`  | property agent                                                   | view all customers                                                       | easily access all my customers                                                |
+| `* * *`  | property agent                                                   | view all properties                                                      | easily access all available properties                                        |
+| `* * *`  | property agent                                                   | remove existing customers                                                | remove customer who is either not interested anymore or has bought a property |
+| `* * *`  | property agent                                                   | remove existing properties                                               | remove property which is either already sold or not sold anymore              |
+| `* * *`  | property agent                                                   | read the user guide                                                      | learn to use the application                                                  |
+| `* *`    | property agent                                                   | update customers' details                                                | ensure customers' information is up to date                                   |
+| `* *`    | property agent                                                   | update properties' details                                               | ensure properties' information is up to date                                  |
+| `* *`    | property agent with a lot of customers                           | find customers based on customers' names                                 | get a list of customers I am looking for                                      |
+| `* *`    | property agent with a lot of properties                          | find properties based on properties' names                               | get a list of properties I am looking for                                     |
+| `* *`    | property agent with a lot of customers                           | filter customers based on customers' budget or required characteristics  | understand specific needs of my customers                                     |
+| `* *`    | property agent with a lot of properties                          | filter properties based on properties' price or required characteristics | understand the specific traits of my properties                               |
+| `* *`    | property agent with a lot of customers                           | match a customer with suitable existing properties                       | get a list of specific properties with the detail satisfy the customer        |
+| `* *`    | property agent with a lot of properties                          | match a property with suitable existing customers                        | get a list of specific customers with the detail satisfy the property         |
+| `*`      | property agent                                                   | add notes to customers' profiles                                         | streamline customer management profile                                        |
+| `*`      | property agent                                                   | add notes to properties' profiles                                        | streamline customer property profile                                          |
+| `*`      | experienced property agent using the application with new device | import and export customers' data                                        | transfer customers' data across devices                                       |
+| `*`      | experienced property agent using the application with new device | import and export properties' data                                       | transfer properties' data across devices                                      |
 
 
 ### A.3 Use cases
