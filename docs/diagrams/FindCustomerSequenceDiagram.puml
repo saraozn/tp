@@ -16,11 +16,11 @@ end box
 [-> LogicManager : execute("findcust Jack")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("findcust Jack")
+LogicManager -> AddressBookParser : parse("findcust Jack")
 activate AddressBookParser
 
 create FindCustomerCommandParser
-AddressBookParser -> FindCustomerCommandParser : new FindCustomerCommandParser()
+AddressBookParser -> FindCustomerCommandParser :
 activate FindCustomerCommandParser
 
 FindCustomerCommandParser --> AddressBookParser
@@ -30,7 +30,7 @@ AddressBookParser -> FindCustomerCommandParser : parse("Jack")
 activate FindCustomerCommandParser
 
 create FindCustomerCommand
-FindCustomerCommandParser -> FindCustomerCommand : new FindCustomerCommand(predicate)
+FindCustomerCommandParser -> FindCustomerCommand :
 activate FindCustomerCommand
 
 FindCustomerCommand --> FindCustomerCommandParser : command
@@ -48,10 +48,10 @@ deactivate AddressBookParser
 LogicManager -> FindCustomerCommand : execute()
 activate FindCustomerCommand
 
-FindCustomerCommand -> Model : updateFilteredCustomerList(predicate)
+FindCustomerCommand -> Model : updateCustList(predicate)
 
 create CommandResult
-FindCustomerCommand -> CommandResult : new CommandResult(num + "customers listed!")
+FindCustomerCommand -> CommandResult :
 activate CommandResult
 
 CommandResult --> FindCustomerCommand

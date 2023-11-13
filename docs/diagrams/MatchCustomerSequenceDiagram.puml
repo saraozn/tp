@@ -16,11 +16,11 @@ end box
 [-> LogicManager : execute("matchcust 1")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("matchcust 1")
+LogicManager -> AddressBookParser : parse("matchcust 1")
 activate AddressBookParser
 
 create MatchCustomerCommandParser
-AddressBookParser -> MatchCustomerCommandParser : new MatchCustomerCommandParser("1")
+AddressBookParser -> MatchCustomerCommandParser :
 activate MatchCustomerCommandParser
 
 MatchCustomerCommandParser --> AddressBookParser
@@ -30,7 +30,7 @@ AddressBookParser -> MatchCustomerCommandParser : parse("1")
 activate MatchCustomerCommandParser
 
 create MatchCustomerCommand
-MatchCustomerCommandParser -> MatchCustomerCommand : new MatchCustomerCommand(1, MatchCustomerDescriptor)
+MatchCustomerCommandParser -> MatchCustomerCommand :
 activate MatchCustomerCommand
 
 MatchCustomerCommand --> MatchCustomerCommandParser : command
@@ -48,12 +48,12 @@ deactivate AddressBookParser
 LogicManager -> MatchCustomerCommand : execute()
 activate MatchCustomerCommand
 
-MatchCustomerCommand -> Model : updateFilteredCustomersList()
+MatchCustomerCommand -> Model : updateCustList()
 
-MatchCustomerCommand -> Model : updateFilteredPropertiesList(PREDICATE_SHOW_ALL_Properties)
+MatchCustomerCommand -> Model : updatePropList(ALL_PROPS)
 
 create CommandResult
-MatchCustomerCommand -> CommandResult : new CommandResult(MatchedCustomer + "Matched with properties " + matchedProperties)
+MatchCustomerCommand -> CommandResult :
 activate CommandResult
 
 CommandResult --> MatchCustomerCommand
