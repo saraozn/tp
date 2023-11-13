@@ -16,7 +16,7 @@ end box
 [-> LogicManager : execute("editprop 1 n/Skyview")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("editprop 1 n/Skyview")
+LogicManager -> AddressBookParser : parse("editprop 1 n/Skyview")
 activate AddressBookParser
 
 create EditPropertyCommandParser
@@ -48,17 +48,17 @@ deactivate AddressBookParser
 LogicManager -> EditPropertyCommand : execute()
 activate EditPropertyCommand
 
-EditPropertyCommand -> EditPropertyCommand : createEditedProperty(propertyToEdit, editPropertyDescriptor)
+EditPropertyCommand -> EditPropertyCommand : create(propertyToEdit, descriptor)
 activate EditPropertyCommand
 EditPropertyCommand --> EditPropertyCommand : editedProperty
 deactivate EditPropertyCommand
 
-EditPropertyCommand -> Model : setProperty(PropertyToEdit, editedProperty)
+EditPropertyCommand -> Model : setProp(prop, editedProp)
 
-EditPropertyCommand -> Model : updateFilteredPropertyList(PREDICATE_SHOW_ALL_PROPERTIES)
+EditPropertyCommand -> Model : updateFilteredPropertyList(ALL_PROPS)
 
 create CommandResult
-EditPropertyCommand -> CommandResult : new CommandResult("Edited property: " + editedProperty)
+EditPropertyCommand -> CommandResult :
 activate CommandResult
 
 CommandResult --> EditPropertyCommand

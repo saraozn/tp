@@ -16,7 +16,7 @@ end box
 [-> LogicManager : execute("editcust 1 n/Janet")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("edistcust 1 n/Janet")
+LogicManager -> AddressBookParser : parse("edistcust 1 n/Janet")
 activate AddressBookParser
 
 create EditCustomerCommandParser
@@ -48,14 +48,14 @@ deactivate AddressBookParser
 LogicManager -> EditCustomerCommand : execute()
 activate EditCustomerCommand
 
-EditCustomerCommand -> EditCustomerCommand : createEditedCustomer(customerToEdit, editCustomerDescriptor)
+EditCustomerCommand -> EditCustomerCommand : create(customerToEdit, descriptor)
 activate EditCustomerCommand
 EditCustomerCommand --> EditCustomerCommand : editedCustomer
 deactivate EditCustomerCommand
 
-EditCustomerCommand -> Model : setCustomer(CustomerToEdit, editedCustomer)
+EditCustomerCommand -> Model : setCustomer(customerToEdit, editedCustomer)
 
-EditCustomerCommand -> Model : updateFilteredCustomerList(PREDICATE_SHOW_ALL_CUSTOMERS)
+EditCustomerCommand -> Model : updateFilteredCustomerList(ALL_CUST)
 
 create CommandResult
 EditCustomerCommand -> CommandResult :
