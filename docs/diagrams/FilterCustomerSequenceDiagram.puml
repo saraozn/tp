@@ -5,6 +5,8 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":FilterCustomerCommandParser" as FilterCustomerCommandParser LOGIC_COLOR
+participant ":Budget" as Budget LOGIC_COLOR
+participant ":Tag" as Tag LOGIC_COLOR
 participant "descriptor:FilterCustomerDescriptor" as FilterCustomerDescriptor LOGIC_COLOR
 participant ":BudgetAndTagsInRangePredicate" as BudgetAndTagsInRangePredicate LOGIC_COLOR
 participant "command:FilterCustomerCommand" as FilterCustomerCommand LOGIC_COLOR
@@ -18,11 +20,11 @@ end box
 [-> LogicManager : execute("filtercust b/100000 c/pink")
 activate LogicManager
 
-LogicManager -> AddressBookParser : parseCommand("filtercust b/100000 c/pink")
+LogicManager -> AddressBookParser : parse("filtercust b/100000 c/pink")
 activate AddressBookParser
 
 create FilterCustomerCommandParser
-AddressBookParser -> FilterCustomerCommandParser : new FilterCustomerCommandParser("b/100000 c/pink")
+AddressBookParser -> FilterCustomerCommandParser :
 activate FilterCustomerCommandParser
 
 FilterCustomerCommandParser --> AddressBookParser
@@ -32,15 +34,29 @@ AddressBookParser -> FilterCustomerCommandParser : parse("b/100000 c/pink")
 activate FilterCustomerCommandParser
 
 create FilterCustomerDescriptor
-FilterCustomerCommandParser -> FilterCustomerDescriptor: new FilterCustomerDescriptor
+FilterCustomerCommandParser -> FilterCustomerDescriptor:
 activate FilterCustomerDescriptor
 
 FilterCustomerDescriptor --> FilterCustomerCommandParser: descriptor
 deactivate FilterCustomerDescriptor
 
+create Budget
+FilterCustomerCommandParser -> Budget:
+activate Budget
+
+Budget --> FilterCustomerCommandParser: budget
+deactivate Budget
+
 FilterCustomerCommandParser -> FilterCustomerDescriptor: setBudget(budget)
 activate FilterCustomerDescriptor
 deactivate FilterCustomerDescriptor
+
+create Tag
+FilterCustomerCommandParser -> Tag:
+activate Tag
+
+Tag --> FilterCustomerCommandParser: tag
+deactivate Tag
 
 FilterCustomerCommandParser -> FilterCustomerDescriptor: setTags(tags)
 activate FilterCustomerDescriptor
@@ -50,7 +66,7 @@ FilterCustomerCommandParser -> FilterCustomerDescriptor: getPredicate()
 activate FilterCustomerDescriptor
 
 create BudgetAndTagsInRangePredicate
-FilterCustomerDescriptor -> BudgetAndTagsInRangePredicate: new BudgetAndTagsInRangePredicate(budget, tags)
+FilterCustomerDescriptor -> BudgetAndTagsInRangePredicate:
 activate BudgetAndTagsInRangePredicate
 
 BudgetAndTagsInRangePredicate --> FilterCustomerDescriptor: budgetAndTagsInRangePredicate
@@ -60,7 +76,7 @@ FilterCustomerDescriptor --> FilterCustomerCommandParser: budgetAndTagsInRangePr
 deactivate FilterCustomerDescriptor
 
 create FilterCustomerCommand
-FilterCustomerCommandParser -> FilterCustomerCommand : new FilterCustomerCommand(budgetAndTagsInRangePredicate)
+FilterCustomerCommandParser -> FilterCustomerCommand :
 activate FilterCustomerCommand
 
 FilterCustomerCommand --> FilterCustomerCommandParser : command
@@ -78,10 +94,10 @@ deactivate AddressBookParser
 LogicManager -> FilterCustomerCommand : execute()
 activate FilterCustomerCommand
 
-FilterCustomerCommand -> Model : updateFilteredCustomerList(budgetAndTagsInRangePredicate)
+FilterCustomerCommand -> Model : updateCustList(budgetAndTagsInRangePredicate)
 
 create CommandResult
-FilterCustomerCommand -> CommandResult : new CommandResult(numberOfFilteredCustomer + " customers listed!")
+FilterCustomerCommand -> CommandResult :
 activate CommandResult
 
 CommandResult --> FilterCustomerCommand
