@@ -742,7 +742,7 @@ PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data
 **A**: Refer to the [features](#features) section of our guide for command information and syntax. Make sure that you have supplied all necessary inputs for the command and specified the flags in a correct manner.
 
 **Q**: Why is PropertyMatch not displaying all customers/properties in the [database](#glossary)?<br>
-**A**:  It's possible that the application may not show all customers/properties all the time due to specific commands like [filtering](#filter-commands), [finding](#finding-commands), or [matching](#match-commands) that have been executed. If you're encountering this issue, consider using the [list commands](#list-commands) to ensure you're viewing the complete list.
+**A**:  It's possible that the application may not show all customers/properties all the time due to specific commands like [filtering](#filter-commands), [finding](#find-commands), or [matching](#match-commands) that have been executed. If you're encountering this issue, consider using the [list commands](#list-commands) to ensure you're viewing the complete list.
 
 **Q**: I don’t understand some terms used in the guide…<br>
 **A**: Please check out the [glossary](#glossary) and see if the term that you are confused about is documented there!
