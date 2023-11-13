@@ -518,43 +518,67 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 ### A.3 Use cases
 
-**Use Case: UC01 - Add property**
+**Use Case: UC01 - Add customer**
 
 System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent fills in name, address, characteristics (tags), number, budget of property
+1. Property agent fills in name, phone number, email, budget and desired characteristic (tags).
+2. Property agent adds customer to address book.
+Use case ends.
+
+Extension:
+1a. PropertyMatch detects an error in the entered command.
+    1a1. User edits the command.
+    Step 1a1 is repeated until the command entered is correct.
+
+**Use Case: UC02 - Add property**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent fills in name, address, characteristics (tags), phone number, budget of property
 2. Property agent adds property to address book
+Use case ends.
 
-**Use Case: UC02 - Add customer**
+Extension:
+1a. PropertyMatch detects an error in the entered command.
+    1a1. User edits the command.
+    Step 1a1 is repeated until the command entered is correct.
 
-System: PropertyMatch address book
-
-Actor: Property Agent
-
-1. Property agent fills in name, phone number, email, budget and desired characteristic (tags)
-2. Property agent adds customer to address book
-
-**Use Case: UC03 - Delete property**
+**Use Case: UC03 - Delete customer**
 
 System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent identifies the property to be deleted and retrieves its index
-2. Property agent inserts the index into the CLI
-3. Property agent deletes the property details from the address book
+1. Property agent identifies the customer to be deleted and retrieves its index.
+2. Property agent inserts the index into the CLI.
+3. Property agent deletes the customer details from the address book.
+Use case ends.
 
-**Use Case: UC04 - Delete customer**
+Extension:
+2a. PropertyMatch detects an invalid index.
+    2a1. User edits the index.
+    Step 2a1 is repeated until the index entered is correct.
+
+**Use Case: UC04 - Delete property**
 
 System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent identifies the customer to be deleted and retrieves its index
-2. Property agent inserts the index into the CLI
-3. Property agent deletes the customer details from the address book
+1. Property agent identifies the property to be deleted and retrieves its index.
+2. Property agent inserts the index into the CLI.
+3. Property agent deletes the property details from the address book.
+Use case ends.
+
+Extension:
+2a. PropertyMatch detects an invalid index.
+    2a1. User edits the index.
+    Step 2a1 is repeated until the index entered is correct.
 
 **Use Case: UC05 - List all entities**
 
@@ -562,9 +586,15 @@ System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent decides to list either properties or customers
-2. Property agent inserts `listprop` or `listcust` in CLI
-3. Property agent is able to view all entities
+1. Property agent decides to list either properties or customers.
+2. Property agent inputs the command.
+3. Property agent is able to view all entities.
+Use case ends.
+
+Extension:
+2a. PropertyMatch detects an error in the entered command.
+    2a1. User edits the command.
+    Step 2a1 is repeated until the command entered is correct.
 
 **Use Case: UC06 - Edit entities**
 
@@ -572,50 +602,90 @@ System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent decides to edit either properties or customers
-2. Property agent identifies the property or customer to be deleted and retrieves its index
-3. Property agent edits entity’s respective fields
-4. Property agent is able to edit the entities details in the address book
+1. Property agent decides to edit either properties or customers.
+2. Property agent identifies the property or customer to be deleted and retrieves its index.
+3. Property agent edits entity’s respective fields.
+4. Property agent is able to edit the entities details in the address book.
+Use case ends.
 
-**Use Case: UC07 - Match properties to customers**
+Extension:
+3a. PropertyMatch detects an error in the entered command.
+    3a1. User edits the command.
+    Step 3a1 is repeated until the command entered is correct.
 
-System: PropertyMatch address book
-
-Actor: Property Agent
-
-1. Property agent identifies the characteristics of properties that customers want
-2. Property agent enters the characteristics of the properties into the CLI
-3. Property agent views the properties that adheres to the conditions given
-
-**Use Case: UC08 - Match customers to properties**
+**Use Case: UC07 - Find specific entity**
 
 System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent identifies the characteristics the customers want that belong to properties
-2. Property agent enters the characteristics of the customers into the CLI
-3. Property agent views the customers that adheres to the conditions given
+1. Property agent identifies the specific entity he wants.
+2. Property agent enters the entity name he wants.
+3. Property agent views the entity.
+Use case ends.
 
-**Use Case: UC09 - Find specific entity**
+Extension:
+2a. PropertyMatch detects an invalid name entered.
+    2a1. User edits the inputted name.
+    Step 2a1 is repeated until a valid name is entered.
 
-System: PropertyMatch address book
-
-Actor: Property Agent
-
-1. Property agent identifies the specific entity he wants
-2. Property agent enters the entity index he wants
-3. Property agent views the entity
-
-**Use Case: UC10 - Import and export data**
+**Use Case: UC08 - Filter properties or customer**
 
 System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent can import data from another application to the existing application
-2. Property agent can export data from the application and save the data
+1. Property agent identifies the specific criteria of properties or customerhe wants.
+2. Property agent enters the criteria he wants.
+3. Property agent views the entity with that fulfills his criteria.
+Use case ends.
 
+Extension:
+2a. PropertyMatch detects an error with the criteria entered.
+    2a1. User edits the inputted criteria.
+    Step 2a1 is repeated until a valid criteria is entered.
+
+**Use Case: UC09 - Match properties to customers**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent identifies the customer to be matched to its corresponding properties.
+2. Property agent inserts the index into the CLI.
+3. Property agent gets a list of properties that matches the criteria of the customer.
+Use case ends.
+
+Extension:
+2a. PropertyMatch detects an invalid index.
+    2a1. User edits the index.
+    Step 2a1 is repeated until the index entered is correct.
+
+**Use Case: UC10 - Match customers to properties**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent identifies the property to be matched to its corresponding customer.
+2. Property agent inserts the index into the CLI.
+3. Property agent gets a list of customers with criteria is fulfilled by the property.
+Use case ends.
+
+Extension:
+2a. PropertyMatch detects an invalid index.
+    2a1. User edits the index.
+    Step 2a1 is repeated until the index entered is correct.
+
+**Use Case: UC11 - Import and export data**
+
+System: PropertyMatch address book
+
+Actor: Property Agent
+
+1. Property agent can import data from another application to the existing application.
+2. Property agent can export data from the application and save the data.
+Use case ends.
 
 ### A.4 Non-Functional Requirements
 
