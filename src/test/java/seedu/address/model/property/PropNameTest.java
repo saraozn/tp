@@ -29,6 +29,8 @@ public class PropNameTest {
         assertFalse(PropName.isValidName(" ")); // spaces only
         assertFalse(PropName.isValidName(" Hello")); // start with space
         assertFalse(PropName.isValidName("Hello a/")); // with slash
+        assertFalse(PropName.isValidName("/")); // with slash
+        assertFalse(PropName.isValidName("/abc")); // with slash
 
         // valid name
         assertTrue(PropName.isValidName("^")); // only non-alphanumeric characters

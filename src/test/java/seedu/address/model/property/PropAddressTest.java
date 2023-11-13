@@ -28,6 +28,8 @@ public class PropAddressTest {
         assertFalse(PropAddress.isValidAddress("")); // empty string
         assertFalse(PropAddress.isValidAddress(" ")); // spaces only
         assertFalse(PropAddress.isValidAddress("J/den")); // addresses with /
+        assertFalse(PropName.isValidName("/")); // with slash
+        assertFalse(PropName.isValidName("/abc")); // with slash
 
         // valid property addresses
         assertTrue(PropAddress.isValidAddress("Blk 456, Den Road, #01-355"));
