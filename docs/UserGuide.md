@@ -528,7 +528,7 @@ Finds and returns a property or a list of properties, from all your properties w
 Format: `findprop NAME`
 
 * The `NAME` must be in the same language as the name, i.e English.
-* The `NAME` should only contain the relevant alphabets, numbers or symbols.
+* The `NAME` should only contain the relevant alphabets, numbers or symbols (excluding slashes).
 
 Examples:
 * `listprop` followed by `findprop F` finds and returns the properties with names that begin with "F" in the property list, such as `Fernvale Square` or `Dairy Farm`.
