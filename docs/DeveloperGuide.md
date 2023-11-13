@@ -67,7 +67,7 @@ The bulk of the app's work is done by the following four components:
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delcust 1`.
 
 <img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
@@ -689,19 +689,15 @@ Use case ends.
 
 ### A.4 Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 properties and clients without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-4.  The system should respond within two seconds.
-5.  The product is offered as a free application.
-6.  The user interface should be intuitive enough for property agents who are not IT-savvy.
-7.  Should work on any computer fewer than five years old.
-8.  Should work without requiring an installer.
-9.  Should not require access to an internet connection.
-10. Should save data locally in a human editable file.
-11. Should have a graphical user interface with readable font of at least size 11.
-12. Should have a graphical user interface which is intuitive and user-friendly.
-13. Should not require user to have any prior technical knowledge or expertise.
+1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
+2. Should be able to hold up to 1000 properties and clients without a noticeable sluggishness in performance for typical usage.
+3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4. The system should respond to user inputs within 5 seconds.
+5. The user interface should be intuitive enough for property agents who are not IT-savvy.
+6. App functionality should not require access to an internet connection.
+7. Should save data locally in a human editable file.
+8. Should have a graphical user interface with readable font of at least size 11.
+9. Should have a graphical user interface which is intuitive and user-friendly.
 
 ### A.5 Glossary
 
