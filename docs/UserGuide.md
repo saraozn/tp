@@ -201,8 +201,9 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
   e.g. in `addcust n/NAME`<br>
   * `addcust` is the command name. In this case, this command adds a customer.
   * `n/` is a prefix indicating that there is a `NAME` to be supplied.
-  * `NAME` is a parameter which can be used as `add n/John Doe`.
+  * `NAME` is a parameter which can be used as `add n/John Doe`.<br>
   This command adds John Doe as a customer to the app.
+
 
 * Items in square brackets are optional.<br>
   e.g `n/NAME [c/CHARACTERISTIC]` can be used as `n/Tim Cook c/smart`(with `CHARACTERISTIC`) or as `n/John Doe` (without `CHARACTERISTIC`).
@@ -313,7 +314,7 @@ Examples:
 
 </div>
 
-You should get a result similar to [adding customers](#adding-a-customer--addcust) when the property is successfully added!
+You should get a result similar to [adding customers](#adding-a-customer-addcust) when the property is successfully added!
 
 ### List Commands
 [Back to Table of Contents](#table-of-contents)
@@ -406,13 +407,13 @@ Format: `delprop INDEX`
 Examples:
 * `listprop` followed by `delprop 2` deletes the 2nd property in the displayed property list.
 
-The result will be similar to [deleting customers](#deleting-a-customer--delcust) when the property is successfully deleted!
+The result will be similar to [deleting customers](#deleting-a-customer-delcust) when the property is successfully deleted!
 
 <div markdown="block" class="alert alert-danger">
 
 **:exclamation: Caution:**<br>
 
-* Remember to use the `listcust` or `listprop` command before using any commands that require a `INDEX` parameter! If not, the `INDEX` will be with respect to whatever is on the screen at the time of command input. 
+* Remember to use the `listcust` or `listprop` command before using any commands that require a `INDEX`! If not, the `INDEX` will be with respect to whatever is on the screen at the time of command input. 
 * This applies to [Edit Commands](#edit-commands) and [Match Commands](#match-commands) as well.
 
 </div>
@@ -494,7 +495,7 @@ Examples:
 
 </div>
 
-Successfully editing your property would produce a similar result as [editing a customer](#editing-a-customer--editcust)!
+Successfully editing your property would produce a similar result as [editing a customer](#editing-a-customer-editcust)!
 
 ### Find Commands
 [Back to Table of Contents](#table-of-contents)
@@ -528,13 +529,13 @@ Finds and returns a property or a list of properties, from all your properties w
 Format: `findprop NAME`
 
 * The `NAME` must be in the same language as the name, i.e English.
-* The `NAME` should only contain the relevant alphabets, numbers or symbols.
+* The `NAME` should only contain the relevant alphabets, numbers or symbols (excluding slashes).
 
 Examples:
 * `listprop` followed by `findprop F` finds and returns the properties with names that begin with "F" in the property list, such as `Fernvale Square` or `Dairy Farm`.
 * `listprop` followed by `findprop F J` finds and returns the properties with names that begin with "F" or "J" in the property list, such as `Fernvale Square`, `Dairy Farm`, `J'den` or `Changi Jail`.
 
-Successfully finding the property you want would produce a similar result as [finding a customer](#finding-a-customer--findcust)!
+Successfully finding the property you want would produce a similar result as [finding a customer](#finding-a-customer-findcust)!
 
 
 ### Filter Commands
@@ -608,7 +609,7 @@ Examples:
 * `filterprop pr/250000 c/white c/big` lists all the properties priced lower than or equals to 2500000 with white and big as 2 of its characteristics.
 * `filterprop c/white` lists all properties with white as one of its characteristic
 
-Successfully filtering your properties would produce a similar result as [filtering your customers](#filter-customers--filtercust)!
+Successfully filtering your properties would produce a similar result as [filtering your customers](#filter-customers-filtercust)!
 
 ### Match Commands
 [Back to Table of Contents](#table-of-contents)
@@ -673,7 +674,7 @@ Examples:
 * `matchprop 1`
 * `matchprop 10`
 
-Matching your properties successfully will output a similar message as [matching your customers](#matching-properties-to-a-customer--matchcust).
+Matching your properties successfully will output a similar message as [matching your customers](#matching-properties-to-a-customer-matchcust).
 
 ### General Features
 
@@ -741,7 +742,7 @@ PropertyMatch's data is saved as 2 separate JSON files `[JAR file location]/data
 **A**: Refer to the [features](#features) section of our guide for command information and syntax. Make sure that you have supplied all necessary inputs for the command and specified the flags in a correct manner.
 
 **Q**: Why is PropertyMatch not displaying all customers/properties in the [database](#glossary)?<br>
-**A**:  It's possible that the application may not show all customers/properties all the time due to specific commands like [filtering](#filter-commands), [finding](#finding-commands), or [matching](#match-commands) that have been executed. If you're encountering this issue, consider using the [list commands](#list-commands) to ensure you're viewing the complete list.
+**A**:  It's possible that the application may not show all customers/properties all the time due to specific commands like [filtering](#filter-commands), [finding](#find-commands), or [matching](#match-commands) that have been executed. If you're encountering this issue, consider using the [list commands](#list-commands) to ensure you're viewing the complete list.
 
 **Q**: I don’t understand some terms used in the guide…<br>
 **A**: Please check out the [glossary](#glossary) and see if the term that you are confused about is documented there!
