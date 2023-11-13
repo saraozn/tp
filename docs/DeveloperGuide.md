@@ -525,7 +525,7 @@ System: PropertyMatch address book
 Actor: Property Agent
 
 1. Property agent fills in name, phone number, email, budget and desired characteristic (tags).
-2. Property agent adds customer to address book.
+2. Property agent adds customer to address book.<br>
 Use case ends.
 
 Extension:<br>
@@ -539,8 +539,8 @@ System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent fills in name, address, characteristics (tags), phone number, budget of property
-2. Property agent adds property to address book
+1. Property agent fills in name, address, characteristics (tags), phone number, budget of property.
+2. Property agent adds property to address book.<br>
 Use case ends.
 
 Extension:<br>
@@ -556,7 +556,7 @@ Actor: Property Agent
 
 1. Property agent identifies the customer to be deleted and retrieves its index.
 2. Property agent inserts the index into the CLI.
-3. Property agent deletes the customer details from the address book.
+3. Property agent deletes the customer details from the address book.<br>
 Use case ends.
 
 Extension:<br>
@@ -572,7 +572,7 @@ Actor: Property Agent
 
 1. Property agent identifies the property to be deleted and retrieves its index.
 2. Property agent inserts the index into the CLI.
-3. Property agent deletes the property details from the address book.
+3. Property agent deletes the property details from the address book.<br>
 Use case ends.
 
 Extension:<br>
@@ -588,7 +588,7 @@ Actor: Property Agent
 
 1. Property agent decides to list either properties or customers.
 2. Property agent inputs the command.
-3. Property agent is able to view all entities.
+3. Property agent is able to view all entities.<br>
 Use case ends.
 
 Extension:<br>
@@ -605,7 +605,7 @@ Actor: Property Agent
 1. Property agent decides to edit either properties or customers.
 2. Property agent identifies the property or customer to be deleted and retrieves its index.
 3. Property agent edits entity’s respective fields.
-4. Property agent is able to edit the entities details in the address book.
+4. Property agent is able to edit the entities details in the address book.<br>
 Use case ends.
 
 Extension:<br>
@@ -621,7 +621,7 @@ Actor: Property Agent
 
 1. Property agent identifies the specific entity he wants.
 2. Property agent enters the entity name he wants.
-3. Property agent views the entity.
+3. Property agent views the entity.<br>
 Use case ends.
 
 Extension:<br>
@@ -637,7 +637,7 @@ Actor: Property Agent
 
 1. Property agent identifies the specific criteria of properties or customer he wants.
 2. Property agent enters the criteria he wants.
-3. Property agent views the entity with that fulfills his criteria.
+3. Property agent views the entity with that fulfills his criteria.<br>
 Use case ends.
 
 Extension:<br>
@@ -653,7 +653,7 @@ Actor: Property Agent
 
 1. Property agent identifies the customer to be matched to its corresponding properties.
 2. Property agent inserts the index into the CLI.
-3. Property agent gets a list of properties that matches the criteria of the customer.
+3. Property agent gets a list of properties that matches the criteria of the customer.<br>
 Use case ends.
 
 Extension:<br>
@@ -669,7 +669,7 @@ Actor: Property Agent
 
 1. Property agent identifies the property to be matched to its corresponding customer.
 2. Property agent inserts the index into the CLI.
-3. Property agent gets a list of customers with criteria is fulfilled by the property.
+3. Property agent gets a list of customers with criteria is fulfilled by the property.<br>
 Use case ends.
 
 Extension:<br>
@@ -684,7 +684,7 @@ System: PropertyMatch address book
 Actor: Property Agent
 
 1. Property agent can import data from another application to the existing application.
-2. Property agent can export data from the application and save the data.
+2. Property agent can export data from the application and save the data.<br>
 Use case ends.
 
 ### A.4 Non-Functional Requirements
