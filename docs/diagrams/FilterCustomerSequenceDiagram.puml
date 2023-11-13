@@ -5,8 +5,6 @@ box Logic LOGIC_COLOR_T1
 participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":FilterCustomerCommandParser" as FilterCustomerCommandParser LOGIC_COLOR
-participant ":Budget" as Budget LOGIC_COLOR
-participant ":Tag" as Tag LOGIC_COLOR
 participant "descriptor:FilterCustomerDescriptor" as FilterCustomerDescriptor LOGIC_COLOR
 participant ":BudgetAndTagsInRangePredicate" as BudgetAndTagsInRangePredicate LOGIC_COLOR
 participant "command:FilterCustomerCommand" as FilterCustomerCommand LOGIC_COLOR
@@ -40,23 +38,9 @@ activate FilterCustomerDescriptor
 FilterCustomerDescriptor --> FilterCustomerCommandParser: descriptor
 deactivate FilterCustomerDescriptor
 
-create Budget
-FilterCustomerCommandParser -> Budget: new Budget(100000)
-activate Budget
-
-Budget --> FilterCustomerCommandParser: budget
-deactivate Budget
-
 FilterCustomerCommandParser -> FilterCustomerDescriptor: setBudget(budget)
 activate FilterCustomerDescriptor
 deactivate FilterCustomerDescriptor
-
-create Tag
-FilterCustomerCommandParser -> Tag: new Tag("pink")
-activate Tag
-
-Tag --> FilterCustomerCommandParser: tag
-deactivate Tag
 
 FilterCustomerCommandParser -> FilterCustomerDescriptor: setTags(tags)
 activate FilterCustomerDescriptor
