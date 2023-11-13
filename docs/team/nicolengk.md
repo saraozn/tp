@@ -5,7 +5,7 @@ title: Nicole Ng's Project Portfolio Page
 
 ### Project: PropertyMatch
 
-PropertyMatch is a desktop tool is for property agents who want to organise their client profiles with their corresponding properties. Property agents can boost their efficiency by seamlessly matching their clients with their desired properties.
+PropertyMatch is a desktop tool for property agents who want to organise their client profiles with their corresponding properties. Property agents can boost their efficiency by seamlessly matching their clients with their desired properties.
 
 Given below are my contributions to the project.
 
