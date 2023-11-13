@@ -204,6 +204,7 @@ If you just want a quick summary of all the feature PropertyMatch has, do take a
   * `NAME` is a parameter which can be used as `add n/John Doe`.<br>
   This command adds John Doe as a customer to the app.
 
+
 * Items in square brackets are optional.<br>
   e.g `n/NAME [c/CHARACTERISTIC]` can be used as `n/Tim Cook c/smart`(with `CHARACTERISTIC`) or as `n/John Doe` (without `CHARACTERISTIC`).
 
@@ -412,7 +413,7 @@ The result will be similar to [deleting customers](#deleting-a-customer-delcust)
 
 **:exclamation: Caution:**<br>
 
-* Remember to use the `listcust` or `listprop` command before using any commands that require a `INDEX` parameter! If not, the `INDEX` will be with respect to whatever is on the screen at the time of command input. 
+* Remember to use the `listcust` or `listprop` command before using any commands that require a `INDEX`! If not, the `INDEX` will be with respect to whatever is on the screen at the time of command input. 
 * This applies to [Edit Commands](#edit-commands) and [Match Commands](#match-commands) as well.
 
 </div>
