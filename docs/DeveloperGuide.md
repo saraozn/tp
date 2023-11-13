@@ -67,14 +67,14 @@ The bulk of the app's work is done by the following four components:
 
 **How the architecture components interact with each other**
 
-The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delete 1`.
+The *Sequence Diagram* below shows how the components interact with each other for the scenario where the user issues the command `delcust 1`.
 
 <img src="images/ArchitectureSequenceDiagram.png" width="574" />
 
 Each of the four main components (also shown in the diagram above),
 
 * defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point).
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
@@ -369,7 +369,7 @@ When the filter command is inputted, the `FilterCustomerCommandParser` and `Filt
 When these created command objects are executed by the `LogicManager`, the `FilterCustomerCommand#execute(Model model)` or `FilterCustomerCommand#execute(Model model)` methods are called. These methods will update the filtered customer or property list in the `model` which will eventually update the customers shown in the UI, and return a `CommandResult` object.
 
 During this execution process, a new `BudgetAndTagsInRangePredicate` or `PriceAndTagsInRangePredicate` object which is used as a predicate to check whether a customer's budget is bigger and all the characteristics are desired by the customer or whether a property's price is lower and the property has all the characteristics, respectively.
-All customers or properties will be tested using this `BudgetAndTagsInRangePredicate` or `PriceAndTagsInRangePredicate`. Customers or proeprties which satisfy this condition will be included into the `FilteredCustomerList` or `FilteredPropertyList` in the model.
+All customers or properties will be tested using this `BudgetAndTagsInRangePredicate` or `PriceAndTagsInRangePredicate`. Customers or properties which satisfy this condition will be included into the `FilteredCustomerList` or `FilteredPropertyList` in the model.
 
 The following sequence diagram shows how the `FilterCustomerCommand` is executed.
 ![FilterCustomerSequenceDiagram](images/FilterCustomerSequenceDiagram.png)
@@ -389,7 +389,7 @@ The following sequence diagram shows how the `FilterCustomerCommand` is executed
         * Unnecessary complexity is introduced into the system.
 
 **Aspect: How the filtered customers or properties should interact with the model:**
-* We also decided for the filter commands to put the filtered customers or filtered properties in a different list (`FilteredCustomerList` and `FilteredPropertyList`), instead of removing the 'unused' customers and propertiesfrom the model.
+* We also decided for the filter commands to put the filtered customers or filtered properties in a different list (`FilteredCustomerList` and `FilteredPropertyList`), instead of removing the 'unused' customers and properties from the model.
 
 ### 4.7 Matching for Customers and Properties
 [Back to top](#table-of-contents)
@@ -528,9 +528,9 @@ Actor: Property Agent
 2. Property agent adds customer to address book.
 Use case ends.
 
-Extension:
-1a. PropertyMatch detects an error in the entered command.
-    1a1. User edits the command.
+Extension:<br>
+1a. PropertyMatch detects an error in the entered command.<br>
+    1a1. User edits the command.<br>
     Step 1a1 is repeated until the command entered is correct.
 
 **Use Case: UC02 - Add property**
@@ -543,9 +543,9 @@ Actor: Property Agent
 2. Property agent adds property to address book
 Use case ends.
 
-Extension:
-1a. PropertyMatch detects an error in the entered command.
-    1a1. User edits the command.
+Extension:<br>
+1a. PropertyMatch detects an error in the entered command.<br>
+    1a1. User edits the command.<br>
     Step 1a1 is repeated until the command entered is correct.
 
 **Use Case: UC03 - Delete customer**
@@ -559,9 +559,9 @@ Actor: Property Agent
 3. Property agent deletes the customer details from the address book.
 Use case ends.
 
-Extension:
-2a. PropertyMatch detects an invalid index.
-    2a1. User edits the index.
+Extension:<br>
+2a. PropertyMatch detects an invalid index.<br>
+    2a1. User edits the index.<br>
     Step 2a1 is repeated until the index entered is correct.
 
 **Use Case: UC04 - Delete property**
@@ -575,9 +575,9 @@ Actor: Property Agent
 3. Property agent deletes the property details from the address book.
 Use case ends.
 
-Extension:
-2a. PropertyMatch detects an invalid index.
-    2a1. User edits the index.
+Extension:<br>
+2a. PropertyMatch detects an invalid index.<br>
+    2a1. User edits the index.<br>
     Step 2a1 is repeated until the index entered is correct.
 
 **Use Case: UC05 - List all entities**
@@ -591,9 +591,9 @@ Actor: Property Agent
 3. Property agent is able to view all entities.
 Use case ends.
 
-Extension:
-2a. PropertyMatch detects an error in the entered command.
-    2a1. User edits the command.
+Extension:<br>
+2a. PropertyMatch detects an error in the entered command.<br>
+    2a1. User edits the command.<br>
     Step 2a1 is repeated until the command entered is correct.
 
 **Use Case: UC06 - Edit entities**
@@ -608,9 +608,9 @@ Actor: Property Agent
 4. Property agent is able to edit the entities details in the address book.
 Use case ends.
 
-Extension:
-3a. PropertyMatch detects an error in the entered command.
-    3a1. User edits the command.
+Extension:<br>
+3a. PropertyMatch detects an error in the entered command.<br>
+    3a1. User edits the command.<br>
     Step 3a1 is repeated until the command entered is correct.
 
 **Use Case: UC07 - Find specific entity**
@@ -624,9 +624,9 @@ Actor: Property Agent
 3. Property agent views the entity.
 Use case ends.
 
-Extension:
-2a. PropertyMatch detects an invalid name entered.
-    2a1. User edits the inputted name.
+Extension:<br>
+2a. PropertyMatch detects an invalid name entered.<br>
+    2a1. User edits the inputted name.<br>
     Step 2a1 is repeated until a valid name is entered.
 
 **Use Case: UC08 - Filter properties or customer**
@@ -635,14 +635,14 @@ System: PropertyMatch address book
 
 Actor: Property Agent
 
-1. Property agent identifies the specific criteria of properties or customerhe wants.
+1. Property agent identifies the specific criteria of properties or customer he wants.
 2. Property agent enters the criteria he wants.
 3. Property agent views the entity with that fulfills his criteria.
 Use case ends.
 
-Extension:
-2a. PropertyMatch detects an error with the criteria entered.
-    2a1. User edits the inputted criteria.
+Extension:<br>
+2a. PropertyMatch detects an error with the criteria entered.<br>
+    2a1. User edits the inputted criteria.<br>
     Step 2a1 is repeated until a valid criteria is entered.
 
 **Use Case: UC09 - Match properties to customers**
@@ -656,9 +656,9 @@ Actor: Property Agent
 3. Property agent gets a list of properties that matches the criteria of the customer.
 Use case ends.
 
-Extension:
-2a. PropertyMatch detects an invalid index.
-    2a1. User edits the index.
+Extension:<br>
+2a. PropertyMatch detects an invalid index.<br>
+    2a1. User edits the index.<br>
     Step 2a1 is repeated until the index entered is correct.
 
 **Use Case: UC10 - Match customers to properties**
@@ -672,9 +672,9 @@ Actor: Property Agent
 3. Property agent gets a list of customers with criteria is fulfilled by the property.
 Use case ends.
 
-Extension:
-2a. PropertyMatch detects an invalid index.
-    2a1. User edits the index.
+Extension:<br>
+2a. PropertyMatch detects an invalid index.<br>
+    2a1. User edits the index.<br>
     Step 2a1 is repeated until the index entered is correct.
 
 **Use Case: UC11 - Import and export data**
@@ -689,19 +689,15 @@ Use case ends.
 
 ### A.4 Non-Functional Requirements
 
-1.  Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
-2.  Should be able to hold up to 1000 properties and clients without a noticeable sluggishness in performance for typical usage.
-3.  A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
-4.  The system should respond within two seconds.
-5.  The product is offered as a free application.
-6.  The user interface should be intuitive enough for property agents who are not IT-savvy.
-7.  Should work on any computer fewer than five years old.
-8.  Should work without requiring an installer.
-9.  Should not require access to an internet connection.
-10. Should save data locally in a human editable file.
-11. Should have a graphical user interface with readable font of at least size 11.
-12. Should have a graphical user interface which is intuitive and user-friendly.
-13. Should not require user to have any prior technical knowledge or expertise.
+1. Should work on any _mainstream OS_ as long as it has Java `11` or above installed.
+2. Should be able to hold up to 1000 properties and clients without a noticeable sluggishness in performance for typical usage.
+3. A user with above average typing speed for regular English text (i.e. not code, not system admin commands) should be able to accomplish most of the tasks faster using commands than using the mouse.
+4. The system should respond to user inputs within 5 seconds.
+5. The user interface should be intuitive enough for property agents who are not IT-savvy.
+6. App functionality should not require access to an internet connection.
+7. Should save data locally in a human editable file.
+8. Should have a graphical user interface with readable font of at least size 11.
+9. Should have a graphical user interface which is intuitive and user-friendly.
 
 ### A.5 Glossary
 
